@@ -11,9 +11,6 @@ Modern and professional homepage for F5 Networking, a technology company special
 - React
 - Framer Motion
 - Lucide React
-- CSS Modules / Vanilla CSS
 
-## Features
-- Interactive digital particle background.
-- "System Sync" explosion timer (20s).
-- Professional dark aesthetic with glassmorphism.
+## Deployment
+Automatic deployment via GitHub Actions is configured. Push to `main` branch to trigger a build and deploy.

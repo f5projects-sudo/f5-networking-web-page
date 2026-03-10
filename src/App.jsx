@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Headset, 
-  Bot, 
-  MessageSquare, 
-  Phone, 
-  ChevronRight, 
-  CheckCircle2, 
-  Globe, 
-  Cpu, 
-  Activity 
+import {
+  Headset,
+  Bot,
+  MessageSquare,
+  Phone,
+  ChevronRight,
+  CheckCircle2,
+  Globe,
+  Cpu,
+  Activity
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
 
@@ -20,6 +20,20 @@ const App = () => {
     viewport: { once: true },
     transition: { duration: 0.6, ease: "easeOut" }
   };
+
+  useEffect(() => {
+    // Load ElevenLabs Widget Script
+    const script = document.createElement('script');
+    script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
+    script.async = true;
+    script.type = "text/javascript";
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const services = [
     {
@@ -156,11 +170,11 @@ const App = () => {
               </div>
             </div>
           </motion.div>
-          <motion.div 
+          <motion.div
             {...fadeInUp}
-            style={{ 
-              position: 'relative', 
-              aspectRatio: '16/10', 
+            style={{
+              position: 'relative',
+              aspectRatio: '16/10',
               background: 'linear-gradient(135deg, #1a1a1a, #0a0a0a)',
               borderRadius: '20px',
               border: '1px solid rgba(255,255,255,0.1)',
@@ -170,26 +184,26 @@ const App = () => {
           >
             {/* Mockup UI Inner */}
             <div style={{ padding: '20px', height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
+              <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
+                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
+                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
+              </div>
+              <div style={{ flex: 1, display: 'flex', gap: '15px' }}>
+                <div style={{ width: '60px', height: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '10px' }}></div>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  <div style={{ height: '30px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', width: '40%' }}></div>
+                  <div style={{ flex: 1, background: 'rgba(255,255,255,0.02)', borderRadius: '10px' }}></div>
                 </div>
-                <div style={{ flex: 1, display: 'flex', gap: '15px' }}>
-                    <div style={{ width: '60px', height: '100%', background: 'rgba(255,255,255,0.05)', borderRadius: '10px' }}></div>
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <div style={{ height: '30px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', width: '40%' }}></div>
-                        <div style={{ flex: 1, background: 'rgba(255,255,255,0.02)', borderRadius: '10px' }}></div>
-                    </div>
-                </div>
+              </div>
             </div>
             {/* Orbital Animation Overlay */}
-            <motion.div 
-                style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            <motion.div
+              style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
-                <div style={{ width: '400px', height: '400px', border: '1px dashed rgba(255,140,0,0.2)', borderRadius: '50%' }}></div>
+              <div style={{ width: '400px', height: '400px', border: '1px dashed rgba(255,140,0,0.2)', borderRadius: '50%' }}></div>
             </motion.div>
           </motion.div>
         </div>
@@ -198,41 +212,41 @@ const App = () => {
       {/* CTA / Footer */}
       <section className="section-container" style={{ textAlign: 'center' }}>
         <motion.div {...fadeInUp}>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>¿Listo para llevar tu empresa al <span className="gradient-text">siguiente nivel</span>?</h2>
-            <p style={{ color: 'var(--color-text-muted)', marginBottom: '40px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
-            <button style={{ backgroundColor: 'var(--color-primary)', padding: '15px 40px', borderRadius: '30px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,86,179,0.3)' }}>
-                Empieza Ahora
-            </button>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>¿Listo para llevar tu empresa al <span className="gradient-text">siguiente nivel</span>?</h2>
+          <p style={{ color: 'var(--color-text-muted)', marginBottom: '40px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
+          <button style={{ backgroundColor: 'var(--color-primary)', padding: '15px 40px', borderRadius: '30px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,86,179,0.3)' }}>
+            Empieza Ahora
+          </button>
         </motion.div>
       </section>
 
       <footer style={{ padding: '60px 5% 20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
+          <div>
+            <h3>F5 Networking</h3>
+            <p style={{ color: 'var(--color-text-muted)', maxWidth: '250px', marginTop: '10px' }}>Facilitando Crecimiento a través de tecnología disruptiva.</p>
+          </div>
+          <div style={{ display: 'flex', gap: '60px' }}>
             <div>
-                <h3>F5 Networking</h3>
-                <p style={{ color: 'var(--color-text-muted)', maxWidth: '250px', marginTop: '10px' }}>Facilitando Crecimiento a través de tecnología disruptiva.</p>
+              <h4 style={{ marginBottom: '15px' }}>Empresa</h4>
+              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <li>Sobre Nosotros</li>
+                <li>Servicios</li>
+                <li>Proyectos</li>
+              </ul>
             </div>
-            <div style={{ display: 'flex', gap: '60px' }}>
-                <div>
-                    <h4 style={{ marginBottom: '15px' }}>Empresa</h4>
-                    <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <li>Sobre Nosotros</li>
-                        <li>Servicios</li>
-                        <li>Proyectos</li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 style={{ marginBottom: '15px' }}>Tecnología</h4>
-                    <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                        <li>ECHO CRM</li>
-                        <li>IA Bots</li>
-                        <li>SIP PBX</li>
-                    </ul>
-                </div>
+            <div>
+              <h4 style={{ marginBottom: '15px' }}>Tecnología</h4>
+              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <li>ECHO CRM</li>
+                <li>IA Bots</li>
+                <li>SIP PBX</li>
+              </ul>
             </div>
+          </div>
         </div>
         <div style={{ textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '0.8rem', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
-            © {new Date().getFullYear()} F5 Networking. Todos los derechos reservados.
+          © {new Date().getFullYear()} F5 Networking. Todos los derechos reservados.
         </div>
       </footer>
 
@@ -242,6 +256,9 @@ const App = () => {
         .text-secondary { color: var(--color-secondary); }
         .text-accent { color: var(--color-accent); }
       `}</style>
+
+      {/* ElevenLabs Conversational AI Widget */}
+      <elevenlabs-convai agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
     </div>
   );
 };

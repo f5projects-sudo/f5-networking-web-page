@@ -144,6 +144,77 @@ const App = () => {
         </div>
       </section>
 
+      {/* Mission, Vision & Values Section */}
+      <section className="section-container">
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Quiénes Somos</h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
+        </motion.div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '50px' }}>
+          {/* Mission */}
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-primary)' }}
+            {...fadeInUp}
+            transition={{ delay: 0 }}
+            whileHover={{ y: -8 }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 86, 179, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '1.5rem' }}>🎯</span>
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'var(--color-primary)' }}>Nuestra Misión</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '0.95rem' }}>
+              Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada.
+            </p>
+          </motion.div>
+
+          {/* Vision */}
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-secondary)' }}
+            {...fadeInUp}
+            transition={{ delay: 0.1 }}
+            whileHover={{ y: -8 }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(255, 140, 0, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '1.5rem' }}>🚀</span>
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'var(--color-secondary)' }}>Nuestra Visión</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '0.95rem' }}>
+              Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes.
+            </p>
+          </motion.div>
+
+          {/* Values */}
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-accent)' }}
+            {...fadeInUp}
+            transition={{ delay: 0.2 }}
+            whileHover={{ y: -8 }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 180, 255, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '1.5rem' }}>💎</span>
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '20px', color: 'var(--color-accent)' }}>Nuestros Valores</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              {['Innovación', 'Compromiso', 'Calidad', 'Eficiencia', 'Confianza'].map((valor) => (
+                <span key={valor} style={{
+                  padding: '6px 14px',
+                  background: 'rgba(0,180,255,0.1)',
+                  border: '1px solid rgba(0,180,255,0.3)',
+                  borderRadius: '30px',
+                  fontSize: '0.85rem',
+                  color: 'var(--color-accent)',
+                  fontWeight: '500'
+                }}>{valor}</span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ECHO CRM Dedicated Section */}
       <section id="echo" className="glass" style={{ margin: '80px 5%', padding: '80px 5%', borderRadius: '30px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'center', gap: '50px' }}>

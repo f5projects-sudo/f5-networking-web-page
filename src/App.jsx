@@ -71,18 +71,19 @@ const App = () => {
       <BubbleBackground />
 
       {/* Header */}
-      <nav className="glass" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, padding: '15px 5%' }}>
+      <nav className="glass" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, padding: '5px 5%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
-            <div style={{ width: '40px', height: '40px', background: 'linear-gradient(45deg, var(--color-primary), var(--color-secondary))', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>F5</span>
-            </div>
-            <h2 style={{ fontSize: '1.5rem', margin: 0 }}>Networking</h2>
+          <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
+            <img 
+              src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
+              alt="F5 Networking" 
+              style={{ height: '110px', width: 'auto', display: 'block' }} 
+            />
           </div>
           <div style={{ display: 'flex', gap: '30px' }}>
-            <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ cursor: 'pointer' }}>Servicios</a>
-            <a href="#echo" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }} style={{ cursor: 'pointer' }}>ECHO CRM</a>
-            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} style={{ cursor: 'pointer' }}>Contacto</a>
+            <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} className="nav-link">Servicios</a>
+            <a href="#echo" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }} className="nav-link">ECHO CRM</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} className="nav-link">Contacto</a>
           </div>
         </div>
       </nav>
@@ -533,9 +534,12 @@ const App = () => {
 
       <footer style={{ padding: '60px 5% 20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
-          <div>
-            <h3 style={{ cursor: 'pointer' }} onClick={() => scrollTo('hero')}>F5 Networking</h3>
-            <p style={{ color: 'var(--color-text-muted)', maxWidth: '250px', marginTop: '10px' }}>Facilitando Crecimiento a través de tecnología disruptiva.</p>
+          <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
+            <img 
+              src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
+              alt="F5 Networking" 
+              style={{ height: '35px', width: 'auto', display: 'block' }} 
+            />
           </div>
           <div style={{ display: 'flex', gap: '60px' }}>
             <div>

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Nosotros from './pages/Nosotros';
 import { motion } from 'framer-motion';
 import {
   Headset,
@@ -17,6 +18,8 @@ import {
 import BubbleBackground from './components/BubbleBackground';
 
 const App = () => {
+  const [currentPage, setCurrentPage] = useState('home');
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
@@ -41,6 +44,13 @@ const App = () => {
       document.body.removeChild(script);
     };
   }, []);
+
+  // ── Page routing ───────────────────────────────
+  if (currentPage === 'nosotros') {
+    return <Nosotros onNavigate={setCurrentPage} />;
+  }
+  // ─────────────────────────────────────────────
+
 
   const services = [
     {
@@ -97,7 +107,7 @@ const App = () => {
           </div>
           <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
             <a href="#hero" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }} className="nav-link">Inicio</a>
-            <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }} className="nav-link">Nosotros</a>
+            <span className="nav-link" style={{ cursor: 'pointer' }} onClick={() => setCurrentPage('nosotros')}>Nosotros</span>
             <div className="nav-dropdown">
               <span className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 Soluciones <ChevronDown size={16} />
@@ -543,21 +553,23 @@ const App = () => {
       <section id="contact" className="section-container" style={{ textAlign: 'center' }}>
         <motion.div {...fadeInUp}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>¿Listo para llevar tu empresa al <span className="gradient-text">siguiente nivel</span>?</h2>
-          <p style={{ color: 'var(--color-text-muted)', marginBottom: '40px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
-          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <p style={{ color: 'var(--color-text-muted)', marginBottom: '50px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
+          <div style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
             <a
               href="https://wa.me/"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ backgroundColor: '#25D366', padding: '15px 40px', borderRadius: '30px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(37,211,102,0.3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+              className="btn-neon btn-neon-whatsapp"
             >
-              💬 WhatsApp
+              <span className="btn-neon-icon">💬</span>
+              WhatsApp
             </a>
             <a
               href="mailto:contacto@f5networking.com"
-              style={{ backgroundColor: 'var(--color-primary)', padding: '15px 40px', borderRadius: '30px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,86,179,0.3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+              className="btn-neon btn-neon-email"
             >
-              ✉️ Enviar Email
+              <span className="btn-neon-icon">✉️</span>
+              Enviar Email
             </a>
           </div>
         </motion.div>

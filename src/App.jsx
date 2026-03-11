@@ -143,12 +143,47 @@ const App = () => {
             Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
-            <button className="glass" onClick={() => scrollTo('services')} style={{ padding: '12px 30px', color: 'white', fontWeight: 'bold', border: '1px solid var(--color-primary)', cursor: 'pointer' }}>
+            <motion.button 
+              className="glass" 
+              onClick={() => scrollTo('services')} 
+              style={{ 
+                padding: '12px 30px', 
+                color: 'white', 
+                fontWeight: 'bold', 
+                border: '1px solid var(--color-primary)', 
+                cursor: 'pointer' 
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: '0 0 20px rgba(0, 86, 179, 0.6)', 
+                backgroundColor: 'rgba(0, 86, 179, 0.15)' 
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
               Ver Soluciones
-            </button>
-            <button onClick={() => scrollTo('contact')} style={{ backgroundColor: 'var(--color-secondary)', padding: '12px 30px', borderRadius: '8px', color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>
+            </motion.button>
+            <motion.button 
+              onClick={() => scrollTo('contact')} 
+              style={{ 
+                backgroundColor: 'var(--color-secondary)', 
+                border: 'none',
+                padding: '12px 30px', 
+                borderRadius: '8px', 
+                color: 'white', 
+                fontWeight: 'bold', 
+                cursor: 'pointer' 
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: '0 0 25px rgba(255, 140, 0, 0.8)',
+                filter: 'brightness(1.1)'
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
               Contactar Experto
-            </button>
+            </motion.button>
           </div>
         </motion.div>
       </section>
@@ -575,36 +610,56 @@ const App = () => {
         </motion.div>
       </section>
 
-      <footer style={{ padding: '60px 5% 20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
+      <footer style={{ padding: '60px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px', marginBottom: '60px', color: 'var(--color-text-muted)' }}>
+          {/* Column 1: Contáctanos */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Contáctanos</h4>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <span style={{ fontSize: '1.2rem' }}>🇲🇽</span>
+              <a href="tel:+523321012959" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-primary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+52 (33) 2101 2959</a>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <span style={{ fontSize: '1.2rem' }}>🇺🇸</span>
+              <a href="tel:+12147304939" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-secondary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+1 214 730 4939</a>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <span style={{ fontSize: '1.2rem' }}>✉</span>
+              <a href="mailto:sales@f5networking.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-accent)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>sales@f5networking.com</a>
+            </div>
+          </div>
+
+          {/* Column 2: Información Legal */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Información legal</h4>
+            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Términos y condiciones</a>
+            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Aviso de privacidad</a>
+            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>PUA</a>
+          </div>
+
+          {/* Column 3: Dirección */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Dirección</h4>
+            <p style={{ margin: 0, lineHeight: '1.6' }}>
+              Miguel Blanco #1440 int 102<br />
+              Col. Americana, Guadalajara Jalisco<br />
+              C.P. 44170
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Logo & Copyright */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
             <img 
               src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
               alt="F5 Networking" 
-              style={{ height: '35px', width: 'auto', display: 'block' }} 
+              style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
             />
           </div>
-          <div style={{ display: 'flex', gap: '60px' }}>
-            <div>
-              <h4 style={{ marginBottom: '15px' }}>Empresa</h4>
-              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none', padding: 0 }}>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Sobre Nosotros</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Servicios</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Contacto</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 style={{ marginBottom: '15px' }}>Tecnología</h4>
-              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none', padding: 0 }}>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>ECHO CRM</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>IA Bots</a></li>
-                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>SIP PBX</a></li>
-              </ul>
-            </div>
+          <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
+            © {new Date().getFullYear()} F5 Networking. Todos los derechos reservados.
           </div>
-        </div>
-        <div style={{ textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '0.8rem', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px' }}>
-          © {new Date().getFullYear()} F5 Networking. Todos los derechos reservados.
         </div>
       </footer>
 

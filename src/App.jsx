@@ -6,6 +6,7 @@ import {
   MessageSquare,
   Phone,
   ChevronRight,
+  ChevronDown,
   CheckCircle2,
   Globe,
   Cpu,
@@ -80,9 +81,25 @@ const App = () => {
               style={{ height: '110px', width: 'auto', display: 'block' }} 
             />
           </div>
-          <div style={{ display: 'flex', gap: '30px' }}>
-            <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} className="nav-link">Servicios</a>
-            <a href="#echo" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }} className="nav-link">ECHO CRM</a>
+          <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+            <a href="#hero" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }} className="nav-link">Inicio</a>
+            <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }} className="nav-link">Nosotros</a>
+            <div className="nav-dropdown">
+              <span className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                Soluciones <ChevronDown size={16} />
+              </span>
+              <div className="nav-dropdown-content glass">
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>AXIA</a>
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>NOVA CORE</a>
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Desarrollo de Software</a>
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Cableado Estructurado</a>
+                <a href="#echo" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }}>ECHO CRM</a>
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>BPO SERVICES</a>
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>VOXIS</a>
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>PBX DIDS & SMS</a>
+                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>VENTA DE EQUIPOS</a>
+              </div>
+            </div>
             <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} className="nav-link">Contacto</a>
           </div>
         </div>
@@ -150,7 +167,7 @@ const App = () => {
       </section>
 
       {/* Mission, Vision & Values Section */}
-      <section className="section-container">
+      <section id="about" className="section-container">
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Quiénes Somos</h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>

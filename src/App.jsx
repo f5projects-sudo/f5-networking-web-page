@@ -153,13 +153,7 @@ const App = () => {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '50px' }}>
           {/* Mission */}
-          <motion.div
-            className="glass"
-            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-primary)' }}
-            {...fadeInUp}
-            transition={{ delay: 0 }}
-            whileHover={{ y: -8 }}
-          >
+          <motion.div className="glass" style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-primary)' }} {...fadeInUp} transition={{ delay: 0 }} whileHover={{ y: -8 }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 86, 179, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
               <span style={{ fontSize: '1.5rem' }}>🎯</span>
             </div>
@@ -170,13 +164,7 @@ const App = () => {
           </motion.div>
 
           {/* Vision */}
-          <motion.div
-            className="glass"
-            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-secondary)' }}
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            whileHover={{ y: -8 }}
-          >
+          <motion.div className="glass" style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-secondary)' }} {...fadeInUp} transition={{ delay: 0.1 }} whileHover={{ y: -8 }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(255, 140, 0, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
               <span style={{ fontSize: '1.5rem' }}>🚀</span>
             </div>
@@ -187,31 +175,100 @@ const App = () => {
           </motion.div>
 
           {/* Values */}
-          <motion.div
-            className="glass"
-            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-accent)' }}
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            whileHover={{ y: -8 }}
-          >
+          <motion.div className="glass" style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-accent)' }} {...fadeInUp} transition={{ delay: 0.2 }} whileHover={{ y: -8 }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 180, 255, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
               <span style={{ fontSize: '1.5rem' }}>💎</span>
             </div>
             <h3 style={{ fontSize: '1.4rem', marginBottom: '20px', color: 'var(--color-accent)' }}>Nuestros Valores</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['Innovación', 'Compromiso', 'Calidad', 'Eficiencia', 'Confianza'].map((valor) => (
-                <span key={valor} style={{
-                  padding: '6px 14px',
-                  background: 'rgba(0,180,255,0.1)',
-                  border: '1px solid rgba(0,180,255,0.3)',
-                  borderRadius: '30px',
-                  fontSize: '0.85rem',
-                  color: 'var(--color-accent)',
-                  fontWeight: '500'
-                }}>{valor}</span>
+                <span key={valor} style={{ padding: '6px 14px', background: 'rgba(0,180,255,0.1)', border: '1px solid rgba(0,180,255,0.3)', borderRadius: '30px', fontSize: '0.85rem', color: 'var(--color-accent)', fontWeight: '500' }}>{valor}</span>
               ))}
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="section-container">
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>¿Por qué elegirnos?</h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 30px' }}></div>
+        </motion.div>
+
+        <motion.div {...fadeInUp} className="glass" style={{ padding: '50px', borderRadius: '24px', marginBottom: '40px', background: 'linear-gradient(135deg, rgba(0,86,179,0.08), rgba(255,140,0,0.05))', borderLeft: '4px solid var(--color-primary)' }}>
+          <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}><span className="gradient-text">F5 Networking</span></h3>
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.9', fontSize: '1.05rem', marginBottom: '20px' }}>
+            Es una empresa dedicada a crear soluciones de conectividad, automatización e infraestructura digital que impulsan la eficiencia, mejoran la comunicación y aceleran la transformación tecnológica de las organizaciones.
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.05rem', fontStyle: 'italic' }}>
+            Elegir F5 Networking significa trabajar con un socio tecnológico que entiende tus retos y construye soluciones diseñadas para tu realidad.
+          </p>
+        </motion.div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '25px' }}>
+          {[
+            { icon: '🎛️', title: 'Ajuste a la medida', desc: 'Soluciones diseñadas según las necesidades reales de cada empresa.', color: 'var(--color-primary)', bg: 'rgba(0,86,179,0.1)' },
+            { icon: '⚙️', title: 'Automatización', desc: 'Optimización de procesos para mejorar eficiencia y control.', color: 'var(--color-secondary)', bg: 'rgba(255,140,0,0.1)' },
+            { icon: '🛡️', title: 'Confiabilidad y seguridad', desc: 'Infraestructura estable, protegida y preparada para crecer.', color: 'var(--color-accent)', bg: 'rgba(0,180,255,0.1)' },
+          ].map((item, i) => (
+            <motion.div key={i} className="glass" style={{ padding: '35px', borderRadius: '18px', borderBottom: `3px solid ${item.color}` }} {...fadeInUp} transition={{ delay: i * 0.1 }} whileHover={{ y: -6, scale: 1.02 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '55px', height: '55px', background: item.bg, borderRadius: '14px', marginBottom: '20px', fontSize: '1.6rem' }}>{item.icon}</div>
+              <h4 style={{ fontSize: '1.1rem', marginBottom: '12px', color: item.color }}>{item.title}</h4>
+              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.7', fontSize: '0.95rem' }}>{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Nuestra Metodología Section */}
+      <section className="section-container">
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestra Metodología</h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto 25px' }}></div>
+          <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', lineHeight: '1.8', fontSize: '1rem' }}>
+            Trabajamos con un proceso claro, estructurado y colaborativo que nos permite transformar ideas en soluciones funcionales y eficientes. Desde la recopilación de información hasta la implementación final, cada etapa está pensada para entender tus objetivos, validar propuestas y asegurar resultados reales para tu negocio.
+          </p>
+        </motion.div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', marginTop: '70px', position: 'relative' }}>
+          {[
+            { num: '01', title: 'Reunir Información', desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.', img: `${import.meta.env.BASE_URL}step_reunir_info_1773243319702.png`, colors: { border: 'var(--color-primary)', glow: '#0056B3' }, fromLeft: true },
+            { num: '02', title: 'Análisis', desc: 'De diferentes soluciones y presentación de nuestras propuestas.', img: `${import.meta.env.BASE_URL}step_analisis_1773243343222.png`, colors: { border: 'var(--color-secondary)', glow: '#FF8C00' }, fromLeft: false },
+            { num: '03', title: 'Prototipo', desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.', img: `${import.meta.env.BASE_URL}step_prototipo_1773243392190.png`, colors: { border: 'var(--color-accent)', glow: '#00B4FF' }, fromLeft: true },
+            { num: '04', title: 'Feedback', desc: '¡Te escuchamos! Ajustes del prototipo y comentarios.', img: `${import.meta.env.BASE_URL}step_feedback_1773243461422.png`, colors: { border: 'var(--color-primary)', glow: '#9b59b6' }, fromLeft: false },
+            { num: '05', title: 'Pruebas', desc: 'Listo para probar en campo.', img: `${import.meta.env.BASE_URL}step_pruebas_1773243483294.png`, colors: { border: 'var(--color-secondary)', glow: '#27ae60' }, fromLeft: true },
+            { num: '06', title: 'Implementación', desc: 'Tu producto 100% productivo.', img: `${import.meta.env.BASE_URL}step_implementacion_1773243789918.png`, colors: { border: 'var(--color-accent)', glow: '#FF8C00' }, fromLeft: false },
+          ].map((step, i) => (
+            <div key={i} style={{ display: 'flex', flexDirection: step.fromLeft ? 'row' : 'row-reverse', gap: '40px', alignItems: 'center' }}>
+              <motion.div
+                initial={{ opacity: 0, x: step.fromLeft ? -120 : 120 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                style={{ flex: 1, aspectRatio: '16/9', border: `1px solid ${step.colors.border}`, borderRadius: '20px', overflow: 'hidden', position: 'relative', boxShadow: `0 0 50px ${step.colors.glow}33`, minHeight: '220px', background: '#000' }}
+              >
+                <img src={step.img} alt={step.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: 0.92 }} />
+                <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${step.colors.glow}22, transparent 60%)`, pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', top: '16px', left: '16px', background: step.colors.border, color: 'white', fontWeight: 'bold', fontSize: '0.8rem', padding: '4px 10px', borderRadius: '20px', letterSpacing: '1px' }}>PASO {step.num}</div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: step.fromLeft ? 80 : -80 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+                style={{ flex: 1, padding: '10px 20px' }}
+              >
+                <div style={{ display: 'inline-block', fontSize: '3.5rem', fontWeight: '900', lineHeight: 1, background: `linear-gradient(135deg, ${step.colors.glow}, ${step.colors.border})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '12px', opacity: 0.3 }}>{step.num}</div>
+                <h3 style={{ fontSize: '1.7rem', marginBottom: '16px', marginTop: '-10px' }}>{step.title}</h3>
+                <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '20px' }}>{step.desc}</p>
+                <a href="#services" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: step.colors.border, fontWeight: '600', fontSize: '0.9rem', textDecoration: 'none', borderBottom: `1px solid ${step.colors.border}44`, paddingBottom: '3px' }}>
+                  Ver Nuestros Servicios →
+                </a>
+              </motion.div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -241,19 +298,7 @@ const App = () => {
               </div>
             </div>
           </motion.div>
-          <motion.div
-            {...fadeInUp}
-            style={{
-              position: 'relative',
-              aspectRatio: '16/10',
-              background: 'linear-gradient(135deg, #1a1a1a, #0a0a0a)',
-              borderRadius: '20px',
-              border: '1px solid rgba(255,255,255,0.1)',
-              overflow: 'hidden',
-              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
-            }}
-          >
-            {/* Mockup UI Inner */}
+          <motion.div {...fadeInUp} style={{ position: 'relative', aspectRatio: '16/10', background: 'linear-gradient(135deg, #1a1a1a, #0a0a0a)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
             <div style={{ padding: '20px', height: '100%', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
@@ -268,12 +313,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-            {/* Orbital Animation Overlay */}
-            <motion.div
-              style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            >
+            <motion.div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
               <div style={{ width: '400px', height: '400px', border: '1px dashed rgba(255,140,0,0.2)', borderRadius: '50%' }}></div>
             </motion.div>
           </motion.div>

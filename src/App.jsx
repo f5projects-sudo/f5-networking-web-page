@@ -21,6 +21,10 @@ const App = () => {
     transition: { duration: 0.6, ease: "easeOut" }
   };
 
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   useEffect(() => {
     // Load ElevenLabs Widget Script
     const script = document.createElement('script');
@@ -69,22 +73,22 @@ const App = () => {
       {/* Header */}
       <nav className="glass" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 100, padding: '15px 5%' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
             <div style={{ width: '40px', height: '40px', background: 'linear-gradient(45deg, var(--color-primary), var(--color-secondary))', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>F5</span>
             </div>
             <h2 style={{ fontSize: '1.5rem', margin: 0 }}>Networking</h2>
           </div>
           <div style={{ display: 'flex', gap: '30px' }}>
-            <a href="#services">Servicios</a>
-            <a href="#echo">ECHO CRM</a>
-            <a href="#contact">Contacto</a>
+            <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ cursor: 'pointer' }}>Servicios</a>
+            <a href="#echo" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }} style={{ cursor: 'pointer' }}>ECHO CRM</a>
+            <a href="#contact" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} style={{ cursor: 'pointer' }}>Contacto</a>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px' }}>
+      <section id="hero" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px' }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -97,10 +101,10 @@ const App = () => {
             Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
-            <button className="glass" style={{ padding: '12px 30px', color: 'white', fontWeight: 'bold', border: '1px solid var(--color-primary)' }}>
+            <button className="glass" onClick={() => scrollTo('services')} style={{ padding: '12px 30px', color: 'white', fontWeight: 'bold', border: '1px solid var(--color-primary)', cursor: 'pointer' }}>
               Ver Soluciones
             </button>
-            <button style={{ backgroundColor: 'var(--color-secondary)', padding: '12px 30px', borderRadius: '8px', color: 'white', fontWeight: 'bold' }}>
+            <button onClick={() => scrollTo('contact')} style={{ backgroundColor: 'var(--color-secondary)', padding: '12px 30px', borderRadius: '8px', color: 'white', fontWeight: 'bold', cursor: 'pointer' }}>
               Contactar Experto
             </button>
           </div>
@@ -153,7 +157,13 @@ const App = () => {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '50px' }}>
           {/* Mission */}
-          <motion.div className="glass" style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-primary)' }} {...fadeInUp} transition={{ delay: 0 }} whileHover={{ y: -8 }}>
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-primary)' }}
+            {...fadeInUp}
+            transition={{ delay: 0 }}
+            whileHover={{ y: -8 }}
+          >
             <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 86, 179, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
               <span style={{ fontSize: '1.5rem' }}>🎯</span>
             </div>
@@ -164,7 +174,13 @@ const App = () => {
           </motion.div>
 
           {/* Vision */}
-          <motion.div className="glass" style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-secondary)' }} {...fadeInUp} transition={{ delay: 0.1 }} whileHover={{ y: -8 }}>
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-secondary)' }}
+            {...fadeInUp}
+            transition={{ delay: 0.1 }}
+            whileHover={{ y: -8 }}
+          >
             <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(255, 140, 0, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
               <span style={{ fontSize: '1.5rem' }}>🚀</span>
             </div>
@@ -175,14 +191,28 @@ const App = () => {
           </motion.div>
 
           {/* Values */}
-          <motion.div className="glass" style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-accent)' }} {...fadeInUp} transition={{ delay: 0.2 }} whileHover={{ y: -8 }}>
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-accent)' }}
+            {...fadeInUp}
+            transition={{ delay: 0.2 }}
+            whileHover={{ y: -8 }}
+          >
             <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 180, 255, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
               <span style={{ fontSize: '1.5rem' }}>💎</span>
             </div>
             <h3 style={{ fontSize: '1.4rem', marginBottom: '20px', color: 'var(--color-accent)' }}>Nuestros Valores</h3>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
               {['Innovación', 'Compromiso', 'Calidad', 'Eficiencia', 'Confianza'].map((valor) => (
-                <span key={valor} style={{ padding: '6px 14px', background: 'rgba(0,180,255,0.1)', border: '1px solid rgba(0,180,255,0.3)', borderRadius: '30px', fontSize: '0.85rem', color: 'var(--color-accent)', fontWeight: '500' }}>{valor}</span>
+                <span key={valor} style={{
+                  padding: '6px 14px',
+                  background: 'rgba(0,180,255,0.1)',
+                  border: '1px solid rgba(0,180,255,0.3)',
+                  borderRadius: '30px',
+                  fontSize: '0.85rem',
+                  color: 'var(--color-accent)',
+                  fontWeight: '500'
+                }}>{valor}</span>
               ))}
             </div>
           </motion.div>
@@ -196,8 +226,21 @@ const App = () => {
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 30px' }}></div>
         </motion.div>
 
-        <motion.div {...fadeInUp} className="glass" style={{ padding: '50px', borderRadius: '24px', marginBottom: '40px', background: 'linear-gradient(135deg, rgba(0,86,179,0.08), rgba(255,140,0,0.05))', borderLeft: '4px solid var(--color-primary)' }}>
-          <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}><span className="gradient-text">F5 Networking</span></h3>
+        {/* Intro block */}
+        <motion.div
+          {...fadeInUp}
+          className="glass"
+          style={{
+            padding: '50px',
+            borderRadius: '24px',
+            marginBottom: '40px',
+            background: 'linear-gradient(135deg, rgba(0,86,179,0.08), rgba(255,140,0,0.05))',
+            borderLeft: '4px solid var(--color-primary)',
+          }}
+        >
+          <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>
+            <span className="gradient-text">F5 Networking</span>
+          </h3>
           <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.9', fontSize: '1.05rem', marginBottom: '20px' }}>
             Es una empresa dedicada a crear soluciones de conectividad, automatización e infraestructura digital que impulsan la eficiencia, mejoran la comunicación y aceleran la transformación tecnológica de las organizaciones.
           </p>
@@ -206,14 +249,44 @@ const App = () => {
           </p>
         </motion.div>
 
+        {/* Feature cards */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '25px' }}>
           {[
-            { icon: '🎛️', title: 'Ajuste a la medida', desc: 'Soluciones diseñadas según las necesidades reales de cada empresa.', color: 'var(--color-primary)', bg: 'rgba(0,86,179,0.1)' },
-            { icon: '⚙️', title: 'Automatización', desc: 'Optimización de procesos para mejorar eficiencia y control.', color: 'var(--color-secondary)', bg: 'rgba(255,140,0,0.1)' },
-            { icon: '🛡️', title: 'Confiabilidad y seguridad', desc: 'Infraestructura estable, protegida y preparada para crecer.', color: 'var(--color-accent)', bg: 'rgba(0,180,255,0.1)' },
+            {
+              icon: '🎛️',
+              title: 'Ajuste a la medida',
+              desc: 'Soluciones diseñadas según las necesidades reales de cada empresa.',
+              color: 'var(--color-primary)',
+              bg: 'rgba(0,86,179,0.1)',
+            },
+            {
+              icon: '⚙️',
+              title: 'Automatización',
+              desc: 'Optimización de procesos para mejorar eficiencia y control.',
+              color: 'var(--color-secondary)',
+              bg: 'rgba(255,140,0,0.1)',
+            },
+            {
+              icon: '🛡️',
+              title: 'Confiabilidad y seguridad',
+              desc: 'Infraestructura estable, protegida y preparada para crecer.',
+              color: 'var(--color-accent)',
+              bg: 'rgba(0,180,255,0.1)',
+            },
           ].map((item, i) => (
-            <motion.div key={i} className="glass" style={{ padding: '35px', borderRadius: '18px', borderBottom: `3px solid ${item.color}` }} {...fadeInUp} transition={{ delay: i * 0.1 }} whileHover={{ y: -6, scale: 1.02 }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '55px', height: '55px', background: item.bg, borderRadius: '14px', marginBottom: '20px', fontSize: '1.6rem' }}>{item.icon}</div>
+            <motion.div
+              key={i}
+              className="glass"
+              style={{ padding: '35px', borderRadius: '18px', borderBottom: `3px solid ${item.color}` }}
+              {...fadeInUp}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+            >
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                width: '55px', height: '55px', background: item.bg,
+                borderRadius: '14px', marginBottom: '20px', fontSize: '1.6rem'
+              }}>{item.icon}</div>
               <h4 style={{ fontSize: '1.1rem', marginBottom: '12px', color: item.color }}>{item.title}</h4>
               <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.7', fontSize: '0.95rem' }}>{item.desc}</p>
             </motion.div>
@@ -231,28 +304,113 @@ const App = () => {
           </p>
         </motion.div>
 
+        {/* Vertical timeline steps */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', marginTop: '70px', position: 'relative' }}>
+
+          {/* Vertical center line */}
+          <div style={{
+            position: 'absolute', left: '50%', top: 0, bottom: 0,
+            width: '2px', background: 'linear-gradient(to bottom, var(--color-primary), var(--color-secondary), var(--color-accent))',
+            transform: 'translateX(-50%)', opacity: 0.3,
+            display: 'none'
+          }} className="timeline-line"></div>
+
           {[
-            { num: '01', title: 'Reunir Información', desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.', img: `${import.meta.env.BASE_URL}step_reunir_info_1773243319702.png`, colors: { border: 'var(--color-primary)', glow: '#0056B3' }, fromLeft: true },
-            { num: '02', title: 'Análisis', desc: 'De diferentes soluciones y presentación de nuestras propuestas.', img: `${import.meta.env.BASE_URL}step_analisis_1773243343222.png`, colors: { border: 'var(--color-secondary)', glow: '#FF8C00' }, fromLeft: false },
-            { num: '03', title: 'Prototipo', desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.', img: `${import.meta.env.BASE_URL}step_prototipo_1773243392190.png`, colors: { border: 'var(--color-accent)', glow: '#00B4FF' }, fromLeft: true },
-            { num: '04', title: 'Feedback', desc: '¡Te escuchamos! Ajustes del prototipo y comentarios.', img: `${import.meta.env.BASE_URL}step_feedback_1773243461422.png`, colors: { border: 'var(--color-primary)', glow: '#9b59b6' }, fromLeft: false },
-            { num: '05', title: 'Pruebas', desc: 'Listo para probar en campo.', img: `${import.meta.env.BASE_URL}step_pruebas_1773243483294.png`, colors: { border: 'var(--color-secondary)', glow: '#27ae60' }, fromLeft: true },
-            { num: '06', title: 'Implementación', desc: 'Tu producto 100% productivo.', img: `${import.meta.env.BASE_URL}step_implementacion_1773243789918.png`, colors: { border: 'var(--color-accent)', glow: '#FF8C00' }, fromLeft: false },
+            {
+              num: '01', title: 'Reunir Información',
+              desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.',
+              img: `${import.meta.env.BASE_URL}step_reunir_info_1773243319702.png`,
+              colors: { border: 'var(--color-primary)', glow: '#0056B3' },
+              fromLeft: true
+            },
+            {
+              num: '02', title: 'Análisis',
+              desc: 'De diferentes soluciones y presentación de nuestras propuestas.',
+              img: `${import.meta.env.BASE_URL}step_analisis_1773243343222.png`,
+              colors: { border: 'var(--color-secondary)', glow: '#FF8C00' },
+              fromLeft: false
+            },
+            {
+              num: '03', title: 'Prototipo',
+              desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.',
+              img: `${import.meta.env.BASE_URL}step_prototipo_1773243392190.png`,
+              colors: { border: 'var(--color-accent)', glow: '#00B4FF' },
+              fromLeft: true
+            },
+            {
+              num: '04', title: 'Feedback',
+              desc: '¡Te escuchamos! Ajustes del prototipo y comentarios.',
+              img: `${import.meta.env.BASE_URL}step_feedback_1773243461422.png`,
+              colors: { border: 'var(--color-primary)', glow: '#9b59b6' },
+              fromLeft: false
+            },
+            {
+              num: '05', title: 'Pruebas',
+              desc: 'Listo para probar en campo.',
+              img: `${import.meta.env.BASE_URL}step_pruebas_1773243483294.png`,
+              colors: { border: 'var(--color-secondary)', glow: '#27ae60' },
+              fromLeft: true
+            },
+            {
+              num: '06', title: 'Implementación',
+              desc: 'Tu producto 100% productivo.',
+              img: `${import.meta.env.BASE_URL}step_implementacion_1773243789918.png`,
+              colors: { border: 'var(--color-accent)', glow: '#FF8C00' },
+              fromLeft: false
+            },
           ].map((step, i) => (
-            <div key={i} style={{ display: 'flex', flexDirection: step.fromLeft ? 'row' : 'row-reverse', gap: '40px', alignItems: 'center' }}>
+            <div key={i} style={{
+              display: 'flex',
+              flexDirection: step.fromLeft ? 'row' : 'row-reverse',
+              gap: '40px',
+              alignItems: 'center',
+            }}>
+              {/* Visual / Image Panel */}
               <motion.div
                 initial={{ opacity: 0, x: step.fromLeft ? -120 : 120 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
-                style={{ flex: 1, aspectRatio: '16/9', border: `1px solid ${step.colors.border}`, borderRadius: '20px', overflow: 'hidden', position: 'relative', boxShadow: `0 0 50px ${step.colors.glow}33`, minHeight: '220px', background: '#000' }}
+                style={{
+                  flex: 1,
+                  aspectRatio: '16/9',
+                  border: `1px solid ${step.colors.border}`,
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  boxShadow: `0 0 50px ${step.colors.glow}33`,
+                  minHeight: '220px',
+                  background: '#000',
+                }}
               >
-                <img src={step.img} alt={step.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', opacity: 0.92 }} />
-                <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(135deg, ${step.colors.glow}22, transparent 60%)`, pointerEvents: 'none' }} />
-                <div style={{ position: 'absolute', top: '16px', left: '16px', background: step.colors.border, color: 'white', fontWeight: 'bold', fontSize: '0.8rem', padding: '4px 10px', borderRadius: '20px', letterSpacing: '1px' }}>PASO {step.num}</div>
+                {/* Real image */}
+                <img
+                  src={step.img}
+                  alt={step.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    opacity: 0.92,
+                  }}
+                />
+                {/* Subtle overlay gradient */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  background: `linear-gradient(135deg, ${step.colors.glow}22, transparent 60%)`,
+                  pointerEvents: 'none'
+                }} />
+                {/* Step number badge */}
+                <div style={{
+                  position: 'absolute', top: '16px', left: '16px',
+                  background: step.colors.border,
+                  color: 'white', fontWeight: 'bold', fontSize: '0.8rem',
+                  padding: '4px 10px', borderRadius: '20px', letterSpacing: '1px'
+                }}>PASO {step.num}</div>
               </motion.div>
 
+              {/* Text Panel */}
               <motion.div
                 initial={{ opacity: 0, x: step.fromLeft ? 80 : -80 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -260,10 +418,21 @@ const App = () => {
                 transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
                 style={{ flex: 1, padding: '10px 20px' }}
               >
-                <div style={{ display: 'inline-block', fontSize: '3.5rem', fontWeight: '900', lineHeight: 1, background: `linear-gradient(135deg, ${step.colors.glow}, ${step.colors.border})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', marginBottom: '12px', opacity: 0.3 }}>{step.num}</div>
+                <div style={{
+                  display: 'inline-block',
+                  fontSize: '3.5rem', fontWeight: '900', lineHeight: 1,
+                  background: `linear-gradient(135deg, ${step.colors.glow}, ${step.colors.border})`,
+                  WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+                  marginBottom: '12px', opacity: 0.3
+                }}>{step.num}</div>
                 <h3 style={{ fontSize: '1.7rem', marginBottom: '16px', marginTop: '-10px' }}>{step.title}</h3>
                 <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '20px' }}>{step.desc}</p>
-                <a href="#services" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: step.colors.border, fontWeight: '600', fontSize: '0.9rem', textDecoration: 'none', borderBottom: `1px solid ${step.colors.border}44`, paddingBottom: '3px' }}>
+                <a href="#services" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  color: step.colors.border, fontWeight: '600', fontSize: '0.9rem',
+                  textDecoration: 'none', borderBottom: `1px solid ${step.colors.border}44`,
+                  paddingBottom: '3px'
+                }}>
                   Ver Nuestros Servicios →
                 </a>
               </motion.div>
@@ -273,6 +442,7 @@ const App = () => {
       </section>
 
       {/* ECHO CRM Dedicated Section */}
+
       <section id="echo" className="glass" style={{ margin: '80px 5%', padding: '80px 5%', borderRadius: '30px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', alignItems: 'center', gap: '50px' }}>
           <motion.div {...fadeInUp}>
@@ -298,7 +468,19 @@ const App = () => {
               </div>
             </div>
           </motion.div>
-          <motion.div {...fadeInUp} style={{ position: 'relative', aspectRatio: '16/10', background: 'linear-gradient(135deg, #1a1a1a, #0a0a0a)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.1)', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}>
+          <motion.div
+            {...fadeInUp}
+            style={{
+              position: 'relative',
+              aspectRatio: '16/10',
+              background: 'linear-gradient(135deg, #1a1a1a, #0a0a0a)',
+              borderRadius: '20px',
+              border: '1px solid rgba(255,255,255,0.1)',
+              overflow: 'hidden',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+            }}
+          >
+            {/* Mockup UI Inner */}
             <div style={{ padding: '20px', height: '100%', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
@@ -313,45 +495,63 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <motion.div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
+            {/* Orbital Animation Overlay */}
+            <motion.div
+              style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            >
               <div style={{ width: '400px', height: '400px', border: '1px dashed rgba(255,140,0,0.2)', borderRadius: '50%' }}></div>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA / Footer */}
-      <section className="section-container" style={{ textAlign: 'center' }}>
+      {/* CTA / Contact */}
+      <section id="contact" className="section-container" style={{ textAlign: 'center' }}>
         <motion.div {...fadeInUp}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>¿Listo para llevar tu empresa al <span className="gradient-text">siguiente nivel</span>?</h2>
           <p style={{ color: 'var(--color-text-muted)', marginBottom: '40px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
-          <button style={{ backgroundColor: 'var(--color-primary)', padding: '15px 40px', borderRadius: '30px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,86,179,0.3)' }}>
-            Empieza Ahora
-          </button>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a
+              href="https://wa.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ backgroundColor: '#25D366', padding: '15px 40px', borderRadius: '30px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(37,211,102,0.3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+            >
+              💬 WhatsApp
+            </a>
+            <a
+              href="mailto:contacto@f5networking.com"
+              style={{ backgroundColor: 'var(--color-primary)', padding: '15px 40px', borderRadius: '30px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', boxShadow: '0 10px 20px rgba(0,86,179,0.3)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}
+            >
+              ✉️ Enviar Email
+            </a>
+          </div>
         </motion.div>
       </section>
 
       <footer style={{ padding: '60px 5% 20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '40px', marginBottom: '40px' }}>
           <div>
-            <h3>F5 Networking</h3>
+            <h3 style={{ cursor: 'pointer' }} onClick={() => scrollTo('hero')}>F5 Networking</h3>
             <p style={{ color: 'var(--color-text-muted)', maxWidth: '250px', marginTop: '10px' }}>Facilitando Crecimiento a través de tecnología disruptiva.</p>
           </div>
           <div style={{ display: 'flex', gap: '60px' }}>
             <div>
               <h4 style={{ marginBottom: '15px' }}>Empresa</h4>
-              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <li>Sobre Nosotros</li>
-                <li>Servicios</li>
-                <li>Proyectos</li>
+              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none', padding: 0 }}>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('hero'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Sobre Nosotros</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Servicios</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('contact'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Contacto</a></li>
               </ul>
             </div>
             <div>
               <h4 style={{ marginBottom: '15px' }}>Tecnología</h4>
-              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <li>ECHO CRM</li>
-                <li>IA Bots</li>
-                <li>SIP PBX</li>
+              <ul style={{ color: 'var(--color-text-muted)', display: 'flex', flexDirection: 'column', gap: '10px', listStyle: 'none', padding: 0 }}>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>ECHO CRM</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>IA Bots</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); scrollTo('services'); }} style={{ color: 'var(--color-text-muted)', textDecoration: 'none', cursor: 'pointer', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>SIP PBX</a></li>
               </ul>
             </div>
           </div>

@@ -10,7 +10,9 @@ import {
   CheckCircle2,
   Globe,
   Cpu,
-  Activity
+  Activity,
+  Zap,
+  Network
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
 
@@ -64,6 +66,18 @@ const App = () => {
       icon: <Phone size={40} className="text-white" />,
       description: "Infraestructura robusta de voz. Telefonía IP escalable y segura para empresas que no pueden detenerse.",
       features: ["Voz sobre IP", "Troncales SIP", "Escalabilidad Global"]
+    },
+    {
+      title: "NOVA CORE",
+      icon: <Zap size={40} className="text-secondary" />,
+      description: "Es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos, opera 24/7 y transforma cada interacción en resultados medibles.",
+      features: ["Escalabilidad Instantánea", "Atención 24/7", "Eficiencia Máxima"]
+    },
+    {
+      title: "Cableado Estructurado",
+      icon: <Network size={40} className="text-accent" />,
+      description: "Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. Analizamos tu espacio y necesidades para una red que crece contigo hoy y mañana.",
+      features: ["Redes Escalables", "Infraestructura Sólida", "Seguridad de Red"]
     }
   ];
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Nosotros from './pages/Nosotros';
+import Axia from './pages/Axia';
 import { motion } from 'framer-motion';
 import {
   Headset,
@@ -48,6 +49,9 @@ const App = () => {
   // ── Page routing ───────────────────────────────
   if (currentPage === 'nosotros') {
     return <Nosotros onNavigate={setCurrentPage} />;
+  }
+  if (currentPage === 'axia') {
+    return <Axia onNavigate={setCurrentPage} />;
   }
   // ─────────────────────────────────────────────
 
@@ -112,8 +116,8 @@ const App = () => {
               <span className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 Soluciones <ChevronDown size={16} />
               </span>
-              <div className="nav-dropdown-content glass">
-                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>AXIA</a>
+              <div className="nav-dropdown-content glass" style={{ minWidth: '220px', left: '0' }}>
+                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('axia'); }} style={{ color: 'var(--color-accent)' }}>AXIA</a>
                 <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>NOVA CORE</a>
                 <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Desarrollo de Software</a>
                 <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Cableado Estructurado</a>

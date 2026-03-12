@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, Zap, Globe, MessageSquareText, Clock, ChevronDown } from 'lucide-react';
 import BubbleBackground from '../components/BubbleBackground';
+import N8nWorkflow from '../components/N8nWorkflow';
 
 export default function Axia({ onNavigate }) {
   const fadeInUp = {
@@ -150,6 +151,19 @@ export default function Axia({ onNavigate }) {
             <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Reduce la carga de trabajo de tu equipo, automatizando tareas repetitivas y escalando tu soporte al instante.</p>
           </motion.div>
         </motion.div>
+      </section>
+
+      {/* ── Interactive Workflow Section ── */}
+      <section className="section-container" style={{ position: 'relative', zIndex: 10, paddingBottom: '60px' }}>
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>¿Cómo funciona nuestro <span className="gradient-text">Agente IA?</span></h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
+          <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '20px auto 0', lineHeight: '1.6' }}>
+            Observa en tiempo real cómo AXIA procesa la información, toma decisiones inteligentes y ejecuta acciones a través de tus herramientas empresariales favoritas.
+          </p>
+        </motion.div>
+
+        <N8nWorkflow />
       </section>
 
       {/* ── CTA Section ── */}

@@ -193,7 +193,8 @@ button {
   height: 15px;
 }
 
-.nav-dropdown-content a {
+.nav-dropdown-content a,
+.nav-dropdown-content span {
   color: var(--color-text-muted);
   padding: 12px 20px;
   text-decoration: none;
@@ -203,7 +204,8 @@ button {
   transition: var(--transition-smooth);
 }
 
-.nav-dropdown-content a:hover {
+.nav-dropdown-content a:hover,
+.nav-dropdown-content span:hover {
   background-color: rgba(255,255,255,0.05);
   color: var(--color-accent);
   padding-left: 25px;
@@ -237,6 +239,7 @@ button {
   letter-spacing: 0.5px;
   text-decoration: none;
   color: white;
+  /* 2px transparent border = "lane" where the rotating light shows */
   border: 2px solid transparent;
   background-clip: padding-box;
   cursor: pointer;
@@ -245,6 +248,7 @@ button {
   z-index: 0;
 }
 
+/* Rotating light layer — sits just outside button edges (the border region) */
 .btn-neon::before {
   content: '';
   position: absolute;

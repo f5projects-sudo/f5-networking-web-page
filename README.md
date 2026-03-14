@@ -14,3 +14,5 @@ Modern and professional homepage for F5 Networking, a technology company special
 
 ## Deployment
 Automatic deployment via GitHub Actions is configured. Push to `main` branch to trigger a build and deploy.
+
+> Note: Deployment source is set to GitHub Actions.

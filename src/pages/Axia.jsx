@@ -106,7 +106,7 @@ export default function Axia({ onNavigate }) {
       {/* ── Features Section ── */}
       <section id="axia-features" className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>Potencia tu Negocio con <span className="gradient-text">AXIA</span></h2>
+          <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>Potencia tu Negocio con <span className="gradient-text">AXIA</span>, nuestros Asistentes virtuales para tu negocio</h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
         </motion.div>
 

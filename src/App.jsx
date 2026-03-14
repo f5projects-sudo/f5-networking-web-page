@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Nosotros from './pages/Nosotros';
 import Axia from './pages/Axia';
+import NovaCore from './pages/NovaCore';
 import { motion } from 'framer-motion';
 import {
   Headset,
@@ -17,6 +18,7 @@ import {
   Network
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
+import MapFooter from './components/MapFooter';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -52,6 +54,9 @@ const App = () => {
   }
   if (currentPage === 'axia') {
     return <Axia onNavigate={setCurrentPage} />;
+  }
+  if (currentPage === 'nova-core') {
+    return <NovaCore onNavigate={setCurrentPage} />;
   }
   // ─────────────────────────────────────────────
 
@@ -118,7 +123,7 @@ const App = () => {
               </span>
               <div className="nav-dropdown-content glass" style={{ minWidth: '220px', left: '0' }}>
                 <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('axia'); }} style={{ color: 'var(--color-accent)' }}>AXIA</a>
-                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>NOVA CORE</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('nova-core'); }}>NOVA CORE</a>
                 <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Desarrollo de Software</a>
                 <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Cableado Estructurado</a>
                 <a href="#echo" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }}>ECHO CRM</a>
@@ -645,10 +650,13 @@ const App = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Dirección</h4>
             <p style={{ margin: 0, lineHeight: '1.6' }}>
-              Miguel Blanco #1440 int 102<br />
-              Col. Americana, Guadalajara Jalisco<br />
-              C.P. 44170
+              C. Miguel Blanco 1449<br />
+              Col Americana, Americana<br />
+              44160 Guadalajara, Jal.
             </p>
+            <div style={{ marginTop: '10px', height: '200px', width: '100%', borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <MapFooter />
+            </div>
           </div>
         </div>
 

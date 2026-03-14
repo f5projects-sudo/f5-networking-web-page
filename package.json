@@ -1,7 +1,7 @@
 {
-  "name": "f5-networking-web-page",
+  "name": "f5-networking---web-page",
   "private": true,
-  "version": "0.1.2",
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,9 +11,12 @@
   },
   "dependencies": {
     "framer-motion": "^12.35.2",
+    "jimp": "^1.6.0",
     "lucide-react": "^0.577.0",
+    "maplibre-gl": "^5.20.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-map-gl": "^8.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

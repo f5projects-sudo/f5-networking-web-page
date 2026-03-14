@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Bot, Zap, Globe, MessageSquareText, Clock, ChevronDown } from 'lucide-react';
 import BubbleBackground from '../components/BubbleBackground';
 import N8nWorkflow from '../components/N8nWorkflow';

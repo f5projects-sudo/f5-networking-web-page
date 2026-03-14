@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { 
   Play, 
   Bot, 
@@ -12,6 +12,33 @@ import {
   Layout, 
   FileText 
 } from 'lucide-react';
+
+// Componente interno para las líneas animadas
+const AnimatedEdge = ({ d, dashed = false, delay = 0 }) => (
+  <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }}>
+    {/* Línea base estática */}
+    <path 
+      d={d} 
+      fill="none" 
+      stroke="rgba(255,255,255,0.15)" 
+      strokeWidth="3" 
+      strokeDasharray={dashed ? "5,5" : "none"}
+    />
+    {/* Línea de "flujo de datos" animada */}
+    {!dashed && (
+      <motion.path
+        d={d}
+        fill="none"
+        stroke="var(--color-accent)"
+        strokeWidth="3"
+        strokeLinecap="round"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: [0, 1, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "linear", delay }}
+      />
+    )}
+  </svg>
+);
 
 const N8nWorkflow = () => {
   // Animación para el contenedor general
@@ -50,33 +77,6 @@ const N8nWorkflow = () => {
   // Nodos integraciones extra
   const pathEntra = "M 425 100 L 330 150";
   const pathJira = "M 425 100 L 520 150";
-
-  // Componente interno para las líneas animadas
-  const AnimatedEdge = ({ d, dashed = false, delay = 0 }) => (
-    <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }}>
-      {/* Línea base estática */}
-      <path 
-        d={d} 
-        fill="none" 
-        stroke="rgba(255,255,255,0.15)" 
-        strokeWidth="3" 
-        strokeDasharray={dashed ? "5,5" : "none"}
-      />
-      {/* Línea de "flujo de datos" animada */}
-      {!dashed && (
-        <motion.path
-          d={d}
-          fill="none"
-          stroke="var(--color-accent)"
-          strokeWidth="3"
-          strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear", delay }}
-        />
-      )}
-    </svg>
-  );
 
   return (
     <div style={{ padding: '40px 0', width: '100%', overflowX: 'auto', display: 'flex', justifyContent: 'center' }}>

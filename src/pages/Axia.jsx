@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Bot, Zap, Globe, MessageSquareText, Clock, ChevronDown } from 'lucide-react';
 import BubbleBackground from '../components/BubbleBackground';
 import N8nWorkflow from '../components/N8nWorkflow';
+import IndustryAgents from '../components/IndustryAgents';
 
 export default function Axia({ onNavigate }) {
   const fadeInUp = {
@@ -164,6 +165,19 @@ export default function Axia({ onNavigate }) {
         </motion.div>
 
         <N8nWorkflow />
+      </section>
+
+      {/* ── Multi-Industry Agents Section ── */}
+      <section className="section-container" style={{ position: 'relative', zIndex: 10, paddingBottom: '80px' }}>
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Tu aliado en <span className="gradient-text">múltiples industrias</span></h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
+          <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '20px auto 0', lineHeight: '1.6' }}>
+            Nuestros agentes de IA están diseñados para adaptarse a las necesidades específicas de tu sector, optimizando procesos y elevando la experiencia de tus usuarios.
+          </p>
+        </motion.div>
+
+        <IndustryAgents />
       </section>
 
       {/* ── CTA Section ── */}

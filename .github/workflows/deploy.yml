@@ -35,7 +35,13 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run build
+        run: npm run build > build_error.log 2>&1 || true
+      - name: Ensure Build Success
+        run: |
+          if [ ! -d "dist" ]; then
+            cat build_error.log
+            exit 1
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Nosotros from './pages/Nosotros';
 import Axia from './pages/Axia';
 import NovaCore from './pages/NovaCore';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import {
   Headset,
   Bot,
@@ -598,7 +598,7 @@ const App = () => {
         <motion.div {...fadeInUp}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>¿Listo para llevar tu empresa al <span className="gradient-text">siguiente nivel</span>?</h2>
           <p style={{ color: 'var(--color-text-muted)', marginBottom: '50px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
-          <div style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '30px', justify-content: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
             <a
               href="https://wa.me/"
               target="_blank"

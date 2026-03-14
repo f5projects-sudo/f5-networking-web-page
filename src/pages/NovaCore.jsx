@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { 
   Activity, 
   PhoneOutgoing, 
@@ -30,7 +30,7 @@ export default function NovaCore({ onNavigate }) {
   React.useEffect(() => {
     // Retrasar la activación del observer para ignorar el salto de scroll inicial del React Router
     let isObserverActive = false;
-    const timer = setTimeout(() => { isObserverActive = true; }, 100);
+    const timer = setTimeout(() => { isObserverActive = true; }, 100); // eslint-disable-line no-unused-vars
 
     // Observer genérico que analiza qué entra al centro de la pantalla
     const observerOptions = {

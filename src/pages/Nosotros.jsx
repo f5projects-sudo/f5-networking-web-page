@@ -13,6 +13,7 @@ import {
   ChevronDown
 } from 'lucide-react';
 import BubbleBackground from '../components/BubbleBackground';
+import MapFooter from '../components/MapFooter';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -74,7 +75,7 @@ export default function Nosotros({ onNavigate }) {
               </span>
               <div className="nav-dropdown-content glass" style={{ minWidth: '220px', left: '0' }}>
                 <span onClick={() => onNavigate('axia')} style={{ cursor: 'pointer', color: 'var(--color-accent)' }}>AXIA</span>
-                <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>NOVA CORE</span>
+                <span onClick={() => onNavigate('nova-core')} style={{ cursor: 'pointer' }}>NOVA CORE</span>
                 <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>Desarrollo de Software</span>
                 <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>Cableado Estructurado</span>
                 <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>ECHO CRM</span>
@@ -346,10 +347,13 @@ export default function Nosotros({ onNavigate }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Dirección</h4>
             <p style={{ margin: 0, lineHeight: '1.6' }}>
-              Miguel Blanco #1440 int 102<br />
-              Col. Americana, Guadalajara Jalisco<br />
-              C.P. 44170
+              C. Miguel Blanco 1449<br />
+              Col Americana, Americana<br />
+              44160 Guadalajara, Jal.
             </p>
+            <div style={{ marginTop: '10px', height: '200px', width: '100%', borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <MapFooter />
+            </div>
           </div>
         </div>
 

@@ -54,7 +54,7 @@ export default function Axia({ onNavigate }) {
               </span>
               <div className="nav-dropdown-content glass" style={{ minWidth: '220px', left: '0' }}>
                 <span onClick={() => onNavigate('axia')} style={{ cursor: 'pointer', color: 'var(--color-accent)' }}>AXIA</span>
-                <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>NOVA CORE</span>
+                <span onClick={() => onNavigate('nova-core')} style={{ cursor: 'pointer' }}>NOVA CORE</span>
                 <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>Desarrollo de Software</span>
                 <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>Cableado Estructurado</span>
                 <span onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>ECHO CRM</span>

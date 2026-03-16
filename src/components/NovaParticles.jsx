@@ -1,4 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+
+// Colores de F5 Networking
+const colors = ['#0056b3', '#FF8C00', '#00B4FF', '#ffffff', '#1E90FF'];
 
 const NovaParticles = ({ targetShape = 'none' }) => {
   const canvasRef = useRef(null);
@@ -9,9 +12,6 @@ const NovaParticles = ({ targetShape = 'none' }) => {
   
   // Guardamos las coordenadas del mouse
   const mouseRef = useRef({ x: -1000, y: -1000, radius: 100 });
-  
-  // Colores de F5 Networking
-  const colors = ['#0056b3', '#FF8C00', '#00B4FF', '#ffffff', '#1E90FF'];
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -99,18 +99,11 @@ const NovaParticles = ({ targetShape = 'none' }) => {
       offCtx.textBaseline = 'bottom';
       offCtx.fillText("VISA", x + cardWidth - cardWidth * 0.08, y + cardHeight - cardHeight * 0.1);
 
-      // Dibujar números de la tarjeta (fuente fina, hilera espaciada)
-      const numFontSize = window.innerWidth < 768 ? 22 : 45;
-      offCtx.font = `lighter ${numFontSize}px "Inter", sans-serif`;
-      offCtx.textAlign = 'center';
-      offCtx.textBaseline = 'middle';
-      const textX = x + cardWidth / 2;
-      const textY = y + cardHeight / 2;
-      offCtx.fillText("1234 5678 9101 1112", textX, textY);
+      // (Se remueven los números dibujados con canvas text para usar matrix points)
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 5 : 6; // Menos partículas para la tarjeta VISA en general
+      const density = window.innerWidth < 768 ? 5 : 6; 
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {
@@ -120,6 +113,49 @@ const NovaParticles = ({ targetShape = 'none' }) => {
           }
         }
       }
+
+      // Añadir números de tarjeta manualmente como una sola fila de partículas interactivas
+      const digitMatrix = {
+        '0': [[1,1,1],[1,0,1],[1,0,1],[1,0,1],[1,1,1]],
+        '1': [[0,1,0],[1,1,0],[0,1,0],[0,1,0],[1,1,1]],
+        '2': [[1,1,1],[0,0,1],[1,1,1],[1,0,0],[1,1,1]],
+        '3': [[1,1,1],[0,0,1],[1,1,1],[0,0,1],[1,1,1]],
+        '4': [[1,0,1],[1,0,1],[1,1,1],[0,0,1],[0,0,1]],
+        '5': [[1,1,1],[1,0,0],[1,1,1],[0,0,1],[1,1,1]],
+        '6': [[1,1,1],[1,0,0],[1,1,1],[1,0,1],[1,1,1]],
+        '7': [[1,1,1],[0,0,1],[0,0,1],[0,0,1],[0,0,1]],
+        '8': [[1,1,1],[1,0,1],[1,1,1],[1,0,1],[1,1,1]],
+        '9': [[1,1,1],[1,0,1],[1,1,1],[0,0,1],[1,1,1]]
+      };
+
+      const dotSpacing = window.innerWidth < 768 ? 5 : 8;
+      const cardNumStr = "1234 5678 9101 1112";
+      const totalCols = 16 * 4 - 1 + 6; // 69 cols
+      const blockWidth = totalCols * dotSpacing;
+      
+      const startX = x + (cardWidth - blockWidth) / 2;
+      const startY = y + (cardHeight / 2) - (2 * dotSpacing);
+
+      let currX = startX;
+      for (let i = 0; i < cardNumStr.length; i++) {
+        const char = cardNumStr[i];
+        if (char === ' ') {
+          currX += dotSpacing * 2;
+          continue;
+        }
+        const matrix = digitMatrix[char];
+        if (matrix) {
+          for (let r = 0; r < matrix.length; r++) {
+            for (let c = 0; c < matrix[r].length; c++) {
+              if (matrix[r][c]) {
+                 pixels.push({ x: currX + c * dotSpacing, y: startY + r * dotSpacing });
+              }
+            }
+          }
+        }
+        currX += dotSpacing * 4;
+      }
+
       return pixels;
     };
 

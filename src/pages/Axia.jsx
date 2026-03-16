@@ -40,7 +40,7 @@ export default function Axia({ onNavigate }) {
             onClick={() => onNavigate('home')}
           >
             <img
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png"
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
               alt="F5 Networking"
               style={{ height: '110px', width: 'auto', display: 'block' }}
             />
@@ -81,8 +81,8 @@ export default function Axia({ onNavigate }) {
           height="100%"
           style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 0, transform: 'translate3d(0,0,0)', backfaceVisibility: 'hidden', willChange: 'transform', pointerEvents: 'none' }}
         >
-          <source src="/f5-networking-web-page/Axia_video.webm" type="video/webm" />
-          <source src="/f5-networking-web-page/Axia_video.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}Axia_video.webm`} type="video/webm" />
+          <source src={`${import.meta.env.BASE_URL}Axia_video.mp4`} type="video/mp4" />
         </video>
         {/* Eliminado el contenedor glass y textos superpuestos para dar protagonismo total al video */}
         <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
@@ -239,7 +239,7 @@ export default function Axia({ onNavigate }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
             <img 
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} 
               alt="F5 Networking" 
               style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
             />

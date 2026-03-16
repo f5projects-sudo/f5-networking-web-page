@@ -35,7 +35,7 @@ export default function NovaCore({ onNavigate }) {
     // Observer genérico que analiza qué entra al centro de la pantalla
     const observerOptions = {
       root: null,
-      rootMargin: '-30% 0px -30% 0px', // Detecta la parte media de la pantalla
+      rootMargin: '-10% 0px -25% 0px', // Detecta cuando una sección entra al 25% inferior o 10% superior
       threshold: 0
     };
 
@@ -104,7 +104,7 @@ export default function NovaCore({ onNavigate }) {
             onClick={() => onNavigate('home')}
           >
             <img
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png"
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
               alt="F5 Networking"
               style={{ height: '110px', width: 'auto', display: 'block' }}
             />
@@ -132,7 +132,7 @@ export default function NovaCore({ onNavigate }) {
       </nav>
 
       {/* ── Hero Section (Particles Only) ── */}
-      <section id="hero-section" style={{ height: '70vh', position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
+      <section id="hero-section" style={{ height: '100vh', marginBottom: '5vh', position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
         {/* El texto NOVA CORE lo forman orgánicamente las partículas interactivas del fondo */}
       </section>
 
@@ -305,7 +305,7 @@ export default function NovaCore({ onNavigate }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
             <img 
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} 
               alt="F5 Networking" 
               style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
             />

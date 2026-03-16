@@ -61,7 +61,7 @@ export default function Nosotros({ onNavigate }) {
             onClick={() => onNavigate('home')}
           >
             <img
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png"
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
               alt="F5 Networking"
               style={{ height: '110px', width: 'auto', display: 'block' }}
             />
@@ -361,7 +361,7 @@ export default function Nosotros({ onNavigate }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
             <img 
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} 
               alt="F5 Networking" 
               style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
             />

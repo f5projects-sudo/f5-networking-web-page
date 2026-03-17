@@ -28,7 +28,7 @@ const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS'];
 
 /* ── Methodology steps ── */
 const steps = [
-  { num: '01', title: 'Reunir Información', desc: 'Centralización de la información de tu empresa or negocio y reconocimiento de tus objetivos.', color: 'var(--color-primary)', glow: '#0056B3', fromLeft: true },
+  { num: '01', title: 'Reunir Información', desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.', color: 'var(--color-primary)', glow: '#0056B3', fromLeft: true },
   { num: '02', title: 'Análisis', desc: 'De diferentes soluciones y presentación de nuestras propuestas.', color: 'var(--color-secondary)', glow: '#FF8C00', fromLeft: false },
   { num: '03', title: 'Prototipo', desc: 'Primera vista de tu producto.', color: 'var(--color-accent)', glow: '#00B4FF', fromLeft: true },
   { num: '04', title: 'Feedback', desc: '¡Te escuchamos! Ajustes del prototipo y comentarios.', color: 'var(--color-primary)', glow: '#9b59b6', fromLeft: false },

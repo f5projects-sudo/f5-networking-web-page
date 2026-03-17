@@ -112,7 +112,7 @@ export default function NovaCore({ onNavigate }) {
 
       {/* ── Hero Section (Solo para trigger the observer) ── */}
       <section id="hero-section" style={{ height: '100vh', marginBottom: '5vh', position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
-        {/* Las partículas dibujarán "NOVA CORE" aquí */}
+        {/* Las partículas dibujarán \"NOVA CORE\" aquí */}
       </section>
 
       {/* ── Intro Information ── */}
@@ -123,7 +123,7 @@ export default function NovaCore({ onNavigate }) {
               TECNOLOGÍA DE VANGUARDIA
             </div>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold', lineHeight: 1.2 }}>
-              Atención Al Cliente <br/><span className="gradient-text">Inteligente 24/7</span>
+              Atención Al Cliente <br/><span className=\"gradient-text\">Inteligente 24/7</span>
             </h2>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.9' }}>
               NOVA CORE es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos, opera 24/7 y transforma cada interacción en resultados medibles.
@@ -132,8 +132,8 @@ export default function NovaCore({ onNavigate }) {
           <motion.div {...fadeInUp} style={{ position: 'relative' }}>
              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', opacity: 0.3, filter: 'blur(40px)', zIndex: -1, borderRadius: '24px' }} />
              <img 
-               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" 
-               alt="Nova Core Analytics" 
+               src=\"https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800\" 
+               alt=\"Nova Core Analytics\" 
                style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', display: 'block' }} 
              />
           </motion.div>
@@ -141,49 +141,49 @@ export default function NovaCore({ onNavigate }) {
       </section>
 
       {/* ── Intro / What sets us apart ── */}
-      <section id="nova-features" className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '100px' }}>
+      <section id=\"nova-features\" className=\"section-container\" style={{ position: 'relative', zIndex: 10, paddingTop: '100px' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>¿QUÉ NOS <span className="gradient-text">CARACTERIZA?</span></h2>
+          <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>¿QUÉ NOS <span className=\"gradient-text\">CARACTERIZA?</span></h2>
           <div style={{ width: '80px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          initial=\"hidden\"
+          whileInView=\"visible\"
           viewport={{ once: true, amount: 0.1 }}
           style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}
         >
           {/* Feature 1 */}
-          <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}>
+          <motion.div variants={itemVariants} className=\"glass\" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}>
             <Activity size={40} style={{ color: 'var(--color-primary)', marginBottom: '20px' }} />
             <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Visibilidad y control en tiempo real</h3>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Monitorea y analiza la actividad de tu operación con herramientas avanzadas de seguimiento. Obtén datos claros para optimizar procesos, mejorar el rendimiento y tomar decisiones con mayor precisión.</p>
           </motion.div>
 
           {/* Feature 2 */}
-          <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-secondary)' }}>
+          <motion.div variants={itemVariants} className=\"glass\" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-secondary)' }}>
             <PhoneOutgoing size={40} style={{ color: 'var(--color-secondary)', marginBottom: '20px' }} />
             <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Visualiza todas las llamadas salientes</h3>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Accede a un historial completo de llamadas realizadas y mantén un control detallado de la actividad en tiempo real.</p>
           </motion.div>
 
           {/* Feature 3 */}
-          <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-accent)' }}>
+          <motion.div variants={itemVariants} className=\"glass\" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-accent)' }}>
             <Filter size={40} style={{ color: 'var(--color-accent)', marginBottom: '20px' }} />
             <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Filtra por fecha, hora y rangos</h3>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Encuentra información específica rápidamente aplicando filtros avanzados según el periodo que necesites analizar.</p>
           </motion.div>
 
           {/* Feature 4 */}
-          <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}>
+          <motion.div variants={itemVariants} className=\"glass\" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}>
             <Clock size={40} style={{ color: 'var(--color-primary)', marginBottom: '20px' }} />
             <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Consulta duración y número de intentos</h3>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Revisa métricas clave como duración de llamadas y cantidad de intentos para medir eficiencia y rendimiento.</p>
           </motion.div>
 
           {/* Feature 5 */}
-          <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-secondary)' }}>
+          <motion.div variants={itemVariants} className=\"glass\" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-secondary)' }}>
             <TrendingUp size={40} style={{ color: 'var(--color-secondary)', marginBottom: '20px' }} />
             <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Analiza el tráfico por hora</h3>
             <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Identifica picos de llamadas para optimizar recursos. Detecta los horarios con mayor actividad para mejorar la distribución de personal, automatización y capacidad operativa.</p>
@@ -192,18 +192,18 @@ export default function NovaCore({ onNavigate }) {
       </section>
 
       {/* ── Nova Cash Particles Showcase ── */}
-      <section id="nova-cash-particles" style={{ height: '70vh', position: 'relative', zIndex: 10, pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <section id=\"nova-cash-particles\" style={{ height: '70vh', position: 'relative', zIndex: 10, pointerEvents: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* Aquí se formará la tarjeta de crédito de las partículas */}
       </section>
 
       {/* ── Nova Cash Information ── */}
-      <section id="nova-cash-info" className="section-container" style={{ position: 'relative', zIndex: 10, paddingBottom: '100px' }}>
+      <section id=\"nova-cash-info\" className=\"section-container\" style={{ position: 'relative', zIndex: 10, paddingBottom: '100px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px', alignItems: 'center' }}>
           <motion.div {...fadeInUp} style={{ position: 'relative' }}>
              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-secondary), #FF4500)', opacity: 0.2, filter: 'blur(40px)', zIndex: -1, borderRadius: '24px' }} />
              <img 
-               src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800" 
-               alt="Nova Cash Financial Operations" 
+               src=\"https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800\" 
+               alt=\"Nova Cash Financial Operations\" 
                style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(255,140,0,0.2)', display: 'block' }} 
              />
           </motion.div>
@@ -225,9 +225,9 @@ export default function NovaCore({ onNavigate }) {
       </section>
 
       {/* ── CTA / Other Services ── */}
-      <section id="nova-cta" className="section-container" style={{ textAlign: 'center', paddingBottom: '100px', position: 'relative', zIndex: 10 }}>
-        <motion.div {...fadeInUp} className="glass" style={{ padding: '60px', borderRadius: '30px', maxWidth: '800px', margin: '0 auto' }}>
-          <h3 style={{ fontSize: '2.5rem', marginBottom: '30px', color: 'white' }}>¡Conoce nuestros <span className="gradient-text">otros servicios!</span></h3>
+      <section id=\"nova-cta\" className=\"section-container\" style={{ textAlign: 'center', paddingBottom: '100px', position: 'relative', zIndex: 10 }}>
+        <motion.div {...fadeInUp} className=\"glass\" style={{ padding: '60px', borderRadius: '30px', maxWidth: '800px', margin: '0 auto' }}>
+          <h3 style={{ fontSize: '2.5rem', marginBottom: '30px', color: 'white' }}>¡Conoce nuestros <span className=\"gradient-text\">otros servicios!</span></h3>
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 140, 0, 0.5)' }}
             whileTap={{ scale: 0.95 }}
@@ -242,31 +242,31 @@ export default function NovaCore({ onNavigate }) {
       </section>
 
       {/* ── Footer ── */}
-      <footer id="nova-footer" style={{ padding: '60px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', position: 'relative', zIndex: 10 }}>
+      <footer id=\"nova-footer\" style={{ padding: '60px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', position: 'relative', zIndex: 10 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px', marginBottom: '60px', color: 'var(--color-text-muted)' }}>
           {/* Column 1: Contáctanos */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Contáctanos</h4>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '1.2rem' }}>🇲🇽</span>
-              <a href="tel:+523321012959" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-primary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+52 (33) 2101 2959</a>
+              <a href=\"tel:+523321012959\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-primary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+52 (33) 2101 2959</a>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '1.2rem' }}>🇺🇸</span>
-              <a href="tel:+12147304939" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-secondary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+1 214 730 4939</a>
+              <a href=\"tel:+12147304939\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-secondary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+1 214 730 4939</a>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '1.2rem' }}>✉</span>
-              <a href="mailto:sales@f5networking.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-accent)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>sales@f5networking.com</a>
+              <a href=\"mailto:sales@f5networking.com\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-accent)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>sales@f5networking.com</a>
             </div>
           </div>
 
           {/* Column 2: Información Legal */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Información legal</h4>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Términos y condiciones</a>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Aviso de privacidad</a>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>PUA</a>
+            <a href=\"#\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Términos y condiciones</a>
+            <a href=\"#\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Aviso de privacidad</a>
+            <a href=\"#\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>PUA</a>
           </div>
 
           {/* Column 3: Dirección */}
@@ -285,7 +285,7 @@ export default function NovaCore({ onNavigate }) {
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
             <img 
               src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} 
-              alt="F5 Networking" 
+              alt=\"F5 Networking\" 
               style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
             />
           </div>

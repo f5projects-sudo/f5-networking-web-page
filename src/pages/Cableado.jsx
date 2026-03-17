@@ -19,7 +19,7 @@ export default function Cableado({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen">
+    <div className=\"app bg-[#050505] min-h-screen\">
       
       {/* Dynamic Background */}
       <div 
@@ -35,14 +35,14 @@ export default function Cableado({ onNavigate }) {
         }}
       />
 
-      <Navbar onNavigate={onNavigate} activePage="cableado" />
+      <Navbar onNavigate={onNavigate} activePage=\"cableado\" />
 
       {/* ── Hero Section ── */}
       <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: '120px 0 80px' }}>
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url("${import.meta.env.BASE_URL}cableado_hero.png")`,
+          backgroundImage: `url(\"\${import.meta.env.BASE_URL}cableado_hero.png\")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.3,
@@ -55,7 +55,7 @@ export default function Cableado({ onNavigate }) {
           zIndex: -1
         }} />
 
-        <div className="section-container">
+        <div className=\"section-container\">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
@@ -68,30 +68,30 @@ export default function Cableado({ onNavigate }) {
               
               <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.1, marginBottom: '30px' }}>
                 <DecryptedText 
-                  text="Cableado" 
-                  animateOn="view"
+                  text=\"Cableado\" 
+                  animateOn=\"view\"
                   speed={100}
-                  className="gradient-text-secondary" 
+                  className=\"gradient-text-secondary\" 
                 />
                 <br />
                 <DecryptedText 
-                  text="Estructurado" 
-                  animateOn="view"
+                  text=\"Estructurado\" 
+                  animateOn=\"view\"
                   speed={120} 
-                  revealDirection="end"
+                  revealDirection=\"end\"
                 />
               </h1>
 
               <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', lineHeight: '1.8', marginBottom: '40px' }}>
                 <DecryptedText 
-                  text="Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. No improvisamos: analizamos tu espacio, tus necesidades actuales y lo que vas a necesitar mañana."
-                  animateOn="view"
+                  text=\"Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. No improvisamos: analizamos tu espacio, tus necesidades actuales y lo que vas a necesitar mañana.\"
+                  animateOn=\"view\"
                   speed={50}
                 />
               </p>
 
               <motion.button 
-                className="btn-neon-secondary"
+                className=\"btn-neon-secondary\"
                 style={{
                   padding: '15px 35px',
                   background: 'transparent',
@@ -115,13 +115,13 @@ export default function Cableado({ onNavigate }) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="glass"
+              className=\"glass\"
               style={{ padding: '20px', borderRadius: '24px', position: 'relative' }}
             >
-              <div style={{ position: 'absolute', inset: -1, background: 'linear-gradient(45deg, var(--color-secondary), transparent)', borderRadius: '24px', zIndex: -1, opacity: 0.3 }} />
+              <div style={{ position: 'absolute', inset: -1, background: 'linear-gradient(45deg, var(--color-secondary), transparent)', borderRadius: '24px', zIZndex: -1, opacity: 0.3 }} />
               <img 
-                src={`${import.meta.env.BASE_URL}cableado_hero.png`} 
-                alt="Infraestructura de Red" 
+                src=\"\${import.meta.env.BASE_URL}cableado_hero.png\" 
+                alt=\"Infraestructura de Red\" 
                 style={{ width: '100%', borderRadius: '16px', display: 'block', boxShadow: '0 20px 40px rgba(0,0,0,0.6)' }} 
               />
             </motion.div>
@@ -130,7 +130,7 @@ export default function Cableado({ onNavigate }) {
       </section>
 
       {/* ── Core Value Section ── */}
-      <section className="section-container" style={{ padding: '100px 0', position: 'relative', zIndex: 10 }}>
+      <section className=\"section-container\" style={{ padding: '100px 0', position: 'relative', zIndex: 10 }}>
         <motion.div 
           {...fadeInUp}
           style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto 80px' }}
@@ -147,23 +147,23 @@ export default function Cableado({ onNavigate }) {
           {[
             {
               icon: <Cpu size={30} />,
-              title: "Eficiencia Garantizada",
-              desc: "Optimización del flujo de datos y reducción de latencia mediante un diseño estructurado inteligente."
+              title: \"Eficiencia Garantizada\",
+              desc: \"Optimización del flujo de datos y reducción de latencia mediante un diseño estructurado inteligente.\"
             },
             {
               icon: <Zap size={30} />,
-              title: "Escalabilidad Real",
-              desc: "Infraestructuras pensadas para soportar la expansión de tu empresa sin necesidad de re-cableados costosos."
+              title: \"Escalabilidad Real\",
+              desc: \"Infraestructuras pensadas para soportar la expansión de tu empresa sin necesidad de re-cableados costosos.\"
             },
             {
               icon: <Shield size={30} />,
-              title: "Sólida y Confiable",
-              desc: "Materiales de alta calidad y estándares internacionales para asegurar que tu red nunca sea el cuello de botella."
+              title: \"Sólida y Confiable\",
+              desc: \"Materiales de alta calidad y estándares internacionales para asegurar que tu red nunca sea el cuello de botella.\"
             }
           ].map((item, i) => (
             <motion.div
               key={i}
-              className="glass"
+              className=\"glass\"
               style={{ padding: '40px', borderRadius: '20px', borderBottom: '3px solid var(--color-secondary)' }}
               whileHover={{ y: -10 }}
               {...fadeInUp}
@@ -184,11 +184,11 @@ export default function Cableado({ onNavigate }) {
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Contáctanos</h4>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span>🇲🇽</span>
-              <a href="tel:+523321012959" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>+52 (33) 2101 2959</a>
+              <a href=\"tel:+523321012959\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>+52 (33) 2101 2959</a>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span>✉</span>
-              <a href="mailto:sales@f5networking.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>sales@f5networking.com</a>
+              <a href=\"mailto:sales@f5networking.com\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>sales@f5networking.com</a>
             </div>
           </div>
 
@@ -206,7 +206,7 @@ export default function Cableado({ onNavigate }) {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
           <div onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>
-            <img src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} style={{ height: '40px', opacity: 0.8 }} alt="Logo" />
+            <img src={`\${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} style={{ height: '40px', opacity: 0.8 }} alt=\"Logo\" />
           </div>
           <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
             © {new Date().getFullYear()} F5 Networking.

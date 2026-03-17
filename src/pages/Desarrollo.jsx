@@ -20,7 +20,7 @@ export default function Desarrollo({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen">
+    <div className=\"app bg-[#050505] min-h-screen\">
       
       <div 
         style={{
@@ -35,7 +35,7 @@ export default function Desarrollo({ onNavigate }) {
         }}
       />
 
-      <Navbar onNavigate={onNavigate} activePage="desarrollo" />
+      <Navbar onNavigate={onNavigate} activePage=\"desarrollo\" />
 
       {/* ── Hero Section ── */}
       <section style={{ height: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10 }}>
@@ -43,7 +43,7 @@ export default function Desarrollo({ onNavigate }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: 'url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2000")',
+          backgroundImage: 'url(\"https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2000\")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           opacity: 0.2, // Subtle background image
@@ -56,7 +56,7 @@ export default function Desarrollo({ onNavigate }) {
           zIndex: -1
         }} />
 
-        <div className="section-container" style={{ width: '100%', paddingTop: '100px' }}>
+        <div className=\"section-container\" style={{ width: '100%', paddingTop: '100px' }}>
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -69,26 +69,26 @@ export default function Desarrollo({ onNavigate }) {
             
             <h1 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.1, marginBottom: '30px' }}>
               <DecryptedText 
-                text="Desarrollo" 
-                animateOn="view"
+                text=\"Desarrollo\" 
+                animateOn=\"view\"
                 speed={150} 
-                className="gradient-text" 
+                className=\"gradient-text\" 
                 maxIterations={20}
               />
               <br />
               <DecryptedText 
-                text="de Software" 
-                animateOn="view"
+                text=\"de Software\" 
+                animateOn=\"view\"
                 speed={150} 
                 maxIterations={25}
-                revealDirection="center"
+                revealDirection=\"center\"
               />
             </h1>
 
             <p style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', lineHeight: '1.8', maxWidth: '700px' }}>
               <DecryptedText 
-                text="El desarrollo de software es el proceso integral de diseñar, crear, probar, implementar y mantener aplicaciones y sistemas informáticos, desde una app sencilla hasta plataformas complejas." 
-                animateOn="view"
+                text=\"El desarrollo de software es el proceso integral de diseñar, crear, probar, implementar y mantener aplicaciones y sistemas informáticos, desde una app sencilla hasta plataformas complejas.\" 
+                animateOn=\"view\"
                 speed={80}
                 maxIterations={15}
               />
@@ -98,7 +98,7 @@ export default function Desarrollo({ onNavigate }) {
       </section>
 
       {/* ── Content Details ── */}
-      <section className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '50px' }}>
+      <section className=\"section-container\" style={{ position: 'relative', zIndex: 10, paddingTop: '50px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center', marginBottom: '100px' }}>
           
           <motion.div {...fadeInUp}>
@@ -136,10 +136,10 @@ export default function Desarrollo({ onNavigate }) {
 
           <motion.div {...fadeInUp} style={{ position: 'relative' }}>
              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', opacity: 0.2, filter: 'blur(50px)', zIndex: -1, borderRadius: '30px' }} />
-             <div className="glass" style={{ padding: '10px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)' }}>
+             <div className=\"glass\" style={{ padding: '10px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)' }}>
                <img 
-                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800" 
-                 alt="Código e Ingeniería de Software" 
+                 src=\"https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800\" 
+                 alt=\"Código e Ingeniería de Software\" 
                  style={{ width: '100%', borderRadius: '20px', display: 'block' }} 
                />
              </div>
@@ -151,30 +151,30 @@ export default function Desarrollo({ onNavigate }) {
           <div style={{ order: window.innerWidth < 768 ? 2 : 1 }}>
             <CardSwap width={window.innerWidth < 768 ? 320 : 500} height={window.innerWidth < 768 ? 380 : 450} delay={6000}>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt="Ingeniería" />
-                <div className="card-content">
+                <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt=\"Ingeniería\" />
+                <div className=\"card-content\">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                    <Terminal size={20} color="var(--color-primary)" />
+                    <Terminal size={20} color=\"var(--color-primary)\" />
                     <h3 style={{ margin: 0 }}>Ingeniería de Software</h3>
                   </div>
                   <p>Desarrollo integral de proyectos tecnológicos con recursos y perfiles altamente especializados.</p>
                 </div>
               </Card>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_refactoring.png`} alt="Refactoring" />
-                <div className="card-content">
+                <img src={`${import.meta.env.BASE_URL}software_refactoring.png`} alt=\"Refactoring\" />
+                <div className=\"card-content\">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                    <RefreshCw size={20} color="var(--color-primary)" />
+                    <RefreshCw size={20} color=\"var(--color-primary)\" />
                     <h3 style={{ margin: 0 }}>Refactorización</h3>
                   </div>
                   <p>Transformamos sistemas heredados para disminuir riesgos operativos y maximizar el rendimiento.</p>
                 </div>
               </Card>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_security.png`} alt="Seguridad" />
-                <div className="card-content">
+                <img src={`${import.meta.env.BASE_URL}software_security.png`} alt=\"Seguridad\" />
+                <div className=\"card-content\">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                    <Lock size={20} color="var(--color-primary)" />
+                    <Lock size={20} color=\"var(--color-primary)\" />
                     <h3 style={{ margin: 0 }}>Seguridad y Protección</h3>
                   </div>
                   <p>Prácticas de desarrollo seguro y pruebas continuas para asegurar la integridad de la información.</p>
@@ -227,24 +227,24 @@ export default function Desarrollo({ onNavigate }) {
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Contáctanos</h4>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '1.2rem' }}>🇲🇽</span>
-              <a href="tel:+523321012959" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-primary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+52 (33) 2101 2959</a>
+              <a href=\"tel:+523321012959\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-primary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+52 (33) 2101 2959</a>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '1.2rem' }}>🇺🇸</span>
-              <a href="tel:+12147304939" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-secondary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+1 214 730 4939</a>
+              <a href=\"tel:+12147304939\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-secondary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+1 214 730 4939</a>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '1.2rem' }}>✉</span>
-              <a href="mailto:sales@f5networking.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-accent)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>sales@f5networking.com</a>
+              <a href=\"mailto:sales@f5networking.com\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-accent)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>sales@f5networking.com</a>
             </div>
           </div>
 
           {/* Column 2: Información Legal */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Información legal</h4>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Términos y condiciones</a>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Aviso de privacidad</a>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>PUA</a>
+            <a href=\"#\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Términos y condiciones</a>
+            <a href=\"#\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Aviso de privacidad</a>
+            <a href=\"#\" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>PUA</a>
           </div>
 
           {/* Column 3: Dirección */}
@@ -266,7 +266,7 @@ export default function Desarrollo({ onNavigate }) {
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
             <img 
               src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} 
-              alt="F5 Networking" 
+              alt=\"F5 Networking\" 
               style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
             />
           </div>

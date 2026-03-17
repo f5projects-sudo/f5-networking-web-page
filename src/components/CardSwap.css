@@ -1,89 +1,87 @@
 .card-swap-container {
-  display: block;
-  perspective: 1500px;
-  overflow: visible;
-  margin: 100px auto;
-}
-
-.card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: #0d0d0d;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 180, 255, 0.1);
-  overflow: hidden;
-
-  transform-style: preserve-3d;
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.card img {
+.card-swap-inner {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.card-swap-card {
   position: absolute;
   top: 0;
   left: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: rgba(20, 20, 25, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-swap-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 25px 50px rgba(0, 86, 179, 0.2);
+}
+
+/* Specific styling for the cards inside CardSwap */
+.card-swap-card img {
   width: 100%;
-  height: 100%;
+  height: 220px;
   object-fit: cover;
-  opacity: 0.85;
-  filter: brightness(1.1) saturate(1.1);
-  transition: all 0.5s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.card:hover img {
-  opacity: 1;
-  filter: brightness(1.2) saturate(1.2);
-}
-
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(5, 5, 5, 1) 10%, rgba(5, 5, 5, 0.6) 45%, transparent 100%);
-  z-index: 1;
-}
-
-.card-content {
-  position: relative;
-  z-index: 2;
-  padding: 30px;
-  margin-top: auto;
+.card-swap-card .content {
+  padding: 24px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
-.card-content h3 {
-  margin: 0 0 12px;
+.card-swap-card h3 {
   color: white;
   font-size: 1.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-weight: 700;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #fff, #999);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.card-content p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.7);
+.card-swap-card p {
+  color: var(--color-text-muted);
   font-size: 1rem;
   line-height: 1.6;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  margin: 0;
 }
 
+/* Responsividad */
 @media (max-width: 768px) {
-  .card-swap-container {
-    transform: scale(0.8);
+  .card-swap-inner {
+    width: 280px !important;
+    height: 380px !important;
   }
-}
-
-@media (max-width: 480px) {
-  .card-swap-container {
-    transform: scale(0.65);
+  
+  .card-swap-card img {
+    height: 180px;
+  }
+  
+  .card-swap-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .card-swap-card p {
+    font-size: 0.9rem;
   }
 }

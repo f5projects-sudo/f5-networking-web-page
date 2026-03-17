@@ -217,12 +217,6 @@ export default function NovaCore({ onNavigate }) {
             <h3 style={{ fontSize: '1.4rem', color: 'white', marginBottom: '25px', fontWeight: '500', lineHeight: 1.4 }}>
               Control, validación y seguridad para tus operaciones financieras.
             </h3>
-            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'white', marginBottom: '20px', fontWeight: 'bold' }}>
-              <span style={{ color: 'var(--color-secondary)' }}>NOVA</span> CASH
-            </h2>
-            <h3 style={{ fontSize: '1.4rem', color: 'white', marginBottom: '25px', fontWeight: '500', lineHeight: 1.4 }}>
-              Control, validación y seguridad para tus operaciones financieras.
-            </h3>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
               Nova Cash es una solución diseñada para brindar visibilidad total de la operación, optimizar la validación de préstamos y garantizar altos estándares de seguridad y control en cada paso de tus transacciones.
             </p>

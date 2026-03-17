@@ -88,16 +88,16 @@ const Navbar = ({ onNavigate, activePage }) => {
           <div 
             className={`nav-dropdown ${isDropdownOpen ? 'active' : ''}`}
             onMouseLeave={handleMouseLeave}
-            onMouseEnter={handleMouseEnter}
           >
             <span 
               className="nav-link" 
               style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}
+              onMouseEnter={handleMouseEnter}
               onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(!isDropdownOpen); }}
             >
               Soluciones <ChevronDown size={16} />
             </span>
-            <div className="nav-dropdown-content glass">
+            <div className="nav-dropdown-content glass" onMouseEnter={handleMouseEnter}>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('axia'); }} className={activePage === 'axia' ? 'active' : ''}>AXIA</span>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('nova-core'); }} className={activePage === 'nova-core' ? 'active' : ''}>NOVA CORE</span>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('desarrollo'); }} className={activePage === 'desarrollo' ? 'active' : ''}>Desarrollo de Software</span>

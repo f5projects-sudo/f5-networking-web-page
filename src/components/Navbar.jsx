@@ -45,7 +45,7 @@ const Navbar = ({ onNavigate, activePage }) => {
           <img 
             src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
             alt="F5 Networking" 
-            style={{ height: '110px', width: 'auto', display: 'block' }} 
+            style={{ height: '50px', width: 'auto', display: 'block' }} 
           />
         </div>
         

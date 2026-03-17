@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react';
 
 const Navbar = ({ onNavigate, activePage }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [closeTimer, setCloseTimer] = useState(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -12,8 +13,26 @@ const Navbar = ({ onNavigate, activePage }) => {
       }
     };
     document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [isDropdownOpen]);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      if (closeTimer) clearTimeout(closeTimer);
+    };
+  }, [isDropdownOpen, closeTimer]);
+
+  const handleMouseEnter = () => {
+    if (closeTimer) {
+      clearTimeout(closeTimer);
+      setCloseTimer(null);
+    }
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timer = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 300);
+    setCloseTimer(timer);
+  };
 
   // Close dropdown when navigating
   const handleNavigate = (page) => {
@@ -68,12 +87,12 @@ const Navbar = ({ onNavigate, activePage }) => {
           
           <div 
             className={`nav-dropdown ${isDropdownOpen ? 'active' : ''}`}
-            onMouseLeave={() => setIsDropdownOpen(false)}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
           >
             <span 
               className="nav-link" 
               style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}
-              onMouseEnter={() => setIsDropdownOpen(true)}
               onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(!isDropdownOpen); }}
             >
               Soluciones <ChevronDown size={16} />

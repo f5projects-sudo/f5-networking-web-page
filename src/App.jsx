@@ -483,7 +483,7 @@ const App = () => {
               >
                 <div style={{
                   display: 'inline-block',
-                    fontSize: '3.5rem', fontWeight: '900', lineHeight: 1,
+                  fontSize: '3.5rem', fontWeight: '900', lineHeight: 1,
                   background: `linear-gradient(135deg, ${step.colors.glow}, ${step.colors.border})`,
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                   marginBottom: '12px', opacity: 0.3
@@ -560,7 +560,7 @@ const App = () => {
             </div>
             {/* Orbital Animation Overlay */}
             <motion.div
-                style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
+              style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >

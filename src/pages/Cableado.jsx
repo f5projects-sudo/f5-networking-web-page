@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Network, Cpu, Shield, Zap, Info } from 'lucide-react';
 import DecryptedText from '../components/DecryptedText';
+import ScrambledText from '../components/ScrambledText';
 import MapFooter from '../components/MapFooter';
 import Navbar from '../components/Navbar';
 
@@ -66,29 +67,34 @@ export default function Cableado({ onNavigate }) {
                 <Network size={16} /> INFRAESTRUCTURA DE RED
               </div>
               
-              <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.1, marginBottom: '30px' }}>
-                <DecryptedText 
-                  text="Cableado" 
-                  animateOn="view"
-                  speed={100}
+              <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.2, marginBottom: '0px' }}>
+                <ScrambledText 
                   className="gradient-text-secondary" 
-                />
-                <br />
-                <DecryptedText 
-                  text="Estructurado" 
-                  animateOn="view"
-                  speed={120} 
-                  revealDirection="end"
-                />
+                  style={{ margin: '0', padding: '0', display: 'block' }}
+                >
+                  Cableado
+                </ScrambledText>
+                <ScrambledText 
+                  style={{ margin: '0', padding: '0', display: 'block' }}
+                >
+                  Estructurado
+                </ScrambledText>
               </h1>
 
-              <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', lineHeight: '1.8', marginBottom: '40px' }}>
-                <DecryptedText 
-                  text="Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. No improvisamos: analizamos tu espacio, tus necesidades actuales y lo que vas a necesitar mañana."
-                  animateOn="view"
-                  speed={50}
-                />
-              </p>
+              <div style={{ marginTop: '30px' }}>
+                <ScrambledText 
+                  style={{ 
+                    fontSize: '1.2rem', 
+                    color: 'var(--color-text-muted)', 
+                    lineHeight: '1.8', 
+                    margin: '0', 
+                    maxWidth: '100%',
+                    fontFamily: 'inherit'
+                  }}
+                >
+                  Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. No improvisamos: analizamos tu espacio, tus necesidades actuales y lo que vas a necesitar mañana.
+                </ScrambledText>
+              </div>
 
               <motion.button 
                 className="btn-neon-secondary"

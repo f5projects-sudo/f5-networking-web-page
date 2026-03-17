@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Nosotros from './pages/Nosotros';
 import Axia from './pages/Axia';
 import NovaCore from './pages/NovaCore';
+import Desarrollo from './pages/Desarrollo';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import {
   Headset,
@@ -58,6 +59,9 @@ const App = () => {
   if (currentPage === 'nova-core') {
     return <NovaCore onNavigate={setCurrentPage} />;
   }
+  if (currentPage === 'desarrollo') {
+    return <Desarrollo onNavigate={setCurrentPage} />;
+  }
   // ─────────────────────────────────────────────
 
 
@@ -109,7 +113,7 @@ const App = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
             <img 
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
               alt="F5 Networking" 
               style={{ height: '110px', width: 'auto', display: 'block' }} 
             />
@@ -124,7 +128,7 @@ const App = () => {
               <div className="nav-dropdown-content glass" style={{ minWidth: '220px', left: '0' }}>
                 <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('axia'); }} style={{ color: 'var(--color-accent)' }}>AXIA</a>
                 <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('nova-core'); }}>NOVA CORE</a>
-                <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Desarrollo de Software</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('desarrollo'); }}>Desarrollo de Software</a>
                 <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>Cableado Estructurado</a>
                 <a href="#echo" onClick={(e) => { e.preventDefault(); scrollTo('echo'); }}>ECHO CRM</a>
                 <a href="#services" onClick={(e) => { e.preventDefault(); scrollTo('services'); }}>BPO SERVICES</a>
@@ -664,7 +668,7 @@ const App = () => {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
           <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => scrollTo('hero')}>
             <img 
-              src="/f5-networking-web-page/f5networking_logo_original_safe.png" 
+              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} 
               alt="F5 Networking" 
               style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
             />

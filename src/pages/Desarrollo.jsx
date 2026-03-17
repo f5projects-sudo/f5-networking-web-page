@@ -64,23 +64,29 @@ export default function Desarrollo({ onNavigate }) {
             style={{ maxWidth: '800px' }}
           >
             <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', border: '1px solid rgba(0,180,255,0.2)', marginBottom: '20px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '2px', alignItems: 'center', gap: '8px' }}>
-              <Code size={16} /> ENGINEERING THE FUTURE
+              <Code size={16} /> 
+              <DecryptedText 
+                text="ENGINEERING THE FUTURE" 
+                animateOn="view"
+                speed={30}
+                maxIterations={10}
+              />
             </div>
             
             <h1 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.1, marginBottom: '30px' }}>
               <DecryptedText 
                 text="Desarrollo" 
                 animateOn="view"
-                speed={150} 
+                speed={40} 
                 className="gradient-text" 
-                maxIterations={20}
+                maxIterations={15}
               />
               <br />
               <DecryptedText 
                 text="de Software" 
                 animateOn="view"
-                speed={150} 
-                maxIterations={25}
+                speed={40} 
+                maxIterations={20}
                 revealDirection="center"
               />
             </h1>
@@ -89,8 +95,8 @@ export default function Desarrollo({ onNavigate }) {
               <DecryptedText 
                 text="El desarrollo de software es el proceso integral de diseñar, crear, probar, implementar y mantener aplicaciones y sistemas informáticos, desde una app sencilla hasta plataformas complejas." 
                 animateOn="view"
-                speed={80}
-                maxIterations={15}
+                speed={40}
+                maxIterations={10}
               />
             </p>
           </motion.div>

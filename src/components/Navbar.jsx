@@ -45,7 +45,7 @@ const Navbar = ({ onNavigate, activePage }) => {
           <img 
             src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
             alt="F5 Networking" 
-            style={{ height: '50px', width: 'auto', display: 'block' }} 
+            style={{ height: '110px', width: 'auto', display: 'block' }} 
           />
         </div>
         
@@ -68,11 +68,14 @@ const Navbar = ({ onNavigate, activePage }) => {
           
           <div 
             className={`nav-dropdown ${isDropdownOpen ? 'active' : ''}`}
-            onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
-            <span className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+            <span 
+              className="nav-link" 
+              style={{ display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer' }}
+              onMouseEnter={() => setIsDropdownOpen(true)}
+              onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(!isDropdownOpen); }}
+            >
               Soluciones <ChevronDown size={16} />
             </span>
             <div className="nav-dropdown-content glass">

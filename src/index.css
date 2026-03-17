@@ -177,7 +177,6 @@ button {
   margin-top: 5px;
 }
 
-.nav-dropdown:hover .nav-dropdown-content,
 .nav-dropdown.active .nav-dropdown-content {
   opacity: 1;
   visibility: visible;

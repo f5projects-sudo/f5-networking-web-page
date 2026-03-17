@@ -7,6 +7,11 @@ import Navbar from '../components/Navbar';
 import CardSwap, { Card } from '../components/CardSwap';
 
 export default function Desarrollo({ onNavigate }) {
+  // Asegurar que la vista inicie arriba
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
@@ -14,267 +19,208 @@ export default function Desarrollo({ onNavigate }) {
     transition: { duration: 0.6, ease: 'easeOut' }
   };
 
-  const features = [
-    {
-      icon: <Code size={40} className="text-secondary" />,
-      title: "Desarrollo Integral",
-      description: "Creamos soluciones desde cero, adaptadas exactamente a tus flujos de trabajo.",
-      color: "var(--color-secondary)"
-    },
-    {
-      icon: <RefreshCw size={40} className="text-primary" />,
-      title: "Modernización",
-      description: "Transformamos sistemas antiguos en plataformas modernas y eficientes.",
-      color: "var(--color-primary)"
-    },
-    {
-      icon: <Shield size={40} className="text-accent" />,
-      title: "Seguridad Robusta",
-      description: "Protección de datos y cumplimiento con los más altos estándares de la industria.",
-      color: "var(--color-accent)"
-    }
-  ];
-
   return (
-    <div className="app">
+    <div className="app bg-[#050505] min-h-screen">
+      
+      <div 
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'radial-gradient(circle at 50% 0%, rgba(0, 86, 179, 0.15), transparent 70%), radial-gradient(circle at 100% 100%, rgba(0, 180, 255, 0.1), transparent 50%)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+
       <Navbar onNavigate={onNavigate} activePage="desarrollo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ 
-        position: 'relative', 
-        height: '85vh', 
-        minHeight: '600px',
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center',
-        padding: '100px 5% 0',
-        overflow: 'hidden'
-      }}>
-        <div style={{ 
-          position: 'absolute', 
-          inset: 0, 
-          background: 'radial-gradient(circle at 50% 50%, rgba(0, 86, 179, 0.15) 0%, transparent 70%)',
-          zIndex: 0 
-        }}></div>
+      <section style={{ height: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10 }}>
+        {/* Background Image Setup */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=2000")',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.2, // Subtle background image
+          zIndex: -1
+        }} />
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, transparent, #050505 95%)',
+          zIndex: -1
+        }} />
 
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          style={{ textAlign: 'center', zIndex: 1, maxWidth: '1000px' }}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            style={{ marginBottom: '30px' }}
+        <div className="section-container" style={{ width: '100%', paddingTop: '100px' }}>
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            style={{ maxWidth: '800px' }}
           >
-            <span style={{ 
-              padding: '8px 20px', 
-              background: 'rgba(0, 180, 255, 0.1)', 
-              border: '1px solid var(--color-accent)', 
-              borderRadius: '30px',
-              color: 'var(--color-accent)',
-              fontSize: '0.9rem',
-              fontWeight: 'bold',
-              textTransform: 'uppercase',
-              letterSpacing: '2px'
-            }}>
-              Innovación Digital
-            </span>
+            <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', border: '1px solid rgba(0,180,255,0.2)', marginBottom: '20px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '2px', alignItems: 'center', gap: '8px' }}>
+              <Code size={16} /> ENGINEERING THE FUTURE
+            </div>
+            
+            <h1 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.1, marginBottom: '30px' }}>
+              <DecryptedText 
+                text="Desarrollo" 
+                animateOn="view"
+                speed={150} 
+                className="gradient-text" 
+                maxIterations={20}
+              />
+              <br />
+              <DecryptedText 
+                text="de Software" 
+                animateOn="view"
+                speed={150} 
+                maxIterations={25}
+                revealDirection="center"
+              />
+            </h1>
+
+            <p style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', lineHeight: '1.8', maxWidth: '700px' }}>
+              <DecryptedText 
+                text="El desarrollo de software es el proceso integral de diseñar, crear, probar, implementar y mantener aplicaciones y sistemas informáticos, desde una app sencilla hasta plataformas complejas." 
+                animateOn="view"
+                speed={80}
+                maxIterations={15}
+              />
+            </p>
           </motion.div>
-
-          <h1 style={{ 
-            fontSize: 'clamp(2.5rem, 8vw, 5rem)', 
-            lineHeight: 1.1,
-            marginBottom: '30px',
-            color: 'white'
-          }}>
-            <DecryptedText 
-              text="Ingeniería de Software" 
-              animateOn="view"
-              revealVideo={true}
-              speed={80}
-              maxIterations={15}
-              characters="ABCDEFGHIJKLMOPQRSTUVWXYZ0123456789"
-              className="gradient-text"
-              parentClassName="inline-block"
-            />
-            <br />
-            para el Mundo Real
-          </h1>
-
-          <p style={{ 
-            fontSize: '1.2rem', 
-            color: 'var(--color-text-muted)', 
-            maxWidth: '750px', 
-            margin: '0 auto 40px',
-            lineHeight: 1.8 
-          }}>
-            Transformamos ideas complejas en infraestructuras digitales escalables, seguras y centradas en el usuario. No solo escribimos código; construimos el motor de tu crecimiento.
-          </p>
-
-          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(0, 86, 179, 0.5)' }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                padding: '16px 40px',
-                background: 'var(--color-primary)',
-                borderRadius: '50px',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '1.1rem',
-                border: 'none',
-                cursor: 'pointer'
-              }}
-              onClick={() => {
-                const servicesSection = document.getElementById('software-services');
-                if(servicesSection) servicesSection.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Nuestras Soluciones
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05, background: 'rgba(255,255,255,0.1)' }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                padding: '16px 40px',
-                background: 'transparent',
-                border: '1px solid rgba(255,255,255,0.2)',
-                borderRadius: '50px',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '1.1rem',
-                cursor: 'pointer'
-              }}
-              onClick={() => onNavigate('home')}
-            >
-              Hablar con un Experto
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ── Interactive CardSwap Section ── */}
-      <section style={{ padding: '40px 0', background: 'rgba(0,0,0,0.3)' }}>
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestro <span className="gradient-text">Enfoque</span></h2>
-          <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
-        </motion.div>
-
-        <CardSwap>
-          <Card customClass="software-engineering">
-            <div style={{ display: 'flex', gap: '40px', alignItems: 'center', height: '100%' }}>
-              <div style={{ flex: 1 }}>
-                <h3 style={{ fontSize: '2.4rem', color: 'var(--color-primary)', marginBottom: '20px' }}>INGENIERÍA DE SOFTWARE</h3>
-                <p style={{ fontSize: '1.15rem', color: '#ccc', lineHeight: '1.8' }}>
-                  Nos especializamos en el desarrollo integral de proyectos tecnológicos, ofreciendo recursos, experiencia y perfiles altamente especializados.
-                </p>
-              </div>
-              <div style={{ flex: 1.2, height: '100%', borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt="Ingeniería de Software" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            </div>
-          </Card>
-
-          <Card customClass="software-refactoring">
-            <div style={{ display: 'flex', gap: '40px', alignItems: 'center', height: '100%' }}>
-              <div style={{ flex: 1 }}>
-                <h3 style={{ fontSize: '2.4rem', color: 'var(--color-secondary)', marginBottom: '20px' }}>ACTUALIZACIÓN / REFACTORIZACIÓN</h3>
-                <p style={{ fontSize: '1.15rem', color: '#ccc', lineHeight: '1.8' }}>
-                  Transformamos sistemas heredados para disminuir riesgos operativos, adaptarlos a requisitos actuales y maximizar su rendimiento.
-                </p>
-              </div>
-              <div style={{ flex: 1.2, height: '100%', borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <img src={`${import.meta.env.BASE_URL}software_refactoring.png`} alt="Refactorización" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            </div>
-          </Card>
-
-          <Card customClass="software-security">
-            <div style={{ display: 'flex', gap: '40px', alignItems: 'center', height: '100%' }}>
-              <div style={{ flex: 1 }}>
-                <h3 style={{ fontSize: '2.4rem', color: 'var(--color-accent)', marginBottom: '20px' }}>SEGURIDAD Y PROTECCIÓN</h3>
-                <p style={{ fontSize: '1.15rem', color: '#ccc', lineHeight: '1.8' }}>
-                  Protegemos aplicaciones y datos frente a accesos no autorizados mediante prácticas de desarrollo seguro y controles de acceso continuos.
-                </p>
-              </div>
-              <div style={{ flex: 1.2, height: '100%', borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-                <img src={`${import.meta.env.BASE_URL}software_security.png`} alt="Seguridad" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-            </div>
-          </Card>
-        </CardSwap>
-      </section>
-
-      {/* ── Services Detail Grid ── */}
-      <section id="software-services" className="section-container">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
-          {features.map((feature, i) => (
-            <motion.div
-              key={i}
-              className="glass"
-              {...fadeInUp}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -10, border: `1px solid ${feature.color}` }}
-              style={{ padding: '50px 40px', borderRadius: '24px' }}
-            >
-              <div style={{ marginBottom: '25px' }}>{feature.icon}</div>
-              <h3 style={{ fontSize: '1.6rem', marginBottom: '15px', color: 'white' }}>{feature.title}</h3>
-              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.7' }}>{feature.description}</p>
-            </motion.div>
-          ))}
         </div>
       </section>
 
-      {/* ── Tech Stack / CTA Section ── */}
-      <section className="section-container" style={{ textAlign: 'center', paddingBottom: '120px' }}>
-        <motion.div 
-          {...fadeInUp}
-          style={{ maxWidth: '900px', margin: '0 auto' }}
-        >
-          <div className="glass" style={{ padding: '80px 50px', borderRadius: '30px', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '4px', background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent))' }}></div>
-            
-            <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>¿Tienes un proyecto en mente?</h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', marginBottom: '40px' }}>
-              Nuestro equipo está listo para ayudarte a construir la próxima gran innovación tecnológica de tu empresa.
+      {/* ── Content Details ── */}
+      <section className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '50px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center', marginBottom: '100px' }}>
+          
+          <motion.div {...fadeInUp}>
+            <h2 style={{ fontSize: '2.8rem', marginBottom: '30px', color: 'white', fontWeight: 'bold' }}>
+              Transformamos ideas en <span style={{ color: 'var(--color-primary)' }}>soluciones</span> funcionales
+            </h2>
+            <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.9', marginBottom: '30px' }}>
+              Este proceso utiliza lenguajes de programación y metodologías especializadas para convertir conceptos en herramientas poderosas. Resolvemos problemas operativos, optimizamos procesos internos y mejoramos drásticamente la experiencia del usuario final.
             </p>
             
-            <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 140, 0, 0.4)' }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => onNavigate('home')}
-                style={{
-                  padding: '18px 50px',
-                  background: 'var(--color-secondary)',
-                  borderRadius: '50px',
-                  color: 'white',
-                  fontWeight: 'bold',
-                  fontSize: '1.1rem',
-                  border: 'none',
-                  cursor: 'pointer'
-                }}
-              >
-                Solicitar Cotización Free
-              </motion.button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
+                <div style={{ padding: '12px', background: 'rgba(0,180,255,0.1)', borderRadius: '12px', color: 'var(--color-accent)' }}><Cpu size={24} /></div>
+                <div>
+                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>Arquitectura Robusta</h4>
+                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Sistemas diseñados para escalar y soportar altas demandas comerciales.</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
+                <div style={{ padding: '12px', background: 'rgba(0,86,179,0.1)', borderRadius: '12px', color: 'var(--color-primary)' }}><Shield size={24} /></div>
+                <div>
+                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>Seguridad Integral</h4>
+                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Protección de datos y código construido bajo los mejores estándares de la industria.</p>
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
+                <div style={{ padding: '12px', background: 'rgba(255,140,0,0.1)', borderRadius: '12px', color: 'var(--color-secondary)' }}><Zap size={24} /></div>
+                <div>
+                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>Despliegue Rápido</h4>
+                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Metodologías ágiles que garantizan entregas eficientes y continuas.</p>
+                </div>
+              </div>
             </div>
+          </motion.div>
 
-            <div style={{ marginTop: '50px', display: 'flex', justifyContent: 'center', gap: '40px', opacity: 0.6 }}>
-               {/* Iconos de stack tecnológico como símbolos */}
-               <Terminal size={24} />
-               <Lock size={24} />
-               <Cpu size={24} />
-               <Zap size={24} />
-            </div>
+          <motion.div {...fadeInUp} style={{ position: 'relative' }}>
+             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', opacity: 0.2, filter: 'blur(50px)', zIndex: -1, borderRadius: '30px' }} />
+             <div className="glass" style={{ padding: '10px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)' }}>
+               <img 
+                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800" 
+                 alt="Código e Ingeniería de Software" 
+                 style={{ width: '100%', borderRadius: '20px', display: 'block' }} 
+               />
+             </div>
+          </motion.div>
+        </div>
+
+        {/* ── Specialized Services (CardSwap) ── */}
+        <div style={{ marginTop: '50px', position: 'relative', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+          <div style={{ order: window.innerWidth < 768 ? 2 : 1 }}>
+            <CardSwap width={window.innerWidth < 768 ? 320 : 500} height={window.innerWidth < 768 ? 380 : 450} delay={6000}>
+              <Card>
+                <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt="Ingeniería" />
+                <div className="card-content">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                    <Terminal size={20} color="var(--color-primary)" />
+                    <h3 style={{ margin: 0 }}>Ingeniería de Software</h3>
+                  </div>
+                  <p>Desarrollo integral de proyectos tecnológicos con recursos y perfiles altamente especializados.</p>
+                </div>
+              </Card>
+              <Card>
+                <img src={`${import.meta.env.BASE_URL}software_refactoring.png`} alt="Refactoring" />
+                <div className="card-content">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                    <RefreshCw size={20} color="var(--color-primary)" />
+                    <h3 style={{ margin: 0 }}>Refactorización</h3>
+                  </div>
+                  <p>Transformamos sistemas heredados para disminuir riesgos operativos y maximizar el rendimiento.</p>
+                </div>
+              </Card>
+              <Card>
+                <img src={`${import.meta.env.BASE_URL}software_security.png`} alt="Seguridad" />
+                <div className="card-content">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                    <Lock size={20} color="var(--color-primary)" />
+                    <h3 style={{ margin: 0 }}>Seguridad y Protección</h3>
+                  </div>
+                  <p>Prácticas de desarrollo seguro y pruebas continuas para asegurar la integridad de la información.</p>
+                </div>
+              </Card>
+            </CardSwap>
           </div>
-        </motion.div>
+
+          <motion.div {...fadeInUp} style={{ order: window.innerWidth < 768 ? 1 : 2 }}>
+            <div style={{ padding: '8px 16px', background: 'rgba(255,140,0,0.1)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', marginBottom: '20px', color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '0.9rem', width: 'fit-content' }}>
+              SERVICIOS ESPECIALIZADOS
+            </div>
+            <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>Nuestra <span style={{ color: 'var(--color-secondary)' }}>Experiencia</span></h2>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+              <div>
+                <h4 style={{ color: 'white', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <Terminal size={18} /> INGENIERÍA DE SOFTWARE
+                </h4>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
+                  Nos especializamos en el desarrollo integral de proyectos tecnológicos, ofreciendo recursos, experiencia y perfiles altamente especializados.
+                </p>
+              </div>
+              <div>
+                <h4 style={{ color: 'white', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <RefreshCw size={18} /> ACTUALIZACIÓN / REFACTORIZACIÓN
+                </h4>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
+                  Transformamos sistemas heredados para disminuir riesgos operativos, adaptarlos a requisitos actuales y maximizar su rendimiento.
+                </p>
+              </div>
+              <div>
+                <h4 style={{ color: 'white', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <Lock size={18} /> SEGURIDAD Y PROTECCIÓN
+                </h4>
+                <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
+                  La seguridad del software consiste en proteger aplicaciones y datos frente a accesos no autorizados mediante prácticas de desarrollo seguro y pruebas continuas.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ padding: '60px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)' }}>
+      <footer style={{ padding: '60px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', position: 'relative', zIndex: 10 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px', marginBottom: '60px', color: 'var(--color-text-muted)' }}>
           {/* Column 1: Contáctanos */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>

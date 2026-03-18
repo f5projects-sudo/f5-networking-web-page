@@ -599,6 +599,7 @@ const App = () => {
       `}</style>
 
       {/* ElevenLabs Conversational AI Widget */}
+      <elevenlabs-convai agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
     </div>
   );
 };

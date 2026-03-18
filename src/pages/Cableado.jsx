@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Network, Cpu, Shield, Zap, Info } from 'lucide-react';
 import DecryptedText from '../components/DecryptedText';
 import ScrambledText from '../components/ScrambledText';
+import DataCenterFloorPlan from '../components/DataCenterFloorPlan';
 import MapFooter from '../components/MapFooter';
 import Navbar from '../components/Navbar';
 
@@ -124,7 +125,7 @@ export default function Cableado({ onNavigate }) {
               className="glass"
               style={{ padding: '20px', borderRadius: '24px', position: 'relative' }}
             >
-              <div style={{ position: 'absolute', inset: -1, background: 'linear-gradient(45deg, var(--color-secondary), transparent)', borderRadius: '24px', zIZndex: -1, opacity: 0.3 }} />
+              <div style={{ position: 'absolute', inset: -1, background: 'linear-gradient(45deg, var(--color-secondary), transparent)', borderRadius: '24px', zIndex: -1, opacity: 0.3 }} />
               <img 
                 src={`${import.meta.env.BASE_URL}cableado_hero.png`} 
                 alt="Infraestructura de Red" 
@@ -133,6 +134,22 @@ export default function Cableado({ onNavigate }) {
             </motion.div>
           </div>
         </div>
+      </section>
+
+      {/* ── Maqueta Interactiva Section ── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '40px 0' }}>
+        <div className="section-container">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: '20px' }}
+          >
+            <h3 style={{ color: 'var(--color-secondary)', fontSize: '1rem', letterSpacing: '3px', fontWeight: 'bold' }}>SISTEMA INTERACTIVO</h3>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Visualización de Servidores y Redes LAN</p>
+          </motion.div>
+        </div>
+        <DataCenterFloorPlan />
       </section>
 
       {/* ── Core Value Section ── */}

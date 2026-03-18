@@ -122,41 +122,41 @@ export default function Echo({ onNavigate }) {
 
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="glass"
+              viewport={{ once: true }}
               style={{ 
-                padding: '40px', 
-                borderRadius: '24px', 
                 position: 'relative',
-                background: 'linear-gradient(135deg, rgba(26,26,26,0.8), rgba(10,10,10,0.9))',
-                border: '1px solid rgba(255,255,255,0.1)'
+                borderRadius: '24px',
+                overflow: 'hidden',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 180, 255, 0.2)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                background: 'rgba(26, 26, 26, 0.8)',
+                backdropFilter: 'blur(10px)'
               }}
             >
-              <div style={{ display: 'flex', gap: '10px', marginBottom: '25px' }}>
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
-                <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
+              <div style={{ padding: '15px 20px', background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: '8px' }}>
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ff5f56' }}></div>
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' }}></div>
+                <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#27c93f' }}></div>
               </div>
+              <img 
+                src={`${import.meta.env.BASE_URL}echo_crm_mockup.png`} 
+                alt="ECHO CRM Preview" 
+                style={{ 
+                  width: '100%', 
+                  height: 'auto', 
+                  display: 'block',
+                  opacity: 0.95
+                }} 
+              />
               
-              <div style={{ display: 'flex', gap: '20px', height: '300px' }}>
-                <div style={{ width: '80px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px' }}></div>
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                  <div style={{ height: '20px', width: '60%', background: 'rgba(255,255,255,0.1)', borderRadius: '4px' }}></div>
-                  <div style={{ height: '40px', width: '100%', background: 'rgba(0,180,255,0.1)', borderRadius: '8px', border: '1px solid rgba(0,180,255,0.2)' }}></div>
-                  <div style={{ flex: 1, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
-                    <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '8px' }}></div>
-                    <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: '8px' }}></div>
-                  </div>
-                </div>
-              </div>
-
               <motion.div 
-                style={{ position: 'absolute', top: '-20px', right: '-20px', padding: '15px', borderRadius: '12px', background: 'rgba(0,180,255,0.2)', backdropFilter: 'blur(10px)', border: '1px solid var(--color-accent)' }}
-                animate={{ y: [0, -10, 0] }}
+                style={{ position: 'absolute', top: '10px', right: '10px', padding: '12px', borderRadius: '12px', background: 'rgba(0,180,255,0.3)', backdropFilter: 'blur(10px)', border: '1px solid var(--color-accent)', zIndex: 20 }}
+                animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <Zap size={24} color="var(--color-accent)" />
+                <Zap size={20} color="var(--color-accent)" />
               </motion.div>
             </motion.div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Network, Cpu, Shield, Zap, Info } from 'lucide-react';
+import { ChevronDown, Network, Cpu, Shield, Zap, Info, Server, Settings, Tag, LayoutDashboard, ShieldCheck } from 'lucide-react';
 import DecryptedText from '../components/DecryptedText';
 import ScrambledText from '../components/ScrambledText';
 import DataCenterFloorPlan from '../components/DataCenterFloorPlan';
@@ -150,6 +150,104 @@ export default function Cableado({ onNavigate }) {
           </motion.div>
         </div>
         <DataCenterFloorPlan />
+      </section>
+
+      {/* ── Rack Organization Section ── */}
+      <section className="section-container" style={{ padding: '100px 0', position: 'relative', zIndex: 10 }}>
+        <motion.div 
+          {...fadeInUp}
+          style={{ textAlign: 'center', marginBottom: '70px' }}
+        >
+          <h2 style={{ fontSize: '2.8rem', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
+            Organizamos y montamos racks de forma <span className="gradient-text-secondary">clara y funcional</span>
+          </h2>
+          <div style={{ width: '80px', height: '4px', background: 'linear-gradient(90deg, var(--color-secondary), transparent)', margin: '0 auto' }}></div>
+        </motion.div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+          {[
+            { icon: <Network size={32} />, title: "Switches de red", desc: "Instalación, configuración y optimización de switches de alta capacidad." },
+            { icon: <ShieldCheck size={32} />, title: "Seguridad con Fortinet", desc: "Implementación de firewalls y soluciones de seguridad perimetral líderes en el mercado." },
+            { icon: <Server size={32} />, title: "Charola tipo charofil", desc: "Canalización profesional y ordenada para la protección física de tu cableado." },
+            { icon: <Settings size={32} />, title: "Patch Panels", desc: "Terminación técnica y administración eficiente de todos los puntos de red." },
+            { icon: <LayoutDashboard size={32} />, title: "Gestión Profesional", desc: "Organización exhaustiva horizontal y vertical para un mantenimiento sencillo." },
+            { icon: <Tag size={32} />, title: "Sistemas de Etiquetado", desc: "Identificación lógica rigurosa de cada cable y puerto para diagnóstico rápido." }
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className="glass"
+              style={{ 
+                padding: '35px', 
+                borderRadius: '24px', 
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '15px',
+                border: '1px solid rgba(255,255,255,0.05)'
+              }}
+              whileHover={{ 
+                y: -10,
+                borderColor: 'rgba(255, 140, 0, 0.3)',
+                backgroundColor: 'rgba(255, 140, 0, 0.02)'
+              }}
+              {...fadeInUp}
+              transition={{ delay: i * 0.1 }}
+            >
+              {/* Glow effect overlay */}
+              <motion.div 
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  background: 'radial-gradient(circle at center, rgba(255,140,0,0.1), transparent 70%)',
+                  opacity: 0,
+                  zIndex: 0,
+                  pointerEvents: 'none'
+                }}
+                whileHover={{ opacity: 1 }}
+              />
+              
+              <div style={{ 
+                color: 'var(--color-secondary)', 
+                background: 'rgba(255,140,0,0.1)',
+                width: '60px',
+                height: '60px',
+                borderRadius: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: '10px',
+                position: 'relative',
+                zIndex: 1
+              }}>
+                {item.icon}
+              </div>
+              
+              <h3 style={{ color: 'white', fontSize: '1.4rem', fontWeight: 'bold', position: 'relative', zIndex: 1 }}>{item.title}</h3>
+              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6', fontSize: '0.95rem', position: 'relative', zIndex: 1 }}>{item.desc}</p>
+              
+              {/* Bottom indicator */}
+              <div style={{ 
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                width: '0%',
+                height: '3px',
+                background: 'var(--color-secondary)',
+                transition: 'width 0.3s ease'
+              }} className="hover-line" />
+            </motion.div>
+          ))}
+        </div>
+        
+        <style>{`
+          .glass:hover .hover-line {
+            width: 100%;
+          }
+        `}</style>
       </section>
 
       {/* ── Core Value Section ── */}

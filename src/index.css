@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  --color-primary: #0056b3;
+  --color-secondary: #ff8c00;
+  --color-accent: #00d4ff;
+  --color-background: #050505;
+  --color-surface: #121212;
+  --color-text: #f8f9fa;
+  --color-text-muted: #adb5bd;
+  --font-main: 'Inter', sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition-smooth);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+/* ── Brand marquee ── */
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 12s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  padding: 14px 60px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.25);
+  white-space: nowrap;
+  transition: color 0.3s;
+  text-transform: uppercase;
+}
+
+.marquee-item:hover {
+  color: var(--color-accent);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Navigation Link Hover Effects */
+.nav-link {
+  position: relative;
+  color: var(--color-text);
+  font-weight: 500;
+  padding-bottom: 5px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Navigation Dropdown */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  height: fit-content; /* Ensure it doesn't stretch vertically in the flex container */
+}
+
+.nav-dropdown-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 260px;
+  padding: 10px 0;
+  z-index: 1000;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 5px;
+  pointer-events: none; /* Prevent accidental hover hits when hidden */
+}
+
+.nav-dropdown.active .nav-dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto; /* Re-enable pointer events when active */
+}
+
+/* Removed bridge temporarily to exclude it as a culprit for over-sensitivity */
+
+
+
+
+/* Force maximum contrast for dropdown items */
+.nav-dropdown .nav-dropdown-content span,
+.nav-dropdown .nav-dropdown-content a,
+.nav-dropdown-content span,
+.nav-dropdown-content a {
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  cursor: pointer;
+}
+
+.nav-dropdown-content.glass {
+  background: rgba(10, 10, 10, 0.95) !important; /* Darker background for better contrast */
+  backdrop-filter: blur(20px);
+}
+
+.nav-dropdown-content span:hover,
+.nav-dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--color-accent) !important;
+  padding-left: 25px;
+}
+
+.nav-dropdown-content a.active,
+.nav-dropdown-content span.active {
+  color: var(--color-accent);
+  background-color: rgba(255,255,255,0.05);
+}
+
+.nav-dropdown-content a:hover,
+.nav-dropdown-content span:hover {
+  background-color: rgba(255,255,255,0.05);
+  color: var(--color-accent);
+  padding-left: 25px;
+}
+
+/* ─── Neon Buttons — ElevenLabs Style ─────────────────── */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-spin {
+  to { --border-angle: 360deg; }
+}
+
+@keyframes btn-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+.btn-neon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 44px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: white;
+  /* 2px transparent border = "lane" where the rotating light shows */
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  cursor: pointer;
+  overflow: visible;
+  transition: transform 0.2s ease, filter 0.2s ease;
+  z-index: 0;
+}
+
+/* Rotating light layer — sits just outside button edges (the border region) */
+.btn-neon::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.btn-neon:hover {
+  filter: brightness(1.2);
+  transform: translateY(-6px) scale(1.04);
+}
+
+.btn-neon:active {
+  transform: scale(0.97);
+}
+
+.btn-neon-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+/* ── WhatsApp — bright green body + green traveling border ── */
+.btn-neon-whatsapp {
+  background: linear-gradient(135deg, #1db954 0%, #25D366 55%, #12b35a 100%);
+  box-shadow:
+    0 0 12px rgba(37,211,102,0.45),
+    0 0 30px rgba(37,211,102,0.2);
+  animation: border-spin 2.4s linear infinite,
+             btn-float 3.5s ease-in-out infinite;
+}
+
+.btn-neon-whatsapp::before {
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent      0%,
+    transparent     68%,
+    rgba(120,255,180,0.3) 78%,
+    rgba(200,255,220,0.9) 88%,
+    white                 93%,
+    rgba(200,255,220,0.9) 97%,
+    transparent    100%
+  );
+}
+
+/* ── Email — bright blue body + blue traveling border ── */
+.btn-neon-email {
+  background: linear-gradient(135deg, #0068d6 0%, #0090ff 55%, #00aaff 100%);
+  box-shadow:
+    0 0 12px rgba(0,144,255,0.45),
+    0 0 30px rgba(0,144,255,0.2);
+  animation: border-spin 2.4s linear infinite 0.7s,
+             btn-float 3.5s ease-in-out infinite 1s;
+}
+
+.btn-neon-email::before {
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent      0%,
+    transparent     68%,
+    rgba(150,210,255,0.3) 78%,
+    rgba(200,230,255,0.9) 88%,
+    white                 93%,
+    rgba(200,230,255,0.9) 97%,
+    transparent    100%
+  );
+}

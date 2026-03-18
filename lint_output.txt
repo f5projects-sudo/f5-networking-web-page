@@ -1,0 +1,35 @@
+
+> f5-networking---web-page@0.0.0 lint
+> eslint .
+
+
+C:\Users\javie\Desktop\F5 Networking - Web Page\src\components\BubbleBackground.jsx
+   14:5  warning  Compilation Skipped: Inline `class` declarations are not supported
+
+Move class declarations outside of components/hooks.
+
+  12 |     const colors = ['#0056b3', '#ff8c00', '#00d4ff', '#ffffff'];
+  13 |
+> 14 |     class Particle {
+     |     ^^^^^^^^^^^^^^^^
+> 15 |         constructor(x, y) {
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 16 |             this.x = x;
+     …
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 75 |         }
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 76 |     }
+     | ^^^^^^ Inline `class` declarations are not supported
+  77 |
+  78 |     const init = () => {
+  79 |         particles.current = [];
+
+  react-hooks/unsupported-syntax
+  152:8  warning  React Hook useEffect has missing dependencies: 'animate', 'explode', and 'init'. Either include them or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+
+C:\Users\javie\Desktop\F5 Networking - Web Page\src\components\IndustryAgents.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+✖ 3 problems (1 error, 2 warnings)
+

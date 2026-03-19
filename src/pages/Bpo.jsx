@@ -129,7 +129,7 @@ export default function Bpo({ onNavigate }) {
 
   // Transformaciones para el Contenido (Títulos, Texto)
   const contentOpacity = useTransform(smoothProgress, [0.55, 0.75], [0, 1]);
-  const contentY = useTransform(smoothProgress, [0.55, 0.75], [50, 0]);
+  const contentY = useTransform(smoothProgress, [0.55, 0.75], [20, 0]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -231,7 +231,7 @@ export default function Bpo({ onNavigate }) {
             <Headset size={24} /> BPO SERVICES
           </motion.div>
 
-          <div className="section-container" style={{ position: 'relative', zIndex: 20, width: '100%' }}>
+          <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '0 40px', display: 'flex', justifyContent: 'flex-start' }}>
             <motion.div 
               style={{ 
                 maxWidth: '850px',
@@ -266,7 +266,7 @@ export default function Bpo({ onNavigate }) {
                 fontSize: '1.25rem', 
                 color: 'rgba(255,255,255,0.7)', 
                 lineHeight: '1.8', 
-                marginBottom: '50px',
+                marginBottom: '40px',
                 maxWidth: '650px',
                 textShadow: '0 2px 10px rgba(0,0,0,0.3)'
               }}>
@@ -277,13 +277,13 @@ export default function Bpo({ onNavigate }) {
                 <motion.button 
                   className="btn-neon"
                   style={{
-                    padding: '18px 45px',
+                    padding: '16px 40px',
                     background: 'var(--color-secondary)',
                     border: 'none',
                     color: 'white',
                     borderRadius: '50px',
                     fontWeight: 'bold',
-                    fontSize: '1.2rem',
+                    fontSize: '1.1rem',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',

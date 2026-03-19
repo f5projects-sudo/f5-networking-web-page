@@ -144,7 +144,7 @@ export default function NovaCore({ onNavigate }) {
       {/* ── Intro / What sets us apart ── */}
       <section id="nova-features" className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '100px' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>¿QUÉ NOS <span className="gradient-text">CARACTERIZA?</span></h2>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '15px' }}>¿QUÉ NOS <span className="gradient-text">CARACTERIZA?</span></h2>
           <div style={{ width: '80px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
         </motion.div>
 
@@ -227,8 +227,8 @@ export default function NovaCore({ onNavigate }) {
 
       {/* ── CTA / Other Services ── */}
       <section id="nova-cta" className="section-container" style={{ textAlign: 'center', paddingBottom: '100px', position: 'relative', zIndex: 10 }}>
-        <motion.div {...fadeInUp} className="glass" style={{ padding: '60px', borderRadius: '30px', maxWidth: '800px', margin: '0 auto' }}>
-          <h3 style={{ fontSize: '2.5rem', marginBottom: '30px', color: 'white' }}>¡Conoce nuestros <span className="gradient-text">otros servicios!</span></h3>
+        <motion.div {...fadeInUp} className="glass" style={{ padding: 'clamp(30px, 5vw, 60px)', borderRadius: '30px', maxWidth: '800px', margin: '0 auto' }}>
+          <h3 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '30px', color: 'white' }}>¡Conoce nuestros <span className="gradient-text">otros servicios!</span></h3>
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 140, 0, 0.5)' }}
             whileTap={{ scale: 0.95 }}

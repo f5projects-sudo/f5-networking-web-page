@@ -212,9 +212,9 @@ export default function Equipamiento({ onNavigate }) {
       </section>
 
       {/* ── Human Optimization Section ── */}
-      <section style={{ padding: '140px 5%', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: 'clamp(80px, 15vw, 140px) 5%', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
-           <div className="glass" style={{ padding: '80px', borderRadius: '50px', border: '1px solid rgba(255,140,0,0.1)', textAlign: 'center', background: 'rgba(255,140,0,0.03)' }}>
+           <div className="glass cta-glass-card" style={{ padding: '80px', borderRadius: '50px', border: '1px solid rgba(255,140,0,0.1)', textAlign: 'center', background: 'rgba(255,140,0,0.03)' }}>
               <Zap size={60} color="var(--color-secondary)" style={{ marginBottom: '30px', margin: '0 auto' }} />
               <h2 style={{ fontSize: '3.5rem', fontWeight: '900', letterSpacing: '-2px', marginBottom: '30px' }}>
                 EXPERIENCIA QUE <br /> <span className="gradient-text">INSPIRA</span>

@@ -332,7 +332,7 @@ export default function Pbx({ onNavigate }) {
         position: 'relative', 
         overflow: 'hidden', 
         zIndex: 10, 
-        padding: '140px 0 80px' 
+        padding: 'clamp(100px, 15vw, 140px) 0 80px' 
       }}>
         {/* Background Hero Image */}
         <div style={{ 
@@ -648,11 +648,12 @@ export default function Pbx({ onNavigate }) {
       </section>
 
       {/* ── SMS Section ── */}
-      <section style={{ padding: '120px 0', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: 'clamp(60px, 12vw, 120px) 0', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
           <TiltCard 
+            className="cta-glass-card"
             style={{ 
-              padding: '60px', 
+              padding: 'clamp(30px, 8vw, 60px)', 
               borderRadius: '40px', 
               background: 'rgba(255,255,255,0.01)',
               border: 'none'
@@ -660,7 +661,9 @@ export default function Pbx({ onNavigate }) {
             spotlightColor="rgba(0,212,255,0.12)"
             {...fadeInUp}
           >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
+            <div 
+              className="pbx-sms-grid"
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
               <div>
                 <div style={{ color: 'var(--color-accent)', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '20px' }}>
                   <MessageSquare size={50} strokeWidth={1.5} />

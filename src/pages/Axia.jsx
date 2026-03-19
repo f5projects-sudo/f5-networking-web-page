@@ -55,13 +55,13 @@ export default function Axia({ onNavigate }) {
         </video>
         {/* Eliminado el contenedor glass y textos superpuestos para dar protagonismo total al video */}
         <div style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
-           <motion.button
+            <motion.button
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(0, 180, 255, 0.5)' }}
             whileTap={{ scale: 0.95 }}
-            style={{ padding: '16px 40px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(10px)', border: '1px solid var(--color-accent)', borderRadius: '50px', color: 'white', fontWeight: 'bold', fontSize: '1.2rem', cursor: 'pointer' }}
+            style={{ padding: '12px 30px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(10px)', border: '1px solid var(--color-accent)', borderRadius: '50px', color: 'white', fontWeight: 'bold', fontSize: '1rem', cursor: 'pointer' }}
             onClick={() => {
               const featuresSection = document.getElementById('axia-features');
               if(featuresSection) featuresSection.scrollIntoView({ behavior: 'smooth' });
@@ -75,7 +75,7 @@ export default function Axia({ onNavigate }) {
       {/* ── Features Section ── */}
       <section id="axia-features" className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '3rem', marginBottom: '15px' }}>Potencia tu Negocio con <span className="gradient-text">AXIA</span>, nuestros Asistentes virtuales para tu negocio</h2>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '15px' }}>Potencia tu Negocio con <span className="gradient-text">AXIA</span>, nuestros Asistentes virtuales para tu negocio</h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
         </motion.div>
 
@@ -126,7 +126,7 @@ export default function Axia({ onNavigate }) {
       {/* ── Interactive Workflow Section ── */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10, paddingBottom: '60px' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>¿Cómo funciona nuestro <span className="gradient-text">Agente IA?</span></h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', marginBottom: '15px' }}>¿Cómo funciona nuestro <span className="gradient-text">Agente IA?</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '20px auto 0', lineHeight: '1.6' }}>
             Observa en tiempo real cómo AXIA procesa la información, toma decisiones inteligentes y ejecuta acciones a través de tus herramientas empresariales favoritas.
@@ -139,7 +139,7 @@ export default function Axia({ onNavigate }) {
       {/* ── Multi-Industry Agents Section ── */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10, paddingBottom: '80px' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Tu aliado en <span className="gradient-text">múltiples industrias</span></h2>
+          <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', marginBottom: '15px' }}>Tu aliado en <span className="gradient-text">múltiples industrias</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '700px', margin: '20px auto 0', lineHeight: '1.6' }}>
             Nuestros agentes de IA están diseñados para adaptarse a las necesidades específicas de tu sector, optimizando procesos y elevando la experiencia de tus usuarios.
@@ -151,8 +151,8 @@ export default function Axia({ onNavigate }) {
 
       {/* ── CTA Section ── */}
       <section className="section-container" style={{ textAlign: 'center', paddingBottom: '100px', position: 'relative', zIndex: 10 }}>
-        <motion.div {...fadeInUp} className="glass" style={{ padding: '60px', borderRadius: '30px', maxWidth: '800px', margin: '0 auto', background: 'linear-gradient(135deg, rgba(0,86,179,0.1), rgba(0,180,255,0.05)) border-box' }}>
-          <h3 style={{ fontSize: '2.5rem', marginBottom: '20px', color: 'white' }}>Revoluciona tu <span className="gradient-text">Atención al Cliente</span></h3>
+        <motion.div {...fadeInUp} className="glass" style={{ padding: 'clamp(20px, 5vw, 60px)', borderRadius: '30px', maxWidth: '800px', margin: '0 auto', background: 'linear-gradient(135deg, rgba(0,86,179,0.1), rgba(0,180,255,0.05)) border-box' }}>
+          <h3 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '20px', color: 'white' }}>Revoluciona tu <span className="gradient-text">Atención al Cliente</span></h3>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', marginBottom: '40px' }}>Contacta a nuestro equipo de expertos para una demostración personalizada.</p>
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 140, 0, 0.5)' }}

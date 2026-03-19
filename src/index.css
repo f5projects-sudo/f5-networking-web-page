@@ -62,6 +62,16 @@ button {
   padding: 80px 20px;
 }
 
+@media (max-width: 768px) {
+  .section-container {
+    padding: 60px 15px;
+  }
+  
+  h1 { font-size: 2.5rem !important; }
+  h2 { font-size: 1.8rem !important; }
+  h3 { font-size: 1.4rem !important; }
+}
+
 /* ── Brand marquee ── */
 @keyframes marquee-scroll {
   0%   { transform: translateX(0); }
@@ -157,7 +167,7 @@ button {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  height: fit-content; /* Ensure it doesn't stretch vertically in the flex container */
+  height: fit-content;
 }
 
 .nav-dropdown-content {
@@ -176,22 +186,16 @@ button {
   visibility: hidden;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: 5px;
-  pointer-events: none; /* Prevent accidental hover hits when hidden */
+  pointer-events: none;
 }
 
 .nav-dropdown.active .nav-dropdown-content {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
-  pointer-events: auto; /* Re-enable pointer events when active */
+  pointer-events: auto;
 }
 
-/* Removed bridge temporarily to exclude it as a culprit for over-sensitivity */
-
-
-
-
-/* Force maximum contrast for dropdown items */
 .nav-dropdown .nav-dropdown-content span,
 .nav-dropdown .nav-dropdown-content a,
 .nav-dropdown-content span,
@@ -209,7 +213,7 @@ button {
 }
 
 .nav-dropdown-content.glass {
-  background: rgba(10, 10, 10, 0.95) !important; /* Darker background for better contrast */
+  background: rgba(10, 10, 10, 0.95) !important;
   backdrop-filter: blur(20px);
 }
 
@@ -217,19 +221,6 @@ button {
 .nav-dropdown-content a:hover {
   background-color: rgba(255, 255, 255, 0.1) !important;
   color: var(--color-accent) !important;
-  padding-left: 25px;
-}
-
-.nav-dropdown-content a.active,
-.nav-dropdown-content span.active {
-  color: var(--color-accent);
-  background-color: rgba(255,255,255,0.05);
-}
-
-.nav-dropdown-content a:hover,
-.nav-dropdown-content span:hover {
-  background-color: rgba(255,255,255,0.05);
-  color: var(--color-accent);
   padding-left: 25px;
 }
 
@@ -259,84 +250,27 @@ button {
   font-weight: 700;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  text-decoration: none;
   color: white;
-  /* 2px transparent border = "lane" where the rotating light shows */
   border: 2px solid transparent;
   background-clip: padding-box;
   cursor: pointer;
-  overflow: visible;
   transition: transform 0.2s ease, filter 0.2s ease;
   z-index: 0;
 }
 
-/* Rotating light layer — sits just outside button edges (the border region) */
 .btn-neon::before {
   content: '';
   position: absolute;
   inset: -2px;
   border-radius: inherit;
   z-index: -1;
+  background: conic-gradient(from var(--border-angle), transparent 0%, transparent 68%, rgba(0,180,255,0.3) 78%, rgba(0,212,255,0.9) 88%, white 93%, rgba(0,212,255,0.9) 97%, transparent 100%);
+  animation: border-spin 2.4s linear infinite;
 }
 
 .btn-neon:hover {
   filter: brightness(1.2);
   transform: translateY(-6px) scale(1.04);
-}
-
-.btn-neon:active {
-  transform: scale(0.97);
-}
-
-.btn-neon-icon {
-  font-size: 1.3rem;
-  line-height: 1;
-}
-
-/* ── WhatsApp — bright green body + green traveling border ── */
-.btn-neon-whatsapp {
-  background: linear-gradient(135deg, #1db954 0%, #25D366 55%, #12b35a 100%);
-  box-shadow:
-    0 0 12px rgba(37,211,102,0.45),
-    0 0 30px rgba(37,211,102,0.2);
-  animation: border-spin 2.4s linear infinite,
-             btn-float 3.5s ease-in-out infinite;
-}
-
-.btn-neon-whatsapp::before {
-  background: conic-gradient(
-    from var(--border-angle),
-    transparent      0%,
-    transparent     68%,
-    rgba(120,255,180,0.3) 78%,
-    rgba(200,255,220,0.9) 88%,
-    white                 93%,
-    rgba(200,255,220,0.9) 97%,
-    transparent    100%
-  );
-}
-
-/* ── Email — bright blue body + blue traveling border ── */
-.btn-neon-email {
-  background: linear-gradient(135deg, #0068d6 0%, #0090ff 55%, #00aaff 100%);
-  box-shadow:
-    0 0 12px rgba(0,144,255,0.45),
-    0 0 30px rgba(0,144,255,0.2);
-  animation: border-spin 2.4s linear infinite 0.7s,
-             btn-float 3.5s ease-in-out infinite 1s;
-}
-
-.btn-neon-email::before {
-  background: conic-gradient(
-    from var(--border-angle),
-    transparent      0%,
-    transparent     68%,
-    rgba(150,210,255,0.3) 78%,
-    rgba(200,230,255,0.9) 88%,
-    white                 93%,
-    rgba(200,230,255,0.9) 97%,
-    transparent    100%
-  );
 }
 
 /* ── Premium Contact Buttons ────────────────────────── */
@@ -364,7 +298,6 @@ button {
   font-weight: 700;
   font-size: 1.1rem;
   color: white;
-  text-decoration: none;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -372,53 +305,170 @@ button {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.contact-button-inner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, var(--btn-color-1), var(--btn-color-2));
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: -1;
+.btn-whatsapp-premium { --btn-color-1: #25D366; --btn-color-2: #128C7E; --btn-shadow-color: rgba(37, 211, 102, 0.3); }
+.btn-email-premium { --btn-color-1: #0090ff; --btn-color-2: #0056b3; --btn-shadow-color: rgba(0, 144, 255, 0.3); }
+
+.nav-links-desktop {
+  display: flex;
+  gap: 30px;
+  align-items: center;
 }
 
-.contact-button-inner:hover {
-  transform: translateY(-5px);
-  border-color: var(--btn-color-1);
-  box-shadow: 0 20px 40px var(--btn-shadow-color);
+/* ── Mobile Navigation ────────────────────────── */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  z-index: 1001;
 }
 
-.contact-button-inner:hover::before {
-  opacity: 0.15;
+.nav-menu-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
 }
 
-.contact-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 150%;
-  height: 150%;
-  background: radial-gradient(circle, var(--btn-color-1) 0%, transparent 70%);
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  pointer-events: none;
-  z-index: -2;
+.nav-menu-mobile.active {
+  right: 0;
 }
 
-.contact-button-inner:hover ~ .contact-glow {
-  transform: translate(-50%, -50%) scale(1);
-  opacity: 0.3;
+/* ── Global Widget Override ── */
+elevenlabs-convai {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
 }
 
-.btn-whatsapp-premium {
-  --btn-color-1: #25D366;
-  --btn-color-2: #128C7E;
-  --btn-shadow-color: rgba(37, 211, 102, 0.3);
+/* ── RESPONSIVE OVERRIDES ────────────────────────── */
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none !important;
+  }
+  
+  .mobile-menu-toggle {
+    display: block !important;
+  }
+  
+  .contact-grid {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-button-wrapper, .contact-button-inner {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .timeline-line {
+    display: none !important;
+  }
+  
+  .methodology-step {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  
+  .methodology-step-reverse {
+    flex-direction: column !important;
+  }
+  
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .hide-desktop-flex {
+    display: flex !important;
+  }
+  
+  .bpo-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  .hero-cta-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .hero-cta-container button, .hero-cta-container a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .voxis-cognitive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+  }
+
+  .industry-tags-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cta-glass-card {
+    padding: clamp(30px, 8vw, 80px) clamp(20px, 5vw, 40px) !important;
+  }
+
+  /* Image & Alignment Fixes */
+  .methodology-title {
+    text-align: center !important;
+    margin-bottom: 20px !important;
+  }
+
+  .methodology-btn-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+
+  .methodology-image-container {
+    height: auto !important;
+    min-height: 250px !important;
+  }
+
+  .methodology-image-container img {
+    object-fit: contain !important;
+    background: #000;
+  }
+
+  .voxis-core-container {
+    transform: scale(0.65) !important;
+    height: 350px !important;
+    margin: -40px 0 !important;
+  }
+
+  .pbx-sms-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .cableado-floor-plan-section {
+    padding-top: 100px !important;
+  }
+
+  elevenlabs-convai {
+    bottom: 80px !important;
+    transform: scale(0.8) !important;
+    transform-origin: bottom right !important;
+  }
 }
 
-.btn-email-premium {
-  --btn-color-1: #0090ff;
-  --btn-color-2: #0056b3;
-  --btn-shadow-color: rgba(0, 144, 255, 0.3);
+@media (min-width: 769px) {
+  .hide-desktop-flex {
+    display: none !important;
+  }
 }

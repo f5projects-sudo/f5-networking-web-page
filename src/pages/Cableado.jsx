@@ -40,7 +40,7 @@ export default function Cableado({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="cableado" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: '120px 0 80px' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(100px, 15vw, 120px) 0 80px' }}>
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -85,15 +85,16 @@ export default function Cableado({ onNavigate }) {
               <div style={{ marginTop: '30px' }}>
                 <ScrambledText 
                   style={{ 
-                    fontSize: '1.2rem', 
+                    fontSize: 'clamp(1rem, 3vw, 1.2rem)', 
                     color: 'var(--color-text-muted)', 
                     lineHeight: '1.8', 
                     margin: '0', 
-                    maxWidth: '100%',
-                    fontFamily: 'inherit'
+                    maxWidth: '90%',
+                    fontFamily: 'inherit',
+                    display: 'block'
                   }}
                 >
-                  Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. No improvisamos: analizamos tu espacio, tus necesidades actuales y lo que vas a necesitar mañana.
+                  Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. Analizamos tu espacio y tus necesidades actuales.
                 </ScrambledText>
               </div>
 
@@ -143,7 +144,7 @@ export default function Cableado({ onNavigate }) {
       </section>
 
       {/* ── Maqueta Interactiva Section ── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '40px 0' }}>
+      <section className="cableado-floor-plan-section" style={{ position: 'relative', zIndex: 10, padding: '40px 0' }}>
         <div className="section-container">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -152,10 +153,14 @@ export default function Cableado({ onNavigate }) {
             style={{ textAlign: 'center', marginBottom: '20px' }}
           >
             <h3 style={{ color: 'var(--color-secondary)', fontSize: '1rem', letterSpacing: '3px', fontWeight: 'bold' }}>SISTEMA INTERACTIVO</h3>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Visualización de Servidores y Redes LAN</p>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>Visualización de Servidores y Redes LAN (Desliza para ver más)</p>
           </motion.div>
         </div>
-        <DataCenterFloorPlan />
+        <div style={{ width: '100%', overflowX: 'auto', paddingBottom: '20px', WebkitOverflowScrolling: 'touch' }}>
+          <div style={{ minWidth: '800px' }}>
+            <DataCenterFloorPlan />
+          </div>
+        </div>
       </section>
 
       {/* ── Rack Organization Section ── */}

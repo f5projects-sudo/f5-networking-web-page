@@ -108,7 +108,7 @@ export default function Desarrollo({ onNavigate }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center', marginBottom: '100px' }}>
           
           <motion.div {...fadeInUp}>
-            <h2 style={{ fontSize: '2.8rem', marginBottom: '30px', color: 'white', fontWeight: 'bold' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', marginBottom: '30px', color: 'white', fontWeight: 'bold' }}>
               Transformamos ideas en <span style={{ color: 'var(--color-primary)' }}>soluciones</span> funcionales
             </h2>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.9', marginBottom: '30px' }}>
@@ -153,7 +153,7 @@ export default function Desarrollo({ onNavigate }) {
         </div>
 
         {/* ── Specialized Services (CardSwap) ── */}
-        <div style={{ marginTop: '100px', paddingBottom: '100px', position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '100px', alignItems: 'center' }}>
+        <div className="specialized-services-grid" style={{ marginTop: '100px', paddingBottom: '100px', position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'center' }}>
           <div style={{ order: window.innerWidth < 768 ? 2 : 1, position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '550px', paddingRight: '40px' }}>
             <CardSwap width={window.innerWidth < 768 ? 320 : 500} height={window.innerWidth < 768 ? 380 : 450}>
               <Card>
@@ -193,7 +193,7 @@ export default function Desarrollo({ onNavigate }) {
             <div style={{ padding: '8px 16px', background: 'rgba(255,140,0,0.1)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', marginBottom: '20px', color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '0.9rem', width: 'fit-content' }}>
               SERVICIOS ESPECIALIZADOS
             </div>
-            <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>Nuestra <span style={{ color: 'var(--color-secondary)' }}>Experiencia</span></h2>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>Nuestra <span style={{ color: 'var(--color-secondary)' }}>Experiencia</span></h2>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
               <div>

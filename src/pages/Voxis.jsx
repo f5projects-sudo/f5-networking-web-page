@@ -59,7 +59,7 @@ const CapacityCard = ({ icon, title, desc, result, index }) => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="glass"
       style={{
-        padding: '50px',
+        padding: 'clamp(25px, 8vw, 50px)',
         borderRadius: '35px',
         background: 'rgba(255,255,255,0.02)',
         backdropFilter: 'blur(30px)',
@@ -269,13 +269,15 @@ export default function Voxis({ onNavigate }) {
             </h3>
           </motion.div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'minmax(300px, 0.8fr) 1.5fr minmax(300px, 0.8fr)', 
-            gap: '40px', 
-            alignItems: 'center',
-            position: 'relative'
-          }}>
+          <div 
+            className="voxis-cognitive-grid"
+            style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'minmax(300px, 0.8fr) 1.5fr minmax(300px, 0.8fr)', 
+              gap: '40px', 
+              alignItems: 'center',
+              position: 'relative'
+            }}>
             
             {/* Left HUD: Intent Analysis */}
             <motion.div
@@ -321,7 +323,9 @@ export default function Voxis({ onNavigate }) {
             </motion.div>
 
             {/* Central Neural Nexus Core */}
-            <div style={{ position: 'relative', height: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div 
+              className="voxis-core-container"
+              style={{ position: 'relative', height: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {/* Pulsing Spheres and Rings */}
               <motion.div 
                 animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
@@ -524,9 +528,9 @@ export default function Voxis({ onNavigate }) {
       </section>
 
       {/* ── Industries Section: Para quién es ── */}
-      <section style={{ padding: '160px 0', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: 'clamp(80px, 15vw, 160px) 0', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
-          <div style={{ gridTemplateColumns: '1fr 1.5fr', gap: '100px', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'center' }}>
             <motion.div {...fadeInUp}>
               <h2 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px' }}>
                 PARA QUIÉN ES <br /> <span className="gradient-text">VØXIS</span>
@@ -550,7 +554,9 @@ export default function Voxis({ onNavigate }) {
               </button>
             </motion.div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
+            <div 
+              className="industry-tags-grid"
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
               <IndustryTag icon={<Heart size={24} />} text="Clínicas y Salud" />
               <IndustryTag icon={<Home size={24} />} text="Inmobiliarias" />
               <IndustryTag icon={<Hotel size={24} />} text="Hotelería y Reservas" />

@@ -52,7 +52,7 @@ export default function Echo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="echo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: '120px 0 0' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(100px, 15vw, 120px) 0 0' }}>
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -180,7 +180,7 @@ export default function Echo({ onNavigate }) {
       </section>
 
       {/* ── Features Section ── */}
-      <section className="section-container" style={{ padding: '100px 0', position: 'relative', zIndex: 10 }}>
+      <section className="section-container" style={{ padding: 'clamp(60px, 12vw, 100px) 0', position: 'relative', zIndex: 10 }}>
         <motion.div 
           {...fadeInUp}
           style={{ textAlign: 'center', marginBottom: '70px' }}
@@ -270,7 +270,7 @@ export default function Echo({ onNavigate }) {
       </section>
 
       {/* ── Solución de CRM Omnicanal ── */}
-      <section className="section-container" style={{ padding: '120px 0', position: 'relative', zIndex: 10 }}>
+      <section className="section-container" style={{ padding: 'clamp(80px, 15vw, 120px) 0', position: 'relative', zIndex: 10 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '80px', alignItems: 'center' }}>
           <motion.div {...fadeInUp}>
             <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '30px', fontWeight: 'bold', lineHeight: '1.3' }}>
@@ -347,7 +347,7 @@ export default function Echo({ onNavigate }) {
       <section className="section-container" style={{ textAlign: 'center', padding: '120px 0', position: 'relative', zIndex: 10 }}>
         <motion.div 
           {...fadeInUp}
-          className="glass" 
+          className="glass cta-glass-card" 
           style={{ 
             padding: '80px 40px', 
             borderRadius: '40px', 

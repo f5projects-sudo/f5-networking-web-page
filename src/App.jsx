@@ -208,7 +208,7 @@ const App = () => {
           <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 30px' }}>
             Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.
           </p>
-          <div style={{ display: 'flex', gap: '20px' }}>
+          <div className="hero-cta-container" style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <motion.button 
               className="glass" 
               onClick={() => scrollTo('services')} 
@@ -503,7 +503,7 @@ const App = () => {
               fromLeft: false
             },
           ].map((step, i) => (
-            <div key={i} style={{
+            <div key={i} className={`methodology-step ${step.fromLeft ? '' : 'methodology-step-reverse'}`} style={{
               display: 'flex',
               flexDirection: step.fromLeft ? 'row' : 'row-reverse',
               gap: '40px',
@@ -515,6 +515,7 @@ const App = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
+                className="methodology-image-container"
                 style={{
                   flex: 1,
                   aspectRatio: '16/9',
@@ -569,8 +570,7 @@ const App = () => {
                   WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
                   marginBottom: '12px', opacity: 0.3
                 }}>{step.num}</div>
-                <h3 style={{ fontSize: '1.7rem', marginBottom: '16px', marginTop: '-10px' }}>{step.title}</h3>
-                <button onClick={() => setCurrentPage('axia')} className="btn-neon" style={{ marginTop: '20px' }}>Conocer AXIA</button>
+                <h3 className="methodology-title" style={{ fontSize: '1.7rem', marginBottom: '16px', marginTop: '-10px' }}>{step.title}</h3>
                 <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '20px' }}>{step.desc}</p>
                 <a href="#services" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',

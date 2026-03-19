@@ -28,43 +28,48 @@ const MethodologyStep = ({ id, title, desc, icon, color, delay, isEven }) => {
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={`methodology-step ${isEven ? 'methodology-step-reverse' : ''}`}
       style={{
         display: 'flex',
         flexDirection: isEven ? 'row-reverse' : 'row',
         alignItems: 'center',
-        gap: '60px',
-        marginBottom: '120px',
+        gap: 'clamp(30px, 5vw, 60px)',
+        marginBottom: 'clamp(60px, 10vw, 120px)',
         position: 'relative'
       }}
     >
       {/* Massive Background Number */}
-      <div style={{
-        position: 'absolute',
-        [isEven ? 'left' : 'right']: '-5%',
-        top: '50%',
-        transform: 'translateY(-50%)',
-        fontSize: 'clamp(10rem, 20vw, 18rem)',
-        fontWeight: '900',
-        color: 'transparent',
-        WebkitTextStroke: '1px rgba(255,255,255,0.05)',
-        zIndex: 0,
-        pointerEvents: 'none',
-        lineHeight: 1,
-        fontFamily: 'Inter, sans-serif'
-      }}>
+      <div 
+        className="hide-mobile"
+        style={{
+          position: 'absolute',
+          [isEven ? 'left' : 'right']: '-5%',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          fontSize: 'clamp(6rem, 15vw, 18rem)',
+          fontWeight: '900',
+          color: 'transparent',
+          WebkitTextStroke: '1px rgba(255,255,255,0.05)',
+          zIndex: 0,
+          pointerEvents: 'none',
+          lineHeight: 1,
+          fontFamily: 'Inter, sans-serif'
+        }}>
         {id}
       </div>
 
       {/* Connection Path Line */}
-      <div style={{
-        position: 'absolute',
-        [isEven ? 'right' : 'left']: '500px',
-        top: '50%',
-        width: '120px',
-        height: '1px',
-        background: `linear-gradient(to ${isEven ? 'right' : 'left'}, transparent, ${color}66, transparent)`,
-        zIndex: 1
-      }} />
+      <div 
+        className="hide-mobile"
+        style={{
+          position: 'absolute',
+          [isEven ? 'right' : 'left']: '500px',
+          top: '50%',
+          width: '120px',
+          height: '1px',
+          background: `linear-gradient(to ${isEven ? 'right' : 'left'}, transparent, ${color}66, transparent)`,
+          zIndex: 1
+        }} />
 
       {/* Content Card */}
       <motion.div
@@ -72,8 +77,9 @@ const MethodologyStep = ({ id, title, desc, icon, color, delay, isEven }) => {
         className="glass"
         style={{
           flex: '1',
+          width: '100%',
           maxWidth: '550px',
-          padding: '60px',
+          padding: 'clamp(25px, 5vw, 60px)',
           borderRadius: '40px',
           background: 'rgba(255,255,255,0.015)',
           backdropFilter: 'blur(40px)',
@@ -135,7 +141,9 @@ const MethodologyStep = ({ id, title, desc, icon, color, delay, isEven }) => {
       </motion.div>
 
       {/* Visual Spacer / Connection Point Area with Technical Details */}
-      <div style={{ flex: '0.8', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10 }}>
+      <div 
+        className="hide-mobile"
+        style={{ flex: '0.8', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10 }}>
         {/* Pulse animate dot */}
         <motion.div 
           animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.7, 0.3] }}
@@ -443,7 +451,7 @@ export default function Bpo({ onNavigate }) {
             <Headset size={24} /> BPO SERVICES
           </motion.div>
 
-          <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '0 40px', display: 'flex', justifyContent: 'flex-start' }}>
+          <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '0 clamp(15px, 5vw, 40px)', display: 'flex', justifyContent: 'flex-start' }}>
             <motion.div 
               style={{ 
                 maxWidth: '850px',
@@ -520,14 +528,14 @@ export default function Bpo({ onNavigate }) {
       </section>
 
       {/* ── Metodología Component (Floating Panels 2.0) ── */}
-      <section style={{ padding: '200px 0', position: 'relative', background: '#050505', overflow: 'hidden', zIndex: 10 }}>
+      <section style={{ padding: 'clamp(80px, 15vw, 200px) 0', position: 'relative', background: '#050505', overflow: 'hidden', zIndex: 10 }}>
         {/* Background Decorative Accents */}
         <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(255,140,0,0.03) 0%, transparent 70%)', zIndex: 0 }} />
         <div style={{ position: 'absolute', bottom: '10%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,86,179,0.03) 0%, transparent 70%)', zIndex: 0 }} />
 
         <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
           <motion.div 
-            style={{ textAlign: 'center', marginBottom: '140px' }}
+            style={{ textAlign: 'center', marginBottom: 'clamp(60px, 10vw, 140px)' }}
             {...fadeInUp}
           >
             <div style={{ display: 'inline-flex', padding: '8px 20px', background: 'rgba(255,140,0,0.1)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', color: 'var(--color-secondary)', fontSize: '0.9rem', fontWeight: '700', letterSpacing: '2px', marginBottom: '25px' }}>
@@ -543,17 +551,19 @@ export default function Bpo({ onNavigate }) {
 
           <div style={{ position: 'relative', maxWidth: '1000px', margin: '0 auto' }}>
             {/* Connecting Vertical Line */}
-            <div style={{
-              position: 'absolute',
-              left: '50%',
-              top: '50px',
-              bottom: '100px',
-              width: '2px',
-              background: 'linear-gradient(to bottom, transparent, var(--color-secondary) 10%, var(--color-accent) 50%, var(--color-primary) 90%, transparent)',
-              opacity: 0.15,
-              transform: 'translateX(-50%)',
-              zIndex: 0
-            }} />
+            <div 
+              className="hide-mobile"
+              style={{
+                position: 'absolute',
+                left: '50%',
+                top: '50px',
+                bottom: '100px',
+                width: '2px',
+                background: 'linear-gradient(to bottom, transparent, var(--color-secondary) 10%, var(--color-accent) 50%, var(--color-primary) 90%, transparent)',
+                opacity: 0.15,
+                transform: 'translateX(-50%)',
+                zIndex: 0
+              }} />
 
             {[
               {
@@ -597,7 +607,7 @@ export default function Bpo({ onNavigate }) {
       </section>
 
       {/* ── Modelo Operativo Section (Security Control Center) ── */}
-      <section style={{ padding: '140px 0', position: 'relative', zIndex: 10, background: '#050505', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+      <section style={{ padding: 'clamp(60px, 10vw, 140px) 0', position: 'relative', zIndex: 10, background: '#050505', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
         <div className="section-container">
           <motion.div 
             {...fadeInUp}
@@ -632,7 +642,7 @@ export default function Bpo({ onNavigate }) {
       {/* ── BPO Services Section (Global Support Hub 2.0) ── */}
       <section style={{ padding: '160px 0', background: 'radial-gradient(circle at 50% 50%, rgba(255,140,0,0.02) 0%, #050505 100%)', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: '100px', alignItems: 'center' }}>
+          <div className="bpo-services-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'center' }}>
             
             {/* Left Column: Mission Control */}
             <motion.div {...fadeInUp}>

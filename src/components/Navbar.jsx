@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 
 const Navbar = ({ onNavigate, activePage }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [closeTimer, setCloseTimer] = useState(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -59,16 +60,17 @@ const Navbar = ({ onNavigate, activePage }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto' }}>
         <div 
           style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
-          onClick={() => handleNavigate('home')}
+          onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }}
         >
           <img 
             src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
             alt="F5 Networking" 
-            style={{ height: '110px', width: 'auto', display: 'block' }} 
+            style={{ height: 'auto', width: '150px', display: 'block' }} 
           />
         </div>
         
-        <div style={{ display: 'flex', gap: '30px', alignItems: 'center' }}>
+        {/* Desktop Links */}
+        <div className="nav-links-desktop">
           <span 
             className={`nav-link ${activePage === 'home' ? 'active' : ''}`} 
             style={{ cursor: 'pointer' }} 
@@ -107,6 +109,31 @@ const Navbar = ({ onNavigate, activePage }) => {
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('voxis'); }} className={activePage === 'voxis' ? 'active' : ''}>VOXIS</span>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('pbx'); }} className={activePage === 'pbx' ? 'active' : ''}>PBX DIDS & SMS</span>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('equipamiento'); }} className={activePage === 'equipamiento' ? 'active' : ''}>VENTA DE EQUIPOS</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button className="mobile-menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+        </button>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`nav-menu-mobile ${isMenuOpen ? 'active' : ''}`}>
+          <span onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }} className={activePage === 'home' ? 'active' : ''}>Inicio</span>
+          <span onClick={() => { handleNavigate('nosotros'); setIsMenuOpen(false); }} className={activePage === 'nosotros' ? 'active' : ''}>Nosotros</span>
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ color: 'var(--color-secondary)', fontWeight: 'bold', marginBottom: '15px', fontSize: '1.2rem' }}>Soluciones</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+              <span onClick={() => { handleNavigate('axia'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'axia' ? 'active' : ''}>AXIA</span>
+              <span onClick={() => { handleNavigate('nova-core'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'nova-core' ? 'active' : ''}>NOVA CORE</span>
+              <span onClick={() => { handleNavigate('desarrollo'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'desarrollo' ? 'active' : ''}>Desarrollo</span>
+              <span onClick={() => { handleNavigate('cableado'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'cableado' ? 'active' : ''}>Cableado</span>
+              <span onClick={() => { handleNavigate('echo'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'echo' ? 'active' : ''}>ECHO CRM</span>
+              <span onClick={() => { handleNavigate('bpo'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'bpo' ? 'active' : ''}>BPO SERVICES</span>
+              <span onClick={() => { handleNavigate('voxis'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'voxis' ? 'active' : ''}>VOXIS</span>
+              <span onClick={() => { handleNavigate('pbx'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'pbx' ? 'active' : ''}>PBX DIDS</span>
+              <span onClick={() => { handleNavigate('equipamiento'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'equipamiento' ? 'active' : ''}>VENTA EQUIPOS</span>
             </div>
           </div>
         </div>

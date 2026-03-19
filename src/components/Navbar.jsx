@@ -109,14 +109,6 @@ const Navbar = ({ onNavigate, activePage }) => {
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('equipamiento'); }} className={activePage === 'equipamiento' ? 'active' : ''}>VENTA DE EQUIPOS</span>
             </div>
           </div>
-          
-          <span 
-            className="nav-link" 
-            style={{ cursor: 'pointer' }} 
-            onClick={() => scrollTo('contact')}
-          >
-            Contacto
-          </span>
         </div>
       </div>
     </nav>

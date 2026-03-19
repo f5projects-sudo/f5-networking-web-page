@@ -36,7 +36,11 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState(() => {
+    const hash = window.location.hash.replace('#', '');
+    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'voxis', 'equipamiento'];
+    return validPages.includes(hash) ? hash : 'home';
+  });
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
 
@@ -59,6 +63,27 @@ const App = () => {
   };
 
   useEffect(() => {
+    // Sync hash with current page
+    window.location.hash = currentPage === 'home' ? '' : currentPage;
+    
+    // Reset scroll to top on page change
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  useEffect(() => {
+    // Handle manual hash changes (e.g., back button or typing directly)
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'voxis', 'equipamiento'];
+      if (validPages.includes(hash)) {
+        setCurrentPage(hash);
+      } else if (hash === '') {
+        setCurrentPage('home');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
     // Load ElevenLabs Widget Script
     const script = document.createElement('script');
     script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
@@ -67,8 +92,10 @@ const App = () => {
     document.body.appendChild(script);
 
     return () => {
-      // Cleanup script on unmount
-      document.body.removeChild(script);
+      window.removeEventListener('hashchange', handleHashChange);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 

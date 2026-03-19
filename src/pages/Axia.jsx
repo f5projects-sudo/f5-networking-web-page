@@ -158,7 +158,15 @@ export default function Axia({ onNavigate }) {
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 140, 0, 0.5)' }}
             whileTap={{ scale: 0.95 }}
             style={{ padding: '16px 40px', background: 'var(--color-secondary)', border: 'none', borderRadius: '50px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', cursor: 'pointer' }}
-            onClick={() => onNavigate('home')}
+            onClick={() => {
+              onNavigate('home');
+              setTimeout(() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }, 100);
+            }}
           >
             Solicitar Demostración
           </motion.button>

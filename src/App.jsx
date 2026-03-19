@@ -17,22 +17,18 @@ import {
   Phone,
   ChevronRight,
   ChevronDown,
-  CheckCircle,
+  CheckCircle, // Changed from CheckCircle2
   Globe,
   Cpu,
   Activity,
   Zap,
   Network,
-  AlertCircle,
-  Smartphone,
-  Shield,
-  MessageCircle,
-  Mail,
-  Send,
-  HeadphonesIcon,
-  ShieldCheck,
-  Award,
-  Settings2
+  AlertCircle, // New
+  Smartphone, // New
+  Shield, // New
+  MessageCircle, // New
+  Mail, // New
+  Send
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
 import MapFooter from './components/MapFooter';
@@ -75,10 +71,29 @@ const App = () => {
     };
   }, []);
 
-  const handleNavigate = (page) => {
-    setCurrentPage(page);
-    window.scrollTo(0, 0);
-  };
+  // ── Page routing logic ──────────────────────────
+  let PageContent = null;
+  if (currentPage === 'nosotros') PageContent = <Nosotros onNavigate={setCurrentPage} />;
+  else if (currentPage === 'axia') PageContent = <Axia onNavigate={setCurrentPage} />;
+  else if (currentPage === 'nova-core') PageContent = <NovaCore onNavigate={setCurrentPage} />;
+  else if (currentPage === 'desarrollo') PageContent = <Desarrollo onNavigate={setCurrentPage} />;
+  else if (currentPage === 'cableado') PageContent = <Cableado onNavigate={setCurrentPage} />;
+  else if (currentPage === 'echo') PageContent = <Echo onNavigate={setCurrentPage} />;
+  else if (currentPage === 'bpo') PageContent = <Bpo onNavigate={setCurrentPage} />;
+  else if (currentPage === 'pbx') PageContent = <Pbx onNavigate={setCurrentPage} />;
+  else if (currentPage === 'voxis') PageContent = <Voxis onNavigate={setCurrentPage} />;
+  else if (currentPage === 'equipamiento') PageContent = <Equipamiento onNavigate={setCurrentPage} />;
+
+  if (PageContent) {
+    return (
+      <>
+        {PageContent}
+        <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
+      </>
+    );
+  }
+  // ─────────────────────────────────────────────
+
 
   const services = [
     {
@@ -106,10 +121,10 @@ const App = () => {
       features: ["Voz sobre IP", "Troncales SIP", "Escalabilidad Global"]
     },
     {
-      title: "Desarrollo de Software",
-      icon: <Cpu size={40} className="text-secondary" />,
-      description: "Software a medida. Desarrollamos aplicaciones web y móviles escalables, seguras y robustas.",
-      features: ["Web & Mobile", "Cloud Ready", "UX Premium"]
+      title: "NOVA CORE",
+      icon: <Zap size={40} className="text-secondary" />,
+      description: "Es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos, opera 24/7 y transforma cada interacción en resultados medibles.",
+      features: ["Escalabilidad Instantánea", "Atención 24/7", "Eficiencia Máxima"]
     },
     {
       title: "Cableado Estructurado",
@@ -119,91 +134,93 @@ const App = () => {
     }
   ];
 
-  if (currentPage === 'nosotros') return <Nosotros onNavigate={handleNavigate} />;
-  if (currentPage === 'axia') return <Axia onNavigate={handleNavigate} />;
-  if (currentPage === 'novacore') return <NovaCore onNavigate={handleNavigate} />;
-  if (currentPage === 'desarrollo') return <Desarrollo onNavigate={handleNavigate} />;
-  if (currentPage === 'cableado') return <Cableado onNavigate={handleNavigate} />;
-  if (currentPage === 'echo') return <Echo onNavigate={handleNavigate} />;
-  if (currentPage === 'bpo') return <Bpo onNavigate={handleNavigate} />;
-  if (currentPage === 'pbx') return <Pbx onNavigate={handleNavigate} />;
-  if (currentPage === 'voxis') return <Voxis onNavigate={handleNavigate} />;
-  if (currentPage === 'equipamiento') return <Equipamiento onNavigate={handleNavigate} />;
-
   return (
     <div className="app">
       <BubbleBackground />
-      <Navbar onNavigate={handleNavigate} activePage="home" />
+
+      <Navbar onNavigate={setCurrentPage} activePage={currentPage} />
 
       {/* Hero Section */}
-      <section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '0 5%' }}>
+      <section id="hero" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div style={{ display: 'inline-block', padding: '8px 20px', background: 'rgba(255,255,255,0.05)', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.1)', marginBottom: '30px' }}>
-            <span style={{ color: 'var(--color-secondary)', fontWeight: '700', fontSize: '0.85rem', letterSpacing: '2px' }}>EVOLUCIÓN DIGITAL</span>
-          </div>
-          <h1 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: 1, marginBottom: '20px' }}>
-            Potenciamos tu <span className="gradient-text">Conectividad</span>
+          <h1 style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', marginBottom: '10px' }}>
+            F5 <span className="gradient-text">Networking</span>
           </h1>
-          <p style={{ fontSize: 'clamp(1rem, 2vw, 1.4rem)', color: 'var(--color-text-muted)', maxWidth: '800px', margin: '0 auto 40px', lineHeight: 1.6 }}>
-            Soluciones integrales de infraestructura, automatización y comunicación inteligente para empresas que miran hacia el futuro.
+          <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 30px' }}>
+            Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.
           </p>
-          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <button className="btn-neon" onClick={() => scrollTo('services')}>Nuestros Servicios</button>
-            <button
-              style={{ padding: '16px 44px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontWeight: '700' }}
-              onClick={() => handleNavigate('nosotros')}
-            >Conócenos</button>
+          <div style={{ display: 'flex', gap: '20px' }}>
+            <motion.button 
+              className="glass" 
+              onClick={() => scrollTo('services')} 
+              style={{ 
+                padding: '12px 30px', 
+                color: 'white', 
+                fontWeight: 'bold', 
+                border: '1px solid var(--color-primary)', 
+                cursor: 'pointer' 
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: '0 0 20px rgba(0, 86, 179, 0.6)', 
+                backgroundColor: 'rgba(0, 86, 179, 0.15)' 
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              Ver Soluciones
+            </motion.button>
+            <motion.button 
+              onClick={() => scrollTo('contact')} 
+              style={{ 
+                backgroundColor: 'var(--color-secondary)', 
+                border: 'none',
+                padding: '12px 30px', 
+                borderRadius: '8px', 
+                color: 'white', 
+                fontWeight: 'bold', 
+                cursor: 'pointer' 
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                boxShadow: '0 0 25px rgba(255, 140, 0, 0.8)',
+                filter: 'brightness(1.1)'
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              Contactar Experto
+            </motion.button>
           </div>
         </motion.div>
       </section>
 
-      {/* Brand Marquee */}
-      <div className="marquee-wrapper">
-        <div className="marquee-track">
-          {[...Array(6)].map((_, i) => (
-            <React.Fragment key={i}>
-              <div className="marquee-item">AFISA</div>
-              <div className="marquee-item">CREDITERIUM</div>
-              <div className="marquee-item">RECYGLASS</div>
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
-
       {/* Services Grid */}
       <section id="services" className="section-container">
-        <div style={{ textAlign: 'center', marginBottom: '80px' }}>
-          <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>Nuestros <span className="gradient-text">Servicios</span></h2>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem' }}>Tecnología de vanguardia para cada necesidad de tu negocio.</p>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '30px' }}>
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestras Soluciones</h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>
+        </motion.div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
           {services.map((service, index) => (
             <motion.div
               key={index}
               className="glass"
-              style={{
-                padding: '50px 40px',
-                borderRadius: '30px',
-                border: '1px solid rgba(255,255,255,0.08)',
-                cursor: 'pointer'
-              }}
-              whileHover={{ y: -10, borderColor: 'rgba(255,255,255,0.2)' }}
-              onClick={() => {
-                if (service.title === "BPO Services") handleNavigate('bpo');
-                if (service.title === "IA Asistentes Virtuales") handleNavigate('voxis');
-                if (service.title === "ECHO - CRM Omnicanal") handleNavigate('echo');
-                if (service.title === "Telefonía SIP / PBX") handleNavigate('pbx');
-                if (service.title === "Desarrollo de Software") handleNavigate('desarrollo');
-                if (service.title === "Cableado Estructurado") handleNavigate('cableado');
-              }}
+              style={{ padding: '40px', transition: 'transform 0.3s ease' }}
+              whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}
+              {...fadeInUp}
+              transition={{ delay: index * 0.1 }}
             >
-              <div style={{ marginBottom: '30px' }}>{service.icon}</div>
-              <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>{service.title}</h3>
-              <p style={{ color: 'var(--color-text-muted)', marginBottom: '30px', lineHeight: 1.7 }}>{service.description}</p>
+              <div style={{ marginBottom: '20px' }}>{service.icon}</div>
+              <h3 style={{ marginBottom: '15px' }}>{service.title}</h3>
+              <p style={{ color: 'var(--color-text-muted)', marginBottom: '20px', fontSize: '0.95rem' }}>
+                {service.description}
+              </p>
               <ul style={{ marginBottom: '25px' }}>
                 {service.features.map((f, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', fontSize: '0.9rem' }}>
@@ -211,28 +228,180 @@ const App = () => {
                   </li>
                 ))}
               </ul>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--color-accent)', fontWeight: '700' }}>
-                Saber más <ChevronRight size={20} />
-              </div>
+              <a href="#" style={{ color: 'var(--color-secondary)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                Saber más <ChevronRight size={16} />
+              </a>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Methodology Section */}
-      <section className="section-container" style={{ position: 'relative', overflow: 'hidden' }}>
-        <div style={{ textAlign: 'center', marginBottom: '100px' }}>
-          <h2 style={{ fontSize: '3.5rem', marginBottom: '20px' }}>Nuestra <span className="gradient-text">Metodología</span></h2>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '1.3rem' }}>De la idea a la implementación con precisión absoluta.</p>
-        </div>
+      {/* Mission, Vision & Values Section */}
+      <section id="about" className="section-container">
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Quiénes Somos</h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
+        </motion.div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', position: 'relative' }}>
-          {/* Connector Line (Desktop) */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '50px' }}>
+          {/* Mission */}
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-primary)' }}
+            {...fadeInUp}
+            transition={{ delay: 0 }}
+            whileHover={{ y: -8 }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 86, 179, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '1.5rem' }}>🎯</span>
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'var(--color-primary)' }}>Nuestra Misión</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '0.95rem' }}>
+              Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada.
+            </p>
+          </motion.div>
+
+          {/* Vision */}
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-secondary)' }}
+            {...fadeInUp}
+            transition={{ delay: 0.1 }}
+            whileHover={{ y: -8 }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(255, 140, 0, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '1.5rem' }}>🚀</span>
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'var(--color-secondary)' }}>Nuestra Visión</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '0.95rem' }}>
+              Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes.
+            </p>
+          </motion.div>
+
+          {/* Values */}
+          <motion.div
+            className="glass"
+            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-accent)' }}
+            {...fadeInUp}
+            transition={{ delay: 0.2 }}
+            whileHover={{ y: -8 }}
+          >
+            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 180, 255, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
+              <span style={{ fontSize: '1.5rem' }}>💎</span>
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '20px', color: 'var(--color-accent)' }}>Nuestros Valores</h3>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+              {['Innovación', 'Compromiso', 'Calidad', 'Eficiencia', 'Confianza'].map((valor) => (
+                <span key={valor} style={{
+                  padding: '6px 14px',
+                  background: 'rgba(0,180,255,0.1)',
+                  border: '1px solid rgba(0,180,255,0.3)',
+                  borderRadius: '30px',
+                  fontSize: '0.85rem',
+                  color: 'var(--color-accent)',
+                  fontWeight: '500'
+                }}>{valor}</span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="section-container">
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>¿Por qué elegirnos?</h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 30px' }}></div>
+        </motion.div>
+
+        {/* Intro block */}
+        <motion.div
+          {...fadeInUp}
+          className="glass"
+          style={{
+            padding: '50px',
+            borderRadius: '24px',
+            marginBottom: '40px',
+            background: 'linear-gradient(135deg, rgba(0,86,179,0.08), rgba(255,140,0,0.05))',
+            borderLeft: '4px solid var(--color-primary)',
+          }}
+        >
+          <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>
+            <span className="gradient-text">F5 Networking</span>
+          </h3>
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.9', fontSize: '1.05rem', marginBottom: '20px' }}>
+            Es una empresa dedicada a crear soluciones de conectividad, automatización e infraestructura digital que impulsan la eficiencia, mejoran la comunicación y aceleran la transformación tecnológica de las organizaciones.
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.05rem', fontStyle: 'italic' }}>
+            Elegir F5 Networking significa trabajar con un socio tecnológico que entiende tus retos y construye soluciones diseñadas para tu realidad.
+          </p>
+        </motion.div>
+
+        {/* Feature cards */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '25px' }}>
+          {[
+            {
+              icon: '🎛️',
+              title: 'Ajuste a la medida',
+              desc: 'Soluciones diseñadas según las necesidades reales de cada empresa.',
+              color: 'var(--color-primary)',
+              bg: 'rgba(0,86,179,0.1)',
+            },
+            {
+              icon: '⚙️',
+              title: 'Automatización',
+              desc: 'Optimización de procesos para mejorar eficiencia y control.',
+              color: 'var(--color-secondary)',
+              bg: 'rgba(255,140,0,0.1)',
+            },
+            {
+              icon: '🛡️',
+              title: 'Confiabilidad y seguridad',
+              desc: 'Infraestructura estable, protegida y preparada para crecer.',
+              color: 'var(--color-accent)',
+              bg: 'rgba(0,180,255,0.1)',
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              className="glass"
+              style={{ padding: '35px', borderRadius: '18px', borderBottom: `3px solid ${item.color}` }}
+              {...fadeInUp}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -6, scale: 1.02 }}
+            >
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+                width: '55px', height: '55px', background: item.bg,
+                borderRadius: '14px', marginBottom: '20px', fontSize: '1.6rem'
+              }}>{item.icon}</div>
+              <h4 style={{ fontSize: '1.1rem', marginBottom: '12px', color: item.color }}>{item.title}</h4>
+              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.7', fontSize: '0.95rem' }}>{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Nuestra Metodología Section */}
+      <section className="section-container">
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestra Metodología</h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto 25px' }}></div>
+          <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', lineHeight: '1.8', fontSize: '1rem' }}>
+            Trabajamos con un proceso claro, estructurado y colaborativo que nos permite transformar ideas en soluciones funcionales y eficientes. Desde la recopilación de información hasta la implementación final, cada etapa está pensada para entender tus objetivos, validar propuestas y asegurar resultados reales para tu negocio.
+          </p>
+        </motion.div>
+
+        {/* Vertical timeline steps */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', marginTop: '70px', position: 'relative' }}>
+
+          {/* Vertical center line */}
           <div style={{
-            position: 'absolute', left: '50%', top: '50px', bottom: '50px',
-            width: '2px', background: 'linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), transparent)',
-            display: 'none' // Hidden for now, can enable with media queries
-          }}></div>
+            position: 'absolute', left: '50%', top: 0, bottom: 0,
+            width: '2px', background: 'linear-gradient(to bottom, var(--color-primary), var(--color-secondary), var(--color-accent))',
+            transform: 'translateX(-50%)', opacity: 0.3,
+            display: 'none'
+          }} className="timeline-line"></div>
 
           {[
             {
@@ -277,36 +446,65 @@ const App = () => {
               colors: { border: 'var(--color-accent)', glow: '#FF8C00' },
               fromLeft: false
             },
-          ].map((step, index) => (
-            <div key={index} style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          ].map((step, i) => (
+            <div key={i} style={{
+              display: 'flex',
               flexDirection: step.fromLeft ? 'row' : 'row-reverse',
-              gap: '60px', flexWrap: 'wrap'
+              gap: '40px',
+              alignItems: 'center',
             }}>
+              {/* Visual / Image Panel */}
               <motion.div
-                initial={{ opacity: 0, x: step.fromLeft ? -50 : 50 }}
+                initial={{ opacity: 0, x: step.fromLeft ? -120 : 120 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                style={{ flex: '1', minWidth: '300px' }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+                style={{
+                  flex: 1,
+                  aspectRatio: '16/9',
+                  border: `1px solid ${step.colors.border}`,
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  position: 'relative',
+                  boxShadow: `0 0 50px ${step.colors.glow}33`,
+                  minHeight: '220px',
+                  background: '#000',
+                }}
               >
+                {/* Real image */}
+                <img
+                  src={step.img}
+                  alt={step.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block',
+                    opacity: 0.92,
+                  }}
+                />
+                {/* Subtle overlay gradient */}
                 <div style={{
-                  position: 'relative', borderRadius: '30px', overflow: 'hidden',
-                  border: `1px solid ${step.colors.border}44`,
-                  boxShadow: `0 20px 50px -20px ${step.colors.glow}44`
-                }}>
-                  <img src={step.img} alt={step.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
-                  <div style={{
-                    position: 'absolute', inset: 0,
-                    background: `linear-gradient(${step.fromLeft ? 'to right' : 'to left'}, rgba(5,5,5,0.8), transparent)`
-                  }}></div>
-                </div>
+                  position: 'absolute', inset: 0,
+                  background: `linear-gradient(135deg, ${step.colors.glow}22, transparent 60%)`,
+                  pointerEvents: 'none'
+                }} />
+                {/* Step number badge */}
+                <div style={{
+                  position: 'absolute', top: '16px', left: '16px',
+                  background: step.colors.border,
+                  color: 'white', fontWeight: 'bold', fontSize: '0.8rem',
+                  padding: '4px 10px', borderRadius: '20px', letterSpacing: '1px'
+                }}>PASO {step.num}</div>
               </motion.div>
 
+              {/* Text Panel */}
               <motion.div
-                initial={{ opacity: 0, x: step.fromLeft ? 50 : -50 }}
+                initial={{ opacity: 0, x: step.fromLeft ? 80 : -80 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                style={{ flex: '1', minWidth: '300px', textAlign: step.fromLeft ? 'left' : 'right' }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+                style={{ flex: 1, padding: '10px 20px' }}
               >
                 <div style={{
                   display: 'inline-block',

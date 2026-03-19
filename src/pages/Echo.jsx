@@ -115,6 +115,12 @@ export default function Echo({ onNavigate }) {
                   }}
                   whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0,86,179,0.4)' }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    onNavigate('home');
+                    setTimeout(() => {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
                 >
                   Solicitar Demo <Info size={18} />
                 </motion.button>
@@ -367,7 +373,12 @@ export default function Echo({ onNavigate }) {
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 180, 255, 0.4)' }}
               whileTap={{ scale: 0.95 }}
               style={{ padding: '18px 45px', background: 'var(--color-primary)', border: 'none', borderRadius: '50px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
-              onClick={() => onNavigate('home')}
+              onClick={() => {
+                onNavigate('home');
+                setTimeout(() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
             >
               ¡Envíanos Un Mensaje! <Mail size={20} />
             </motion.button>

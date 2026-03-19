@@ -152,10 +152,28 @@ export default function Equipamiento({ onNavigate }) {
             </p>
 
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-               <button className="btn-neon" style={{ padding: '15px 45px', fontSize: '1.1rem' }}>
+               <button 
+                 className="btn-neon" 
+                 style={{ padding: '15px 45px', fontSize: '1.1rem' }}
+                 onClick={() => {
+                   onNavigate('home');
+                   setTimeout(() => {
+                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                   }, 100);
+                 }}
+               >
                  Explorar Soluciones
                </button>
-               <button className="glass" style={{ padding: '15px 45px', borderRadius: '35px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '15px', fontWeight: 'bold' }}>
+               <button 
+                 className="glass" 
+                 style={{ padding: '15px 45px', borderRadius: '35px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '15px', fontWeight: 'bold' }}
+                 onClick={() => {
+                   onNavigate('home');
+                   setTimeout(() => {
+                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                   }, 100);
+                 }}
+               >
                  <ShieldCheck size={24} color="var(--color-secondary)" />
                  Calidad Humana
                </button>

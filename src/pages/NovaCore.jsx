@@ -235,7 +235,12 @@ export default function NovaCore({ onNavigate }) {
             style={{ padding: '16px 40px', background: 'transparent', border: '2px solid var(--color-secondary)', borderRadius: '50px', color: 'white', fontWeight: 'bold', fontSize: '1.1rem', cursor: 'pointer', transition: 'background 0.3s' }}
             onMouseOver={(e) => e.target.style.background = 'var(--color-secondary)'}
             onMouseOut={(e) => e.target.style.background = 'transparent'}
-            onClick={() => onNavigate('home')}
+            onClick={() => {
+              onNavigate('home');
+              setTimeout(() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }, 100);
+            }}
           >
             Volver a Inicio
           </motion.button>

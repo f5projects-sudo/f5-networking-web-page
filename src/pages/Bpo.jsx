@@ -504,6 +504,12 @@ export default function Bpo({ onNavigate }) {
                   }}
                   whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,140,0,0.5)' }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    onNavigate('home');
+                    setTimeout(() => {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
                 >
                   ¡Me Interesa! <ChevronRight size={22} />
                 </motion.button>

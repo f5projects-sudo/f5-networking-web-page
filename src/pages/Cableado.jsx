@@ -113,6 +113,12 @@ export default function Cableado({ onNavigate }) {
                 }}
                 whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(255,140,0,0.4)' }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  onNavigate('home');
+                  setTimeout(() => {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
               >
                 Más Información <Info size={18} />
               </motion.button>

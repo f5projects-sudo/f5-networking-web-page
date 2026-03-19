@@ -451,6 +451,12 @@ export default function Pbx({ onNavigate }) {
                   }}
                   whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0,86,179,0.6)' }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => {
+                    onNavigate('home');
+                    setTimeout(() => {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
                 >
                   Discover More <ChevronRight size={22} />
                 </motion.button>

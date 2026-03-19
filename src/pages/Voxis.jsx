@@ -539,6 +539,12 @@ export default function Voxis({ onNavigate }) {
                 style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'white' }}
                 onMouseOver={e => e.target.style.background = 'rgba(255,255,255,0.05)'}
                 onMouseOut={e => e.target.style.background = 'transparent'}
+                onClick={() => {
+                  onNavigate('home');
+                  setTimeout(() => {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                }}
               >
                 Solicitar Diagnóstico
               </button>

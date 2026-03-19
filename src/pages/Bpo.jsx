@@ -20,6 +20,87 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
+const MethodologyCard = ({ id, title, desc, icon, color, delay }) => {
+  const mouseX = motion.useMotionValue(0);
+  const mouseY = motion.useMotionValue(0);
+
+  function onMouseMove({ currentTarget, clientX, clientY }) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay }}
+      onMouseMove={onMouseMove}
+      className="glass"
+      style={{
+        padding: '50px 40px',
+        borderRadius: '32px',
+        border: '1px solid rgba(255,255,255,0.05)',
+        position: 'relative',
+        overflow: 'hidden',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '25px',
+        background: 'rgba(255,255,255,0.01)',
+        group: 'true'
+      }}
+      whileHover={{ y: -10, borderColor: 'rgba(255,140,0,0.2)', background: 'rgba(255,140,0,0.03)' }}
+    >
+      {/* Dynamic Spotlight */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: `radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,140,0,0.08), transparent 40%)`,
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+
+      {/* Number Badge */}
+      <div style={{
+        position: 'absolute',
+        top: '20px',
+        right: '30px',
+        fontSize: '4rem',
+        fontWeight: '900',
+        color: 'rgba(255,255,255,0.03)',
+        zIndex: 0,
+        userSelect: 'none'
+      }}>
+        {id}
+      </div>
+
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ 
+          width: '60px', 
+          height: '60px', 
+          background: `rgba(${color === 'var(--color-secondary)' ? '255,140,0' : color === '#00b4ff' ? '0,180,255' : color === 'var(--color-primary)' ? '0,86,179' : '16,185,129'}, 0.1)`, 
+          borderRadius: '16px', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          color: color,
+          marginBottom: '25px',
+          boxShadow: `0 10px 20px -5px rgba(0,0,0,0.3)`
+        }}>
+          {icon}
+        </div>
+
+        <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '15px' }}>{title}</h3>
+        <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.7', fontSize: '1.05rem' }}>{desc}</p>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Bpo({ onNavigate }) {
   // Asegurar que la vista inicie arriba
   React.useLayoutEffect(() => {
@@ -58,12 +139,7 @@ export default function Bpo({ onNavigate }) {
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
   };
 
   return (
@@ -224,50 +300,79 @@ export default function Bpo({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── Metodología Section ── */}
-      <section style={{ padding: '100px 0', position: 'relative', zIndex: 10, background: 'rgba(255,255,255,0.02)' }}>
+      {/* ── Metodología Component (Process Cards) ── */}
+      <section style={{ padding: '160px 0', position: 'relative', background: 'linear-gradient(to bottom, #050505, #080808)', overflow: 'hidden', zIndex: 10 }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '80px', alignItems: 'center' }}>
-            <motion.div {...fadeInUp}>
-              <h2 style={{ fontSize: '2.8rem', fontWeight: 'bold', marginBottom: '30px' }}>
-                Nuestra <span className="gradient-text">metodología</span>
-              </h2>
-              <div style={{ width: '80px', height: '4px', background: 'var(--color-secondary)', marginBottom: '40px' }}></div>
-              
-              <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8', marginBottom: '25px' }}>
-                En F5 trabajamos con una metodología clara y efectiva, basada en un principio fundamental: <strong>escuchar primero y después atender la prioridad de nuestro cliente</strong>. Creemos que una operación exitosa no se construye desde suposiciones, sino desde el entendimiento real de tus necesidades, tus procesos y los objetivos que quieres alcanzar.
-              </p>
-              
-              <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
-                A partir de esa base, diseñamos operaciones a medida, alineadas con tu mercado, tu tipo de cliente y el ritmo de tu negocio. No buscamos encajar tu empresa en un modelo estándar, sino construir una solución que funcione para ti.
-              </p>
-            </motion.div>
+          <motion.div 
+            style={{ textAlign: 'center', marginBottom: '100px' }}
+            {...fadeInUp}
+          >
+            <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: '900', marginBottom: '25px', letterSpacing: '-1px' }}>
+              NUESTRA <span className="gradient-text">EXTENSIÓN</span> ESTRATÉGICA
+            </h2>
+            <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.6)', maxWidth: '900px', margin: '0 auto', lineHeight: '1.8' }}>
+              Un BPO de siguiente nivel no es un proveedor externo, es una extensión invisible de tu cultura corporativa. Escuchamos, analizamos y optimizamos cada proceso.
+            </p>
+          </motion.div>
 
-            <motion.div 
-              className="glass"
-              style={{ padding: '40px', borderRadius: '30px', borderLeft: '4px solid var(--color-secondary)' }}
-              {...fadeInUp}
-            >
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', fontStyle: 'italic', color: 'white' }}>
-                "En F5 no existen soluciones genéricas: cada estrategia es única, porque cada empresa tiene retos distintos y merece una operación diseñada con propósito, estructura y resultados medibles."
-              </p>
-              <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'flex-end' }}>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'white', padding: '10px 20px', borderRadius: '30px', cursor: 'pointer', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px' }}
-                  onClick={() => onNavigate('home')}
-                >
-                  ¡Explora Otros Servicios! <MousePointer2 size={16} />
-                </motion.button>
-              </div>
-            </motion.div>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+            gap: '30px',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            {[
+              {
+                id: '01',
+                title: 'Escucha Activa',
+                desc: 'Inmersión profunda en tus flujos de trabajo actuales para entender prioridades y desafíos reales.',
+                icon: <Headset size={32} />,
+                color: 'var(--color-secondary)'
+              },
+              {
+                id: '02',
+                title: 'Análisis Estratégico',
+                desc: 'Identificación de cuellos de botella mediante análisis de datos y eficiencia operativa avanzada.',
+                icon: <BarChart3 size={32} />,
+                color: '#00b4ff'
+              },
+              {
+                id: '03',
+                title: 'Implementación Ágil',
+                desc: 'Despliegue de flujos optimizados con supervisión constante y tecnología de punta.',
+                icon: <Zap size={32} />,
+                color: 'var(--color-primary)'
+              },
+              {
+                id: '04',
+                title: 'Optimización PCL',
+                desc: 'Mejora continua basada en Procesos de Calidad Lograda para garantizar resultados medibles.',
+                icon: <TrendingUp size={32} />,
+                color: '#10b981'
+              }
+            ].map((step, index) => (
+              <MethodologyCard key={index} {...step} delay={index * 0.1} />
+            ))}
           </div>
         </div>
+
+        {/* Decorative background circle */}
+        <div style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '600px',
+          height: '600px',
+          background: 'radial-gradient(circle, rgba(255,140,0,0.02) 0%, transparent 70%)',
+          zIndex: 0,
+          pointerEvents: 'none'
+        }} />
       </section>
 
       {/* ── Modelo Operativo Section ── */}
-      <section style={{ padding: '120px 0', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: '120px 0', position: 'relative', zIndex: 10, background: '#050505' }}>
         <div className="section-container">
           <motion.div 
             {...fadeInUp}
@@ -277,7 +382,7 @@ export default function Bpo({ onNavigate }) {
               Nuestro <span className="gradient-text">modelo operativo</span>
             </h2>
             <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: '1.8' }}>
-              Diseñamos operaciones sólidas, seguras y alineadas a estándares profesionales, garantizando control total, protección de datos y continuidad en cada proceso.
+              Diseñamos operaciones sólidas, seguras y alineadas a estándares profesionales de clase empresarial.
             </p>
           </motion.div>
 
@@ -294,7 +399,7 @@ export default function Bpo({ onNavigate }) {
               { icon: <Activity size={30} />, title: "Monitoreo y auditoría", desc: "Supervisión constante para garantizar la calidad y el cumplimiento." },
               { icon: <Shield size={30} />, title: "Plan de respuesta a incidentes", desc: "Estrategias listas para actuar ante cualquier imprevisto." },
               { icon: <Zap size={30} />, title: "Metodología PCL", desc: "Procesos de Calidad Lograda para optimizar cada interacción." },
-              { icon: <Users size={30} />, title: "Programa de Retención de Personal (PRP – PCL)", desc: "Garantizamos equipos estables y motivados para tu operación." }
+              { icon: <Users size={30} />, title: "Programa de Retención de Personal", desc: "Garantizamos equipos estables y motivados para tu operación." }
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -315,7 +420,7 @@ export default function Bpo({ onNavigate }) {
       </section>
 
       {/* ── BPO Services Section ── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(to bottom, #050505, rgba(255,140,0,0.05), #050505)', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: '100px 0', background: 'linear-gradient(to bottom, #050505, rgba(255,140,0,0.03), #050505)', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '80px', alignItems: 'center' }}>
             <motion.div {...fadeInUp}>
@@ -323,7 +428,7 @@ export default function Bpo({ onNavigate }) {
                 BPO <span className="gradient-text">Services</span>
               </h2>
               <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8', marginBottom: '40px' }}>
-                Ofrecemos servicios BPO diseñados para empresas que necesitan atención profesional, control operativo y equipos preparados para crecer según la demanda.
+                Ofrecemos servicios BPO diseñados para empresas que necesitan atención profesional y control operativo total.
               </p>
               
               <div style={{ display: 'grid', gap: '20px' }}>
@@ -331,9 +436,7 @@ export default function Bpo({ onNavigate }) {
                   { icon: <Globe size={22} />, text: "Agentes 100% Bilingües (Eng/Spa)" },
                   { icon: <TrendingUp size={22} />, text: "Equipos escalables desde 10 hasta 300 posiciones" },
                   { icon: <UserCheck size={22} />, text: "Líderes de equipo dedicados por pod" },
-                  { icon: <BarChart3 size={22} />, text: "Tableros de KPIs personalizados" },
-                  { icon: <GraduationCap size={22} />, text: "Formación continua y control de calidad" },
-                  { icon: <FileText size={22} />, text: "Protocolos de recuperación ante desastres establecidos" }
+                  { icon: <BarChart3 size={22} />, text: "Tableros de KPIs personalizados" }
                 ].map((feature, i) => (
                   <motion.div 
                     key={i}
@@ -357,7 +460,6 @@ export default function Bpo({ onNavigate }) {
               className="glass"
               style={{ padding: '20px', borderRadius: '30px', position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(45deg, rgba(255,140,0,0.1), transparent)', zIndex: 0 }}></div>
               <img 
                 src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?q=80&w=2071&auto=format&fit=crop" 
                 alt="BPO Team" 

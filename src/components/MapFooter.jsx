@@ -1,23 +1,27 @@
 import React from 'react';
-import Map, { Marker, NavigationControl } from 'react-map-gl/maplibre';
-import 'maplibre-gl/dist/maplibre-gl.css';
-import { MapPin } from 'lucide-react';
 
 export default function MapFooter() {
   return (
-    <Map
-      initialViewState={{
-        longitude: -103.3654,
-        latitude: 20.6736,
-        zoom: 15
-      }}
-      mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
-      style={{ width: '100%', height: '100%' }}
-    >
-      <NavigationControl position="top-right" />
-      <Marker longitude={-103.3654} latitude={20.6736} anchor="bottom">
-        <MapPin color="var(--color-primary)" size={32} />
-      </Marker>
-    </Map>
+    <div style={{ width: '100%', height: '100%', position: 'relative', overflow: 'hidden', borderRadius: '20px' }}>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.938374856986!2d-103.358255!3d20.672085999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b1fdf339b085%3A0xaf19b832e58686ca!2sC.%20Miguel%20Blanco%201449%2C%20Col%20Americana%20Americana%2C%2044160%20Guadalajara%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1773946042052!5m2!1ses-419!2smx" 
+        width="100%" 
+        height="100%" 
+        style={{ border: 0, filter: 'invert(90%) hue-rotate(180deg) brightness(0.9) contrast(1.1)' }} 
+        allowFullScreen="" 
+        loading="lazy" 
+        referrerPolicy="no-referrer-when-downgrade"
+        title="F5 Networking Location"
+      />
+      {/* Overlay to catch interactions if needed or add styling */}
+      <div style={{ 
+        position: 'absolute', 
+        inset: 0, 
+        pointerEvents: 'none', 
+        boxShadow: 'inset 0 0 40px rgba(0,0,0,0.5)',
+        borderRadius: '20px',
+        border: '1px solid rgba(255,255,255,0.1)'
+      }} />
+    </div>
   );
 }

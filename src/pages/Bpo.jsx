@@ -240,10 +240,10 @@ export default function Bpo({ onNavigate }) {
               }}
             >
               <h1 style={{ 
-                fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', 
+                fontSize: 'clamp(2.5rem, 7vw, 4.8rem)', 
                 fontWeight: '900', 
                 lineHeight: 1.1, 
-                marginBottom: '30px',
+                marginBottom: '15px',
                 textShadow: '0 10px 30px rgba(0,0,0,0.5)'
               }}>
                 UN SOCIO ESTRATÉGICO <br />
@@ -251,10 +251,10 @@ export default function Bpo({ onNavigate }) {
               </h1>
               
               <h2 style={{ 
-                fontSize: '1.8rem', 
+                fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', 
                 color: 'white', 
                 opacity: 0.95, 
-                marginBottom: '35px', 
+                marginBottom: '15px', 
                 fontWeight: '500',
                 maxWidth: '700px',
                 lineHeight: '1.4'
@@ -263,21 +263,21 @@ export default function Bpo({ onNavigate }) {
               </h2>
 
               <p style={{ 
-                fontSize: '1.25rem', 
+                fontSize: 'clamp(1rem, 2vw, 1.15rem)', 
                 color: 'rgba(255,255,255,0.7)', 
-                lineHeight: '1.8', 
-                marginBottom: '40px',
+                lineHeight: '1.7', 
+                marginBottom: '30px',
                 maxWidth: '650px',
                 textShadow: '0 2px 10px rgba(0,0,0,0.3)'
               }}>
                 En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
               </p>
 
-              <div style={{ display: 'flex', gap: '25px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
                 <motion.button 
                   className="btn-neon"
                   style={{
-                    padding: '16px 40px',
+                    padding: '14px 35px',
                     background: 'var(--color-secondary)',
                     border: 'none',
                     color: 'white',

@@ -5,6 +5,8 @@ import NovaCore from './pages/NovaCore';
 import Desarrollo from './pages/Desarrollo';
 import Cableado from './pages/Cableado';
 import Echo from './pages/Echo';
+import Bpo from './pages/Bpo';
+import Pbx from './pages/Pbx';
 import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import {
   Headset,
@@ -70,6 +72,12 @@ const App = () => {
   }
   if (currentPage === 'echo') {
     return <Echo onNavigate={setCurrentPage} />;
+  }
+  if (currentPage === 'bpo') {
+    return <Bpo onNavigate={setCurrentPage} />;
+  }
+  if (currentPage === 'pbx') {
+    return <Pbx onNavigate={setCurrentPage} />;
   }
   // ─────────────────────────────────────────────
 

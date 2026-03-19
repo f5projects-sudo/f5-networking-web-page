@@ -194,7 +194,6 @@ export default function Cableado({ onNavigate }) {
               {...fadeInUp}
               transition={{ delay: i * 0.1 }}
             >
-              {/* Glow effect overlay */}
               <motion.div 
                 style={{
                   position: 'absolute',
@@ -229,7 +228,6 @@ export default function Cableado({ onNavigate }) {
               <h3 style={{ color: 'white', fontSize: '1.4rem', fontWeight: 'bold', position: 'relative', zIndex: 1 }}>{item.title}</h3>
               <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6', fontSize: '0.95rem', position: 'relative', zIndex: 1 }}>{item.desc}</p>
               
-              {/* Bottom indicator */}
               <div style={{ 
                 position: 'absolute',
                 bottom: 0,

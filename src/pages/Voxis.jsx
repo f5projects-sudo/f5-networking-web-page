@@ -526,7 +526,7 @@ export default function Voxis({ onNavigate }) {
       {/* ── Industries Section: Para quién es ── */}
       <section style={{ padding: '160px 0', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '100px', alignItems: 'center' }}>
+          <div style={{ gridTemplateColumns: '1fr 1.5fr', gap: '100px', alignItems: 'center' }}>
             <motion.div {...fadeInUp}>
               <h2 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px' }}>
                 PARA QUIÉN ES <br /> <span className="gradient-text">VØXIS</span>

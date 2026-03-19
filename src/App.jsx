@@ -17,7 +17,7 @@ import {
   Phone,
   ChevronRight,
   ChevronDown,
-  CheckCircle, // Changed from CheckCircle2
+  CheckCircle2, // Changed back from CheckCircle
   Globe,
   Cpu,
   Activity,
@@ -225,7 +225,7 @@ const App = () => {
               <ul style={{ marginBottom: '25px' }}>
                 {service.features.map((f, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', fontSize: '0.9rem' }}>
-                    <CheckCircle size={16} className="text-primary" /> {f}
+                    <CheckCircle2 size={16} className="text-primary" /> {f}
                   </li>
                 ))}
               </ul>
@@ -515,6 +515,7 @@ const App = () => {
                   marginBottom: '12px', opacity: 0.3
                 }}>{step.num}</div>
                 <h3 style={{ fontSize: '1.7rem', marginBottom: '16px', marginTop: '-10px' }}>{step.title}</h3>
+                <button onClick={() => setCurrentPage('axia')} className="btn-neon" style={{ marginTop: '20px' }}>Conocer AXIA</button>
                 <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '20px' }}>{step.desc}</p>
                 <a href="#services" style={{
                   display: 'inline-flex', alignItems: 'center', gap: '8px',
@@ -664,7 +665,7 @@ const App = () => {
         </motion.div>
       </section>
 
-      <Footer onNavigate={handleNavigate || setCurrentPage} scrollTo={scrollTo} />
+      <Footer onNavigate={setCurrentPage} scrollTo={scrollTo} />
 
       {/* Inline Styles for colors */}
       <style>{`

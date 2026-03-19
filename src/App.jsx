@@ -392,42 +392,42 @@ const App = () => {
             {
               num: '01', title: 'Reunir Información',
               desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.',
-              img: `${import.meta.env.BASE_URL}step_reunir_info_1773243319702.png`,
+              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_1_info.png`,
               colors: { border: 'var(--color-primary)', glow: '#0056B3' },
               fromLeft: true
             },
             {
               num: '02', title: 'Análisis',
               desc: 'De diferentes soluciones y presentación de nuestras propuestas.',
-              img: `${import.meta.env.BASE_URL}step_analisis_1773243343222.png`,
+              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_2_analysis.png`,
               colors: { border: 'var(--color-secondary)', glow: '#FF8C00' },
               fromLeft: false
             },
             {
               num: '03', title: 'Prototipo',
-              desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.',
-              img: `${import.meta.env.BASE_URL}step_prototipo_1773243392190.png`,
+              desc: 'Primera vista de tu producto.',
+              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_3_prototype.png`,
               colors: { border: 'var(--color-accent)', glow: '#00B4FF' },
               fromLeft: true
             },
             {
               num: '04', title: 'Feedback',
               desc: '¡Te escuchamos! Ajustes del prototipo y comentarios.',
-              img: `${import.meta.env.BASE_URL}step_feedback_1773243461422.png`,
+              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_4_feedback.png`,
               colors: { border: 'var(--color-primary)', glow: '#9b59b6' },
               fromLeft: false
             },
             {
               num: '05', title: 'Pruebas',
               desc: 'Listo para probar en campo.',
-              img: `${import.meta.env.BASE_URL}step_pruebas_1773243483294.png`,
+              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_5_testing.png`,
               colors: { border: 'var(--color-secondary)', glow: '#27ae60' },
               fromLeft: true
             },
             {
               num: '06', title: 'Implementación',
               desc: 'Tu producto 100% productivo.',
-              img: `${import.meta.env.BASE_URL}step_implementacion_1773243789918.png`,
+              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_6_success.png`,
               colors: { border: 'var(--color-accent)', glow: '#FF8C00' },
               fromLeft: false
             },

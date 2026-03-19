@@ -43,7 +43,7 @@ export default function Bpo({ onNavigate }) {
   // Transformaciones para la imagen de fondo
   const imgScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1]);
   const imgY = useTransform(smoothProgress, [0.3, 0.8], ["0%", "-15%"]);
-  const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.5, 0.3, 0.4]);
+  const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.8, 0.6, 0.7]);
 
   // Transformaciones para el Contenido (Títulos, Texto)
   const contentOpacity = useTransform(smoothProgress, [0.65, 0.85], [0, 1]);
@@ -109,14 +109,14 @@ export default function Bpo({ onNavigate }) {
                 opacity: imgBrightness
               }}
             />
-            {/* Cinema Gradients */}
+            {/* Cinema Gradients (Softer for clarity) */}
             <div style={{ 
               position: 'absolute', 
               top: 0, 
               left: 0, 
               width: '100%', 
               height: '100%', 
-              background: 'linear-gradient(to right, rgba(5,5,5,1) 0%, rgba(5,5,5,0.8) 35%, rgba(5,5,5,0.3) 70%, transparent 100%)' 
+              background: 'linear-gradient(to right, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.5) 30%, rgba(5,5,5,0.2) 60%, transparent 100%)' 
             }} />
             <div style={{ 
               position: 'absolute', 
@@ -124,7 +124,7 @@ export default function Bpo({ onNavigate }) {
               left: 0, 
               width: '100%', 
               height: '50%', 
-              background: 'linear-gradient(to top, rgba(5,5,5,1) 0%, transparent 100%)' 
+              background: 'linear-gradient(to top, rgba(5,5,5,0.8) 0%, transparent 100%)' 
             }} />
           </motion.div>
 

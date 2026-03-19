@@ -508,7 +508,7 @@ export default function Pbx({ onNavigate }) {
               {...fadeInUp}
             >
               <div style={{ color: '#1db954', marginBottom: '30px', display: 'flex', justifyContent: 'center' }}><ShieldCheck size={55} strokeWidth={1.5} /></div>
-              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>Seguridad de Grado Militar</h3>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>Seguridad de Clase Empresarial</h3>
               <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '1.05rem', textAlign: 'center' }}>
                 Monitorización 24/7 y encriptación de extremo a extremo en cada llamada.
               </p>

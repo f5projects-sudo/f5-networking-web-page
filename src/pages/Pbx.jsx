@@ -22,6 +22,7 @@ import {
   Rocket
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const FloatingNumbers = () => {
   const [numbers, setNumbers] = React.useState([]);
@@ -695,35 +696,7 @@ export default function Pbx({ onNavigate }) {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ padding: '80px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(20px)', position: 'relative', zIndex: 10 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '60px', marginBottom: '80px' }}>
-          <div>
-            <img src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} style={{ height: '50px', marginBottom: '25px' }} alt="Logo" />
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>
-              Impulsando la comunicación empresarial con tecnología de vanguardia y servicios BPO de clase mundial.
-            </p>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Contáctanos</h4>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--color-text-muted)' }}>
-              <span>🇲🇽</span>
-              <span>+52 (33) 2101 2959</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--color-text-muted)' }}>
-              <span>✉</span>
-              <span>sales@f5networking.com</span>
-            </div>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Ubicación</h4>
-            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Guadalajara, Jalisco, México</p>
-            <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Worldwide Service Implementation</p>
-          </div>
-        </div>
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '40px', textAlign: 'center', color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
-          © {new Date().getFullYear()} F5 Networking. All rights reserved.
-        </div>
-      </footer>
+      <Footer onNavigate={onNavigate} />
     </div>
   );
 }

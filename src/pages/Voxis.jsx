@@ -21,6 +21,7 @@ import {
   Headset
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const VoiceWave = () => {
   return (
@@ -556,38 +557,7 @@ export default function Voxis({ onNavigate }) {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ padding: '60px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', position: 'relative', zIndex: 10 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px', marginBottom: '60px', color: 'var(--color-text-muted)' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Contáctanos</h4>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span>🇲🇽</span>
-              <a href="tel:+523321012959" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>+52 (33) 2101 2959</a>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span>✉</span>
-              <a href="mailto:sales@f5networking.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>sales@f5networking.com</a>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>VØXIS AI</h4>
-            <p style={{ margin: 0, lineHeight: '1.6' }}>
-              La vanguardia de la comunicación <br />
-              conversacional por voz.
-            </p>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
-          <div onClick={() => onNavigate('home')} style={{ cursor: 'pointer' }}>
-            <img src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} style={{ height: '40px', opacity: 0.8 }} alt="Logo" />
-          </div>
-          <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
-            © {new Date().getFullYear()} F5 Networking.
-          </div>
-        </div>
-      </footer>
+      <Footer onNavigate={onNavigate} />
     </div>
   );
 }

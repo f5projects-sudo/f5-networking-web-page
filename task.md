@@ -1,8 +1,12 @@
 # Cableado Estructurado Implementation
 - [x] Create `src/pages/Cableado.jsx`.
-    - Setup Hero section with organized networking aesthetic.
-    - Implement `DecryptedText` for title and description.
-    - Integrate user-provided text content.
+    - [x] Migración Quirúrgica de Formulario de Contacto a Home (GitHub)
+    - [x] Extraer lógica y marcado de `Nosotros.jsx` de forma aislada
+    - [x] Integrar estados y `handleSubmit` en `App.jsx` sin afectar otras secciones
+    - [x] Insertar `<motion.form>` bajo `contact-grid` con diseño premium
+    - [x] Limpiar `Nosotros.jsx` (solo formulario) y unificar dirección a "1440"
+    - [x] Verificar que "Nuestra Metodología" y otras secciones permanecen intactas
+    - [x] Sincronizar cambios quirúrgicos en GitHub
 - [x] Update `src/App.jsx`.
     - Import and add `Cableado` page to routing logic.
     - Update navigation link for "Cableado Estructurado".

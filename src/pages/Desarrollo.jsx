@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Code, Cpu, Shield, Zap, Terminal, RefreshCw, Lock } from 'lucide-react';
 import DecryptedText from '../components/DecryptedText';
-import MapFooter from '../components/MapFooter';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import CardSwap, { Card } from '../components/CardSwap';
 
 export default function Desarrollo({ onNavigate }) {
@@ -226,61 +226,7 @@ export default function Desarrollo({ onNavigate }) {
       </section>
 
       {/* ── Footer ── */}
-      <footer style={{ padding: '60px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)', position: 'relative', zIndex: 10 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px', marginBottom: '60px', color: 'var(--color-text-muted)' }}>
-          {/* Column 1: Contáctanos */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Contáctanos</h4>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontSize: '1.2rem' }}>🇲🇽</span>
-              <a href="tel:+523321012959" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-primary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+52 (33) 2101 2959</a>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontSize: '1.2rem' }}>🇺🇸</span>
-              <a href="tel:+12147304939" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-secondary)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>+1 214 730 4939</a>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{ fontSize: '1.2rem' }}>✉</span>
-              <a href="mailto:sales@f5networking.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='var(--color-accent)'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>sales@f5networking.com</a>
-            </div>
-          </div>
-
-          {/* Column 2: Información Legal */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Información legal</h4>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Términos y condiciones</a>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>Aviso de privacidad</a>
-            <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='var(--color-text-muted)'}>PUA</a>
-          </div>
-
-          {/* Column 3: Dirección */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Dirección</h4>
-            <p style={{ margin: 0, lineHeight: '1.6' }}>
-              C. Miguel Blanco 1449<br />
-              Col Americana, Americana<br />
-              44160 Guadalajara, Jal.
-            </p>
-            <div style={{ marginTop: '10px', height: '200px', width: '100%', borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <MapFooter />
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Logo & Copyright */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => onNavigate('home')}>
-            <img 
-              src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`} 
-              alt="F5 Networking" 
-              style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
-            />
-          </div>
-          <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
-            © {new Date().getFullYear()} F5 Networking. Todos los derechos reservados.
-          </div>
-        </div>
-      </footer>
+      <Footer onNavigate={onNavigate} />
     </div>
   );
 }

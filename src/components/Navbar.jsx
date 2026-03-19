@@ -56,7 +56,7 @@ const Navbar = ({ onNavigate, activePage }) => {
   };
 
   return (
-    <nav className="glass" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000, padding: '5px 5%' }}>
+    <nav className="glass main-nav" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto' }}>
         <div 
           style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 

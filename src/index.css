@@ -133,6 +133,17 @@ button {
   background: var(--color-accent);
 }
 
+.main-nav {
+  padding: 10px 40px;
+  transition: var(--transition-smooth);
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    padding: 10px 40px !important;
+  }
+}
+
 /* Navigation Link Hover Effects */
 .nav-link {
   position: relative;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { 
   Headset, 
   CheckCircle2, 
@@ -21,8 +21,9 @@ import {
 import Navbar from '../components/Navbar';
 
 const MethodologyCard = ({ id, title, desc, icon, color, delay }) => {
-  const mouseX = motion.useMotionValue(0);
-  const mouseY = motion.useMotionValue(0);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const background = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,140,0,0.1), transparent 40%)`;
 
   function onMouseMove({ currentTarget, clientX, clientY }) {
     const { left, top } = currentTarget.getBoundingClientRect();
@@ -58,7 +59,7 @@ const MethodologyCard = ({ id, title, desc, icon, color, delay }) => {
         style={{
           position: 'absolute',
           inset: 0,
-          background: `radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(255,140,0,0.08), transparent 40%)`,
+          background: background,
           zIndex: 0,
           pointerEvents: 'none'
         }}

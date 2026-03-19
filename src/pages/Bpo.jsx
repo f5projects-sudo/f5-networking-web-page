@@ -63,117 +63,149 @@ export default function Bpo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="bpo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: '120px 0 60px' }}>
-        <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px', alignItems: 'center' }}>
+      <section style={{ 
+        minHeight: '100vh', 
+        display: 'flex', 
+        alignItems: 'center', 
+        position: 'relative', 
+        overflow: 'hidden', 
+        zIndex: 10, 
+        padding: '140px 0 80px' 
+      }}>
+        {/* Background Hero Image */}
+        <div style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          zIndex: -1 
+        }}>
+          <img 
+            src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
+            alt="Professional BPO Services"
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              objectFit: 'cover',
+              filter: 'brightness(0.4) contrast(1.1)'
+            }}
+          />
+          {/* Cinema Gradients */}
+          <div style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            width: '100%', 
+            height: '100%', 
+            background: 'linear-gradient(to right, rgba(5,5,5,1) 0%, rgba(5,5,5,0.8) 35%, rgba(5,5,5,0.3) 70%, transparent 100%)' 
+          }} />
+          <div style={{ 
+            position: 'absolute', 
+            bottom: 0, 
+            left: 0, 
+            width: '100%', 
+            height: '50%', 
+            background: 'linear-gradient(to top, rgba(5,5,5,1) 0%, transparent 100%)' 
+          }} />
+        </div>
+
+        <div className="section-container" style={{ position: 'relative', zIndex: 20 }}>
+          <div style={{ maxWidth: '850px' }}>
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(255,140,0,0.1)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', marginBottom: '30px', color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '2px', alignItems: 'center', gap: '8px' }}>
-                <Headset size={16} /> BPO SERVICES
+              <div style={{ 
+                display: 'inline-flex', 
+                padding: '8px 20px', 
+                background: 'rgba(255,140,0,0.2)', 
+                backdropFilter: 'blur(10px)',
+                borderRadius: '30px', 
+                border: '1px solid rgba(255,140,0,0.3)', 
+                marginBottom: '35px', 
+                color: 'var(--color-secondary)', 
+                fontWeight: 'bold', 
+                fontSize: '0.9rem', 
+                letterSpacing: '2px', 
+                alignItems: 'center', 
+                gap: '10px' 
+              }}>
+                <Headset size={18} /> BPO SERVICES
               </div>
               
-              <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '900', lineHeight: 1.1, marginBottom: '25px' }}>
-                UN SOCIO ESTRATÉGICO QUE <br />
-                <span className="gradient-text">ENTIENDE TU OPERACIÓN</span>
+              <h1 style={{ 
+                fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', 
+                fontWeight: '900', 
+                lineHeight: 1.1, 
+                marginBottom: '30px',
+                textShadow: '0 10px 30px rgba(0,0,0,0.5)'
+              }}>
+                UN SOCIO ESTRATÉGICO <br />
+                <span className="gradient-text" style={{ fontSize: '0.9em' }}>QUE ENTIENDE TU OPERACIÓN</span>
               </h1>
               
-              <h2 style={{ fontSize: '1.5rem', color: 'white', opacity: 0.9, marginBottom: '30px', fontWeight: '500' }}>
+              <h2 style={{ 
+                fontSize: '1.8rem', 
+                color: 'white', 
+                opacity: 0.95, 
+                marginBottom: '35px', 
+                fontWeight: '500',
+                maxWidth: '700px',
+                lineHeight: '1.4'
+              }}>
                 BPO diseñado para escuchar, actuar y transformar
               </h2>
 
               <p style={{ 
-                fontSize: '1.15rem', 
-                color: 'var(--color-text-muted)', 
+                fontSize: '1.25rem', 
+                color: 'rgba(255,255,255,0.7)', 
                 lineHeight: '1.8', 
-                marginBottom: '40px',
-                maxWidth: '600px'
+                marginBottom: '50px',
+                maxWidth: '650px',
+                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
               }}>
-                En F5 creemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida, alineadas con tus objetivos, tu mercado y tus clientes.
+                En F5 creemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
               </p>
 
-              <div style={{ display: 'flex', gap: '20px' }}>
+              <div style={{ display: 'flex', gap: '25px', alignItems: 'center', flexWrap: 'wrap' }}>
                 <motion.button 
                   className="btn-neon"
                   style={{
-                    padding: '16px 40px',
+                    padding: '18px 45px',
                     background: 'var(--color-secondary)',
                     border: 'none',
                     color: 'white',
                     borderRadius: '50px',
                     fontWeight: 'bold',
-                    fontSize: '1.1rem',
+                    fontSize: '1.2rem',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px'
+                    gap: '12px',
+                    boxShadow: '0 15px 35px rgba(255,140,0,0.3)'
                   }}
-                  whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255,140,0,0.4)' }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,140,0,0.5)' }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  ¡Me Interesa! <ChevronRight size={20} />
+                  ¡Me Interesa! <ChevronRight size={22} />
                 </motion.button>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, x: 30 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              style={{ position: 'relative' }}
-            >
-              <div style={{ 
-                position: 'absolute', 
-                inset: '-20px', 
-                background: 'radial-gradient(circle, rgba(255,140,0,0.15), transparent 70%)', 
-                zIndex: 0,
-                filter: 'blur(40px)'
-              }}></div>
-              <div className="glass" style={{ 
-                padding: '10px', 
-                borderRadius: '30px', 
-                position: 'relative', 
-                zIndex: 1,
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
-              }}>
-                <img 
-                  src={`${import.meta.env.BASE_URL}bpo_hero_image.png?v=1`} 
-                  alt="Professional Call Center" 
-                  style={{ 
-                    width: '100%', 
-                    height: 'auto', 
-                    borderRadius: '20px', 
-                    display: 'block'
-                  }} 
-                />
-              </div>
-              
-              {/* Floating badges for extra premium feel */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="glass"
-                style={{ position: 'absolute', top: '10%', right: '-5%', padding: '15px 20px', borderRadius: '15px', zIndex: 2, border: '1px solid rgba(255,140,0,0.3)' }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Globe size={18} style={{ color: 'var(--color-secondary)' }} />
-                  <span style={{ fontWeight: '600', fontSize: '0.9rem' }}>Atención Bilingüe</span>
+                
+                {/* Floating micro-badges integrated into composition */}
+                <div style={{ display: 'flex', gap: '20px' }}>
+                  <div className="glass" style={{ padding: '10px 20px', borderRadius: '15px', border: '1px solid rgba(255,140,0,0.2)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>
+                      <Globe size={18} style={{ color: 'var(--color-secondary)' }} /> Bilingüe
+                    </div>
+                  </div>
+                  <div className="glass" style={{ padding: '10px 20px', borderRadius: '15px', border: '1px solid rgba(0,180,255,0.2)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>
+                      <TrendingUp size={18} style={{ color: '#00b4ff' }} /> Escalable
+                    </div>
+                  </div>
                 </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="glass"
-                style={{ position: 'absolute', bottom: '15%', left: '-5%', padding: '15px 20px', borderRadius: '15px', zIndex: 2, border: '1px solid rgba(0,180,255,0.3)' }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <TrendingUp size={18} style={{ color: '#00b4ff' }} />
-                  <span style={{ fontWeight: '600', fontSize: '0.9rem' }}>Escalabilidad Total</span>
-                </div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { 
   Headset, 
   CheckCircle2, 
@@ -25,6 +25,29 @@ export default function Bpo({ onNavigate }) {
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const containerRef = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+
+  // Transformaciones para el Badge (BPO SERVICES)
+  const badgeOpacity = useTransform(smoothProgress, [0, 0.05, 0.9, 1], [0, 1, 1, 0]);
+  const badgeY = useTransform(smoothProgress, [0, 0.4, 0.7], ["0vh", "0vh", "-38vh"]);
+  const badgeX = useTransform(smoothProgress, [0, 0.4, 0.7], ["0vw", "0vw", "-36.5vw"]);
+  const badgeScale = useTransform(smoothProgress, [0, 0.4], [3, 1]);
+  
+  // Transformaciones para la imagen de fondo
+  const imgScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1]);
+  const imgY = useTransform(smoothProgress, [0.3, 0.8], ["0%", "-15%"]);
+  const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.5, 0.3, 0.4]);
+
+  // Transformaciones para el Contenido (Títulos, Texto)
+  const contentOpacity = useTransform(smoothProgress, [0.65, 0.85], [0, 1]);
+  const contentY = useTransform(smoothProgress, [0.65, 0.85], [100, 0]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -62,79 +85,83 @@ export default function Bpo({ onNavigate }) {
 
       <Navbar onNavigate={onNavigate} activePage="bpo" />
 
-      {/* ── Hero Section ── */}
-      <section style={{ 
-        minHeight: '100vh', 
-        display: 'flex', 
-        alignItems: 'center', 
-        position: 'relative', 
-        overflow: 'hidden', 
-        zIndex: 10, 
-        padding: '140px 0 80px' 
-      }}>
-        {/* Background Hero Image */}
-        <div style={{ 
-          position: 'absolute', 
-          top: 0, 
-          left: 0, 
-          width: '100%', 
-          height: '100%', 
-          zIndex: -1 
-        }}>
-          <img 
-            src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
-            alt="Professional BPO Services"
-            style={{ 
-              width: '100%', 
-              height: '100%', 
-              objectFit: 'cover',
-              filter: 'brightness(0.4) contrast(1.1)'
-            }}
-          />
-          {/* Cinema Gradients */}
-          <div style={{ 
+      {/* ── Scrollytelling Hero Section ── */}
+      <section ref={containerRef} style={{ height: '300vh', position: 'relative', zIndex: 10 }}>
+        <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+          {/* Background Hero Image */}
+          <motion.div style={{ 
             position: 'absolute', 
             top: 0, 
             left: 0, 
             width: '100%', 
             height: '100%', 
-            background: 'linear-gradient(to right, rgba(5,5,5,1) 0%, rgba(5,5,5,0.8) 35%, rgba(5,5,5,0.3) 70%, transparent 100%)' 
-          }} />
-          <div style={{ 
-            position: 'absolute', 
-            bottom: 0, 
-            left: 0, 
-            width: '100%', 
-            height: '50%', 
-            background: 'linear-gradient(to top, rgba(5,5,5,1) 0%, transparent 100%)' 
-          }} />
-        </div>
+            zIndex: -1,
+            scale: imgScale,
+            y: imgY
+          }}>
+            <motion.img 
+              src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
+              alt="Professional BPO Services"
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'cover',
+                opacity: imgBrightness
+              }}
+            />
+            {/* Cinema Gradients */}
+            <div style={{ 
+              position: 'absolute', 
+              top: 0, 
+              left: 0, 
+              width: '100%', 
+              height: '100%', 
+              background: 'linear-gradient(to right, rgba(5,5,5,1) 0%, rgba(5,5,5,0.8) 35%, rgba(5,5,5,0.3) 70%, transparent 100%)' 
+            }} />
+            <div style={{ 
+              position: 'absolute', 
+              bottom: 0, 
+              left: 0, 
+              width: '100%', 
+              height: '50%', 
+              background: 'linear-gradient(to top, rgba(5,5,5,1) 0%, transparent 100%)' 
+            }} />
+          </motion.div>
 
-        <div className="section-container" style={{ position: 'relative', zIndex: 20 }}>
-          <div style={{ maxWidth: '850px' }}>
+          {/* Centralized Badge (Stage 1) that moves (Stage 2) */}
+          <motion.div 
+            style={{ 
+              position: 'absolute',
+              zIndex: 30,
+              y: badgeY,
+              x: badgeX,
+              scale: badgeScale,
+              opacity: badgeOpacity,
+              display: 'inline-flex', 
+              padding: '12px 30px', 
+              background: 'rgba(255,140,0,0.25)', 
+              backdropFilter: 'blur(15px)',
+              borderRadius: '40px', 
+              border: '1px solid rgba(255,140,0,0.4)', 
+              color: 'var(--color-secondary)', 
+              fontWeight: '900', 
+              fontSize: '1.2rem', 
+              letterSpacing: '4px', 
+              alignItems: 'center', 
+              gap: '15px' 
+            }}
+          >
+            <Headset size={24} /> BPO SERVICES
+          </motion.div>
+
+          <div className="section-container" style={{ position: 'relative', zIndex: 20, width: '100%' }}>
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              style={{ 
+                maxWidth: '850px',
+                opacity: contentOpacity,
+                y: contentY
+              }}
             >
-              <div style={{ 
-                display: 'inline-flex', 
-                padding: '8px 20px', 
-                background: 'rgba(255,140,0,0.2)', 
-                backdropFilter: 'blur(10px)',
-                borderRadius: '30px', 
-                border: '1px solid rgba(255,140,0,0.3)', 
-                marginBottom: '35px', 
-                color: 'var(--color-secondary)', 
-                fontWeight: 'bold', 
-                fontSize: '0.9rem', 
-                letterSpacing: '2px', 
-                alignItems: 'center', 
-                gap: '10px' 
-              }}>
-                <Headset size={18} /> BPO SERVICES
-              </div>
-              
               <h1 style={{ 
                 fontSize: 'clamp(3.5rem, 8vw, 5.5rem)', 
                 fontWeight: '900', 
@@ -166,7 +193,7 @@ export default function Bpo({ onNavigate }) {
                 maxWidth: '650px',
                 textShadow: '0 2px 10px rgba(0,0,0,0.3)'
               }}>
-                En F5 creemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
+                En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
               </p>
 
               <div style={{ display: 'flex', gap: '25px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -191,20 +218,6 @@ export default function Bpo({ onNavigate }) {
                 >
                   ¡Me Interesa! <ChevronRight size={22} />
                 </motion.button>
-                
-                {/* Floating micro-badges integrated into composition */}
-                <div style={{ display: 'flex', gap: '20px' }}>
-                  <div className="glass" style={{ padding: '10px 20px', borderRadius: '15px', border: '1px solid rgba(255,140,0,0.2)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>
-                      <Globe size={18} style={{ color: 'var(--color-secondary)' }} /> Bilingüe
-                    </div>
-                  </div>
-                  <div className="glass" style={{ padding: '10px 20px', borderRadius: '15px', border: '1px solid rgba(0,180,255,0.2)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>
-                      <TrendingUp size={18} style={{ color: '#00b4ff' }} /> Escalable
-                    </div>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>

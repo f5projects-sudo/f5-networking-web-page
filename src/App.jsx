@@ -7,7 +7,9 @@ import Cableado from './pages/Cableado';
 import Echo from './pages/Echo';
 import Bpo from './pages/Bpo';
 import Pbx from './pages/Pbx';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import Voxis from './pages/Voxis';
+import Equipamiento from './pages/Equipamiento';
+import { motion } from 'framer-motion';
 import {
   Headset,
   Bot,
@@ -54,30 +56,26 @@ const App = () => {
     };
   }, []);
 
-  // ── Page routing ───────────────────────────────
-  if (currentPage === 'nosotros') {
-    return <Nosotros onNavigate={setCurrentPage} />;
-  }
-  if (currentPage === 'axia') {
-    return <Axia onNavigate={setCurrentPage} />;
-  }
-  if (currentPage === 'nova-core') {
-    return <NovaCore onNavigate={setCurrentPage} />;
-  }
-  if (currentPage === 'desarrollo') {
-    return <Desarrollo onNavigate={setCurrentPage} />;
-  }
-  if (currentPage === 'cableado') {
-    return <Cableado onNavigate={setCurrentPage} />;
-  }
-  if (currentPage === 'echo') {
-    return <Echo onNavigate={setCurrentPage} />;
-  }
-  if (currentPage === 'bpo') {
-    return <Bpo onNavigate={setCurrentPage} />;
-  }
-  if (currentPage === 'pbx') {
-    return <Pbx onNavigate={setCurrentPage} />;
+  // ── Page routing logic ──────────────────────────
+  let PageContent = null;
+  if (currentPage === 'nosotros') PageContent = <Nosotros onNavigate={setCurrentPage} />;
+  else if (currentPage === 'axia') PageContent = <Axia onNavigate={setCurrentPage} />;
+  else if (currentPage === 'nova-core') PageContent = <NovaCore onNavigate={setCurrentPage} />;
+  else if (currentPage === 'desarrollo') PageContent = <Desarrollo onNavigate={setCurrentPage} />;
+  else if (currentPage === 'cableado') PageContent = <Cableado onNavigate={setCurrentPage} />;
+  else if (currentPage === 'echo') PageContent = <Echo onNavigate={setCurrentPage} />;
+  else if (currentPage === 'bpo') PageContent = <Bpo onNavigate={setCurrentPage} />;
+  else if (currentPage === 'pbx') PageContent = <Pbx onNavigate={setCurrentPage} />;
+  else if (currentPage === 'voxis') PageContent = <Voxis onNavigate={setCurrentPage} />;
+  else if (currentPage === 'equipamiento') PageContent = <Equipamiento onNavigate={setCurrentPage} />;
+
+  if (PageContent) {
+    return (
+      <>
+        {PageContent}
+        <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
+      </>
+    );
   }
   // ─────────────────────────────────────────────
 
@@ -607,7 +605,7 @@ const App = () => {
       `}</style>
 
       {/* ElevenLabs Conversational AI Widget */}
-      <elevenlabs-convai agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
+      <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
     </div>
   );
 };

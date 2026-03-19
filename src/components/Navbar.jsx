@@ -104,9 +104,9 @@ const Navbar = ({ onNavigate, activePage }) => {
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('cableado'); }} className={activePage === 'cableado' ? 'active' : ''}>Cableado Estructurado</span>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('echo'); }} className={activePage === 'echo' ? 'active' : ''}>ECHO CRM</span>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('bpo'); }} className={activePage === 'bpo' ? 'active' : ''}>BPO SERVICES</span>
-              <span onClick={(e) => { e.stopPropagation(); scrollTo('services'); }}>VOXIS</span>
+              <span onClick={(e) => { e.stopPropagation(); handleNavigate('voxis'); }} className={activePage === 'voxis' ? 'active' : ''}>VOXIS</span>
               <span onClick={(e) => { e.stopPropagation(); handleNavigate('pbx'); }} className={activePage === 'pbx' ? 'active' : ''}>PBX DIDS & SMS</span>
-              <span onClick={(e) => { e.stopPropagation(); scrollTo('services'); }}>VENTA DE EQUIPOS</span>
+              <span onClick={(e) => { e.stopPropagation(); handleNavigate('equipamiento'); }} className={activePage === 'equipamiento' ? 'active' : ''}>VENTA DE EQUIPOS</span>
             </div>
           </div>
           

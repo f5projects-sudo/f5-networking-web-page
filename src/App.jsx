@@ -98,40 +98,67 @@ const App = () => {
 
   const services = [
     {
+      title: "AXIA",
+      icon: <Cpu size={40} className="text-primary" />,
+      description: "Infraestructura Cloud de alto rendimiento. Servidores escalables y seguros para tus aplicaciones críticas.",
+      features: ["Nube Privada", "Seguridad SSL", "Auto-escalado"],
+      path: 'axia'
+    },
+    {
       title: "BPO Services",
       icon: <Headset size={40} className="text-secondary" />,
       description: "Soluciones de Call Center de alto impacto. Optimizamos la atención al cliente con procesos eficientes y talento especializado.",
-      features: ["Atención 24/7", "Multilingüe", "KPIs en tiempo real"]
+      features: ["Atención 24/7", "Multilingüe", "KPIs en tiempo real"],
+      path: 'bpo'
     },
     {
       title: "IA Asistentes Virtuales",
       icon: <Bot size={40} className="text-primary" />,
-      description: "Automatización inteligente. Implementamos bots con lenguaje natural para resolver consultas al instante.",
-      features: ["NLP Avanzado", "Integración API", "Aprendizaje continuo"]
+      description: "VOXIS: Automatización inteligente de voz. Implementamos bots con lenguaje natural para resolver consultas al instante.",
+      features: ["NLP Avanzado", "Integración API", "Aprendizaje continuo"],
+      path: 'voxis'
     },
     {
       title: "ECHO - CRM Omnicanal",
       icon: <MessageSquare size={40} className="text-accent" />,
       description: "Centraliza todas tus comunicaciones. WhatsApp, Redes Sociales y Chat en una sola plataforma unificada.",
-      features: ["Inbox Unificado", "Chatbots integrados", "Reportes avanzados"]
+      features: ["Inbox Unificado", "Chatbots integrados", "Reportes avanzados"],
+      path: 'echo'
     },
     {
       title: "Telefonía SIP / PBX",
       icon: <Phone size={40} className="text-white" />,
       description: "Infraestructura robusta de voz. Telefonía IP escalable y segura para empresas que no pueden detenerse.",
-      features: ["Voz sobre IP", "Troncales SIP", "Escalabilidad Global"]
+      features: ["Voz sobre IP", "Troncales SIP", "Escalabilidad Global"],
+      path: 'pbx'
     },
     {
       title: "NOVA CORE",
       icon: <Zap size={40} className="text-secondary" />,
-      description: "Es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos, opera 24/7 y transforma cada interacción en resultados medibles.",
-      features: ["Escalabilidad Instantánea", "Atención 24/7", "Eficiencia Máxima"]
+      description: "Es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos y opera 24/7.",
+      features: ["Escalabilidad Instantánea", "Atención 24/7", "Eficiencia Máxima"],
+      path: 'nova-core'
     },
     {
       title: "Cableado Estructurado",
       icon: <Network size={40} className="text-accent" />,
-      description: "Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. Analizamos tu espacio y necesidades para una red que crece contigo hoy y mañana.",
-      features: ["Redes Escalables", "Infraestructura Sólida", "Seguridad de Red"]
+      description: "Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables para una red que crece contigo.",
+      features: ["Redes Escalables", "Infraestructura Sólida", "Seguridad de Red"],
+      path: 'cableado'
+    },
+    {
+      title: "Desarrollo de Software",
+      icon: <Globe size={40} className="text-primary" />,
+      description: "Soluciones a medida. Desde aplicaciones móviles hasta plataformas web complejas diseñadas para tu negocio.",
+      features: ["Full Stack", "Metodología Ágil", "UX/UI Premium"],
+      path: 'desarrollo'
+    },
+    {
+      title: "Venta de Equipos",
+      icon: <Smartphone size={40} className="text-secondary" />,
+      description: "Equipamiento tecnológico de última generación. Switches, laptops y servidores de las mejores marcas.",
+      features: ["Garantía Directa", "Soporte Técnico", "Envío Nacional"],
+      path: 'equipamiento'
     }
   ];
 
@@ -212,8 +239,9 @@ const App = () => {
             <motion.div
               key={index}
               className="glass"
-              style={{ padding: '40px', transition: 'transform 0.3s ease' }}
-              whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}
+              style={{ padding: '40px', transition: 'transform 0.3s ease', cursor: 'pointer' }}
+              whileHover={{ y: -10, border: '1px solid var(--color-primary)', background: 'rgba(255,255,255,0.02)' }}
+              onClick={() => setCurrentPage(service.path)}
               {...fadeInUp}
               transition={{ delay: index * 0.1 }}
             >
@@ -229,9 +257,9 @@ const App = () => {
                   </li>
                 ))}
               </ul>
-              <a href="#" style={{ color: 'var(--color-secondary)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
+              <div style={{ color: 'var(--color-secondary)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
                 Saber más <ChevronRight size={16} />
-              </a>
+              </div>
             </motion.div>
           ))}
         </div>

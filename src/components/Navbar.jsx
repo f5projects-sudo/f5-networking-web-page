@@ -59,6 +59,7 @@ const Navbar = ({ onNavigate, activePage }) => {
     <nav className="glass main-nav" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto' }}>
         <div 
+          className="nav-logo-container"
           style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
           onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }}
         >

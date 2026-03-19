@@ -371,6 +371,11 @@ elevenlabs-convai {
   
   .mobile-menu-toggle {
     display: block !important;
+    margin-right: 15px !important;
+  }
+
+  .nav-logo-container {
+    margin-left: 15px !important;
   }
   
   .contact-grid {

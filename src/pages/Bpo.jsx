@@ -117,19 +117,19 @@ export default function Bpo({ onNavigate }) {
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
 
   // Transformaciones para el Badge (BPO SERVICES)
-  const badgeOpacity = useTransform(smoothProgress, [0, 0.05, 0.9, 1], [0, 1, 1, 0]);
+  const badgeOpacity = useTransform(smoothProgress, [0, 0.1, 0.9, 1], [1, 1, 1, 0]);
   const badgeY = useTransform(smoothProgress, [0, 0.4, 0.7], ["0vh", "0vh", "-38vh"]);
   const badgeX = useTransform(smoothProgress, [0, 0.4, 0.7], ["0vw", "0vw", "-36.5vw"]);
-  const badgeScale = useTransform(smoothProgress, [0, 0.4], [3, 1]);
+  const badgeScale = useTransform(smoothProgress, [0, 0.4], [1.5, 1]);
   
   // Transformaciones para la imagen de fondo
   const imgScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1]);
   const imgY = useTransform(smoothProgress, [0.3, 0.8], ["0%", "-15%"]);
-  const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.8, 0.6, 0.7]);
+  const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.9, 0.7, 0.8]);
 
   // Transformaciones para el Contenido (Títulos, Texto)
-  const contentOpacity = useTransform(smoothProgress, [0.65, 0.85], [0, 1]);
-  const contentY = useTransform(smoothProgress, [0.65, 0.85], [100, 0]);
+  const contentOpacity = useTransform(smoothProgress, [0.55, 0.75], [0, 1]);
+  const contentY = useTransform(smoothProgress, [0.55, 0.75], [50, 0]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },

@@ -17,12 +17,17 @@ import {
   Phone,
   ChevronRight,
   ChevronDown,
-  CheckCircle2,
+  CheckCircle, // Changed from CheckCircle2
   Globe,
   Cpu,
   Activity,
   Zap,
-  Network
+  Network,
+  AlertCircle, // New
+  Smartphone, // New
+  Shield, // New
+  MessageCircle, // New
+  Mail // New
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
 import MapFooter from './components/MapFooter';
@@ -209,7 +214,7 @@ const App = () => {
               <ul style={{ marginBottom: '25px' }}>
                 {service.features.map((f, i) => (
                   <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', fontSize: '0.9rem' }}>
-                    <CheckCircle2 size={16} className="text-primary" /> {f}
+                    <CheckCircle size={16} className="text-primary" /> {f}
                   </li>
                 ))}
               </ul>
@@ -520,23 +525,38 @@ const App = () => {
         <motion.div {...fadeInUp}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>¿Listo para llevar tu empresa al <span className="gradient-text">siguiente nivel</span>?</h2>
           <p style={{ color: 'var(--color-text-muted)', marginBottom: '50px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
-          <div style={{ display: 'flex', gap: '30px', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center' }}>
-            <a
-              href="https://wa.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-neon btn-neon-whatsapp"
+          <div className="contact-grid">
+            <motion.div 
+              className="contact-button-wrapper"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="btn-neon-icon">💬</span>
-              WhatsApp
-            </a>
-            <a
-              href="mailto:contacto@f5networking.com"
-              className="btn-neon btn-neon-email"
+              <a
+                href="https://wa.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-button-inner btn-whatsapp-premium"
+              >
+                <MessageCircle size={24} />
+                WhatsApp
+              </a>
+              <div className="contact-glow"></div>
+            </motion.div>
+
+            <motion.div 
+              className="contact-button-wrapper"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <span className="btn-neon-icon">✉️</span>
-              Enviar Email
-            </a>
+              <a
+                href="mailto:contacto@f5networking.com"
+                className="contact-button-inner btn-email-premium"
+              >
+                <Mail size={24} />
+                Enviar Email
+              </a>
+              <div className="contact-glow"></div>
+            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -572,7 +592,7 @@ const App = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '10px' }}>Dirección</h4>
             <p style={{ margin: 0, lineHeight: '1.6' }}>
-              C. Miguel Blanco 1449<br />
+              C. Miguel Blanco 1440<br />
               Col Americana, Americana<br />
               44160 Guadalajara, Jal.
             </p>

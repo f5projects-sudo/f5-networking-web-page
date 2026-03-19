@@ -338,3 +338,87 @@ button {
     transparent    100%
   );
 }
+
+/* ── Premium Contact Buttons ────────────────────────── */
+.contact-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.contact-button-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-button-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 40px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.contact-button-inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, var(--btn-color-1), var(--btn-color-2));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.contact-button-inner:hover {
+  transform: translateY(-5px);
+  border-color: var(--btn-color-1);
+  box-shadow: 0 20px 40px var(--btn-shadow-color);
+}
+
+.contact-button-inner:hover::before {
+  opacity: 0.15;
+}
+
+.contact-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, var(--btn-color-1) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.contact-button-inner:hover ~ .contact-glow {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0.3;
+}
+
+.btn-whatsapp-premium {
+  --btn-color-1: #25D366;
+  --btn-color-2: #128C7E;
+  --btn-shadow-color: rgba(37, 211, 102, 0.3);
+}
+
+.btn-email-premium {
+  --btn-color-1: #0090ff;
+  --btn-color-2: #0056b3;
+  --btn-shadow-color: rgba(0, 144, 255, 0.3);
+}

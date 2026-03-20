@@ -40,7 +40,7 @@ export default function Cableado({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="cableado" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(100px, 15vw, 120px) 0 80px' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(140px, 18vh, 180px) 20px 80px' }}>
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -57,8 +57,8 @@ export default function Cableado({ onNavigate }) {
           zIndex: -1
         }} />
 
-        <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center' }}>
+        <div className="section-container" style={{ width: '100%' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(30px, 8vw, 60px)', alignItems: 'center' }}>
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -167,15 +167,15 @@ export default function Cableado({ onNavigate }) {
       <section className="section-container" style={{ padding: '100px 0', position: 'relative', zIndex: 10 }}>
         <motion.div 
           {...fadeInUp}
-          style={{ textAlign: 'center', marginBottom: '70px' }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(40px, 8vw, 70px)' }}
         >
-          <h2 style={{ fontSize: '2.8rem', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
             Organizamos y montamos racks de forma <span className="gradient-text-secondary">clara y funcional</span>
           </h2>
           <div style={{ width: '80px', height: '4px', background: 'linear-gradient(90deg, var(--color-secondary), transparent)', margin: '0 auto' }}></div>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(20px, 4vw, 30px)' }}>
           {[
             { icon: <Network size={32} />, title: "Switches de red", desc: "Instalación, configuración y optimización de switches de alta capacidad." },
             { icon: <ShieldCheck size={32} />, title: "Seguridad con Fortinet", desc: "Implementación de firewalls y soluciones de seguridad perimetral líderes en el mercado." },
@@ -263,17 +263,17 @@ export default function Cableado({ onNavigate }) {
       <section className="section-container" style={{ padding: '100px 0', position: 'relative', zIndex: 10 }}>
         <motion.div 
           {...fadeInUp}
-          style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto 80px' }}
+          style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto clamp(40px, 8vw, 80px)' }}
         >
-          <h2 style={{ fontSize: '2.8rem', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
             Tu red no solo funciona hoy, <span style={{ color: 'var(--color-secondary)' }}>crece contigo</span>.
           </h2>
-          <p style={{ fontSize: '1.3rem', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
+          <p style={{ fontSize: 'clamp(1.1rem, 2.8vw, 1.3rem)', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
             Desarrollamos una infraestructura sólida y preparada para el futuro, ideal para empresas que no pueden darse el lujo de fallar. Si tu negocio depende de la red, estás en el lugar correcto.
           </p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(20px, 4vw, 30px)' }}>
           {[
             {
               icon: <Cpu size={30} />,

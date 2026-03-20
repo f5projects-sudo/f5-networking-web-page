@@ -76,16 +76,16 @@ const NovaParticles = ({ targetShape = 'none' }) => {
       offscreen.height = window.innerHeight;
       const offCtx = offscreen.getContext('2d', { willReadFrequently: true });
       
-      const cardWidth = window.innerWidth < 768 ? Math.floor(window.innerWidth * 0.8) : 600;
+      const cardWidth = window.innerWidth < 768 ? Math.floor(window.innerWidth * 0.85) : 600;
       const cardHeight = Math.floor(cardWidth * 0.6);
-      // Forzar coordenadas enteras para evitar anti-aliasing severo
-      const x = Math.floor((window.innerWidth - cardWidth) / 2);
-      const y = Math.floor((window.innerHeight - cardHeight) / 2);
-      const radius = 20;
+      const x = (window.innerWidth - cardWidth) / 2;
+      const y = (window.innerHeight - cardHeight) / 2;
+      const radius = 30;
 
       // Dibujar borde de tarjeta redonda
       offCtx.strokeStyle = 'white';
-      offCtx.lineWidth = window.innerWidth < 768 ? 5 : 7; // Más ancho para que el density=6 no lo salte
+      // Línea muy gruesa para asegurar que el muestreo de píxeles (density) no la salte
+      offCtx.lineWidth = window.innerWidth < 768 ? 15 : 10; 
       offCtx.beginPath();
       offCtx.moveTo(x + radius, y);
       offCtx.lineTo(x + cardWidth - radius, y);
@@ -99,21 +99,16 @@ const NovaParticles = ({ targetShape = 'none' }) => {
       offCtx.closePath();
       offCtx.stroke();
 
-      // (Se remueven las líneas del chip que estorbaban la lectura central)
-
-      // Dibujar texto "VISA" abajo a la derecha
-      const fontSize = window.innerWidth < 768 ? 35 : 70;
+      const fontSize = window.innerWidth < 768 ? 40 : 70;
       offCtx.fillStyle = 'white';
-      offCtx.font = `italic bold ${fontSize}px "Inter", sans-serif`;
+      offCtx.font = `italic 900 ${fontSize}px "Inter", sans-serif`;
       offCtx.textAlign = 'right';
       offCtx.textBaseline = 'bottom';
-      offCtx.fillText("VISA", x + cardWidth - cardWidth * 0.08, y + cardHeight - cardHeight * 0.1);
-
-      // (Se remueven los números dibujados con canvas text para usar matrix points)
+      offCtx.fillText("VISA", x + cardWidth - 20, y + cardHeight - 20);
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 5 : 6; 
+      const density = window.innerWidth < 768 ? 4 : 6; 
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {

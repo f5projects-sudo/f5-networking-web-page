@@ -225,7 +225,14 @@ export default function Voxis({ onNavigate }) {
             Conversational AI Core
           </motion.div>
           
-          <h1 style={{ fontSize: 'clamp(4rem, 15vw, 9rem)', fontWeight: '900', lineHeight: 0.9, marginBottom: 'clamp(10px, 2vh, 20px)', letterSpacing: '-5px' }}>
+          <h1 style={{ 
+            fontSize: 'clamp(3.5rem, 15vw, 9rem)', 
+            fontWeight: '900', 
+            lineHeight: 1.1, 
+            marginBottom: 'clamp(10px, 2vh, 20px)', 
+            letterSpacing: 'clamp(-5px, -1vw, -2px)',
+            padding: '10px 0'
+          }}>
             VØ<span className="gradient-text">XIS</span>
           </h1>
           

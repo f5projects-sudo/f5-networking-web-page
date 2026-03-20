@@ -91,6 +91,14 @@ const industries = [
 ];
 
 const IndustryAgents = () => {
+  const [isSmallScreen, setIsSmallScreen] = React.useState(window.innerWidth < 400);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth < 400);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -115,9 +123,9 @@ const IndustryAgents = () => {
         viewport={{ once: true, amount: 0.1 }}
         style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-          gap: '25px',
-          padding: '20px'
+          gridTemplateColumns: isSmallScreen ? 'repeat(auto-fit, minmax(250px, 1fr))' : 'repeat(auto-fit, minmax(280px, 1fr))', 
+          gap: isSmallScreen ? '15px' : '25px',
+          padding: isSmallScreen ? '10px' : '20px'
         }}
       >
         {industries.map((item, index) => (
@@ -130,7 +138,7 @@ const IndustryAgents = () => {
               backdropFilter: 'blur(10px)',
               border: '1px solid rgba(255,255,255,0.05)', 
               borderRadius: '16px', 
-              padding: '30px',
+              padding: isSmallScreen ? '20px' : '30px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'flex-start',
@@ -157,7 +165,7 @@ const IndustryAgents = () => {
             </div>
             <h3 style={{ 
               color: 'white', 
-              fontSize: '1.25rem', 
+              fontSize: isSmallScreen ? '1.1rem' : '1.25rem', 
               marginBottom: '12px',
               fontWeight: '600'
             }}>
@@ -165,7 +173,7 @@ const IndustryAgents = () => {
             </h3>
             <p style={{ 
               color: 'var(--color-text-muted)', 
-              fontSize: '0.95rem',
+              fontSize: isSmallScreen ? '0.85rem' : '0.95rem',
               lineHeight: '1.6',
               margin: 0
             }}>

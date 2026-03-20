@@ -197,9 +197,9 @@ export default function Voxis({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="voxis" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: '120px', paddingBottom: '100px' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: 'clamp(160px, 20vh, 200px)', paddingBottom: '100px', paddingLeft: '20px', paddingRight: '20px' }}>
         <motion.div 
-          style={{ textAlign: 'center', scale, opacity }}
+          style={{ textAlign: 'center', scale, opacity, width: '100%' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -218,22 +218,22 @@ export default function Voxis({ onNavigate }) {
               fontSize: '0.9rem', 
               fontWeight: '800', 
               letterSpacing: '3px', 
-              marginBottom: '30px',
+              marginBottom: 'clamp(15px, 3vh, 30px)',
               textTransform: 'uppercase'
             }}
           >
             Conversational AI Core
           </motion.div>
           
-          <h1 style={{ fontSize: 'clamp(4rem, 15vw, 9rem)', fontWeight: '900', lineHeight: 0.9, marginBottom: '20px', letterSpacing: '-5px' }}>
+          <h1 style={{ fontSize: 'clamp(4rem, 15vw, 9rem)', fontWeight: '900', lineHeight: 0.9, marginBottom: 'clamp(10px, 2vh, 20px)', letterSpacing: '-5px' }}>
             VØ<span className="gradient-text">XIS</span>
           </h1>
           
-          <p style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)', fontWeight: '500', color: 'rgba(255,255,255,0.6)', maxWidth: '800px', margin: '0 auto 40px', lineHeight: 1.2 }}>
+          <p style={{ fontSize: 'clamp(1.1rem, 3vw, 2rem)', fontWeight: '500', color: 'rgba(255,255,255,0.6)', maxWidth: '800px', margin: '0 auto clamp(20px, 4vh, 40px)', lineHeight: 1.3 }}>
             La voz inteligente que trabaja por tu empresa
           </p>
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'clamp(25px, 5vh, 50px)', transform: 'scale(0.8)' }}>
             <VoiceWave />
           </div>
 

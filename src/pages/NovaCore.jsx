@@ -44,12 +44,12 @@ export default function NovaCore({ onNavigate }) {
     const handleUpperIntersect = (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          if (entry.target.id === 'hero-section' || entry.target.id === 'info-section') {
+          if (entry.target.id === 'hero-section') {
             setTargetShape('text');
+          } else if (entry.target.id === 'info-section' || entry.target.id === 'nova-features') {
+            setTargetShape('scatter');
           } else if (entry.target.id === 'nova-cash-particles') {
             setTargetShape('card');
-          } else if (entry.target.id === 'nova-features') {
-            setTargetShape('scatter');
           }
         }
       });

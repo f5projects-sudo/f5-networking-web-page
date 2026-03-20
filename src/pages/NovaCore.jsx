@@ -109,9 +109,7 @@ export default function NovaCore({ onNavigate }) {
     <div className="app">
       <NovaParticles targetShape={targetShape} />
       
-      <Navbar onNavigate={onNavigate} activePage="nova-core" />
-
-      {/* ── Hero Section (Solo para trigger the observer) ── */}
+      {/* Hero Section (Solo para trigger the observer) */}
       <section id="hero-section" style={{ height: '100vh', marginBottom: '5vh', position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '12vh', pointerEvents: 'none' }}>
         {/* Las partículas dibujarán "NOVA CORE" aquí */}
         
@@ -276,6 +274,8 @@ export default function NovaCore({ onNavigate }) {
 
       {/* ── Footer ── */}
       <Footer onNavigate={onNavigate} />
+      
+      <Navbar onNavigate={onNavigate} activePage="nova-core" />
     </div>
   );
 }

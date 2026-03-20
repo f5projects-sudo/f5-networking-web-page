@@ -343,7 +343,7 @@ button {
   background: none;
   border: none;
   color: white;
-  z-index: 1001;
+  z-index: 9999;
 }
 
 .nav-menu-mobile {
@@ -359,12 +359,15 @@ button {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 1000;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s 0.4s;
+  z-index: 9998;
+  visibility: hidden;
 }
 
 .nav-menu-mobile.active {
   right: 0;
+  visibility: visible;
+  transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s;
 }
 
 /* ── Global Widget Override ── */

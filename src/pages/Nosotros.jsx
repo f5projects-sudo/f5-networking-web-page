@@ -45,10 +45,7 @@ export default function Nosotros({ onNavigate }) {
     <div className="app">
       <BubbleBackground />
 
-      {/* ── Navbar ── */}
-      <Navbar onNavigate={onNavigate} activePage="nosotros" />
-
-      {/* ── Hero / Intro ── */}
+      {/* Hero / Intro */}
       <section style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '160px 5% 80px' }}>
         <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}>
           <p style={{ color: 'var(--color-secondary)', fontWeight: 700, letterSpacing: '3px', fontSize: '0.85rem', marginBottom: '16px' }}>QUIÉNES SOMOS</p>
@@ -185,6 +182,8 @@ export default function Nosotros({ onNavigate }) {
 
 
       <Footer onNavigate={onNavigate} />
+      
+      <Navbar onNavigate={onNavigate} activePage="nosotros" />
     </div>
   );
 }

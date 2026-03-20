@@ -193,8 +193,6 @@ const App = () => {
     <div className="app">
       <BubbleBackground />
 
-      <Navbar onNavigate={setCurrentPage} activePage={currentPage} />
-
       {/* Hero Section */}
       <section id="hero" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px' }}>
         <motion.div
@@ -731,6 +729,8 @@ const App = () => {
 
       {/* ElevenLabs Conversational AI Widget */}
       <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
+      
+      <Navbar onNavigate={setCurrentPage} activePage={currentPage} />
     </div>
   );
 };

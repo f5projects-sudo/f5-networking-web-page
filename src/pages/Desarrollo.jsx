@@ -258,6 +258,8 @@ export default function Desarrollo({ onNavigate }) {
 
       {/* ── Footer ── */}
       <Footer onNavigate={onNavigate} />
+      
+      <Navbar onNavigate={onNavigate} activePage="desarrollo" />
     </div>
   );
 }

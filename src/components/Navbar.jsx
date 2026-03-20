@@ -73,9 +73,11 @@ const Navbar = ({ onNavigate, activePage }) => {
         position: 'fixed', 
         top: 0, 
         width: '100%', 
-        zIndex: 1000,
-        backgroundColor: isScrolled ? 'rgba(5, 5, 5, 0.9)' : 'transparent',
-        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none'
+        zIndex: 9999, 
+        backgroundColor: 'rgba(5, 5, 5, 0.95)', // Permanent solid for visibility
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        backdropFilter: 'blur(15px)',
+        WebkitBackdropFilter: 'blur(15px)'
       }}
     >
       <div style={{ 

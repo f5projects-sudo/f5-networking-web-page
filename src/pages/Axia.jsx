@@ -34,9 +34,7 @@ export default function Axia({ onNavigate }) {
     <div className="app">
       <BubbleBackground />
 
-      <Navbar onNavigate={onNavigate} activePage="axia" />
-
-      {/* ── Hero Section ── */}
+      {/* Hero Section */}
       <section style={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', overflow: 'hidden' }}>
         <video
           autoPlay
@@ -180,6 +178,8 @@ export default function Axia({ onNavigate }) {
 
       {/* ── Footer ── */}
       <Footer onNavigate={onNavigate} />
+      
+      <Navbar onNavigate={onNavigate} activePage="axia" />
     </div>
   );
 }

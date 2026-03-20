@@ -252,16 +252,12 @@ export default function Cableado({ onNavigate }) {
           <div 
             style={{ 
               width: '100%', 
-              overflowX: 'auto', 
+              overflowX: 'visible', 
               paddingBottom: '20px', 
-              WebkitOverflowScrolling: 'touch',
-              scrollbarWidth: 'none' 
+              WebkitOverflowScrolling: 'touch'
             }}
-            className="hide-scrollbar"
           >
-            <div style={{ minWidth: '900px', padding: '0 20px' }}>
-              <DataCenterFloorPlan />
-            </div>
+            <DataCenterFloorPlan />
           </div>
         </div>
       </section>

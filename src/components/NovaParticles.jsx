@@ -84,8 +84,8 @@ const NovaParticles = ({ targetShape = 'none' }) => {
 
       // Dibujar borde de tarjeta redonda
       offCtx.strokeStyle = 'white';
-      // Línea muy gruesa para asegurar que el muestreo de píxeles (density) no la salte
-      offCtx.lineWidth = window.innerWidth < 768 ? 15 : 10; 
+      // Línea refinada para look digital
+      offCtx.lineWidth = window.innerWidth < 768 ? 8 : 10; 
       offCtx.beginPath();
       offCtx.moveTo(x + radius, y);
       offCtx.lineTo(x + cardWidth - radius, y);
@@ -99,16 +99,16 @@ const NovaParticles = ({ targetShape = 'none' }) => {
       offCtx.closePath();
       offCtx.stroke();
 
-      const fontSize = window.innerWidth < 768 ? 40 : 70;
+      const fontSize = window.innerWidth < 768 ? 32 : 70;
       offCtx.fillStyle = 'white';
-      offCtx.font = `italic 900 ${fontSize}px "Inter", sans-serif`;
+      offCtx.font = `italic 700 ${fontSize}px "Inter", sans-serif`;
       offCtx.textAlign = 'right';
       offCtx.textBaseline = 'bottom';
-      offCtx.fillText("VISA", x + cardWidth - 20, y + cardHeight - 20);
+      offCtx.fillText("VISA", x + cardWidth - 25, y + cardHeight - 20);
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 3 : 6; 
+      const density = window.innerWidth < 768 ? 5 : 6; 
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {

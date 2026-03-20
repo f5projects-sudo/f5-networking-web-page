@@ -107,7 +107,7 @@ const SMSDashboard = () => {
     <div style={{ 
       background: 'rgba(5, 15, 25, 0.6)', 
       borderRadius: '28px', 
-      padding: '35px', 
+      padding: 'clamp(20px, 5vw, 35px)', 
       border: '1px solid rgba(0, 212, 255, 0.15)', 
       backdropFilter: 'blur(20px)',
       boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
@@ -141,7 +141,7 @@ const SMSDashboard = () => {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '30px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(10px, 3vw, 20px)', marginBottom: '30px' }}>
         <div style={{ textAlign: 'center', padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
           <div style={{ fontSize: '0.65rem', opacity: 0.4, marginBottom: '8px', fontWeight: '800' }}>ENVIADOS</div>
           <div style={{ fontSize: '1.4rem', fontWeight: '900', fontFamily: 'monospace', color: '#fff' }}>{sentCount.toLocaleString()}</div>
@@ -332,7 +332,7 @@ export default function Pbx({ onNavigate }) {
         position: 'relative', 
         overflow: 'hidden', 
         zIndex: 10, 
-        padding: 'clamp(100px, 15vw, 140px) 0 80px' 
+        padding: 'clamp(150px, 20vw, 180px) 0 80px' 
       }}>
         {/* Background Hero Image */}
         <div style={{ 
@@ -662,7 +662,7 @@ export default function Pbx({ onNavigate }) {
           >
             <div 
               className="pbx-sms-grid"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center' }}>
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(30px, 6vw, 60px)', alignItems: 'center' }}>
               <div>
                 <div style={{ color: 'var(--color-accent)', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '20px' }}>
                   <MessageSquare size={50} strokeWidth={1.5} />

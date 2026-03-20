@@ -36,7 +36,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
       
       const text = "NOVA CORE";
       // Ajuste responsivo del tamaño de letra
-      let fontSize = window.innerWidth < 768 ? 60 : 120;
+      let fontSize = window.innerWidth < 768 ? 45 : 120;
       
       offCtx.fillStyle = 'white';
       offCtx.font = `bold ${fontSize}px "Inter", sans-serif`;
@@ -46,7 +46,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 6 : 8; // Menos partículas para NOVA CORE (valores más altos)
+      const density = window.innerWidth < 768 ? 10 : 8; // Menos partículas para móvil (valor más alto = más ralo)
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {
@@ -103,7 +103,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 5 : 6; 
+      const density = window.innerWidth < 768 ? 8 : 6; 
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {
@@ -128,7 +128,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
         '9': [[1,1,1],[1,0,1],[1,1,1],[0,0,1],[1,1,1]]
       };
 
-      const dotSpacing = window.innerWidth < 768 ? 5 : 8;
+      const dotSpacing = window.innerWidth < 768 ? 4 : 8;
       const cardNumStr = "1234 5678 9101 1112";
       const totalCols = 16 * 4 - 1 + 6; // 69 cols
       const blockWidth = totalCols * dotSpacing;
@@ -260,8 +260,9 @@ const NovaParticles = ({ targetShape = 'none' }) => {
         let ty = targetY + p.hoverOffsetY;
         
         // Atracción hacia su destino
-        let ax = (tx - p.x) * 0.05; // Stiffness
-        let ay = (ty - p.y) * 0.05;
+        let stiffness = window.innerWidth < 768 ? 0.03 : 0.05;
+        let ax = (tx - p.x) * stiffness; 
+        let ay = (ty - p.y) * stiffness;
 
         // Si es scatter, agregamos una oscilación lenta browniana
         if (targetShape === 'scatter') {
@@ -272,8 +273,9 @@ const NovaParticles = ({ targetShape = 'none' }) => {
         p.vx += ax;
         p.vy += ay;
         
-        p.vx *= 0.85; // Damping
-        p.vy *= 0.85;
+        let damping = window.innerWidth < 768 ? 0.8 : 0.85;
+        p.vx *= damping;
+        p.vy *= damping;
 
         p.x += p.vx;
         p.y += p.vy;

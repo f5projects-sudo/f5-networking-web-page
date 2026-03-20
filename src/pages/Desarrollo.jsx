@@ -153,9 +153,25 @@ export default function Desarrollo({ onNavigate }) {
         </div>
 
         {/* ── Specialized Services (CardSwap) ── */}
-        <div className="specialized-services-grid" style={{ marginTop: '100px', paddingBottom: '100px', position: 'relative', display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'center' }}>
-          <div style={{ order: window.innerWidth < 768 ? 2 : 1, position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '550px', paddingRight: '40px' }}>
-            <CardSwap width={window.innerWidth < 768 ? 320 : 500} height={window.innerWidth < 768 ? 380 : 450}>
+        <div className="specialized-services-grid" style={{ 
+          marginTop: 'clamp(50px, 8vw, 100px)', 
+          paddingBottom: 'clamp(50px, 8vw, 100px)', 
+          position: 'relative', 
+          display: 'grid', 
+          gridTemplateColumns: window.innerWidth < 1024 ? '1fr' : '1.2fr 1fr', 
+          gap: 'clamp(30px, 5vw, 100px)', 
+          alignItems: 'center' 
+        }}>
+          <div style={{ 
+            order: window.innerWidth < 1024 ? 2 : 1, 
+            position: 'relative', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            minHeight: window.innerWidth < 768 ? '450px' : '550px', 
+            paddingRight: window.innerWidth < 1024 ? '0' : '40px' 
+          }}>
+            <CardSwap width={window.innerWidth < 768 ? Math.min(window.innerWidth - 30, 320) : 500} height={window.innerWidth < 768 ? 400 : 450}>
               <Card>
                 <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt="Ingeniería" />
                 <div className="card-content">
@@ -189,11 +205,26 @@ export default function Desarrollo({ onNavigate }) {
             </CardSwap>
           </div>
 
-          <motion.div {...fadeInUp} style={{ order: window.innerWidth < 768 ? 1 : 2, paddingLeft: window.innerWidth < 768 ? '0' : '40px' }}>
-            <div style={{ padding: '8px 16px', background: 'rgba(255,140,0,0.1)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', marginBottom: '20px', color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '0.9rem', width: 'fit-content' }}>
+          <motion.div {...fadeInUp} style={{ 
+            order: window.innerWidth < 1024 ? 1 : 2, 
+            paddingLeft: window.innerWidth < 1024 ? '0' : '40px',
+            textAlign: window.innerWidth < 1024 ? 'center' : 'left'
+          }}>
+            <div style={{ 
+              padding: '8px 16px', 
+              background: 'rgba(255,140,0,0.1)', 
+              borderRadius: '30px', 
+              border: '1px solid rgba(255,140,0,0.2)', 
+              marginBottom: '20px', 
+              color: 'var(--color-secondary)', 
+              fontWeight: 'bold', 
+              fontSize: '0.8rem', 
+              width: 'fit-content',
+              margin: window.innerWidth < 1024 ? '0 auto 20px auto' : '0 0 20px 0'
+            }}>
               SERVICIOS ESPECIALIZADOS
             </div>
-            <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>Nuestra <span style={{ color: 'var(--color-secondary)' }}>Experiencia</span></h2>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 5vw, 2.5rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>Nuestra <span style={{ color: 'var(--color-secondary)' }}>Experiencia</span></h2>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
               <div>

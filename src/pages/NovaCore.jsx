@@ -112,13 +112,37 @@ export default function NovaCore({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="nova-core" />
 
       {/* ── Hero Section (Solo para trigger the observer) ── */}
-      <section id="hero-section" style={{ height: '100vh', marginBottom: '5vh', position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
+      <section id="hero-section" style={{ height: '100vh', marginBottom: '5vh', position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '10vh', pointerEvents: 'none' }}>
         {/* Las partículas dibujarán "NOVA CORE" aquí */}
+        
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 1, 
+            delay: 2,
+            repeat: Infinity,
+            repeatType: 'reverse' 
+          }}
+          style={{ 
+            color: 'var(--color-accent)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '8px',
+            cursor: 'pointer',
+            pointerEvents: 'auto'
+          }}
+          onClick={() => document.getElementById('info-section')?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          <span style={{ fontSize: '0.8rem', letterSpacing: '2px', fontWeight: 'bold', opacity: 0.8 }}>SCROLL DOWN</span>
+          <ChevronDown size={30} />
+        </motion.div>
       </section>
 
       {/* ── Intro Information ── */}
-      <section id="info-section" className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '20px', paddingBottom: '60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px', alignItems: 'center' }}>
+      <section id="info-section" className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '60px', paddingBottom: '60px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 100%, 300px), 1fr))', gap: 'clamp(30px, 5vw, 50px)', alignItems: 'center' }}>
           <motion.div {...fadeInUp}>
             <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', border: '1px solid rgba(0,180,255,0.2)', marginBottom: '20px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>
               TECNOLOGÍA DE VANGUARDIA

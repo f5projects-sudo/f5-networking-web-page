@@ -5,6 +5,17 @@ const Navbar = ({ onNavigate, activePage }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [closeTimer, setCloseTimer] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Track scroll position for navbar styling
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -56,8 +67,26 @@ const Navbar = ({ onNavigate, activePage }) => {
   };
 
   return (
-    <nav className="glass main-nav" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto' }}>
+    <nav 
+      className={`glass main-nav ${isScrolled ? 'scrolled' : ''}`} 
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        width: '100%', 
+        zIndex: 1000,
+        backgroundColor: isScrolled ? 'rgba(5, 5, 5, 0.9)' : 'transparent',
+        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none'
+      }}
+    >
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        maxWidth: '1200px', 
+        margin: '0 auto',
+        height: '70px', // Fixed height for consistency
+        padding: '0 20px' // Internal padding
+      }}>
         <div 
           className="nav-logo-container"
           style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 

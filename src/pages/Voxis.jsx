@@ -197,7 +197,7 @@ export default function Voxis({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="voxis" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: '120px', paddingBottom: '60px' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: '120px', paddingBottom: '100px' }}>
         <motion.div 
           style={{ textAlign: 'center', scale, opacity }}
           initial={{ opacity: 0, y: 20 }}
@@ -253,7 +253,7 @@ export default function Voxis({ onNavigate }) {
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          style={{ position: 'absolute', bottom: '40px', left: '50%', transform: 'translateX(-50%)', opacity: 0.3 }}
+          style={{ position: 'absolute', bottom: '15px', left: '50%', transform: 'translateX(-50%)', opacity: 0.3 }}
         >
           <div style={{ width: '30px', height: '50px', border: '2px solid white', borderRadius: '15px', display: 'flex', justifyContent: 'center', padding: '10px' }}>
             <div style={{ width: '4px', height: '8px', background: 'white', borderRadius: '2px' }} />

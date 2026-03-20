@@ -397,150 +397,201 @@ export default function Bpo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="bpo" />
 
       {/* ── Scrollytelling Hero Section ── */}
-      <section ref={containerRef} style={{ height: '300vh', position: 'relative', zIndex: 10 }}>
-        <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-          {/* Background Hero Image */}
-          <motion.div 
-            className="hardware-accelerated"
-            style={{ 
-            position: 'absolute', 
-            top: 0, 
-            left: 0, 
-            width: '100%', 
-            height: '100%', 
-            zIndex: -1,
-            scale: imgScale,
-            y: imgY
-          }}>
-            <motion.img 
+      {isMobile ? (
+        <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, padding: '100px 20px 0', overflow: 'hidden' }}>
+          <div className="hardware-accelerated" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+            <img 
               src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
-              alt="Professional BPO Services"
-              style={{ 
-                width: '100%', 
-                height: '100%', 
-                objectFit: 'cover',
-                opacity: imgBrightness
-              }}
+              alt="BPO" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }} 
             />
-            {/* Cinema Gradients (Softer for clarity) */}
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 40%, transparent 100%)' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(5,5,5,0.9) 0%, transparent 50%)' }} />
+          </div>
+          
+          <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px' }}>
             <div style={{ 
+              display: 'inline-flex', padding: '10px 25px', background: 'rgba(25, 12, 0, 0.95)', 
+              borderRadius: '40px', border: '1px solid rgba(255,140,0,0.4)', color: 'var(--color-secondary)', 
+              fontWeight: '900', fontSize: '1rem', letterSpacing: '2px', alignItems: 'center', gap: '10px', 
+              marginBottom: '20px' 
+            }}>
+              <Headset size={20} /> BPO SERVICES
+            </div>
+            
+            <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: '900', lineHeight: 1.1, marginBottom: '15px', textShadow: '0 5px 15px rgba(0,0,0,0.8)' }}>
+              Socio <span className="gradient-text" style={{ backgroundImage: 'linear-gradient(to right, #ff8c00, #ff0080)' }}>ESTRATÉGICO</span> <br />
+              <span className="gradient-text" style={{ fontSize: '0.85em' }}>QUE ENTIENDE TU OPERACIÓN</span>
+            </h1>
+            
+            <h2 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: 'white', opacity: 0.95, marginBottom: '15px', fontWeight: '500', lineHeight: '1.4' }}>
+              BPO diseñado para escuchar, actuar y transformar
+            </h2>
+
+            <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '30px', textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
+              En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
+            </p>
+
+            <button 
+              style={{
+                padding: '16px 35px', background: 'var(--color-secondary)', border: 'none', color: 'white',
+                borderRadius: '50px', fontWeight: 'bold', fontSize: '1.1rem', cursor: 'pointer',
+                display: 'inline-flex', alignItems: 'center', gap: '12px', boxShadow: '0 10px 25px rgba(255,140,0,0.4)'
+              }}
+              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+              onClick={() => {
+                onNavigate('home');
+                setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
+              }}
+            >
+              ¡Me Interesa! <ChevronRight size={22} />
+            </button>
+          </div>
+        </section>
+      ) : (
+        <section ref={containerRef} style={{ height: '300vh', position: 'relative', zIndex: 10 }}>
+          <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+            <motion.div 
+              className="hardware-accelerated"
+              style={{ 
               position: 'absolute', 
               top: 0, 
               left: 0, 
               width: '100%', 
               height: '100%', 
-              background: 'linear-gradient(to right, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.5) 30%, rgba(5,5,5,0.2) 60%, transparent 100%)' 
-            }} />
-            <div style={{ 
-              position: 'absolute', 
-              bottom: 0, 
-              left: 0, 
-              width: '100%', 
-              height: '50%', 
-              background: 'linear-gradient(to top, rgba(5,5,5,0.8) 0%, transparent 100%)' 
-            }} />
-          </motion.div>
+              zIndex: -1,
+              scale: imgScale,
+              y: imgY
+            }}>
+              <motion.img 
+                src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
+                alt="Professional BPO Services"
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  opacity: imgBrightness
+                }}
+              />
+              <div style={{ 
+                position: 'absolute', 
+                top: 0, 
+                left: 0, 
+                width: '100%', 
+                height: '100%', 
+                background: 'linear-gradient(to right, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.5) 30%, rgba(5,5,5,0.2) 60%, transparent 100%)' 
+              }} />
+              <div style={{ 
+                position: 'absolute', 
+                bottom: 0, 
+                left: 0, 
+                width: '100%', 
+                height: '50%', 
+                background: 'linear-gradient(to top, rgba(5,5,5,0.8) 0%, transparent 100%)' 
+              }} />
+            </motion.div>
 
-          {/* Centralized Badge (Stage 1) that moves (Stage 2) */}
-          <motion.div 
-            style={{ 
-              position: 'absolute',
-              zIndex: 30,
-              y: badgeY,
-              x: badgeX,
-              scale: badgeScale,
-              opacity: badgeOpacity,
-              display: 'inline-flex', 
-              padding: '12px 30px', 
-              background: isMobile ? 'rgba(25, 12, 0, 0.95)' : 'rgba(255,140,0,0.25)', 
-              backdropFilter: isMobile ? 'none' : 'blur(15px)',
-              borderRadius: '40px', 
-              border: '1px solid rgba(255,140,0,0.4)', 
-              color: 'var(--color-secondary)', 
-              fontWeight: '900', 
-              fontSize: '1.2rem', 
-              letterSpacing: '4px', 
-              alignItems: 'center', 
-              gap: '15px' 
-            }}
-          >
-            <Headset size={24} /> BPO SERVICES
-          </motion.div>
-
-          <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '0 clamp(15px, 5vw, 40px)', display: 'flex', justifyContent: 'flex-start' }}>
             <motion.div 
               style={{ 
-                maxWidth: '850px',
-                opacity: contentOpacity,
-                y: contentY
+                position: 'absolute',
+                zIndex: 30,
+                y: badgeY,
+                x: badgeX,
+                scale: badgeScale,
+                opacity: badgeOpacity,
+                display: 'inline-flex', 
+                padding: '12px 30px', 
+                background: 'rgba(255,140,0,0.25)', 
+                backdropFilter: 'blur(15px)',
+                borderRadius: '40px', 
+                border: '1px solid rgba(255,140,0,0.4)', 
+                color: 'var(--color-secondary)', 
+                fontWeight: '900', 
+                fontSize: '1.2rem', 
+                letterSpacing: '4px', 
+                alignItems: 'center', 
+                gap: '15px' 
               }}
             >
-              <h1 style={{ 
-                fontSize: 'clamp(2.5rem, 7vw, 4.8rem)', 
-                fontWeight: '900', 
-                lineHeight: 1.1, 
-                marginBottom: '15px',
-                textShadow: '0 10px 30px rgba(0,0,0,0.5)'
-              }}>
-                UN SOCIO ESTRATÉGICO <br />
-                <span className="gradient-text" style={{ fontSize: '0.9em' }}>QUE ENTIENDE TU OPERACIÓN</span>
-              </h1>
-              
-              <h2 style={{ 
-                fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', 
-                color: 'white', 
-                opacity: 0.95, 
-                marginBottom: '15px', 
-                fontWeight: '500',
-                maxWidth: '700px',
-                lineHeight: '1.4'
-              }}>
-                BPO diseñado para escuchar, actuar y transformar
-              </h2>
-
-              <p style={{ 
-                fontSize: 'clamp(1rem, 2vw, 1.15rem)', 
-                color: 'rgba(255,255,255,0.7)', 
-                lineHeight: '1.7', 
-                marginBottom: '30px',
-                maxWidth: '650px',
-                textShadow: '0 2px 10px rgba(0,0,0,0.3)'
-              }}>
-                En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
-              </p>
-
-              <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
-                <motion.button 
-                  style={{
-                    padding: '14px 35px',
-                    background: 'var(--color-secondary)',
-                    border: 'none',
-                    color: 'white',
-                    borderRadius: '50px',
-                    fontWeight: 'bold',
-                    fontSize: '1.1rem',
-                    cursor: 'pointer',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '12px',
-                    boxShadow: '0 15px 35px rgba(255,140,0,0.3)'
-                  }}
-                  whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,140,0,0.5)' }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    onNavigate('home');
-                    setTimeout(() => {
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                  }}
-                >
-                  ¡Me Interesa! <ChevronRight size={22} />
-                </motion.button>
-              </div>
+              <Headset size={24} /> BPO SERVICES
             </motion.div>
+
+            <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '0 clamp(15px, 5vw, 40px)', display: 'flex', justifyContent: 'flex-start' }}>
+              <motion.div 
+                style={{ 
+                  maxWidth: '850px',
+                  opacity: contentOpacity,
+                  y: contentY
+                }}
+              >
+                <h1 style={{ 
+                  fontSize: 'clamp(2.5rem, 7vw, 4.8rem)', 
+                  fontWeight: '900', 
+                  lineHeight: 1.1, 
+                  marginBottom: '15px',
+                  textShadow: '0 10px 30px rgba(0,0,0,0.5)'
+                }}>
+                  UN SOCIO ESTRATÉGICO <br />
+                  <span className="gradient-text" style={{ fontSize: '0.9em' }}>QUE ENTIENDE TU OPERACIÓN</span>
+                </h1>
+                
+                <h2 style={{ 
+                  fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', 
+                  color: 'white', 
+                  opacity: 0.95, 
+                  marginBottom: '15px', 
+                  fontWeight: '500',
+                  maxWidth: '700px',
+                  lineHeight: '1.4'
+                }}>
+                  BPO diseñado para escuchar, actuar y transformar
+                </h2>
+
+                <p style={{ 
+                  fontSize: 'clamp(1rem, 2vw, 1.15rem)', 
+                  color: 'rgba(255,255,255,0.7)', 
+                  lineHeight: '1.7', 
+                  marginBottom: '30px',
+                  maxWidth: '650px',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.3)'
+                }}>
+                  En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
+                </p>
+
+                <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <motion.button 
+                    style={{
+                      padding: '14px 35px',
+                      background: 'var(--color-secondary)',
+                      border: 'none',
+                      color: 'white',
+                      borderRadius: '50px',
+                      fontWeight: 'bold',
+                      fontSize: '1.1rem',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                      boxShadow: '0 15px 35px rgba(255,140,0,0.3)'
+                    }}
+                    whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,140,0,0.5)' }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => {
+                      onNavigate('home');
+                      setTimeout(() => {
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    }}
+                  >
+                    ¡Me Interesa! <ChevronRight size={22} />
+                  </motion.button>
+                </div>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── Metodología Component (Floating Panels 2.0) ── */}
       <section style={{ padding: 'clamp(80px, 15vw, 200px) 0', position: 'relative', background: '#050505', overflow: 'hidden', zIndex: 10 }}>

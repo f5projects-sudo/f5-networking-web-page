@@ -434,7 +434,6 @@ export default function Pbx({ onNavigate }) {
                 style={{ display: 'flex', gap: '25px', flexWrap: 'wrap' }}
               >
                 <motion.button 
-                  className="btn-neon"
                   style={{
                     padding: '18px 45px',
                     background: 'var(--color-primary)',

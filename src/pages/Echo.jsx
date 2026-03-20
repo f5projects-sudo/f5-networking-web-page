@@ -100,7 +100,6 @@ export default function Echo({ onNavigate }) {
 
               <div style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
                 <motion.button 
-                  className="btn-neon"
                   style={{
                     padding: '15px 35px',
                     background: 'transparent',

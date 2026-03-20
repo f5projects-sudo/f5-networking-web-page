@@ -153,8 +153,20 @@ export default function Equipamiento({ onNavigate }) {
 
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
                <button 
-                 className="btn-neon" 
-                 style={{ padding: '15px 45px', fontSize: '1.1rem' }}
+                 style={{ 
+                   padding: '15px 45px', 
+                   fontSize: '1.1rem',
+                   background: 'var(--color-primary)',
+                   border: 'none',
+                   borderRadius: '50px',
+                   color: 'white',
+                   fontWeight: 'bold',
+                   cursor: 'pointer',
+                   boxShadow: '0 10px 30px rgba(0,86,179,0.4)',
+                   transition: 'all 0.3s'
+                 }}
+                 onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
+                 onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
                  onClick={() => {
                    onNavigate('home');
                    setTimeout(() => {

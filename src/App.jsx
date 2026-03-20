@@ -696,7 +696,8 @@ const App = () => {
 
             <button
               type="submit"
-              className="btn-neon"
+              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               style={{
                 background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
                 border: 'none',

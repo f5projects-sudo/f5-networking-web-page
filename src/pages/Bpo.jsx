@@ -337,7 +337,18 @@ export default function Bpo({ onNavigate }) {
     offset: ["start start", "end end"]
   });
 
-  const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const [isMobile, setIsMobile] = React.useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const smoothProgress = useSpring(scrollYProgress, { 
+    stiffness: isMobile ? 800 : 100, 
+    damping: isMobile ? 80 : 30, 
+    restDelta: 0.001 
+  });
 
   // Transformaciones para el Badge (BPO SERVICES)
   const badgeOpacity = useTransform(smoothProgress, [0, 0.1, 0.9, 1], [1, 1, 1, 0]);
@@ -389,7 +400,9 @@ export default function Bpo({ onNavigate }) {
       <section ref={containerRef} style={{ height: '300vh', position: 'relative', zIndex: 10 }}>
         <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           {/* Background Hero Image */}
-          <motion.div style={{ 
+          <motion.div 
+            className="hardware-accelerated"
+            style={{ 
             position: 'absolute', 
             top: 0, 
             left: 0, 
@@ -439,8 +452,8 @@ export default function Bpo({ onNavigate }) {
               opacity: badgeOpacity,
               display: 'inline-flex', 
               padding: '12px 30px', 
-              background: 'rgba(255,140,0,0.25)', 
-              backdropFilter: 'blur(15px)',
+              background: isMobile ? 'rgba(25, 12, 0, 0.95)' : 'rgba(255,140,0,0.25)', 
+              backdropFilter: isMobile ? 'none' : 'blur(15px)',
               borderRadius: '40px', 
               border: '1px solid rgba(255,140,0,0.4)', 
               color: 'var(--color-secondary)', 
@@ -498,7 +511,6 @@ export default function Bpo({ onNavigate }) {
 
               <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
                 <motion.button 
-                  className="btn-neon"
                   style={{
                     padding: '14px 35px',
                     background: 'var(--color-secondary)',

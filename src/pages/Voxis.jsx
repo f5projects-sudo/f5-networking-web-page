@@ -24,14 +24,15 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const VoiceWave = () => {
+  const heights = React.useMemo(() => [...Array(20)].map(() => Math.random() * 80 + 20), []);
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', height: '100px' }}>
-      {[...Array(20)].map((_, i) => (
+      {heights.map((h, i) => (
         <motion.div
           key={i}
           className="hardware-accelerated"
           animate={{ 
-            height: [20, Math.random() * 80 + 20, 20],
+            height: [20, h, 20],
             opacity: [0.3, 0.8, 0.3]
           }}
           transition={{ 
@@ -238,8 +239,9 @@ export default function Voxis({ onNavigate }) {
 
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
              <button 
-               className="btn-neon" 
-               style={{ padding: '15px 40px', fontSize: '1.2rem' }}
+               style={{ padding: '15px 40px', fontSize: '1.2rem', border: '1px solid var(--color-primary)', borderRadius: '50px', background: 'transparent', color: 'white', cursor: 'pointer', transition: 'all 0.3s' }}
+               onMouseOver={e => e.target.style.background = 'rgba(0,180,255,0.1)'}
+               onMouseOut={e => e.target.style.background = 'transparent'}
                onClick={handleOpenDemo}
              >
                Probar Demo
@@ -541,8 +543,7 @@ export default function Voxis({ onNavigate }) {
                 VØXIS funciona donde la voz importa. Si tu negocio recibe llamadas y busca eficiencia sin sacrificar la calidad humana, VØXIS es tu aliado perfecto.
               </p>
               <button 
-                className="btn-neon" 
-                style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'white' }}
+                style={{ background: 'transparent', padding: '15px 35px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', color: 'white', cursor: 'pointer', transition: 'all 0.3s' }}
                 onMouseOver={e => e.target.style.background = 'rgba(255,255,255,0.05)'}
                 onMouseOut={e => e.target.style.background = 'transparent'}
                 onClick={() => {

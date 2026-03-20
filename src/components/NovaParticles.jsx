@@ -34,19 +34,29 @@ const NovaParticles = ({ targetShape = 'none' }) => {
       offscreen.width = window.innerWidth;
       offscreen.height = window.innerHeight;
       
-      const text = "NOVA CORE";
-      // Ajuste responsivo del tamaño de letra
-      let fontSize = window.innerWidth < 768 ? 45 : 120;
+      const isMobile = window.innerWidth < 768;
+      const isUltraMobile = window.innerWidth < 480;
       
       offCtx.fillStyle = 'white';
-      offCtx.font = `bold ${fontSize}px "Inter", sans-serif`;
       offCtx.textAlign = 'center';
       offCtx.textBaseline = 'middle';
-      offCtx.fillText(text, offscreen.width / 2, offscreen.height / 2 - 50);
+      
+      if (isUltraMobile) {
+        // Dos líneas para máxima legibilidad en móviles pequeños
+        const fontSize = 70;
+        offCtx.font = `900 ${fontSize}px "Inter", sans-serif`;
+        // Centrados verticalmente con ajuste de línea
+        offCtx.fillText("NOVA", offscreen.width / 2, offscreen.height / 2 - 80);
+        offCtx.fillText("CORE", offscreen.width / 2, offscreen.height / 2 + 10);
+      } else {
+        const fontSize = isMobile ? 60 : 120;
+        offCtx.font = `900 ${fontSize}px "Inter", sans-serif`;
+        offCtx.fillText("NOVA CORE", offscreen.width / 2, offscreen.height / 2 - 50);
+      }
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 10 : 8; // Menos partículas para móvil (valor más alto = más ralo)
+      const density = isMobile ? 4 : 8; // Más denso para móvil (valor menor = más puntos)
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {
@@ -103,7 +113,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 8 : 6; 
+      const density = window.innerWidth < 768 ? 5 : 6; 
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {
@@ -164,7 +174,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
     const cardPixels = getCardPixelData();
     
     // Determinamos un conteo razonable de partículas balanceado.
-    const maxParticles = Math.max(textPixels.length, cardPixels.length, window.innerWidth < 768 ? 600 : 1200);
+    const maxParticles = Math.max(textPixels.length, cardPixels.length, window.innerWidth < 768 ? 1000 : 1200);
 
     // Inicializar array de partículas
     const initParticles = () => {

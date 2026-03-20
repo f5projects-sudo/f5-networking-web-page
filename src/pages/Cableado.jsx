@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Network, Cpu, Shield, Zap, Info, Server, Settings, Tag, LayoutDashboard, ShieldCheck } from 'lucide-react';
 import DecryptedText from '../components/DecryptedText';
 import ScrambledText from '../components/ScrambledText';
@@ -42,18 +42,15 @@ const ConnectivityBackground = () => (
 );
 
 export default function Cableado({ onNavigate }) {
-  const containerRef = React.useRef(null);
-  const { scrollYProgress } = import.meta.env.SSR ? { scrollYProgress: { get: () => 0 } } : // eslint-disable-next-line react-hooks/rules-of-hooks
-    require('framer-motion').useScroll({
-      target: containerRef,
-      offset: ["start start", "end start"]
-    });
-
-  const backgroundY = import.meta.env.SSR ? 0 : // eslint-disable-next-line react-hooks/rules-of-hooks
-    require('framer-motion').useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const containerRef = useRef(null);
   
-  const backgroundOpacity = import.meta.env.SSR ? 0.3 : // eslint-disable-next-line react-hooks/rules-of-hooks
-    require('framer-motion').useTransform(scrollYProgress, [0, 1], [0.3, 0]);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 0]);
 
   // Asegurar que la vista inicie arriba
   React.useLayoutEffect(() => {

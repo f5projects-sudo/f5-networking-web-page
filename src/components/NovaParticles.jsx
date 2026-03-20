@@ -44,19 +44,19 @@ const NovaParticles = ({ targetShape = 'none' }) => {
       if (isUltraMobile) {
         // Dos líneas para máxima legibilidad en móviles pequeños
         const fontSize = 70;
-        offCtx.font = `900 ${fontSize}px "Inter", sans-serif`;
+        offCtx.font = `700 ${fontSize}px "Inter", sans-serif`;
         // Centrados verticalmente con ajuste de línea
         offCtx.fillText("NOVA", offscreen.width / 2, offscreen.height / 2 - 80);
         offCtx.fillText("CORE", offscreen.width / 2, offscreen.height / 2 + 10);
       } else {
         const fontSize = isMobile ? 60 : 120;
-        offCtx.font = `900 ${fontSize}px "Inter", sans-serif`;
+        offCtx.font = `700 ${fontSize}px "Inter", sans-serif`;
         offCtx.fillText("NOVA CORE", offscreen.width / 2, offscreen.height / 2 - 50);
       }
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = isMobile ? 4 : 8; // Más denso para móvil (valor menor = más puntos)
+      const density = isMobile ? 5 : 8; // Un poco más de aire para móvil
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {
@@ -108,7 +108,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
 
       const imageData = offCtx.getImageData(0, 0, offscreen.width, offscreen.height);
       const pixels = [];
-      const density = window.innerWidth < 768 ? 4 : 6; 
+      const density = window.innerWidth < 768 ? 3 : 6; 
       
       for (let y = 0; y < offscreen.height; y += density) {
         for (let x = 0; x < offscreen.width; x += density) {
@@ -179,7 +179,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
          const cpx = cardPixels[i % cardPixels.length];
          
          const color = colors[Math.floor(Math.random() * colors.length)];
-         const size = Math.random() * 2 + 1;
+         const size = window.innerWidth < 768 ? Math.random() * 1.2 + 0.5 : Math.random() * 2 + 1;
          
          // Posiciones base para cada estado
          const baseText = { x: tpx.x, y: tpx.y };

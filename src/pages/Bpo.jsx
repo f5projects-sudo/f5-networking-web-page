@@ -379,7 +379,7 @@ export default function Bpo({ onNavigate }) {
   };
 
   return (
-    <div className="app" style={{ backgroundColor: '#050505', minHeight: '100vh', color: 'white' }}>
+    <div className="app" style={{ backgroundColor: '#050505', minHeight: '100vh', color: 'white', overflowX: 'clip' }}>
       
       {/* Dynamic Background */}
       <div 

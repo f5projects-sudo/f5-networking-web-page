@@ -85,9 +85,10 @@ const Navbar = ({ onNavigate, activePage }) => {
         justifyContent: 'space-between', 
         alignItems: 'center', 
         maxWidth: '1200px', 
+        width: '100%',
         margin: '0 auto',
-        height: '70px', // Fixed height for consistency
-        padding: '0 20px' // Internal padding
+        height: '70px',
+        padding: '0 15px' // Reduced padding for mobile breathing room
       }}>
         <div 
           className="nav-logo-container"

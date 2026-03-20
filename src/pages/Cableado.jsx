@@ -94,7 +94,7 @@ export default function Cableado({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="cableado" />
 
       {/* ── Hero Section ── */}
-      <section ref={containerRef} style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(140px, 18vh, 180px) 20px 80px' }}>
+      <section ref={containerRef} style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(160px, 20vh, 220px) 20px 80px' }}>
         <ConnectivityBackground />
         <motion.div style={{
           position: 'absolute',

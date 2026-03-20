@@ -151,8 +151,8 @@ const BubbleBackground = () => {
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: '100%',
-                zIndex: -1,
+                height: '100vh',
+                zIndex: 0,
                 background: 'radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)' // Darker base gradient
             }}
         >

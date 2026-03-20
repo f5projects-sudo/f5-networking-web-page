@@ -332,7 +332,7 @@ export default function Pbx({ onNavigate }) {
         position: 'relative', 
         overflow: 'hidden', 
         zIndex: 10, 
-        padding: 'clamp(150px, 20vw, 180px) 0 80px' 
+        padding: 'clamp(160px, 20vw, 220px) 0 80px' 
       }}>
         {/* Background Hero Image */}
         <div style={{ 

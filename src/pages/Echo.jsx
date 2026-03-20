@@ -52,7 +52,7 @@ export default function Echo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="echo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(140px, 18vh, 180px) 20px 0' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(160px, 20vh, 220px) 20px 0' }}>
         <div style={{
           position: 'absolute',
           inset: 0,

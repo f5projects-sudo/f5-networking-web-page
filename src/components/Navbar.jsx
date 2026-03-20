@@ -85,7 +85,7 @@ const Navbar = ({ onNavigate, activePage }) => {
         justifyContent: 'space-between', 
         alignItems: 'center', 
         maxWidth: '1200px', 
-        width: '100%',
+        width: '95%',
         margin: '0 auto',
         height: '70px',
         padding: '0 15px' // Reduced padding for mobile breathing room

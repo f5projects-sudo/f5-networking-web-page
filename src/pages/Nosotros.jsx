@@ -46,10 +46,10 @@ export default function Nosotros({ onNavigate }) {
       <BubbleBackground />
 
       {/* Hero / Intro */}
-      <section style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '160px 5% 80px' }}>
+      <section style={{ position: 'relative', zIndex: 10, minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '160px 5% 80px' }}>
         <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}>
           <p style={{ color: 'var(--color-secondary)', fontWeight: 700, letterSpacing: '3px', fontSize: '0.85rem', marginBottom: '16px' }}>QUIÉNES SOMOS</p>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', marginBottom: '24px', lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 8vw, 4rem)', marginBottom: '24px', lineHeight: 1.1, wordBreak: 'break-word' }}>
             F5 <span className="gradient-text">Networking</span>
           </h1>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', maxWidth: '780px', margin: '0 auto', lineHeight: '1.9' }}>
@@ -59,7 +59,7 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── ¿Por qué elegirnos? ── */}
-      <section className="section-container">
+      <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>¿Por qué <span className="gradient-text">elegirnos?</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 20px' }}></div>
@@ -94,7 +94,7 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── Nuestro Equipo ── */}
-      <section className="section-container">
+      <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestro <span className="gradient-text">Equipo</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
@@ -115,7 +115,7 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── Marcas que confían (marquee) ── */}
-      <section style={{ padding: '40px 0', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '40px 0', overflow: 'hidden' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '30px' }}>
           <p style={{ color: 'var(--color-text-muted)', letterSpacing: '3px', fontSize: '0.8rem', fontWeight: 600 }}>MARCAS QUE CONFÍAN EN NOSOTROS</p>
         </motion.div>
@@ -129,7 +129,7 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── Metodología ── */}
-      <section className="section-container">
+      <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '20px' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestra <span className="gradient-text">Metodología</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
@@ -157,7 +157,7 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── Certificaciones ── */}
-      <section className="section-container">
+      <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestras <span className="gradient-text">Certificaciones</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>

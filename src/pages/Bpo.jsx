@@ -345,25 +345,26 @@ export default function Bpo({ onNavigate }) {
   }, []);
 
   const smoothProgress = useSpring(scrollYProgress, { 
-    stiffness: isMobile ? 800 : 100, 
-    damping: isMobile ? 80 : 30, 
+    stiffness: isMobile ? 800 : 150, 
+    damping: isMobile ? 80 : 40, 
     restDelta: 0.001 
-  });
+  });  
 
-  // Transformaciones para el Badge (BPO SERVICES)
-  const badgeOpacity = useTransform(smoothProgress, [0, 0.1, 0.9, 1], [1, 1, 1, 0]);
-  const badgeY = useTransform(smoothProgress, [0, 0.4, 0.7], ["0vh", "0vh", "-38vh"]);
-  const badgeX = useTransform(smoothProgress, [0, 0.4, 0.7], ["0vw", "0vw", "-36.5vw"]);
-  const badgeScale = useTransform(smoothProgress, [0, 0.4], [1.5, 1]);
+  // Primero el badge está solo por un 10% del scroll. Luego viaja a la esquina hasta el 30%.
+  const badgeOpacity = useTransform(smoothProgress, [0, 0.1, 1], [1, 1, 1]);
+  const badgeY = useTransform(smoothProgress, [0, 0.1, 0.3], ["0vh", "0vh", "-38vh"]);
+  const badgeX = useTransform(smoothProgress, [0, 0.1, 0.3], ["0vw", "0vw", "-36.5vw"]);
+  const badgeScale = useTransform(smoothProgress, [0, 0.1], [1.5, 1]);
   
   // Transformaciones para la imagen de fondo
   const imgScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1]);
   const imgY = useTransform(smoothProgress, [0.3, 0.8], ["0%", "-15%"]);
   const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.9, 0.7, 0.8]);
 
-  // Transformaciones para el Contenido (Títulos, Texto)
-  const contentOpacity = useTransform(smoothProgress, [0.55, 0.75], [0, 1]);
-  const contentY = useTransform(smoothProgress, [0.55, 0.75], [20, 0]);
+  // SECUENCIA LIMPIA: El texto NO empieza a aparecer hasta el 30% (cuando el badge ya se quitó del medio)
+  // y termina de aparecer al 45%, dando un 55% de pantalla restante para pura lectura cómoda.
+  const contentOpacity = useTransform(smoothProgress, [0, 0.3, 0.45, 1.0], [0, 0, 1, 1]);
+  const contentY = useTransform(smoothProgress, [0.3, 0.45, 1.0], [40, 0, 0]);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -378,7 +379,7 @@ export default function Bpo({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen text-white">
+    <div className="app" style={{ backgroundColor: '#050505', minHeight: '100vh', color: 'white' }}>
       
       {/* Dynamic Background */}
       <div 
@@ -398,7 +399,7 @@ export default function Bpo({ onNavigate }) {
 
       {/* ── Scrollytelling Hero Section ── */}
       {isMobile ? (
-        <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, padding: '100px 20px 0', overflow: 'hidden' }}>
+        <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, padding: '160px 20px 0', overflow: 'hidden' }}>
           <div className="hardware-accelerated" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
             <img 
               src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
@@ -450,8 +451,8 @@ export default function Bpo({ onNavigate }) {
           </div>
         </section>
       ) : (
-        <section ref={containerRef} style={{ height: '300vh', position: 'relative', zIndex: 10 }}>
-          <div style={{ position: 'sticky', top: 0, height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+        <section ref={containerRef} style={{ height: '220vh', position: 'relative', zIndex: 10 }}>
+          <div style={{ position: 'sticky', top: '70px', height: 'calc(100vh - 70px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <motion.div 
               className="hardware-accelerated"
               style={{ 
@@ -517,7 +518,7 @@ export default function Bpo({ onNavigate }) {
               <Headset size={24} /> BPO SERVICES
             </motion.div>
 
-            <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '0 clamp(15px, 5vw, 40px)', display: 'flex', justifyContent: 'flex-start' }}>
+            <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '40px clamp(15px, 5vw, 40px) 0', display: 'flex', justifyContent: 'flex-start' }}>
               <motion.div 
                 style={{ 
                   maxWidth: '850px',
@@ -526,7 +527,7 @@ export default function Bpo({ onNavigate }) {
                 }}
               >
                 <h1 style={{ 
-                  fontSize: 'clamp(2.5rem, 7vw, 4.8rem)', 
+                  fontSize: 'clamp(1.8rem, 4vw, 3.5rem)', 
                   fontWeight: '900', 
                   lineHeight: 1.1, 
                   marginBottom: '15px',
@@ -537,7 +538,7 @@ export default function Bpo({ onNavigate }) {
                 </h1>
                 
                 <h2 style={{ 
-                  fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', 
+                  fontSize: 'clamp(1rem, 2vw, 1.3rem)', 
                   color: 'white', 
                   opacity: 0.95, 
                   marginBottom: '15px', 
@@ -594,7 +595,7 @@ export default function Bpo({ onNavigate }) {
       )}
 
       {/* ── Metodología Component (Floating Panels 2.0) ── */}
-      <section style={{ padding: 'clamp(80px, 15vw, 200px) 0', position: 'relative', background: '#050505', overflow: 'hidden', zIndex: 10 }}>
+      <section style={{ padding: 'clamp(40px, 8vw, 100px) 0', position: 'relative', background: '#050505', overflow: 'hidden', zIndex: 10 }}>
         {/* Background Decorative Accents */}
         <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(255,140,0,0.03) 0%, transparent 70%)', zIndex: 0 }} />
         <div style={{ position: 'absolute', bottom: '10%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,86,179,0.03) 0%, transparent 70%)', zIndex: 0 }} />

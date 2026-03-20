@@ -52,7 +52,7 @@ export default function Echo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="echo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(100px, 15vw, 120px) 0 0' }}>
+      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(140px, 18vh, 180px) 20px 0' }}>
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -61,7 +61,7 @@ export default function Echo({ onNavigate }) {
         }} />
 
         <div className="section-container" style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '60px', alignItems: 'center', width: '100%' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '60px', alignItems: 'center', width: '100%' }}>
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}

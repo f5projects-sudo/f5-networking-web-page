@@ -38,7 +38,7 @@ export default function Desarrollo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="desarrollo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ height: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10 }}>
+      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(140px, 18vh, 180px) 20px 80px' }}>
         {/* Background Image Setup */}
         <div style={{
           position: 'absolute',
@@ -56,7 +56,7 @@ export default function Desarrollo({ onNavigate }) {
           zIndex: -1
         }} />
 
-        <div className="section-container" style={{ width: '100%', paddingTop: '100px' }}>
+        <div className="section-container" style={{ width: '100%' }}>
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -105,7 +105,7 @@ export default function Desarrollo({ onNavigate }) {
 
       {/* ── Content Details ── */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '50px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px', alignItems: 'center', marginBottom: '100px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '60px', alignItems: 'center', marginBottom: '100px' }}>
           
           <motion.div {...fadeInUp}>
             <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', marginBottom: '30px', color: 'white', fontWeight: 'bold' }}>

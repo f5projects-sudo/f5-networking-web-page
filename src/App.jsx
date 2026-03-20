@@ -694,10 +694,8 @@ const App = () => {
               />
             </div>
 
-            <button
+            <motion.button
               type="submit"
-              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
               style={{
                 background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
                 border: 'none',
@@ -711,12 +709,13 @@ const App = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '10px',
-                transition: 'opacity 0.2s, transform 0.2s',
                 boxShadow: '0 0 20px rgba(0,144,255,0.3)'
               }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               {sent ? '✅ ¡Mensaje enviado!' : <><Send size={18} /> Enviar Mensaje</>}
-            </button>
+            </motion.button>
           </motion.form>
         </motion.div>
       </section>

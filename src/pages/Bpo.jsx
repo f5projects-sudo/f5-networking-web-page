@@ -432,21 +432,21 @@ export default function Bpo({ onNavigate }) {
               En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
             </p>
 
-            <button 
+            <motion.button 
               style={{
                 padding: '16px 35px', background: 'var(--color-secondary)', border: 'none', color: 'white',
                 borderRadius: '50px', fontWeight: 'bold', fontSize: '1.1rem', cursor: 'pointer',
                 display: 'inline-flex', alignItems: 'center', gap: '12px', boxShadow: '0 10px 25px rgba(255,140,0,0.4)'
               }}
-              onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
-              onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => {
                 onNavigate('home');
                 setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
               }}
             >
               ¡Me Interesa! <ChevronRight size={22} />
-            </button>
+            </motion.button>
           </div>
         </section>
       ) : (

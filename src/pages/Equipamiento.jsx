@@ -152,7 +152,7 @@ export default function Equipamiento({ onNavigate }) {
             </p>
 
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-               <button 
+               <motion.button 
                  style={{ 
                    padding: '15px 45px', 
                    fontSize: '1.1rem',
@@ -162,11 +162,10 @@ export default function Equipamiento({ onNavigate }) {
                    color: 'white',
                    fontWeight: 'bold',
                    cursor: 'pointer',
-                   boxShadow: '0 10px 30px rgba(0,86,179,0.4)',
-                   transition: 'all 0.3s'
+                   boxShadow: '0 10px 30px rgba(0,86,179,0.4)'
                  }}
-                 onMouseOver={e => e.currentTarget.style.transform = 'scale(1.05)'}
-                 onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}
+                 whileHover={{ scale: 1.05 }}
+                 whileTap={{ scale: 0.95 }}
                  onClick={() => {
                    onNavigate('home');
                    setTimeout(() => {
@@ -175,7 +174,7 @@ export default function Equipamiento({ onNavigate }) {
                  }}
                >
                  Explorar Soluciones
-               </button>
+               </motion.button>
                <button 
                  className="glass" 
                  style={{ padding: '15px 45px', borderRadius: '35px', border: '1px solid rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '15px', fontWeight: 'bold' }}

@@ -238,14 +238,14 @@ export default function Voxis({ onNavigate }) {
           </div>
 
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
-             <button 
+             <motion.button 
                style={{ padding: '15px 40px', fontSize: '1.2rem', border: '1px solid var(--color-primary)', borderRadius: '50px', background: 'transparent', color: 'white', cursor: 'pointer', transition: 'all 0.3s' }}
-               onMouseOver={e => e.target.style.background = 'rgba(0,180,255,0.1)'}
-               onMouseOut={e => e.target.style.background = 'transparent'}
+               whileHover={{ backgroundColor: 'rgba(0,180,255,0.1)' }}
+               whileTap={{ scale: 0.95 }}
                onClick={handleOpenDemo}
              >
                Probar Demo
-             </button>
+             </motion.button>
           </div>
         </motion.div>
 
@@ -542,10 +542,24 @@ export default function Voxis({ onNavigate }) {
               <p style={{ fontSize: '1.3rem', color: 'rgba(255,255,255,0.4)', lineHeight: '1.8', marginBottom: '40px' }}>
                 VØXIS funciona donde la voz importa. Si tu negocio recibe llamadas y busca eficiencia sin sacrificar la calidad humana, VØXIS es tu aliado perfecto.
               </p>
-              <button 
-                style={{ background: 'transparent', padding: '15px 35px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.2)', color: 'white', cursor: 'pointer', transition: 'all 0.3s' }}
-                onMouseOver={e => e.target.style.background = 'rgba(255,255,255,0.05)'}
-                onMouseOut={e => e.target.style.background = 'transparent'}
+              <motion.button 
+                style={{
+                  padding: '14px 35px',
+                  background: 'var(--color-primary)',
+                  border: 'none',
+                  color: 'white',
+                  borderRadius: '50px',
+                  fontWeight: 'bold',
+                  fontSize: '1.1rem',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  boxShadow: '0 15px 35px rgba(0,86,179,0.3)',
+                  transition: 'box-shadow 0.3s'
+                }}
+                whileHover={{ backgroundColor: 'rgba(255,255,255,0.05)', boxShadow: '0 0 40px rgba(0,86,179,0.5)' }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => {
                   onNavigate('home');
                   setTimeout(() => {
@@ -553,8 +567,8 @@ export default function Voxis({ onNavigate }) {
                   }, 100);
                 }}
               >
-                Solicitar Diagnóstico
-              </button>
+                Solicitar Diagnóstico <ChevronRight size={22} />
+              </motion.button>
             </motion.div>
 
             <div 

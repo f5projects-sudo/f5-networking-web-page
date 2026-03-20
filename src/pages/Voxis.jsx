@@ -228,12 +228,15 @@ export default function Voxis({ onNavigate }) {
           <h1 style={{ 
             fontSize: 'clamp(3.5rem, 15vw, 9rem)', 
             fontWeight: '900', 
-            lineHeight: 1.1, 
+            lineHeight: 1.2, 
             marginBottom: 'clamp(10px, 2vh, 20px)', 
-            letterSpacing: 'clamp(-5px, -1vw, -2px)',
-            padding: '10px 0'
+            letterSpacing: 'clamp(-2px, -0.5vw, 0px)',
+            padding: '5px 0',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'baseline'
           }}>
-            VØ<span className="gradient-text">XIS</span>
+            VØ<span className="gradient-text" style={{ paddingRight: '0.05em' }}>XIS</span>
           </h1>
           
           <p style={{ fontSize: 'clamp(1.1rem, 3vw, 2rem)', fontWeight: '500', color: 'rgba(255,255,255,0.6)', maxWidth: '800px', margin: '0 auto clamp(20px, 4vh, 40px)', lineHeight: 1.3 }}>

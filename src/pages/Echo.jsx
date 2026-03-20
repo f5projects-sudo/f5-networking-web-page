@@ -159,6 +159,7 @@ export default function Echo({ onNavigate }) {
               />
               
               <motion.div 
+                className="hardware-accelerated"
                 style={{ position: 'absolute', top: '10px', right: '10px', padding: '12px', borderRadius: '12px', background: 'rgba(0,180,255,0.3)', backdropFilter: 'blur(10px)', border: '1px solid var(--color-accent)', zIndex: 20 }}
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}

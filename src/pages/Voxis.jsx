@@ -29,6 +29,7 @@ const VoiceWave = () => {
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
+          className="hardware-accelerated"
           animate={{ 
             height: [20, Math.random() * 80 + 20, 20],
             opacity: [0.3, 0.8, 0.3]
@@ -112,6 +113,7 @@ const CapacityCard = ({ icon, title, desc, result, index }) => {
 
       {/* Decorative pulse */}
       <motion.div 
+        className="hardware-accelerated"
         animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
         transition={{ duration: 4, repeat: Infinity }}
         style={{

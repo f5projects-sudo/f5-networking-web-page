@@ -146,6 +146,7 @@ const MethodologyStep = ({ id, title, desc, icon, color, delay, isEven }) => {
         style={{ flex: '0.8', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10 }}>
         {/* Pulse animate dot */}
         <motion.div 
+          className="hardware-accelerated"
           animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.7, 0.3] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           style={{ 
@@ -216,6 +217,7 @@ const OperationalCard = ({ icon, title, desc, index }) => {
     >
       {/* Scanning Light Bar (Hover) */}
       <motion.div
+        className="hardware-accelerated"
         variants={{
           hover: { top: '100%', opacity: 0.5 }
         }}
@@ -304,6 +306,7 @@ const ServiceNode = ({ icon, text, index }) => (
         {React.cloneElement(icon, { size: 22 })}
       </div>
       <motion.div 
+        className="hardware-accelerated"
         animate={{ scale: [1, 1.4, 1], opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 2, repeat: Infinity }}
         style={{ 

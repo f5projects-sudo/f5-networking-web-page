@@ -50,10 +50,15 @@ button {
 }
 
 .glass {
+  background: rgba(255, 255, 0, 0); /* Fallback */
   background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+  /* Anti-Freeze trick for WebKit and Blink */
+  transform: translateZ(0); 
+  -webkit-transform: translateZ(0);
 }
 
 .section-container {
@@ -70,6 +75,13 @@ button {
   h1 { font-size: 2.5rem !important; }
   h2 { font-size: 1.8rem !important; }
   h3 { font-size: 1.4rem !important; }
+  
+  /* Reduce brutal GPU load on mobiles */
+  .glass {
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    background: rgba(20, 20, 30, 0.65); /* Solidified slightly for contrast with lower blur */
+  }
 }
 
 /* ── Brand marquee ── */
@@ -481,6 +493,56 @@ elevenlabs-convai {
     transform: scale(0.8) !important;
     transform-origin: bottom right !important;
   }
+}
+
+/* ── Pantallas Ultra Estrechas (341px) ── */
+@media (max-width: 400px) {
+  .section-container {
+    padding: 20px 15px !important;
+  }
+
+  elevenlabs-convai {
+    bottom: 5px !important;
+    right: 5px !important;
+    transform: scale(0.5) !important;
+    transform-origin: bottom right !important;
+  }
+
+  .btn-neon {
+    padding: 10px 20px !important;
+    font-size: 0.85rem !important;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-button-inner {
+    padding: 10px 18px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .footer-grid {
+    gap: 40px !important;
+  }
+  
+  h1 { font-size: 2rem !important; letter-spacing: -1px; }
+  h2 { font-size: 1.6rem !important; line-height: 1.2; }
+  h3 { font-size: 1.3rem !important; }
+
+  .glass {
+    padding: 20px !important;
+  }
+
+  .methodology-image-container {
+    min-height: 160px !important;
+  }
+}
+
+/* ── Optimizaciones de Rendimiento (Anti-Freeze) ── */
+.hardware-accelerated {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 @media (min-width: 769px) {

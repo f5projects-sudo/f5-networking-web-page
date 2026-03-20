@@ -109,7 +109,7 @@ export const ScrollVelocity = ({
 
     return (
       <div className={parallaxClassName} style={parallaxStyle}>
-        <motion.div className={scrollerClassName} style={{ x, ...scrollerStyle }}>
+        <motion.div className={`${scrollerClassName} hardware-accelerated`} style={{ x, ...scrollerStyle }}>
           {spans}
         </motion.div>
       </div>

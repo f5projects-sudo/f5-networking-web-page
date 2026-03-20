@@ -67,7 +67,7 @@ const BubbleBackground = () => {
     });
 
 
-    const init = () => {
+    const init = React.useCallback(() => {
         particles.current = [];
         // Increase density because particles are smaller and more subtle
         const numberOfParticles = (window.innerWidth * window.innerHeight) / 6000;
@@ -76,9 +76,9 @@ const BubbleBackground = () => {
             let y = Math.random() * window.innerHeight;
             particles.current.push(createParticle(x, y));
         }
-    };
+    }, [colors]);
 
-    const animate = () => {
+    const animate = React.useCallback(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
@@ -92,16 +92,16 @@ const BubbleBackground = () => {
         });
 
         requestAnimationFrame(animate);
-    };
+    }, []);
 
-    const explode = () => {
+    const explode = React.useCallback(() => {
         isExploding.current = true;
         setTimeout(() => {
             isExploding.current = false;
             init();
             setTimeLeft(20);
         }, 1500); // Shorter explosion duration
-    };
+    }, [init]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -141,8 +141,7 @@ const BubbleBackground = () => {
             window.removeEventListener('resize', handleResize);
             clearInterval(timerRef.current);
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [init, animate, explode]);
 
     return (
         <div

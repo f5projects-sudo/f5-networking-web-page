@@ -23,13 +23,13 @@
   min-height: 100dvh;
   color: white;
   width: 100%;
-  overflow-x: hidden;
   position: relative; /* Necessary for scroll offset calculation in framer-motion */
 }
 
 html {
   background-color: #050505 !important;
   width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -39,6 +39,7 @@ body {
   position: relative;
   line-height: 1.6;
   background-color: #050505 !important;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {

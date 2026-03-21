@@ -331,12 +331,6 @@ export default function Bpo({ onNavigate }) {
     window.scrollTo(0, 0);
   }, []);
 
-  const containerRef = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   const [isMobile, setIsMobile] = React.useState(typeof window !== 'undefined' ? window.innerWidth <= 768 : false);
   React.useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -344,27 +338,33 @@ export default function Bpo({ onNavigate }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const containerRef = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+ 
+  // Reducimos el damping para que responda instantáneamente al mouse
   const smoothProgress = useSpring(scrollYProgress, { 
-    stiffness: isMobile ? 800 : 150, 
-    damping: isMobile ? 80 : 40, 
+    stiffness: 300,
+    damping: 30, 
     restDelta: 0.001 
   });  
 
-  // Primero el badge está solo por un 10% del scroll. Luego viaja a la esquina hasta el 30%.
-  const badgeOpacity = useTransform(smoothProgress, [0, 0.1, 1], [1, 1, 1]);
-  const badgeY = useTransform(smoothProgress, [0, 0.1, 0.3], ["0vh", "0vh", "-38vh"]);
-  const badgeX = useTransform(smoothProgress, [0, 0.1, 0.3], ["0vw", "0vw", "-36.5vw"]);
-  const badgeScale = useTransform(smoothProgress, [0, 0.1], [1.5, 1]);
+  // FASE 1: El badge se desplaza a la esquina rápido (0.0 a 0.4)
+  const badgeOpacity = useTransform(smoothProgress, [0, 0.05], [1, 1]);
+  const badgeY = useTransform(smoothProgress, [0, 0.4], ["0vh", "-36vh"]);
+  const badgeX = useTransform(smoothProgress, [0, 0.4], ["0vw", "-36vw"]);
+  const badgeScale = useTransform(smoothProgress, [0, 0.3], [1.5, 1]); 
   
-  // Transformaciones para la imagen de fondo
-  const imgScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1]);
-  const imgY = useTransform(smoothProgress, [0.3, 0.8], ["0%", "-15%"]);
-  const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.9, 0.7, 0.8]);
+  // FASE 2: El texto aparece una vez el badge llega a su lugar (0.4 a 0.8)
+  const contentOpacity = useTransform(smoothProgress, [0.4, 0.8], [0, 1]);
+  const contentY = useTransform(smoothProgress, [0.4, 0.8], [60, 0]);
 
-  // SECUENCIA LIMPIA: El texto NO empieza a aparecer hasta el 30% (cuando el badge ya se quitó del medio)
-  // y termina de aparecer al 45%, dando un 55% de pantalla restante para pura lectura cómoda.
-  const contentOpacity = useTransform(smoothProgress, [0, 0.3, 0.45, 1.0], [0, 0, 1, 1]);
-  const contentY = useTransform(smoothProgress, [0.3, 0.45, 1.0], [40, 0, 0]);
+  // FASE 3: Pequeño paralaje al final antes de bajar (0.8 a 1.0)
+  const imgScale = useTransform(smoothProgress, [0, 0.8, 1], [1.05, 1.05, 1.0]);
+  const imgY = useTransform(smoothProgress, [0, 0.8, 1], ["0%", "0%", "-5%"]);
+  const imgBrightness = useTransform(smoothProgress, [0, 0.5, 0.8], [0.85, 0.5, 0.35]); // Fondo oscuro para resaltar la letra blanca
 
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -421,18 +421,18 @@ export default function Bpo({ onNavigate }) {
             </div>
             
             <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: '900', lineHeight: 1.1, marginBottom: '15px', textShadow: '0 5px 15px rgba(0,0,0,0.8)' }}>
-              Socio <span className="gradient-text" style={{ backgroundImage: 'linear-gradient(to right, #ff8c00, #ff0080)' }}>ESTRATÉGICO</span> <br />
-              <span className="gradient-text" style={{ fontSize: '0.85em' }}>QUE ENTIENDE TU OPERACIÓN</span>
+              UN SOCIO ESTRATÉGICO <br />
+              <span className="gradient-text" style={{ fontSize: '0.85em', backgroundImage: 'linear-gradient(to right, #ff8c00, #ff0080)' }}>QUE ENTIENDE TU OPERACIÓN</span>
             </h1>
             
             <h2 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: 'white', opacity: 0.95, marginBottom: '15px', fontWeight: '500', lineHeight: '1.4' }}>
               BPO diseñado para escuchar, actuar y transformar
             </h2>
-
+ 
             <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '30px', textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
               En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
             </p>
-
+ 
             <motion.button 
               style={{
                 padding: '16px 35px', background: 'var(--color-secondary)', border: 'none', color: 'white',
@@ -534,7 +534,7 @@ export default function Bpo({ onNavigate }) {
                   textShadow: '0 10px 30px rgba(0,0,0,0.5)'
                 }}>
                   UN SOCIO ESTRATÉGICO <br />
-                  <span className="gradient-text" style={{ fontSize: '0.9em' }}>QUE ENTIENDE TU OPERACIÓN</span>
+                  <span className="gradient-text" style={{ fontSize: '0.9em', backgroundImage: 'linear-gradient(to right, #ff8c00, #ff0080)' }}>QUE ENTIENDE TU OPERACIÓN</span>
                 </h1>
                 
                 <h2 style={{ 

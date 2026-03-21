@@ -586,14 +586,6 @@ const App = () => {
                 }}>{step.num}</div>
                 <h3 className="methodology-title" style={{ fontSize: '1.7rem', marginBottom: '16px', marginTop: '-10px' }}>{step.title}</h3>
                 <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '20px' }}>{step.desc}</p>
-                <a href="#services" style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  color: step.colors.border, fontWeight: '600', fontSize: '0.9rem',
-                  textDecoration: 'none', borderBottom: `1px solid ${step.colors.border}44`,
-                  paddingBottom: '3px'
-                }}>
-                  Ver Nuestros Servicios →
-                </a>
               </motion.div>
             </div>
           ))}

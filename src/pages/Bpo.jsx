@@ -422,13 +422,9 @@ export default function Bpo({ onNavigate }) {
             
             <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: '900', lineHeight: 1.1, marginBottom: '15px', textShadow: '0 5px 15px rgba(0,0,0,0.8)' }}>
               UN SOCIO ESTRATÉGICO <br />
-              <span className="gradient-text" style={{ fontSize: '0.85em', backgroundImage: 'linear-gradient(to right, #ff8c00, #ff0080)' }}>QUE ENTIENDE TU OPERACIÓN</span>
+              <span className="gradient-text" style={{ fontSize: '0.85em' }}>QUE ENTIENDE TU OPERACIÓN</span>
             </h1>
-            
-            <h2 style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: 'white', opacity: 0.95, marginBottom: '15px', fontWeight: '500', lineHeight: '1.4' }}>
-              BPO diseñado para escuchar, actuar y transformar
-            </h2>
- 
+
             <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '30px', textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
               En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
             </p>
@@ -534,20 +530,8 @@ export default function Bpo({ onNavigate }) {
                   textShadow: '0 10px 30px rgba(0,0,0,0.5)'
                 }}>
                   UN SOCIO ESTRATÉGICO <br />
-                  <span className="gradient-text" style={{ fontSize: '0.9em', backgroundImage: 'linear-gradient(to right, #ff8c00, #ff0080)' }}>QUE ENTIENDE TU OPERACIÓN</span>
+                  <span className="gradient-text" style={{ fontSize: '0.9em' }}>QUE ENTIENDE TU OPERACIÓN</span>
                 </h1>
-                
-                <h2 style={{ 
-                  fontSize: 'clamp(1rem, 2vw, 1.3rem)', 
-                  color: 'white', 
-                  opacity: 0.95, 
-                  marginBottom: '15px', 
-                  fontWeight: '500',
-                  maxWidth: '700px',
-                  lineHeight: '1.4'
-                }}>
-                  BPO diseñado para escuchar, actuar y transformar
-                </h2>
 
                 <p style={{ 
                   fontSize: 'clamp(1rem, 2vw, 1.15rem)', 

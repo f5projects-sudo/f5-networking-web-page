@@ -421,7 +421,9 @@ elevenlabs-convai {
   }
   
   .mobile-menu-toggle {
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-logo-container {

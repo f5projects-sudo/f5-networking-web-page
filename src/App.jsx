@@ -218,12 +218,12 @@ const App = () => {
       <BubbleBackground />
 
       {/* Hero Section */}
-      <section id="hero" style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px', position: 'relative', zIndex: 1 }}>
+      <section id="hero" style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '100px 20px 40px', position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          style={{ width: '100%', maxWidth: '900px' }}
+          style={{ width: '100%', maxWidth: '900px', marginTop: '40px' }}
         >
           <h1 style={{ fontSize: 'clamp(2.2rem, 8vw, 5rem)', marginBottom: '10px', wordBreak: 'break-word' }}>
             F5 <span className="gradient-text">Networking</span>

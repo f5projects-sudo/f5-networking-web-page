@@ -112,11 +112,8 @@ const Navbar = ({ onNavigate, activePage }) => {
           <img 
             src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
             alt="Logo" 
-            style={{ height: '35px', width: 'auto', display: 'block' }} 
+            style={{ height: '85px', width: 'auto', display: 'block', marginLeft: '5px' }} 
           />
-          <span style={{ fontSize: '1.4rem', fontWeight: '800', color: 'white', letterSpacing: '0.5px', whiteSpace: 'nowrap' }}>
-            F5 <span style={{ color: 'var(--color-primary)' }}>Networking</span>
-          </span>
         </div>
         
         {/* Desktop Links */}

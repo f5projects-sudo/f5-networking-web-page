@@ -92,7 +92,7 @@ export default function Equipamiento({ onNavigate }) {
   ];
 
   return (
-    <div className="app bg-[#050505] min-h-screen text-white overflow-hidden">
+    <div className="app">
       
       {/* Human-Centric Background Image with Parallax & Blur */}
       <div style={{ position: 'fixed', inset: 0, zIndex: 0 }}>
@@ -118,7 +118,7 @@ export default function Equipamiento({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="equipamiento" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: '160px', paddingBottom: '60px' }}>
+      <section style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: '160px', paddingBottom: '60px' }}>
         <div className="section-container" style={{ textAlign: 'center' }}>
           <motion.div style={{ opacity: opacityHero }}>
             <motion.div

@@ -306,7 +306,7 @@ export default function Pbx({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen text-white">
+    <div className="app">
       
       {/* Dynamic Background with Technical Accent */}
       <div 
@@ -326,7 +326,7 @@ export default function Pbx({ onNavigate }) {
 
       {/* ── Hero Section (PBX) ── */}
       <section style={{ 
-        minHeight: '100vh', 
+        minHeight: '100dvh', 
         display: 'flex', 
         alignItems: 'center', 
         position: 'relative', 

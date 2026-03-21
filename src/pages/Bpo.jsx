@@ -82,7 +82,7 @@ const MethodologyStep = ({ id, title, desc, icon, color, delay, isEven }) => {
           padding: 'clamp(25px, 5vw, 60px)',
           borderRadius: '40px',
           background: 'rgba(255,255,255,0.015)',
-          backdropFilter: 'blur(40px)',
+          backdropFilter: 'blur(15px)',
           border: '1px solid rgba(255,255,255,0.05)',
           position: 'relative',
           zIndex: 2,
@@ -205,7 +205,7 @@ const OperationalCard = ({ icon, title, desc, index }) => {
         padding: '40px',
         borderRadius: '30px',
         background: 'rgba(255,255,255,0.01)',
-        backdropFilter: 'blur(30px)',
+        backdropFilter: 'blur(15px)',
         border: '1px solid rgba(255,255,255,0.05)',
         position: 'relative',
         overflow: 'hidden',
@@ -379,7 +379,7 @@ export default function Bpo({ onNavigate }) {
   };
 
   return (
-    <div className="app" style={{ backgroundColor: '#050505', minHeight: '100vh', color: 'white', overflowX: 'clip' }}>
+    <div className="app">
       
       {/* Dynamic Background */}
       <div 
@@ -399,7 +399,7 @@ export default function Bpo({ onNavigate }) {
 
       {/* ── Scrollytelling Hero Section ── */}
       {isMobile ? (
-        <section style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, padding: '160px 20px 0', overflow: 'hidden' }}>
+        <section style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, padding: '160px 20px 0' }}>
           <div className="hardware-accelerated" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
             <img 
               src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
@@ -452,7 +452,7 @@ export default function Bpo({ onNavigate }) {
         </section>
       ) : (
         <section ref={containerRef} style={{ height: '220vh', position: 'relative', zIndex: 10 }}>
-          <div style={{ position: 'sticky', top: '70px', height: 'calc(100vh - 70px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ position: 'sticky', top: '70px', height: 'calc(100dvh - 70px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <motion.div 
               className="hardware-accelerated"
               style={{ 

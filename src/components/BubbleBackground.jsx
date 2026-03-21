@@ -6,11 +6,16 @@ const colors = ['#0056b3', '#ff8c00', '#00d4ff', '#ffffff'];
 const BubbleBackground = () => {
     const canvasRef = useRef(null);
     const [timeLeft, setTimeLeft] = useState(20);
+    const [isMobile, setIsMobile] = useState(false);
     const particles = useRef([]);
     const mouse = useRef({ x: 0, y: 0 });
     const isExploding = useRef(false);
     const timerRef = useRef(null);
     const requestRef = useRef(null);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 768);
+    }, []);
 
     const init = React.useCallback(() => {
         const createParticle = (x, y) => ({
@@ -25,18 +30,22 @@ const BubbleBackground = () => {
             density: (Math.random() * 20) + 1,
             opacity: Math.random() * 0.4 + 0.1,
 
-            draw(ctx) {
+            draw(ctx, isMobile) {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
 
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = this.color;
+                if (!isMobile) {
+                    ctx.shadowBlur = 10;
+                    ctx.shadowColor = this.color;
+                }
 
                 const hexOpacity = Math.floor(this.opacity * 255).toString(16).padStart(2, '0');
                 ctx.fillStyle = this.color + hexOpacity;
                 ctx.fill();
 
-                ctx.shadowBlur = 0;
+                if (!isMobile) {
+                    ctx.shadowBlur = 0;
+                }
             },
 
             update() {
@@ -69,8 +78,11 @@ const BubbleBackground = () => {
         });
 
         particles.current = [];
-        // Increase density because particles are smaller and more subtle
-        const numberOfParticles = (window.innerWidth * window.innerHeight) / 6000;
+        const isMob = window.innerWidth < 768;
+        // Increase density because particles are smaller and more subtle, but cap it for mobile
+        const densityFactor = isMob ? 15000 : 6000;
+        const numberOfParticles = Math.min((window.innerWidth * window.innerHeight) / densityFactor, isMob ? 60 : 200);
+        
         for (let i = 0; i < numberOfParticles; i++) {
             let x = Math.random() * window.innerWidth;
             let y = Math.random() * window.innerHeight;
@@ -82,13 +94,14 @@ const BubbleBackground = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
+        const isMob = window.innerWidth < 768;
 
         // Using a very slight clear alpha could create trails, but for professionalism we keep it clean
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         particles.current.forEach(p => {
             p.update();
-            p.draw(ctx);
+            p.draw(ctx, isMob);
         });
 
         requestRef.current = requestAnimationFrame(animate);
@@ -151,7 +164,7 @@ const BubbleBackground = () => {
                 top: 0,
                 left: 0,
                 width: '100%',
-                height: '100vh',
+                height: '100dvh',
                 zIndex: 0,
                 background: 'radial-gradient(circle at center, #0a0a0a 0%, #000000 100%)' // Darker base gradient
             }}

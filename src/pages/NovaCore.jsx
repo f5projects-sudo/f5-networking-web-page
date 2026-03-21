@@ -110,7 +110,7 @@ export default function NovaCore({ onNavigate }) {
       <NovaParticles targetShape={targetShape} />
       
       {/* Hero Section (Solo para trigger the observer) */}
-      <section id="hero-section" style={{ height: '100vh', marginBottom: '5vh', position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '12vh', pointerEvents: 'none' }}>
+      <section id="hero-section" style={{ height: '100dvh', marginBottom: '5vh', position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', paddingBottom: '12vh', pointerEvents: 'none' }}>
         {/* Las partículas dibujarán "NOVA CORE" aquí */}
         
         <motion.div
@@ -156,7 +156,7 @@ export default function NovaCore({ onNavigate }) {
             </p>
           </motion.div>
           <motion.div {...fadeInUp} style={{ position: 'relative' }}>
-             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', opacity: 0.3, filter: 'blur(40px)', zIndex: -1, borderRadius: '24px' }} />
+             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', opacity: 0.3, filter: 'blur(15px)', zIndex: -1, borderRadius: '24px' }} />
              <img 
                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" 
                alt="Nova Core Analytics" 
@@ -226,7 +226,7 @@ export default function NovaCore({ onNavigate }) {
       <section id="nova-cash-info" className="section-container" style={{ position: 'relative', zIndex: 10, paddingBottom: '100px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px', alignItems: 'center' }}>
           <motion.div {...fadeInUp} style={{ position: 'relative' }}>
-             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-secondary), #FF4500)', opacity: 0.2, filter: 'blur(40px)', zIndex: -1, borderRadius: '24px' }} />
+             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-secondary), #FF4500)', opacity: 0.2, filter: 'blur(15px)', zIndex: -1, borderRadius: '24px' }} />
              <img 
                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800" 
                alt="Nova Cash Financial Operations" 

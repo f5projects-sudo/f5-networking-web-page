@@ -33,7 +33,7 @@ export default function Echo({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen">
+    <div className="app">
       
       {/* Dynamic Background */}
       <div 
@@ -52,7 +52,7 @@ export default function Echo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="echo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(160px, 20vh, 220px) 20px 0' }}>
+      <section style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', zIndex: 10, padding: 'clamp(160px, 20dvh, 220px) 20px 0' }}>
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -131,11 +131,12 @@ export default function Echo({ onNavigate }) {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
+              className="hardware-accelerated"
               style={{ 
                 position: 'relative',
                 borderRadius: '24px',
                 overflow: 'hidden',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 180, 255, 0.2)',
+                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 180, 255, 0.1)',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
                 background: 'rgba(26, 26, 26, 0.8)',
                 backdropFilter: 'blur(10px)'
@@ -232,7 +233,7 @@ export default function Echo({ onNavigate }) {
           ].map((item, i) => (
             <motion.div
               key={i}
-              className="glass"
+              className="glass hardware-accelerated"
               style={{ 
                 padding: '40px', 
                 borderRadius: '24px', 
@@ -288,7 +289,7 @@ export default function Echo({ onNavigate }) {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass"
+            className="glass hardware-accelerated"
             style={{ padding: '40px', borderRadius: '30px', borderLeft: '4px solid var(--color-primary)' }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
@@ -328,7 +329,7 @@ export default function Echo({ onNavigate }) {
             ].map((diff, i) => (
               <motion.div
                 key={i}
-                className="glass"
+                className="glass hardware-accelerated"
                 style={{ padding: '30px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}
                 whileHover={{ scale: 1.03, borderColor: 'rgba(0,180,255,0.2)' }}
                 {...fadeInUp}

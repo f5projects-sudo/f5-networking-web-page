@@ -43,14 +43,18 @@ const ConnectivityBackground = () => (
 
 export default function Cableado({ onNavigate }) {
   const containerRef = useRef(null);
-  
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const backgroundOpacity = useTransform(scrollYProgress, [0, 1], [0.3, 0]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", isMobile ? "0%" : "30%"]);
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 1], [0.3, isMobile ? 0.3 : 0]);
 
   // Asegurar que la vista inicie arriba
   React.useLayoutEffect(() => {
@@ -75,7 +79,7 @@ export default function Cableado({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen">
+    <div className="app">
       
       {/* Dynamic Background */}
       <div 
@@ -94,7 +98,7 @@ export default function Cableado({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="cableado" />
 
       {/* ── Hero Section ── */}
-      <section ref={containerRef} style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(160px, 20vh, 220px) 20px 80px' }}>
+      <section ref={containerRef} style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 10, padding: 'clamp(160px, 20vh, 220px) 20px 80px' }}>
         <ConnectivityBackground />
         <motion.div style={{
           position: 'absolute',

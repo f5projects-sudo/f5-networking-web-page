@@ -214,11 +214,11 @@ const App = () => {
   ];
 
   return (
-    <div className="app" style={{ backgroundColor: '#050505', minHeight: '100vh', color: 'white', width: '100%', overflowX: 'clip' }}>
+    <div className="app">
       <BubbleBackground />
 
       {/* Hero Section */}
-      <section id="hero" style={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px', position: 'relative', zIndex: 1, overflow: 'hidden' }}>
+      <section id="hero" style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '0 20px', position: 'relative', zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}

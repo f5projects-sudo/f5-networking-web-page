@@ -64,7 +64,7 @@ const CapacityCard = ({ icon, title, desc, result, index }) => {
         padding: 'clamp(25px, 8vw, 50px)',
         borderRadius: '35px',
         background: 'rgba(255,255,255,0.02)',
-        backdropFilter: 'blur(30px)',
+        backdropFilter: 'blur(15px)',
         border: '1px solid rgba(255,255,255,0.05)',
         position: 'relative',
         overflow: 'hidden',
@@ -184,7 +184,7 @@ export default function Voxis({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen text-white overflow-hidden">
+    <div className="app">
       
       {/* Background Neural Network Simulation */}
       <div style={{ 
@@ -197,7 +197,7 @@ export default function Voxis({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="voxis" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: 'clamp(160px, 20vh, 200px)', paddingBottom: '100px', paddingLeft: '20px', paddingRight: '20px' }}>
+      <section style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, paddingTop: 'clamp(160px, 20vh, 200px)', paddingBottom: '100px', paddingLeft: '20px', paddingRight: '20px' }}>
         <motion.div 
           style={{ textAlign: 'center', scale, opacity, width: '100%' }}
           initial={{ opacity: 0, y: 20 }}
@@ -272,7 +272,7 @@ export default function Voxis({ onNavigate }) {
       </section>
 
       {/* ── Intro Section: Neural Nexus (Reinvented ¿Qué es Voxis?) ── */}
-      <section style={{ padding: '160px 0', position: 'relative', zIndex: 10, overflow: 'hidden' }}>
+      <section style={{ padding: '160px 0', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
           <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '80px' }}>
             <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--color-accent)', letterSpacing: '8px', marginBottom: '20px', textTransform: 'uppercase' }}>

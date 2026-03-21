@@ -20,7 +20,7 @@ export default function Desarrollo({ onNavigate }) {
   };
 
   return (
-    <div className="app bg-[#050505] min-h-screen">
+    <div className="app">
       
       <div 
         style={{
@@ -38,7 +38,7 @@ export default function Desarrollo({ onNavigate }) {
       <Navbar onNavigate={onNavigate} activePage="desarrollo" />
 
       {/* ── Hero Section ── */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', zIndex: 10, padding: 'clamp(160px, 20vh, 220px) 20px 80px' }}>
+      <section style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', position: 'relative', zIndex: 10, padding: 'clamp(160px, 20vh, 220px) 20px 80px' }}>
         {/* Background Image Setup */}
         <div style={{
           position: 'absolute',
@@ -141,7 +141,7 @@ export default function Desarrollo({ onNavigate }) {
           </motion.div>
 
           <motion.div {...fadeInUp} style={{ position: 'relative' }}>
-             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', opacity: 0.2, filter: 'blur(50px)', zIndex: -1, borderRadius: '30px' }} />
+             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', opacity: 0.2, filter: 'blur(15px)', zIndex: -1, borderRadius: '30px' }} />
              <div className="glass" style={{ padding: '10px', borderRadius: '30px', border: '1px solid rgba(255,255,255,0.1)' }}>
                <img 
                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800" 

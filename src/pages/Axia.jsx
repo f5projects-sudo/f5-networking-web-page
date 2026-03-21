@@ -35,7 +35,7 @@ export default function Axia({ onNavigate }) {
       <BubbleBackground />
 
       {/* Hero Section */}
-      <section style={{ position: 'relative', height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', height: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
         <video
           autoPlay
           loop

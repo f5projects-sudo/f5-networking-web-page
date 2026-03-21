@@ -12,9 +12,23 @@ const Navbar = ({ onNavigate, activePage }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      // Prevent touchmove to ensure total lock on some mobile browsers
+      const preventDefault = (e) => e.preventDefault();
+      document.addEventListener('touchmove', preventDefault, { passive: false });
+      return () => {
+        document.body.style.overflow = '';
+        document.removeEventListener('touchmove', preventDefault);
+      };
+    }
+  }, [isMenuOpen]);
 
 
   // Close dropdown when clicking outside
@@ -92,14 +106,17 @@ const Navbar = ({ onNavigate, activePage }) => {
       }}>
         <div 
           className="nav-logo-container"
-          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} 
           onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }}
         >
           <img 
             src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
-            alt="F5 Networking" 
-            style={{ height: 'auto', width: '150px', display: 'block' }} 
+            alt="Logo" 
+            style={{ height: '35px', width: 'auto', display: 'block' }} 
           />
+          <span style={{ fontSize: '1.4rem', fontWeight: '800', color: 'white', letterSpacing: '0.5px', whiteSpace: 'nowrap' }}>
+            F5 <span style={{ color: 'var(--color-primary)' }}>Networking</span>
+          </span>
         </div>
         
         {/* Desktop Links */}

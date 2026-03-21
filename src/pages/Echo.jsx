@@ -186,13 +186,13 @@ export default function Echo({ onNavigate }) {
           {...fadeInUp}
           style={{ textAlign: 'center', marginBottom: '70px' }}
         >
-          <h2 style={{ fontSize: '2.8rem', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 8vw, 2.8rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold', lineHeight: 1.2, wordBreak: 'break-word' }}>
             Centraliza cada <span className="gradient-text">interacción</span>
           </h2>
           <div style={{ width: '80px', height: '4px', background: 'linear-gradient(90deg, var(--color-primary), transparent)', margin: '0 auto' }}></div>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '30px' }}>
           {[
             { 
               icon: <Share2 size={32} />, 
@@ -272,9 +272,9 @@ export default function Echo({ onNavigate }) {
 
       {/* ── Solución de CRM Omnicanal ── */}
       <section className="section-container" style={{ padding: 'clamp(80px, 15vw, 120px) 0', position: 'relative', zIndex: 10 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '80px', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '80px', alignItems: 'center' }}>
           <motion.div {...fadeInUp}>
-            <h2 style={{ fontSize: '2.5rem', color: 'white', marginBottom: '30px', fontWeight: 'bold', lineHeight: '1.3' }}>
+            <h2 style={{ fontSize: 'clamp(2rem, 8vw, 2.5rem)', color: 'white', marginBottom: '30px', fontWeight: 'bold', lineHeight: '1.3', wordBreak: 'break-word' }}>
               Solución de <span className="gradient-text">CRM omnicanal</span>
             </h2>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8', marginBottom: '30px' }}>
@@ -315,11 +315,11 @@ export default function Echo({ onNavigate }) {
             {...fadeInUp}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <h2 style={{ fontSize: '2.8rem', color: 'white', fontWeight: 'bold' }}>Diferenciadores</h2>
+            <h2 style={{ fontSize: 'clamp(2rem, 8vw, 2.8rem)', color: 'white', fontWeight: 'bold', lineHeight: 1.2, wordBreak: 'break-word' }}>Diferenciadores</h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '20px auto' }}></div>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '25px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '25px' }}>
             {[
               { icon: <MessageSquare size={28} />, title: "Centraliza tus canales de texto", desc: "WhatsApp, FB, IG y más en una interfaz única." },
               { icon: <Zap size={28} />, title: "Gestiona conversaciones en un solo sistema", desc: "Flujo de trabajo optimizado para tu equipo de ventas." },

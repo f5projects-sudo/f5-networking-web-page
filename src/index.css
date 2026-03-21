@@ -272,6 +272,14 @@ button {
   padding-left: 25px;
 }
 
+.nav-dropdown-content span.active,
+.nav-dropdown-content a.active {
+  background-color: rgba(0, 180, 255, 0.1) !important;
+  color: var(--color-accent) !important;
+  padding-left: 22px;
+  border-left: 3px solid var(--color-accent);
+}
+
 /* ─── Neon Buttons — ElevenLabs Style ─────────────────── */
 @property --border-angle {
   syntax: '<angle>';

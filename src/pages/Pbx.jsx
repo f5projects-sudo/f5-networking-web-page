@@ -588,7 +588,7 @@ export default function Pbx({ onNavigate }) {
         <FloatingNumbers />
         {/* Transparent overlay to ensure background is behind but content is visible */}
         <div className="section-container" style={{ position: 'relative', zIndex: 10 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '80px', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '80px', alignItems: 'center' }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -597,7 +597,7 @@ export default function Pbx({ onNavigate }) {
               <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', marginBottom: '25px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.8rem', letterSpacing: '1px' }}>
                 IDENTIDAD TELEFÓNICA
               </div>
-              <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '25px' }}>
+              <h2 style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: 'bold', marginBottom: '25px', wordBreak: 'break-word', lineHeight: 1.1 }}>
                 DIDS: Conexión <br />
                 <span className="gradient-text">Sin Fronteras</span>
               </h2>
@@ -669,14 +669,14 @@ export default function Pbx({ onNavigate }) {
                   <div style={{ height: '30px', width: '1px', background: 'rgba(255,255,255,0.1)' }} />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" style={{ height: '25px', opacity: 0.8 }} />
                 </div>
-                <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px', lineHeight: 1.1 }}>
+                <h2 style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px', lineHeight: 1.1, wordBreak: 'break-word' }}>
                   SMS: CONEXIÓN <span className="gradient-text">DIRECTA</span>
                 </h2>
                 <p style={{ maxWidth: '600px', marginBottom: '40px', fontSize: '1.15rem', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7' }}>
                   Brindamos un servicio de SMS seguro, estable y fácil de integrar, impulsado por <span style={{ color: '#fff' }}>Twilio</span>. Ayudamos a las empresas a comunicarse con sus clientes de manera eficiente mediante campañas masivas y notificaciones críticas.
                 </p>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', maxWidth: '500px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '20px', maxWidth: '500px' }}>
                   {[
                     { icon: <Zap size={20} />, label: "Entrega Inmediata" },
                     { icon: <ShieldCheck size={20} />, label: "Seguridad 2FA" },

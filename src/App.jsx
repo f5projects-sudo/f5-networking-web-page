@@ -43,7 +43,7 @@ import Navbar from './components/Navbar';
 const App = () => {
   const [currentPage, setCurrentPage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'voxis', 'equipamiento'];
+    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento']; // 'voxis' removed
     return validPages.includes(hash) ? hash : 'home';
   });
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -112,7 +112,7 @@ const App = () => {
     // Handle manual hash changes (e.g., back button or typing directly)
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'voxis', 'equipamiento'];
+      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento']; // 'voxis' removed
       if (validPages.includes(hash)) {
         setCurrentPage(hash);
       } else if (hash === '') {
@@ -136,7 +136,8 @@ const App = () => {
   useEffect(() => {
     if (!loadWidget) return;
 
-    // Load ElevenLabs Widget Script
+    // Load ElevenLabs Widget Script (TEMPORARILY COMMENTED OUT)
+    /*
     const script = document.createElement('script');
     script.src = "https://unpkg.com/@elevenlabs/convai-widget-embed";
     script.async = true;
@@ -148,6 +149,7 @@ const App = () => {
         document.body.removeChild(script);
       }
     };
+    */
   }, [loadWidget]);
 
   // ── Page routing logic ──────────────────────────
@@ -160,7 +162,7 @@ const App = () => {
   else if (currentPage === 'echo') PageContent = <Echo onNavigate={setCurrentPage} />;
   else if (currentPage === 'bpo') PageContent = <Bpo onNavigate={setCurrentPage} />;
   else if (currentPage === 'pbx') PageContent = <Pbx onNavigate={setCurrentPage} />;
-  else if (currentPage === 'voxis') PageContent = <Voxis onNavigate={setCurrentPage} />;
+  // else if (currentPage === 'voxis') PageContent = <Voxis onNavigate={setCurrentPage} />;
   else if (currentPage === 'equipamiento') PageContent = <Equipamiento onNavigate={setCurrentPage} />;
 
   if (PageContent) {
@@ -172,7 +174,7 @@ const App = () => {
         </div>
       }>
         {PageContent}
-        {loadWidget && <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>}
+        {/* {loadWidget && <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>} */}
       </Suspense>
     );
   }
@@ -194,13 +196,13 @@ const App = () => {
       features: ["Atención 24/7", "Multilingüe", "KPIs en tiempo real"],
       path: 'bpo'
     },
-    {
+    /* {
       title: "IA Asistentes de Voz",
       icon: <Bot size={40} className="text-primary" />,
       description: "VOXIS: Automatización inteligente de voz. Implementamos bots con lenguaje natural para resolver consultas al instante.",
       features: ["NLP Avanzado", "Integración API", "Aprendizaje continuo"],
       path: 'voxis'
-    },
+    }, */
     {
       title: "ECHO - CRM Omnicanal",
       icon: <MessageSquare size={40} className="text-accent" />,
@@ -965,8 +967,8 @@ const App = () => {
         .text-accent { color: var(--color-accent); }
       `}</style>
 
-      {/* ElevenLabs Conversational AI Widget */}
-      <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
+      {/* ElevenLabs Conversational AI Widget (TEMPORARILY COMMENTED OUT) */}
+      {/* <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai> */}
       
       <Navbar onNavigate={setCurrentPage} activePage={currentPage} />
     </div>

@@ -45,6 +45,14 @@ const App = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [loadWidget, setLoadWidget] = useState(false);
   const [sent, setSent] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -325,7 +333,7 @@ const App = () => {
               <Activity size={18} className="pulse" />
               SISTEMAS E INFRAESTRUCTURA
             </div>
-            <h2 style={{ fontSize: 'clamp(3.5rem, 9vw, 6.5rem)', marginBottom: '30px', fontWeight: '950', letterSpacing: '-4px', lineHeight: 0.85 }}>
+            <h2 style={{ fontSize: 'clamp(3rem, 9vw, 6.5rem)', marginBottom: '30px', fontWeight: '950', letterSpacing: isMobile ? '-1px' : '-4px', lineHeight: isMobile ? 1.1 : 0.85 }}>
               Expertise <span className="gradient-text">Inmersivo</span>
             </h2>
             <div style={{ width: '180px', height: '8px', background: 'var(--color-secondary)', borderRadius: '10px', margin: '0 auto' }}></div>
@@ -334,8 +342,8 @@ const App = () => {
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))',
-            gridAutoRows: 'minmax(580px, auto)',
-            gap: '40px' 
+            gridAutoRows: isMobile ? 'minmax(480px, auto)' : 'minmax(580px, auto)',
+            gap: isMobile ? '20px' : '40px' 
           }}>
             {services.map((service, index) => {
               const baseUrl = import.meta.env.BASE_URL;
@@ -371,11 +379,11 @@ const App = () => {
                   key={index}
                   style={{ 
                     position: 'relative',
-                    padding: '60px', 
+                    padding: isMobile ? '40px 25px' : '60px', 
                     background: 'rgba(255, 255, 255, 0.03)', 
                     backdropFilter: 'blur(25px)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '60px',
+                    borderRadius: isMobile ? '30px' : '60px',
                     cursor: 'pointer',
                     display: 'flex',
                     flexDirection: 'column',
@@ -407,9 +415,9 @@ const App = () => {
                     <motion.div 
                       variants={{ hover: { scale: 1.2, rotate: 12, filter: `drop-shadow(0 0 20px ${accentColor}88)` }}}
                       style={{ 
-                        width: '90px', 
-                        height: '90px', 
-                        borderRadius: '24px', 
+                        width: isMobile ? '70px' : '90px', 
+                        height: isMobile ? '70px' : '90px', 
+                        borderRadius: isMobile ? '20px' : '24px', 
                         background: 'rgba(0,0,0,0.6)', 
                         border: '1px solid rgba(255,255,255,0.2)',
                         display: 'flex', 
@@ -417,14 +425,14 @@ const App = () => {
                         justifyContent: 'center',
                         boxShadow: `0 15px 45px rgba(0,0,0,0.7)`
                       }}>
-                      {React.cloneElement(service.icon, { size: 48 })}
+                      {React.cloneElement(service.icon, { size: isMobile ? 36 : 48 })}
                     </motion.div>
                   </div>
 
-                  <div style={{ position: 'relative', zIndex: 2, paddingTop: '30px' }}>
+                  <div style={{ position: 'relative', zIndex: 2, paddingTop: isMobile ? '20px' : '30px' }}>
                     <h3 style={{ 
-                      fontSize: service.title.length > 20 ? '2.2rem' : '3rem', 
-                      marginBottom: '15px', 
+                      fontSize: service.title.length > 20 ? (isMobile ? '1.8rem' : '2.2rem') : (isMobile ? '2.3rem' : '3rem'), 
+                      marginBottom: isMobile ? '10px' : '15px', 
                       fontWeight: '950', 
                       letterSpacing: '-1px', 
                       lineHeight: 1.1,
@@ -435,8 +443,8 @@ const App = () => {
                     
                     <p style={{ 
                       color: 'var(--color-text-muted)', 
-                      fontSize: '1.15rem', 
-                      lineHeight: '1.5', 
+                      fontSize: isMobile ? '1.05rem' : '1.15rem', 
+                      lineHeight: isMobile ? '1.4' : '1.5', 
                       maxWidth: '480px',
                       textShadow: '0 2px 10px rgba(0,0,0,0.8)'
                     }}>
@@ -449,12 +457,14 @@ const App = () => {
                     position: 'relative', 
                     zIndex: 2, 
                     display: 'flex', 
-                    alignItems: 'center', 
+                    alignItems: isMobile ? 'flex-start' : 'center', 
                     justifyContent: 'space-between',
+                    flexDirection: isMobile ? 'column' : 'row',
+                    gap: isMobile ? '20px' : '0',
                     borderTop: '1px solid rgba(255,255,255,0.2)',
-                    paddingTop: '40px'
+                    paddingTop: isMobile ? '25px' : '40px'
                   }}>
-                    <div style={{ display: 'flex', gap: '30px' }}>
+                    <div style={{ display: 'flex', gap: isMobile ? '10px' : '30px', flexDirection: isMobile ? 'column' : 'row' }}>
                       {service.features.slice(0, 2).map((f, i) => (
                         <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)', fontWeight: '800' }}>
                           <CheckCircle2 size={16} style={{ color: accentColor }} />
@@ -465,7 +475,7 @@ const App = () => {
                     
                     <motion.div 
                       variants={{ hover: { x: 12, color: accentColor }}}
-                      style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: '950', letterSpacing: '2px', fontSize: '0.85rem' }}
+                      style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: '950', letterSpacing: '2px', fontSize: '0.85rem', alignSelf: isMobile ? 'flex-end' : 'auto' }}
                     >
                       EXPLORAR <ChevronRight size={20} />
                     </motion.div>

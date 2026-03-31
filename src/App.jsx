@@ -29,7 +29,11 @@ import {
   Shield, // New
   MessageCircle, // New
   Mail, // New
-  Send
+  Send,
+  ClipboardList,
+  Search,
+  Code,
+  Settings
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
 import MapFooter from './components/MapFooter';
@@ -658,129 +662,160 @@ const App = () => {
         </motion.div>
 
         {/* Vertical timeline steps */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '60px', marginTop: '70px', position: 'relative' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', marginTop: '70px', position: 'relative', overflow: 'hidden', paddingBottom: '30px' }}>
 
           {/* Vertical center line */}
           <div style={{
-            position: 'absolute', left: '50%', top: 0, bottom: 0,
-            width: '2px', background: 'linear-gradient(to bottom, var(--color-primary), var(--color-secondary), var(--color-accent))',
-            transform: 'translateX(-50%)', opacity: 0.3,
-            display: 'none'
+            position: 'absolute', left: isMobile ? '40px' : '50%', top: 0, bottom: 0,
+            width: '4px', background: 'linear-gradient(to bottom, var(--color-primary), var(--color-secondary), var(--color-accent))',
+            transform: 'translateX(-50%)', opacity: 0.5,
+            borderRadius: '10px', zIndex: 0
           }} className="timeline-line"></div>
 
           {[
             {
               num: '01', title: 'Reunir Información',
-              desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.',
-              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_1_info.png`,
+              desc: 'Entendimiento del proceso, identificación de variables y reconocimiento de tus objetivos organizacionales.',
+              Icon: ClipboardList,
               colors: { border: 'var(--color-primary)', glow: '#0056B3' },
-              fromLeft: true
+              isRight: true
             },
             {
-              num: '02', title: 'Análisis',
-              desc: 'De diferentes soluciones y presentación de nuestras propuestas.',
-              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_2_analysis.png`,
+              num: '02', title: 'Diseño y Análisis',
+              desc: 'Diseño de la medición de gestión estructural y presentación analítica de nuestras propuestas.',
+              Icon: Search,
               colors: { border: 'var(--color-secondary)', glow: '#FF8C00' },
-              fromLeft: false
+              isRight: false
             },
             {
-              num: '03', title: 'Prototipo',
-              desc: 'Primera vista de tu producto.',
-              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_3_prototype.png`,
+              num: '03', title: 'Prototipo y Sistematización',
+              desc: 'Sistematización de los indicadores y construcción de una primera vista funcional de tu producto.',
+              Icon: Code,
               colors: { border: 'var(--color-accent)', glow: '#00B4FF' },
-              fromLeft: true
+              isRight: true
             },
             {
-              num: '04', title: 'Feedback',
-              desc: '¡Te escuchamos! Ajustes del prototipo y comentarios.',
-              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_4_feedback.png`,
+              num: '04', title: 'Medición Periódica',
+              desc: 'Medición de indicadores de acuerdo a prioridades preestablecidas. Ajustes iterativos conjuntos.',
+              Icon: MessageCircle,
               colors: { border: 'var(--color-primary)', glow: '#9b59b6' },
-              fromLeft: false
+              isRight: false
             },
             {
-              num: '05', title: 'Pruebas',
-              desc: 'Listo para probar en campo.',
-              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_5_testing.png`,
+              num: '05', title: 'Análisis de Resultados',
+              desc: 'Análisis profundo de resultados de medición y acompañamiento experto para la toma de decisiones.',
+              Icon: Settings,
               colors: { border: 'var(--color-secondary)', glow: '#27ae60' },
-              fromLeft: true
+              isRight: true
             },
             {
-              num: '06', title: 'Implementación',
-              desc: 'Tu producto 100% productivo.',
-              img: `${import.meta.env.BASE_URL}assets/images/methodology/step_6_success.png`,
+              num: '06', title: 'Presentación Final',
+              desc: 'Presentación de información a todas las partes interesadas y despliegue del producto productivo.',
+              Icon: CheckCircle2,
               colors: { border: 'var(--color-accent)', glow: '#FF8C00' },
-              fromLeft: false
+              isRight: false
             },
           ].map((step, i) => (
-            <div key={i} className={`methodology-step ${step.fromLeft ? '' : 'methodology-step-reverse'}`} style={{
+            <div key={i} style={{
               display: 'flex',
-              flexDirection: step.fromLeft ? 'row' : 'row-reverse',
-              gap: '40px',
+              flexDirection: isMobile ? 'column' : (step.isRight ? 'row' : 'row-reverse'),
               alignItems: 'center',
+              position: 'relative',
+              paddingBottom: '80px', // spacing between steps
+              paddingTop: i === 0 ? '20px' : '0'
             }}>
-              {/* Visual / Image Panel */}
+              {/* Blank Space on Desktop */}
+              {!isMobile && <div style={{ flex: 1 }} />}
+
+              {/* Vertical Trunk Track (Width 40px) */}
+              <div style={{ 
+                width: isMobile ? '40px' : '40px', 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                position: isMobile ? 'absolute' : 'relative',
+                left: isMobile ? '20px' : 'auto',
+                top: isMobile ? '0' : 'auto',
+                height: '100%',
+                zIndex: 1
+              }}>
+                {/* Central Node Dot */}
+                <div style={{ width: '22px', height: '22px', borderRadius: '50%', background: '#0a0a0a', border: `4px solid ${step.colors.border}`, zIndex: 2, boxShadow: `0 0 15px ${step.colors.glow}` }}></div>
+
+                {/* Horizontal Arm (Desktop only) */}
+                {!isMobile && (
+                  <div style={{
+                    position: 'absolute',
+                    width: '60px', height: '4px',
+                    background: step.colors.border,
+                    [step.isRight ? 'left' : 'right']: '50%',
+                    top: '50%', transform: 'translateY(-50%)',
+                    zIndex: 1,
+                    opacity: 0.8
+                  }}></div>
+                )}
+                
+                {/* Responsive Mobile Mini-Arm */}
+                {isMobile && (
+                  <div style={{
+                    position: 'absolute',
+                    width: '20px', height: '4px',
+                    background: step.colors.border,
+                    left: '50%',
+                    top: '20px',
+                    zIndex: 1,
+                    opacity: 0.8
+                  }}></div>
+                )}
+              </div>
+
+              {/* Content Panel (Icon + Text) */}
               <motion.div
-                initial={{ opacity: 0, x: step.fromLeft ? -120 : 120 }}
+                initial={{ opacity: 0, x: isMobile ? 30 : (step.isRight ? 30 : -30) }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.7, ease: 'easeOut' }}
-                className="methodology-image-container"
-                style={{
-                  flex: 1,
-                  aspectRatio: '16/9',
-                  border: `1px solid ${step.colors.border}`,
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  position: 'relative',
-                  boxShadow: `0 0 50px ${step.colors.glow}33`,
-                  minHeight: '220px',
-                  background: '#000',
+                transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+                style={{ 
+                  flex: 1, 
+                  display: 'flex', 
+                  flexDirection: isMobile ? 'column' : (step.isRight ? 'row' : 'row-reverse'),
+                  alignItems: 'center',
+                  gap: isMobile ? '20px' : '30px',
+                  paddingLeft: isMobile ? '80px' : (step.isRight ? '40px' : '0px'),
+                  paddingRight: (!isMobile && !step.isRight) ? '40px' : '0px',
+                  width: '100%',
+                  marginTop: isMobile && i !== 0 ? '40px' : '0'
                 }}
               >
-                {/* Real image */}
-                <img
-                  src={step.img}
-                  alt={step.title}
+                {/* Icon Circle */}
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
                   style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                    opacity: 0.92,
+                    width: isMobile ? '70px' : '100px', height: isMobile ? '70px' : '100px', borderRadius: '50%', flexShrink: 0,
+                    background: '#0a0a0a', border: `5px solid ${step.colors.border}`,
+                    display: 'flex', justifyContent: 'center', alignItems: 'center',
+                    boxShadow: `0 0 35px ${step.colors.glow}44`,
+                    zIndex: 2, position: 'relative',
+                    alignSelf: isMobile ? 'flex-start' : 'auto'
                   }}
-                />
-                {/* Subtle overlay gradient */}
-                <div style={{
-                  position: 'absolute', inset: 0,
-                  background: `linear-gradient(135deg, ${step.colors.glow}22, transparent 60%)`,
-                  pointerEvents: 'none'
-                }} />
-                {/* Step number badge */}
-                <div style={{
-                  position: 'absolute', top: '16px', left: '16px',
-                  background: step.colors.border,
-                  color: 'white', fontWeight: 'bold', fontSize: '0.8rem',
-                  padding: '4px 10px', borderRadius: '20px', letterSpacing: '1px'
-                }}>PASO {step.num}</div>
-              </motion.div>
+                >
+                  <div style={{ position:'absolute', inset: '5px', border: `1.5px dashed ${step.colors.glow}aa`, borderRadius: '50%', animation: 'spin 15s linear infinite' }}></div>
+                  <step.Icon size={isMobile ? 24 : 36} color="white" />
+                </motion.div>
 
-              {/* Text Panel */}
-              <motion.div
-                initial={{ opacity: 0, x: step.fromLeft ? 80 : -80 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
-                style={{ flex: 1, padding: '10px 20px' }}
-              >
-                <div style={{
-                  display: 'inline-block',
-                  fontSize: '3.5rem', fontWeight: '900', lineHeight: 1,
-                  background: `linear-gradient(135deg, ${step.colors.glow}, ${step.colors.border})`,
-                  WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                  marginBottom: '12px', opacity: 0.3
-                }}>{step.num}</div>
-                <h3 className="methodology-title" style={{ fontSize: '1.7rem', marginBottom: '16px', marginTop: '-10px' }}>{step.title}</h3>
-                <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '20px' }}>{step.desc}</p>
+                {/* Text Details */}
+                <div style={{ 
+                  textAlign: isMobile ? 'left' : (step.isRight ? 'left' : 'right'),
+                  maxWidth: '400px'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: isMobile ? 'flex-start' : (step.isRight ? 'flex-start' : 'flex-end'), gap: '15px', marginBottom: '8px' }}>
+                    <span style={{ fontSize: isMobile ? '2.5rem' : '3.5rem', fontWeight: '900', color: step.colors.border, lineHeight: 0.8, textShadow: `0 0 20px ${step.colors.glow}88` }}>{step.num}</span>
+                  </div>
+                  <h3 style={{ fontSize: isMobile ? '1.2rem' : '1.4rem', fontWeight: '800', marginBottom: '10px', color: 'white' }}>{step.title}</h3>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: isMobile ? '0.95rem' : '1.05rem', lineHeight: '1.6' }}>
+                    {step.desc}
+                  </p>
+                </div>
               </motion.div>
             </div>
           ))}

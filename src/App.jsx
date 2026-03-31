@@ -169,9 +169,9 @@ const App = () => {
 
   const services = [
     {
-      title: "AXIA",
+      title: "AXIA – Agentes de IA para atención omnicanal",
       icon: <Cpu size={40} className="text-primary" />,
-      description: "Infraestructura Cloud de alto rendimiento. Servidores escalables y seguros para tus aplicaciones críticas.",
+      description: "AXIA es una solución avanzada de agentes de inteligencia artificial diseñada para gestionar y automatizar la comunicación con clientes a través de múltiples canales digitales. Permite centralizar la atención en plataformas como WhatsApp, Webchat, Messenger e Instagram, brindando respuestas inmediatas, consistentes y personalizadas en cada interacción.",
       features: ["Nube Privada", "Seguridad SSL", "Auto-escalado"],
       path: 'axia'
     },
@@ -183,7 +183,7 @@ const App = () => {
       path: 'bpo'
     },
     {
-      title: "IA Asistentes Virtuales",
+      title: "IA Asistentes de Voz",
       icon: <Bot size={40} className="text-primary" />,
       description: "VOXIS: Automatización inteligente de voz. Implementamos bots con lenguaje natural para resolver consultas al instante.",
       features: ["NLP Avanzado", "Integración API", "Aprendizaje continuo"],
@@ -251,7 +251,7 @@ const App = () => {
           <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 30px' }}>
             Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.
           </p>
-          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap', width: '100%' }}>
+          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap', width: '100%', marginTop: '30px' }}>
             <motion.button
               onClick={() => scrollTo('services')}
               className="glass"
@@ -288,43 +288,208 @@ const App = () => {
         </motion.div>
       </section>
 
-      {/* Services Grid */}
-      <section id="services" className="section-container">
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestras Soluciones</h2>
-          <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>
-        </motion.div>
+      {/* Services Grid: BENTO PERSPECTIVE GALLERY (Radical Remodel) */}
+    <section id="services" style={{ 
+        position: 'relative', 
+        overflow: 'hidden', 
+        background: 'rgba(2, 2, 8, 0.98)', 
+        backdropFilter: 'blur(60px)',
+        WebkitBackdropFilter: 'blur(60px)',
+        padding: '160px 20px',
+        borderTop: '1px solid rgba(0, 180, 255, 0.15)',
+        borderBottom: '1px solid rgba(0, 180, 255, 0.15)'
+      }}>
+        {/* Animated Background Depth Orbs */}
+        <div style={{ position: 'absolute', top: '5%', left: '0%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(0, 132, 255, 0.1) 0%, transparent 70%)', zIndex: 0, filter: 'blur(120px)' }} />
+        <div style={{ position: 'absolute', bottom: '5%', right: '0%', width: '700px', height: '700px', background: 'radial-gradient(circle, rgba(255, 140, 0, 0.05) 0%, transparent 70%)', zIndex: 0, filter: 'blur(120px)' }} />
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              className="glass"
-              style={{ padding: '40px', transition: 'transform 0.3s ease', cursor: 'pointer' }}
-              whileHover={{ y: -10, border: '1px solid var(--color-primary)', background: 'rgba(255,255,255,0.02)' }}
-              onClick={() => setCurrentPage(service.path)}
-              {...fadeInUp}
-              transition={{ delay: index * 0.1 }}
-            >
-              <div style={{ marginBottom: '20px' }}>{service.icon}</div>
-              <h3 style={{ marginBottom: '15px' }}>{service.title}</h3>
-              <p style={{ color: 'var(--color-text-muted)', marginBottom: '20px', fontSize: '0.95rem' }}>
-                {service.description}
-              </p>
-              <ul style={{ marginBottom: '25px' }}>
-                {service.features.map((f, i) => (
-                  <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px', fontSize: '0.9rem' }}>
-                    <CheckCircle2 size={16} className="text-primary" /> {f}
-                  </li>
-                ))}
-              </ul>
-              <div style={{ color: 'var(--color-secondary)', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                Saber más <ChevronRight size={16} />
-              </div>
-            </motion.div>
-          ))}
+        <div className="section-container" style={{ position: 'relative', zIndex: 1, padding: 0 }}>
+          {/* Section Header */}
+          <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '120px' }}>
+            <div style={{ 
+              display: 'inline-flex', 
+              alignItems: 'center', 
+              gap: '12px',
+              padding: '10px 28px', 
+              background: 'rgba(0, 0, 0, 0.5)', 
+              border: '1px solid rgba(0, 180, 255, 0.4)', 
+              borderRadius: '12px', 
+              color: 'var(--color-accent)', 
+              fontSize: '0.75rem', 
+              fontWeight: '900', 
+              letterSpacing: '8px', 
+              textTransform: 'uppercase',
+              marginBottom: '40px',
+              boxShadow: '0 0 30px rgba(0,180,255,0.15)'
+            }}>
+              <Activity size={18} className="pulse" />
+              SISTEMAS E INFRAESTRUCTURA
+            </div>
+            <h2 style={{ fontSize: 'clamp(3.5rem, 9vw, 6.5rem)', marginBottom: '30px', fontWeight: '950', letterSpacing: '-4px', lineHeight: 0.85 }}>
+              Expertise <span className="gradient-text">Inmersivo</span>
+            </h2>
+            <div style={{ width: '180px', height: '8px', background: 'var(--color-secondary)', borderRadius: '10px', margin: '0 auto' }}></div>
+          </motion.div>
+
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))',
+            gridAutoRows: 'minmax(580px, auto)',
+            gap: '40px' 
+          }}>
+            {services.map((service, index) => {
+              const baseUrl = import.meta.env.BASE_URL;
+              const isDesktop = typeof window !== 'undefined' && window.innerWidth > 1024;
+              
+              // No more Bento Spans - Uniformity First
+              const assets = {
+                'axia': { type: 'video', src: 'Axia_video.webm' },
+                'bpo': { type: 'image', src: 'bpo_hero_image.png' },
+                'pbx': { type: 'image', src: 'pbx_corporate_hero.png' },
+                'echo': { type: 'image', src: 'echo_crm_mockup.png' },
+                'nova-core': { type: 'image', src: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800' },
+                'desarrollo': { type: 'image', src: 'desarrollo_software.jpg' },
+                'cableado': { type: 'image', src: 'cableado_hero.png' },
+                'voxis': { type: 'image', src: 'voxis_hero.jpg' },
+                'equipamiento': { type: 'image', src: 'venta_equipos.png' }
+              };
+              const heroAsset = assets[service.path];
+
+              const getAccent = () => {
+                try {
+                  const cn = service.icon.props.className || '';
+                  if (cn.includes('secondary')) return 'var(--color-secondary)';
+                  if (cn.includes('accent')) return 'var(--color-accent)';
+                  if (cn.includes('white')) return '#FFFFFF';
+                } catch(e) {}
+                return 'var(--color-primary)';
+              };
+              const accentColor = getAccent();
+              
+              return (
+                <motion.div
+                  key={index}
+                  style={{ 
+                    position: 'relative',
+                    padding: '60px', 
+                    background: 'rgba(255, 255, 255, 0.03)', 
+                    backdropFilter: 'blur(25px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '60px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    overflow: 'hidden'
+                  }}
+                  whileHover="hover"
+                  initial="initial"
+                  onClick={() => setCurrentPage(service.path)}
+                  {...fadeInUp}
+                >
+                  {/* Hero Background Matrix Integration */}
+                  <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+                    {heroAsset?.type === 'video' ? (
+                      <video src={heroAsset.src.startsWith('http') ? heroAsset.src : `${baseUrl}${heroAsset.src}`} autoPlay loop muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.55 }} />
+                    ) : (
+                      <img src={heroAsset?.src?.startsWith('http') ? heroAsset.src : `${baseUrl}${heroAsset?.src}`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', transform: service.path === 'voxis' ? 'scale(1.4) translateY(-12%)' : 'none', opacity: 0.45 }} />
+                    )}
+                    <div style={{ 
+                      position: 'absolute', 
+                      inset: 0, 
+                      background: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 90%)',
+                      zIndex: 1
+                    }} />
+                  </div>
+
+                  {/* Top: Branding & ID */}
+                  <div style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <motion.div 
+                      variants={{ hover: { scale: 1.2, rotate: 12, filter: `drop-shadow(0 0 20px ${accentColor}88)` }}}
+                      style={{ 
+                        width: '90px', 
+                        height: '90px', 
+                        borderRadius: '24px', 
+                        background: 'rgba(0,0,0,0.6)', 
+                        border: '1px solid rgba(255,255,255,0.2)',
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        boxShadow: `0 15px 45px rgba(0,0,0,0.7)`
+                      }}>
+                      {React.cloneElement(service.icon, { size: 48 })}
+                    </motion.div>
+                  </div>
+
+                  <div style={{ position: 'relative', zIndex: 2, paddingTop: '30px' }}>
+                    <h3 style={{ 
+                      fontSize: service.title.length > 20 ? '2.2rem' : '3rem', 
+                      marginBottom: '15px', 
+                      fontWeight: '950', 
+                      letterSpacing: '-1px', 
+                      lineHeight: 1.1,
+                      textShadow: '0 10px 30px rgba(0,0,0,1)'
+                    }}>
+                      {service.title}
+                    </h3>
+                    
+                    <p style={{ 
+                      color: 'var(--color-text-muted)', 
+                      fontSize: '1.15rem', 
+                      lineHeight: '1.5', 
+                      maxWidth: '480px',
+                      textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+                    }}>
+                      {service.description}
+                    </p>
+                  </div>
+                  
+                  {/* Bottom: Standard Indicators */}
+                  <div style={{ 
+                    position: 'relative', 
+                    zIndex: 2, 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'space-between',
+                    borderTop: '1px solid rgba(255,255,255,0.2)',
+                    paddingTop: '40px'
+                  }}>
+                    <div style={{ display: 'flex', gap: '30px' }}>
+                      {service.features.slice(0, 2).map((f, i) => (
+                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)', fontWeight: '800' }}>
+                          <CheckCircle2 size={16} style={{ color: accentColor }} />
+                          {f}
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <motion.div 
+                      variants={{ hover: { x: 12, color: accentColor }}}
+                      style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: '950', letterSpacing: '2px', fontSize: '0.85rem' }}
+                    >
+                      EXPLORAR <ChevronRight size={20} />
+                    </motion.div>
+                  </div>
+
+                  {/* Consistent Neón Glow Overlay */}
+                  <div style={{ 
+                    position: 'absolute', 
+                    top: 0, 
+                    right: 0, 
+                    width: '180px', 
+                    height: '180px', 
+                    background: `radial-gradient(circle at top right, ${accentColor}88 0%, transparent 70%)`, 
+                    opacity: 0.5,
+                    filter: 'blur(40px)'
+                  }} />
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
+
+
 
       {/* Mission, Vision & Values Section */}
       <section id="about" className="section-container">

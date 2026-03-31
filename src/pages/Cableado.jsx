@@ -145,9 +145,9 @@ export default function Cableado({ onNavigate }) {
               </h1>
 
               <div style={{ marginTop: '30px' }}>
-                <ScrambledText 
+                <p 
                   style={{ 
-                    fontSize: 'clamp(1rem, 3vw, 1.25rem)', 
+                    fontSize: 'clamp(1.1rem, 3vw, 1.25rem)', 
                     color: 'var(--color-text-muted)', 
                     lineHeight: '1.7', 
                     margin: '0', 
@@ -155,10 +155,9 @@ export default function Cableado({ onNavigate }) {
                     fontFamily: 'inherit',
                     display: 'block'
                   }}
-                  speed={0.05}
                 >
                   Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. Analizamos tu espacio y tus necesidades actuales para construir el futuro de tu conectividad.
-                </ScrambledText>
+                </p>
               </div>
 
               <motion.button 
@@ -201,10 +200,8 @@ export default function Cableado({ onNavigate }) {
               <img 
                 src={`${import.meta.env.BASE_URL}cableado_hero.png`} 
                 alt="Infraestructura de Red" 
-                width="1920"
-                height="1080"
                 loading="lazy"
-                style={{ width: '100%', borderRadius: '24px', display: 'block', boxShadow: '0 25px 50px rgba(0,0,0,0.7)' }} 
+                style={{ width: '100%', maxHeight: '550px', objectFit: 'cover', objectPosition: 'center', borderRadius: '24px', display: 'block', boxShadow: '0 25px 50px rgba(0,0,0,0.7)' }} 
               />
             </motion.div>
           </div>

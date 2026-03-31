@@ -33,7 +33,10 @@ import {
   ClipboardList,
   Search,
   Code,
-  Settings
+  Settings,
+  Target,
+  Rocket,
+  Gem
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
 import MapFooter from './components/MapFooter';
@@ -580,71 +583,118 @@ const App = () => {
 
 
       {/* Mission, Vision & Values Section */}
-      <section id="about" className="section-container">
+      {/* Mission, Vision & Values Section Bento */}
+      <section id="about" className="section-container" style={{ position: 'relative', zIndex: 10 }}>
+        
+        {/* Decorative elements */}
+        <div style={{ position: 'absolute', top: '10%', left: '0%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(0, 180, 255, 0.05) 0%, transparent 70%)', zIndex: -1, filter: 'blur(60px)' }} />
+
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Quiénes Somos</h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>Quiénes <span className="gradient-text">Somos</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '50px' }}>
-          {/* Mission */}
+        <div className="bento-quienes" style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
+          gridTemplateRows: isMobile ? 'auto auto auto' : 'auto auto',
+          gap: '24px',
+          marginBottom: '50px'
+        }}>
+          {/* Mission: Large block top-left */}
           <motion.div
             className="glass"
-            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-primary)' }}
-            {...fadeInUp}
-            transition={{ delay: 0 }}
-            whileHover={{ y: -8 }}
+            style={{ 
+              gridColumn: isMobile ? '1' : 'span 2', 
+              padding: '40px', 
+              borderRadius: '24px', 
+              position: 'relative', 
+              overflow: 'hidden',
+              border: '1px solid rgba(0, 86, 179, 0.2)' 
+            }}
+            {...fadeInUp} transition={{ delay: 0 }} whileHover={{ scale: 1.02 }}
           >
-            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 86, 179, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
-              <span style={{ fontSize: '1.5rem' }}>🎯</span>
+            <div style={{ position: 'absolute', right: '-10%', top: '-25%', opacity: 0.04, transform: 'rotate(15deg)' }}>
+              <Target size={260} strokeWidth={1.5} style={{ color: 'var(--color-primary)' }} />
             </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'var(--color-primary)' }}>Nuestra Misión</h3>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '0.95rem' }}>
-              Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada.
-            </p>
+            <div style={{ position: 'relative', zIndex: 2 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', background: 'rgba(0, 86, 179, 0.15)', borderRadius: '16px', marginBottom: '20px' }}>
+                <Target size={30} style={{ color: 'var(--color-primary)' }} />
+              </div>
+              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '15px', color: 'var(--color-primary)' }}>Nuestra Misión</h3>
+              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1.05rem', maxWidth: isMobile ? '100%' : '80%' }}>
+                Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Vision */}
+          {/* Vision: Tall block top-right */}
           <motion.div
             className="glass"
-            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-secondary)' }}
-            {...fadeInUp}
-            transition={{ delay: 0.1 }}
-            whileHover={{ y: -8 }}
+            style={{ 
+              gridColumn: isMobile ? '1' : 'span 1', 
+              gridRow: isMobile ? 'auto' : 'span 2',
+              padding: '40px', 
+              borderRadius: '24px', 
+              position: 'relative', 
+              overflow: 'hidden',
+              border: '1px solid rgba(255, 140, 0, 0.2)' 
+            }}
+            {...fadeInUp} transition={{ delay: 0.2 }} whileHover={{ scale: 1.02 }}
           >
-            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(255, 140, 0, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
-              <span style={{ fontSize: '1.5rem' }}>🚀</span>
+            <div style={{ position: 'absolute', bottom: '-15%', right: '-15%', opacity: 0.04, transform: 'rotate(-15deg)' }}>
+              <Rocket size={260} strokeWidth={1.5} style={{ color: 'var(--color-secondary)' }} />
             </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'var(--color-secondary)' }}>Nuestra Visión</h3>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '0.95rem' }}>
-              Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes.
-            </p>
+            <div style={{ position: 'relative', zIndex: 2 }}>
+              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', background: 'rgba(255, 140, 0, 0.15)', borderRadius: '16px', marginBottom: '20px' }}>
+                <Rocket size={30} style={{ color: 'var(--color-secondary)' }} />
+              </div>
+              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '15px', color: 'var(--color-secondary)' }}>Nuestra Visión</h3>
+              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1.05rem' }}>
+                Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes.
+              </p>
+            </div>
           </motion.div>
 
-          {/* Values */}
+          {/* Values: Wide block bottom-left */}
           <motion.div
             className="glass"
-            style={{ padding: '40px', borderRadius: '20px', borderTop: '3px solid var(--color-accent)' }}
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            whileHover={{ y: -8 }}
+            style={{ 
+              gridColumn: isMobile ? '1' : 'span 2', 
+              padding: '40px', 
+              borderRadius: '24px', 
+              position: 'relative', 
+              overflow: 'hidden',
+              border: '1px solid rgba(0, 180, 255, 0.25)'
+            }}
+            {...fadeInUp} transition={{ delay: 0.4 }} whileHover={{ scale: 1.02 }}
           >
-            <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '50px', height: '50px', background: 'rgba(0, 180, 255, 0.15)', borderRadius: '12px', marginBottom: '20px' }}>
-              <span style={{ fontSize: '1.5rem' }}>💎</span>
+            <div style={{ position: 'absolute', left: '-5%', bottom: '-20%', opacity: 0.04, transform: 'rotate(10deg)' }}>
+              <Gem size={220} strokeWidth={1.5} style={{ color: 'var(--color-accent)' }} />
             </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '20px', color: 'var(--color-accent)' }}>Nuestros Valores</h3>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-              {['Innovación', 'Compromiso', 'Calidad', 'Eficiencia', 'Confianza'].map((valor) => (
-                <span key={valor} style={{
-                  padding: '6px 14px',
-                  background: 'rgba(0,180,255,0.1)',
-                  border: '1px solid rgba(0,180,255,0.3)',
-                  borderRadius: '30px',
-                  fontSize: '0.85rem',
-                  color: 'var(--color-accent)',
-                  fontWeight: '500'
-                }}>{valor}</span>
-              ))}
+            <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: '30px' }}>
+              <div style={{ flexShrink: 0 }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', background: 'rgba(0, 180, 255, 0.15)', borderRadius: '16px', marginBottom: '15px' }}>
+                  <Gem size={30} style={{ color: 'var(--color-accent)' }} />
+                </div>
+                <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--color-accent)', margin: 0 }}>Valores</h3>
+              </div>
+              
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                {['Innovación', 'Compromiso', 'Calidad', 'Eficiencia', 'Confianza'].map((valor) => (
+                  <span key={valor} style={{
+                    padding: '10px 22px',
+                    background: 'rgba(0, 180, 255, 0.08)',
+                    border: '1px solid rgba(0, 180, 255, 0.3)',
+                    borderRadius: '12px',
+                    fontSize: '0.95rem',
+                    color: 'white',
+                    fontWeight: '600',
+                    letterSpacing: '1px',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
+                  }}>{valor}</span>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

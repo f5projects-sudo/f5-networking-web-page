@@ -302,6 +302,78 @@ const App = () => {
         </motion.div>
       </section>
 
+      {/* ── Marcas con las que trabajamos (Carousel) ── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '30px 0 60px 0', overflow: 'hidden', borderBottom: '1px solid rgba(0, 180, 255, 0.1)', background: 'transparent' }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <p style={{ color: 'var(--color-primary)', letterSpacing: '3px', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>
+            Marcas con las que trabajamos
+          </p>
+        </motion.div>
+        
+        <div style={{ overflow: 'hidden', width: '100%', display: 'flex' }}>
+          <div style={{ display: 'flex', width: 'max-content', animation: 'marquee-scroll-brands 40s linear infinite' }}>
+            {/* Array of brands, duplicated to create seamless loop */}
+            {[...Array(2)].map((_, loopIndex) => (
+              <div key={loopIndex} style={{ display: 'flex' }}>
+                {[
+                  { name: 'Twilio', color: '#F22F46' },
+                  { name: 'Net2Phone', color: '#0056B3', noIcon: true },
+                  { name: 'OpenAI', iconUrl: 'openai', color: '#10A37F' }, // Using Green
+                  { name: 'Monday.com', iconUrl: 'mondaydotcom', color: '#00CA72' },
+                  { name: 'Gemini', iconUrl: 'googlegemini', color: '#8E75B2' },
+                  { name: 'Supabase', color: '#3ECF8E' },
+                  { name: 'Airtable', color: '#FCB431' },
+                  { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900' }, // Orange AWS
+                  { name: 'Google Cloud', iconUrl: 'googlecloud', color: '#4285F4' },
+                  { name: 'GitHub', iconUrl: 'github', color: '#FFFFFF' }, // White Github on dark
+                  { name: 'Docker', color: '#2496ED' },
+                  { name: 'REDIS', iconUrl: 'redis', color: '#FF4438' },
+                  { name: 'ElevenLabs', iconUrl: 'elevenlabs', color: '#FFFFFF' }
+                ].map((brand, i) => (
+                  <div 
+                    key={`${loopIndex}-${i}`} 
+                    style={{ 
+                      padding: '15px 40px', 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '12px',
+                      opacity: 0.85,
+                      transition: 'opacity 0.3s, transform 0.3s'
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'scale(1.05)'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'scale(1)'; }}
+                  >
+                    {!brand.noIcon && (
+                      <img 
+                        src={`https://cdn.simpleicons.org/${brand.iconUrl || brand.name.toLowerCase().replace(/ /g, '')}/${brand.color.replace('#', '')}`}
+                        alt={brand.name} 
+                        style={{ height: '32px', width: 'auto', display: 'block', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }}
+                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                      />
+                    )}
+                    <span style={{ 
+                      fontSize: '1.2rem', 
+                      fontWeight: 700, 
+                      color: brand.color,
+                      letterSpacing: '1px',
+                      textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+                    }}>
+                      {brand.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          @keyframes marquee-scroll-brands {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
+      </section>
+
       {/* Services Grid: BENTO PERSPECTIVE GALLERY (Radical Remodel) */}
     <section id="services" style={{ 
         position: 'relative', 

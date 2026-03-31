@@ -24,7 +24,7 @@ const fadeInUp = {
 };
 
 /* ── Rotating marquee brand strip ── */
-const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS'];
+const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZARRO', 'PINKCREARTE', 'KREDIAPAY'];
 
 /* ── Methodology steps ── */
 const steps = [

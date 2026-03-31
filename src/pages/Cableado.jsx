@@ -201,6 +201,9 @@ export default function Cableado({ onNavigate }) {
               <img 
                 src={`${import.meta.env.BASE_URL}cableado_hero.png`} 
                 alt="Infraestructura de Red" 
+                width="1920"
+                height="1080"
+                loading="lazy"
                 style={{ width: '100%', borderRadius: '24px', display: 'block', boxShadow: '0 25px 50px rgba(0,0,0,0.7)' }} 
               />
             </motion.div>

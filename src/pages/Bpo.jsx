@@ -404,6 +404,9 @@ export default function Bpo({ onNavigate }) {
             <img 
               src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
               alt="BPO" 
+              width="1920"
+              height="1080"
+              loading="lazy"
               style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }} 
             />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 40%, transparent 100%)' }} />
@@ -464,6 +467,8 @@ export default function Bpo({ onNavigate }) {
               <motion.img 
                 src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
                 alt="Professional BPO Services"
+                width="1920"
+                height="1080"
                 style={{ 
                   width: '100%', 
                   height: '100%', 
@@ -754,6 +759,9 @@ export default function Bpo({ onNavigate }) {
                 <img 
                   src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?q=80&w=2071&auto=format&fit=crop" 
                   alt="BPO Control Center" 
+                  width="800"
+                  height="600"
+                  loading="lazy"
                   style={{ width: '100%', height: 'auto', borderRadius: '30px', display: 'block', opacity: 0.9, filter: 'grayscale(0.1)' }}
                 />
                 

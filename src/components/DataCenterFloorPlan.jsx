@@ -74,7 +74,7 @@ const DataCenterFloorPlan = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <img src={floorPlanImg} alt="Data Center Floor Plan 4K" className="floorplan-image" />
+          <img src={floorPlanImg} alt="Data Center Floor Plan 4K" width="1200" height="800" loading="lazy" className="floorplan-image" />
           
           {/* Adjusted Hotspots for 4K layout */}
           <Hotspot top="25%" left="15%" label="SOC / NOC Center" />

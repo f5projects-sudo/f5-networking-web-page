@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import Nosotros from './pages/Nosotros';
-import Axia from './pages/Axia';
-import NovaCore from './pages/NovaCore';
-import Desarrollo from './pages/Desarrollo';
-import Cableado from './pages/Cableado';
-import Echo from './pages/Echo';
-import Bpo from './pages/Bpo';
-import Pbx from './pages/Pbx';
-import Voxis from './pages/Voxis';
-import Equipamiento from './pages/Equipamiento';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
+
+const Nosotros = lazy(() => import('./pages/Nosotros'));
+const Axia = lazy(() => import('./pages/Axia'));
+const NovaCore = lazy(() => import('./pages/NovaCore'));
+const Desarrollo = lazy(() => import('./pages/Desarrollo'));
+const Cableado = lazy(() => import('./pages/Cableado'));
+const Echo = lazy(() => import('./pages/Echo'));
+const Bpo = lazy(() => import('./pages/Bpo'));
+const Pbx = lazy(() => import('./pages/Pbx'));
+const Voxis = lazy(() => import('./pages/Voxis'));
+const Equipamiento = lazy(() => import('./pages/Equipamiento'));
 import { motion } from 'framer-motion';
 import {
   Headset,
@@ -42,6 +43,7 @@ const App = () => {
     return validPages.includes(hash) ? hash : 'home';
   });
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [loadWidget, setLoadWidget] = useState(false);
   const [sent, setSent] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -107,6 +109,20 @@ const App = () => {
     };
 
     window.addEventListener('hashchange', handleHashChange);
+    
+    // Defer ElevenLabs Widget loading to improve initial performance
+    const timer = setTimeout(() => {
+      setLoadWidget(true);
+    }, 3500);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!loadWidget) return;
 
     // Load ElevenLabs Widget Script
     const script = document.createElement('script');
@@ -116,12 +132,11 @@ const App = () => {
     document.body.appendChild(script);
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
       if (document.body.contains(script)) {
         document.body.removeChild(script);
       }
     };
-  }, []);
+  }, [loadWidget]);
 
   // ── Page routing logic ──────────────────────────
   let PageContent = null;
@@ -138,10 +153,15 @@ const App = () => {
 
   if (PageContent) {
     return (
-      <>
+      <Suspense fallback={
+        <div style={{ height: '100dvh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#050505', color: 'var(--color-primary)' }}>
+          <div className="hardware-accelerated" style={{ width: '40px', height: '40px', border: '3px solid rgba(0,180,255,0.3)', borderTopColor: 'var(--color-accent)', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+          <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
+        </div>
+      }>
         {PageContent}
-        <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>
-      </>
+        {loadWidget && <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>}
+      </Suspense>
     );
   }
   // ─────────────────────────────────────────────
@@ -226,7 +246,7 @@ const App = () => {
           style={{ width: '100%', maxWidth: '900px', marginTop: '40px' }}
         >
           <h1 style={{ fontSize: 'clamp(2.2rem, 8vw, 5rem)', marginBottom: '10px', wordBreak: 'break-word' }}>
-            F5 <span className="gradient-text">Networking</span>
+            <span style={{ color: 'var(--color-secondary)' }}>F</span>5 <span className="gradient-text">Networking</span>
           </h1>
           <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 30px' }}>
             Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.

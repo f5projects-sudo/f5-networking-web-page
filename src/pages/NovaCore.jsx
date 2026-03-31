@@ -160,6 +160,7 @@ export default function NovaCore({ onNavigate }) {
              <img 
                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" 
                alt="Nova Core Analytics" 
+               width="800" height="533" loading="lazy"
                style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.1)', display: 'block' }} 
              />
           </motion.div>
@@ -230,6 +231,7 @@ export default function NovaCore({ onNavigate }) {
              <img 
                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800" 
                alt="Nova Cash Financial Operations" 
+               width="800" height="533" loading="lazy"
                style={{ width: '100%', borderRadius: '24px', boxShadow: '0 20px 50px rgba(0,0,0,0.5)', border: '1px solid rgba(255,140,0,0.2)', display: 'block' }} 
              />
           </motion.div>

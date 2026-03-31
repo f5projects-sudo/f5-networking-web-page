@@ -146,6 +146,9 @@ export default function Desarrollo({ onNavigate }) {
                <img 
                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=800" 
                  alt="Código e Ingeniería de Software" 
+                 width="800"
+                 height="533"
+                 loading="lazy"
                  style={{ width: '100%', borderRadius: '20px', display: 'block' }} 
                />
              </div>
@@ -173,7 +176,7 @@ export default function Desarrollo({ onNavigate }) {
           }}>
             <CardSwap width={window.innerWidth < 768 ? Math.min(window.innerWidth - 30, 320) : 500} height={window.innerWidth < 768 ? 400 : 450}>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt="Ingeniería" />
+                <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt="Ingeniería" width="500" height="300" loading="lazy" />
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <Terminal size={20} color="var(--color-primary)" />
@@ -183,7 +186,7 @@ export default function Desarrollo({ onNavigate }) {
                 </div>
               </Card>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_refactoring.png`} alt="Refactoring" />
+                <img src={`${import.meta.env.BASE_URL}software_refactoring.png`} alt="Refactoring" width="500" height="300" loading="lazy" />
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <RefreshCw size={20} color="var(--color-primary)" />
@@ -193,7 +196,7 @@ export default function Desarrollo({ onNavigate }) {
                 </div>
               </Card>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_security.png`} alt="Seguridad" />
+                <img src={`${import.meta.env.BASE_URL}software_security.png`} alt="Seguridad" width="500" height="300" loading="lazy" />
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <Lock size={20} color="var(--color-primary)" />

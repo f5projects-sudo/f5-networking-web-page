@@ -80,8 +80,8 @@ const BubbleBackground = () => {
         particles.current = [];
         const isMob = window.innerWidth < 768;
         // Increase density because particles are smaller and more subtle, but cap it for mobile
-        const densityFactor = isMob ? 15000 : 6000;
-        const numberOfParticles = Math.min((window.innerWidth * window.innerHeight) / densityFactor, isMob ? 60 : 200);
+        const densityFactor = isMob ? 25000 : 6000;
+        const numberOfParticles = Math.min((window.innerWidth * window.innerHeight) / densityFactor, isMob ? 30 : 200);
         
         for (let i = 0; i < numberOfParticles; i++) {
             let x = Math.random() * window.innerWidth;

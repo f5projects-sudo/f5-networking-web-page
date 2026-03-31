@@ -61,7 +61,9 @@ const Footer = ({ onNavigate, scrollTo }) => {
           <img 
             src={`${baseUrl}f5networking_logo_original_safe.png`} 
             alt="F5 Networking" 
-            style={{ height: '40px', width: 'auto', display: 'block', opacity: 0.8 }} 
+            width="225"
+            height="60"
+            style={{ height: '60px', width: 'auto', display: 'block', opacity: 0.8 }} 
           />
         </div>
         <div style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>

@@ -346,6 +346,8 @@ export default function Pbx({ onNavigate }) {
           <img 
             src={`${import.meta.env.BASE_URL}pbx_corporate_hero.png`} 
             alt="Corporate PBX Solutions"
+            width="1920"
+            height="1080"
             style={{ 
               width: '100%', 
               height: '100%', 
@@ -494,7 +496,7 @@ export default function Pbx({ onNavigate }) {
               {...fadeInUp}
             >
               <div style={{ marginBottom: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60px' }}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" style={{ height: '40px', filter: 'brightness(1.5)' }} />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" width="100" height="40" loading="lazy" style={{ height: '40px', filter: 'brightness(1.5)' }} />
               </div>
               <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>Infraestructura AWS</h3>
               <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '1.05rem', textAlign: 'center' }}>
@@ -532,7 +534,7 @@ export default function Pbx({ onNavigate }) {
               {...fadeInUp}
             >
               <div style={{ marginBottom: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60px' }}>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" style={{ height: '35px' }} />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" width="100" height="35" loading="lazy" style={{ height: '35px' }} />
               </div>
               <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>Comunicaciones Twilio</h3>
               <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '1.05rem', textAlign: 'center' }}>
@@ -667,7 +669,7 @@ export default function Pbx({ onNavigate }) {
                 <div style={{ color: 'var(--color-accent)', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '20px' }}>
                   <MessageSquare size={50} strokeWidth={1.5} />
                   <div style={{ height: '30px', width: '1px', background: 'rgba(255,255,255,0.1)' }} />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" style={{ height: '25px', opacity: 0.8 }} />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" width="80" height="25" loading="lazy" style={{ height: '25px', opacity: 0.8 }} />
                 </div>
                 <h2 style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px', lineHeight: 1.1, wordBreak: 'break-word' }}>
                   SMS: CONEXIÓN <span className="gradient-text">DIRECTA</span>

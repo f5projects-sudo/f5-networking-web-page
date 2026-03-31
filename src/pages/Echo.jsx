@@ -150,6 +150,7 @@ export default function Echo({ onNavigate }) {
               <img 
                 src={`${import.meta.env.BASE_URL}echo_crm_mockup.png`} 
                 alt="ECHO CRM Preview" 
+                width="800" height="600" loading="lazy"
                 style={{ 
                   width: '100%', 
                   height: 'auto', 

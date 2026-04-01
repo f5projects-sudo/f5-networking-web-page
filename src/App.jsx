@@ -42,6 +42,7 @@ import BubbleBackground from './components/BubbleBackground';
 import MapFooter from './components/MapFooter';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import WhatsAppButton from './components/WhatsAppButton';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState(() => {
@@ -1223,6 +1224,7 @@ const App = () => {
       {/* ElevenLabs Conversational AI Widget (TEMPORARILY COMMENTED OUT) */}
       {/* <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai> */}
       
+      <WhatsAppButton />
       <Navbar onNavigate={setCurrentPage} activePage={currentPage} />
     </div>
   );

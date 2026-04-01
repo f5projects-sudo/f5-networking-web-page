@@ -170,21 +170,6 @@ const BubbleBackground = () => {
             }}
         >
             <canvas ref={canvasRef} />
-            <div
-                style={{
-                    position: 'absolute',
-                    bottom: '30px',
-                    right: '30px',
-                    fontSize: '0.8rem', // Smaller tech-label style
-                    fontWeight: '300',
-                    color: timeLeft <= 5 ? 'var(--color-secondary)' : 'rgba(255,255,255,0.4)',
-                    fontFamily: 'Inter, sans-serif',
-                    letterSpacing: '2px',
-                    textTransform: 'uppercase'
-                }}
-            >
-                {timeLeft > 0 ? `System Sync: ${timeLeft}s` : 'Initializing Explosion...'}
-            </div>
         </div>
     );
 };

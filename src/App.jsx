@@ -10,7 +10,7 @@ const Bpo = lazy(() => import('./pages/Bpo'));
 const Pbx = lazy(() => import('./pages/Pbx'));
 const Voxis = lazy(() => import('./pages/Voxis'));
 const Equipamiento = lazy(() => import('./pages/Equipamiento'));
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Headset,
   Bot,
@@ -53,6 +53,8 @@ const App = () => {
   const [loadWidget, setLoadWidget] = useState(false);
   const [sent, setSent] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeReason, setActiveReason] = useState(0);
+  const [activeQuienes, setActiveQuienes] = useState(0);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -594,184 +596,313 @@ const App = () => {
           <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
         </motion.div>
 
-        <div className="bento-quienes" style={{
-          display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
-          gridTemplateRows: isMobile ? 'auto auto auto' : 'auto auto',
-          gap: '24px',
-          marginBottom: '50px'
+        {/* SaaS Horizontal Expansion Accordion for Quiénes Somos */}
+        <div style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          gap: '15px',
+          height: isMobile ? 'auto' : '550px',
+          marginBottom: '60px',
+          width: '100%'
         }}>
-          {/* Mission: Large block top-left */}
-          <motion.div
-            className="glass"
-            style={{ 
-              gridColumn: isMobile ? '1' : 'span 2', 
-              padding: '40px', 
-              borderRadius: '24px', 
-              position: 'relative', 
-              overflow: 'hidden',
-              border: '1px solid rgba(0, 86, 179, 0.2)' 
-            }}
-            {...fadeInUp} transition={{ delay: 0 }} whileHover={{ scale: 1.02 }}
-          >
-            <div style={{ position: 'absolute', right: '-10%', top: '-25%', opacity: 0.04, transform: 'rotate(15deg)' }}>
-              <Target size={260} strokeWidth={1.5} style={{ color: 'var(--color-primary)' }} />
-            </div>
-            <div style={{ position: 'relative', zIndex: 2 }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', background: 'rgba(0, 86, 179, 0.15)', borderRadius: '16px', marginBottom: '20px' }}>
-                <Target size={30} style={{ color: 'var(--color-primary)' }} />
-              </div>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '15px', color: 'var(--color-primary)' }}>Nuestra Misión</h3>
-              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1.05rem', maxWidth: isMobile ? '100%' : '80%' }}>
-                Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Vision: Tall block top-right */}
-          <motion.div
-            className="glass"
-            style={{ 
-              gridColumn: isMobile ? '1' : 'span 1', 
-              gridRow: isMobile ? 'auto' : 'span 2',
-              padding: '40px', 
-              borderRadius: '24px', 
-              position: 'relative', 
-              overflow: 'hidden',
-              border: '1px solid rgba(255, 140, 0, 0.2)' 
-            }}
-            {...fadeInUp} transition={{ delay: 0.2 }} whileHover={{ scale: 1.02 }}
-          >
-            <div style={{ position: 'absolute', bottom: '-15%', right: '-15%', opacity: 0.04, transform: 'rotate(-15deg)' }}>
-              <Rocket size={260} strokeWidth={1.5} style={{ color: 'var(--color-secondary)' }} />
-            </div>
-            <div style={{ position: 'relative', zIndex: 2 }}>
-              <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', background: 'rgba(255, 140, 0, 0.15)', borderRadius: '16px', marginBottom: '20px' }}>
-                <Rocket size={30} style={{ color: 'var(--color-secondary)' }} />
-              </div>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '15px', color: 'var(--color-secondary)' }}>Nuestra Visión</h3>
-              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1.05rem' }}>
-                Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Values: Wide block bottom-left */}
-          <motion.div
-            className="glass"
-            style={{ 
-              gridColumn: isMobile ? '1' : 'span 2', 
-              padding: '40px', 
-              borderRadius: '24px', 
-              position: 'relative', 
-              overflow: 'hidden',
-              border: '1px solid rgba(0, 180, 255, 0.25)'
-            }}
-            {...fadeInUp} transition={{ delay: 0.4 }} whileHover={{ scale: 1.02 }}
-          >
-            <div style={{ position: 'absolute', left: '-5%', bottom: '-20%', opacity: 0.04, transform: 'rotate(10deg)' }}>
-              <Gem size={220} strokeWidth={1.5} style={{ color: 'var(--color-accent)' }} />
-            </div>
-            <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: '30px' }}>
-              <div style={{ flexShrink: 0 }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', background: 'rgba(0, 180, 255, 0.15)', borderRadius: '16px', marginBottom: '15px' }}>
-                  <Gem size={30} style={{ color: 'var(--color-accent)' }} />
+          {[
+            {
+              id: 0,
+              title: "NUESTRA MISIÓN",
+              icon: <Target size={32} strokeWidth={1} />,
+              color: 'var(--color-primary)',
+              content: "Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada."
+            },
+            {
+              id: 1,
+              title: "NUESTRA VISIÓN",
+              icon: <Rocket size={32} strokeWidth={1} />,
+              color: 'var(--color-secondary)',
+              content: "Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes."
+            },
+            {
+              id: 2,
+              title: "VALORES CLAVE",
+              icon: <Gem size={32} strokeWidth={1} />,
+              color: 'var(--color-accent)',
+              content: "Innovación, Compromiso, Calidad, Eficiencia y Confianza total en cada uno de nuestros procesos e interacciones con el cliente."
+            }
+          ].map((panel) => {
+            const isExpanded = activeQuienes === panel.id;
+            
+            return (
+              <motion.div
+                key={panel.id}
+                layout
+                initial={{ flex: 1, height: isMobile ? '90px' : '100%' }}
+                animate={{ 
+                  flex: isMobile ? 'none' : (isExpanded ? 3 : 1),
+                  height: isMobile ? (isExpanded ? '280px' : '90px') : '100%'
+                }}
+                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                onHoverStart={() => !isMobile && setActiveQuienes(panel.id)}
+                onClick={() => isMobile && setActiveQuienes(panel.id)}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.02)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(255, 255, 255, 0.05)',
+                  borderBottom: isMobile ? `4px solid ${panel.color}` : '1px solid rgba(255, 255, 255, 0.05)',
+                  borderTop: isMobile ? '1px solid rgba(255, 255, 255, 0.05)' : `4px solid ${panel.color}`,
+                  overflow: 'hidden',
+                  cursor: 'default',
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  alignItems: isMobile ? 'flex-start' : 'center',
+                  boxShadow: isExpanded ? `0 20px 50px rgba(0,0,0,0.3), inset 0 0 40px ${panel.color}15` : 'none'
+                }}
+              >
+                {/* Left/Top Icon & Title Bar */}
+                <div style={{
+                  minWidth: isMobile ? '100%' : '100px',
+                  height: isMobile ? '90px' : '100%',
+                  display: 'flex',
+                  flexDirection: isMobile ? 'row' : 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '20px',
+                  padding: isMobile ? '0 30px' : '40px 0',
+                  borderRight: isMobile ? 'none' : '1px solid rgba(255, 255, 255, 0.03)',
+                  borderBottom: isMobile ? '1px solid rgba(255, 255, 255, 0.03)' : 'none',
+                  background: isExpanded ? 'rgba(255,255,255,0.01)' : 'transparent',
+                  cursor: 'pointer'
+                }} onClick={() => setActiveQuienes(panel.id)}>
+                  
+                  <div style={{ 
+                    color: isExpanded ? panel.color : 'rgba(255,255,255,0.4)',
+                    transition: 'color 0.4s ease'
+                  }}>
+                    {panel.icon}
+                  </div>
+                  
+                  <h3 style={{
+                    fontSize: '1.2rem',
+                    fontWeight: 700,
+                    letterSpacing: '4px',
+                    color: isExpanded ? '#fff' : 'rgba(255,255,255,0.4)',
+                    writingMode: isMobile ? 'horizontal-tb' : 'vertical-rl',
+                    transform: isMobile ? 'none' : 'rotate(180deg)',
+                    margin: 0,
+                    transition: 'color 0.4s ease',
+                    whiteSpace: 'nowrap'
+                  }}>
+                    {panel.title}
+                  </h3>
                 </div>
-                <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--color-accent)', margin: 0 }}>Valores</h3>
-              </div>
-              
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-                {['Innovación', 'Compromiso', 'Calidad', 'Eficiencia', 'Confianza'].map((valor) => (
-                  <span key={valor} style={{
-                    padding: '10px 22px',
-                    background: 'rgba(0, 180, 255, 0.08)',
-                    border: '1px solid rgba(0, 180, 255, 0.3)',
-                    borderRadius: '12px',
-                    fontSize: '0.95rem',
-                    color: 'white',
-                    fontWeight: '600',
-                    letterSpacing: '1px',
-                    boxShadow: '0 4px 15px rgba(0,0,0,0.15)'
-                  }}>{valor}</span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+
+                {/* Expanded Content Area */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, x: isMobile ? 0 : 20, y: isMobile ? -10 : 0 }}
+                      animate={{ opacity: 1, x: 0, y: 0 }}
+                      exit={{ opacity: 0, x: isMobile ? 0 : 10, y: isMobile ? -5 : 0 }}
+                      transition={{ duration: 0.4, delay: 0.1 }}
+                      style={{
+                        flex: 1,
+                        padding: isMobile ? '25px 30px' : '0 50px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        position: 'relative',
+                        minWidth: '300px'
+                      }}
+                    >
+                      <div style={{
+                        position: 'absolute',
+                        right: isMobile ? '-10%' : '5%',
+                        bottom: isMobile ? '0%' : '-10%',
+                        opacity: 0.03,
+                        color: panel.color,
+                        pointerEvents: 'none'
+                      }}>
+                        {React.cloneElement(panel.icon, { size: isMobile ? 120 : 250, strokeWidth: 0.5 })}
+                      </div>
+
+                      <h4 style={{ 
+                        fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', 
+                        fontWeight: 300, 
+                        color: panel.color, 
+                        marginBottom: '20px',
+                        letterSpacing: '1px'
+                      }}>
+                        Nuestra <strong style={{color: '#fff', fontWeight: 700}}>{panel.title.replace('NUESTRA ', '').replace(' CLAVE', '')}</strong>
+                      </h4>
+
+                      <p style={{
+                        fontSize: '1.1rem',
+                        lineHeight: '1.8',
+                        color: 'rgba(255,255,255,0.7)',
+                        maxWidth: '500px',
+                        fontWeight: 300
+                      }}>
+                        {panel.content}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="section-container">
+      {/* Why Choose Us Section - Interactive Showcase */}
+      <section className="section-container" style={{ position: 'relative', zIndex: 10, padding: '40px 0' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>¿Por qué elegirnos?</h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>¿Por qué <span className="gradient-text">elegirnos?</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 30px' }}></div>
-        </motion.div>
-
-        {/* Intro block */}
-        <motion.div
-          {...fadeInUp}
-          className="glass"
-          style={{
-            padding: '50px',
-            borderRadius: '24px',
-            marginBottom: '40px',
-            background: 'linear-gradient(135deg, rgba(0,86,179,0.08), rgba(255,140,0,0.05))',
-            borderLeft: '4px solid var(--color-primary)',
-          }}
-        >
-          <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>
-            <span className="gradient-text">F5 Networking</span>
-          </h3>
-          <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.9', fontSize: '1.05rem', marginBottom: '20px' }}>
-            Es una empresa dedicada a crear soluciones de conectividad, automatización e infraestructura digital que impulsan la eficiencia, mejoran la comunicación y aceleran la transformación tecnológica de las organizaciones.
-          </p>
-          <p style={{ color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.05rem', fontStyle: 'italic' }}>
-            Elegir F5 Networking significa trabajar con un socio tecnológico que entiende tus retos y construye soluciones diseñadas para tu realidad.
+          <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.8' }}>
+            Transformamos retos complejos en soluciones tecnológicas innovadoras, escalables y diseñadas para el mundo de hoy.
           </p>
         </motion.div>
 
-        {/* Feature cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '25px' }}>
-          {[
-            {
-              icon: '🎛️',
-              title: 'Ajuste a la medida',
-              desc: 'Soluciones diseñadas según las necesidades reales de cada empresa.',
-              color: 'var(--color-primary)',
-              bg: 'rgba(0,86,179,0.1)',
-            },
-            {
-              icon: '⚙️',
-              title: 'Automatización',
-              desc: 'Optimización de procesos para mejorar eficiencia y control.',
-              color: 'var(--color-secondary)',
-              bg: 'rgba(255,140,0,0.1)',
-            },
-            {
-              icon: '🛡️',
-              title: 'Confiabilidad y seguridad',
-              desc: 'Infraestructura estable, protegida y preparada para crecer.',
-              color: 'var(--color-accent)',
-              bg: 'rgba(0,180,255,0.1)',
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              className="glass"
-              style={{ padding: '35px', borderRadius: '18px', borderBottom: `3px solid ${item.color}` }}
-              {...fadeInUp}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -6, scale: 1.02 }}
-            >
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                width: '55px', height: '55px', background: item.bg,
-                borderRadius: '14px', marginBottom: '20px', fontSize: '1.6rem'
-              }}>{item.icon}</div>
-              <h4 style={{ fontSize: '1.1rem', marginBottom: '12px', color: item.color }}>{item.title}</h4>
-              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.7', fontSize: '0.95rem' }}>{item.desc}</p>
-            </motion.div>
-          ))}
+        {/* Dynamic SaaS Showcase */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: isMobile ? '1fr' : '300px 1fr', 
+          gap: '30px', 
+          background: 'rgba(5, 5, 8, 0.4)', 
+          border: '1px solid rgba(255, 255, 255, 0.05)', 
+          borderRadius: '30px', 
+          padding: isMobile ? '20px' : '40px',
+          boxShadow: '0 30px 60px rgba(0,0,0,0.4)',
+          overflow: 'hidden'
+        }}>
+          
+          {/* Left: Tab Menu */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {[
+              { id: 0, title: 'Ajuste a la medida', icon: <Settings size={20} />, color: 'var(--color-primary)' },
+              { id: 1, title: 'Automatización', icon: <Zap size={20} />, color: 'var(--color-secondary)' },
+              { id: 2, title: 'Confiabilidad', icon: <Shield size={20} />, color: 'var(--color-accent)' },
+              { id: 3, title: 'Soporte Continuo', icon: <Headset size={20} />, color: '#9b59b6' }
+            ].map((tab) => {
+              const isActive = activeReason === tab.id;
+              return (
+                <motion.button
+                  key={tab.id}
+                  onClick={() => setActiveReason(tab.id)}
+                  whileHover={{ x: 5 }}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '15px',
+                    padding: '18px 20px',
+                    borderRadius: '16px',
+                    background: isActive ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
+                    border: '1px solid',
+                    borderColor: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+                    color: isActive ? 'white' : 'var(--color-text-muted)',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    transition: 'all 0.3s ease',
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                >
+                  {/* Indicator Line */}
+                  <div style={{ 
+                    position: 'absolute', left: 0, top: '20%', bottom: '20%', width: '4px', 
+                    background: tab.color, 
+                    borderRadius: '0 4px 4px 0',
+                    opacity: isActive ? 1 : 0,
+                    transition: 'opacity 0.3s',
+                    boxShadow: isActive ? `0 0 10px ${tab.color}` : 'none'
+                  }} />
+                  
+                  <div style={{ 
+                    color: isActive ? tab.color : 'inherit', 
+                    background: isActive ? `${tab.color}15` : 'transparent',
+                    padding: '8px',
+                    borderRadius: '10px'
+                  }}>
+                    {tab.icon}
+                  </div>
+                  <span style={{ fontSize: '1.05rem', fontWeight: isActive ? 700 : 500 }}>{tab.title}</span>
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Right: Display Panel */}
+          <div style={{ position: 'relative', minHeight: isMobile ? '400px' : '480px', background: 'rgba(0,0,0,0.3)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.03)', overflow: 'hidden', padding: isMobile ? '30px 20px' : '50px 60px', display: 'flex', alignItems: 'center' }}>
+            <AnimatePresence mode="wait">
+              {[
+                { 
+                  id: 0, 
+                  title: 'Ingeniería a la Medida', 
+                  desc: 'Comprendemos que no existen dos empresas iguales. Por ello, diseñamos ecosistemas tecnológicos desde cero o reestructuramos tu core actual para que se adapte milimétricamente a tus flujos operativos reales.', 
+                  detail: 'Sin software enlatado. Solo tecnología que impulsa tu diferencial.',
+                  icon: <Settings size={isMobile ? 120 : 200} strokeWidth={1} />,
+                  color: 'var(--color-primary)'
+                },
+                { 
+                  id: 1, 
+                  title: 'Automatización Inteligente', 
+                  desc: 'Eliminamos el error humano y la fricción en tareas repetitivas. Construimos orquestadores robóticos y secuencias de eventos (RPA, Webhooks o IaaS) que multiplican la eficiencia de tu equipo dramáticamente.', 
+                  detail: 'Más tiempo para estrategia. Menos tiempo en tareas mecánicas.',
+                  icon: <Zap size={isMobile ? 120 : 200} strokeWidth={1} />,
+                  color: 'var(--color-secondary)'
+                },
+                { 
+                  id: 2, 
+                  title: 'Seguridad Zero Trust', 
+                  desc: 'Desplegamos infraestructura robusta bajo el modelo Zero Trust. Tus datos permanecen en bóvedas criptográficas con redundancia geográfica para garantizar un 99.9% de uptime constante.', 
+                  detail: 'Duerme tranquilo mientras tu red trabaja sin latencia ni brechas.',
+                  icon: <Shield size={isMobile ? 120 : 200} strokeWidth={1} />,
+                  color: 'var(--color-accent)'
+                },
+                { 
+                  id: 3, 
+                  title: 'Monitorización 24/7', 
+                  desc: 'Nuestro compromiso no termina en el despliegue. Tu organización dispondrá de un escuadrón técnico exclusivo que monitorea activamente tus nodos para prevenir caídas antes de que siquiera ocurran.', 
+                  detail: 'SLA líder en la industria con respuesta reactiva inmediata.',
+                  icon: <Headset size={isMobile ? 120 : 200} strokeWidth={1} />,
+                  color: '#9b59b6'
+                }
+              ].filter(item => item.id === activeReason).map(item => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, y: -30, filter: 'blur(10px)' }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  style={{ position: 'relative', width: '100%', zIndex: 2 }}
+                >
+                  {/* Decorative Icon Glow Background */}
+                  <div style={{ position: 'absolute', right: isMobile ? '-20%' : '-15%', top: '50%', transform: 'translateY(-50%)', opacity: 0.04, filter: 'blur(2px)' }}>
+                    {React.cloneElement(item.icon, { color: item.color })}
+                  </div>
+
+                  <div style={{ display: 'inline-block', padding: '6px 16px', background: `${item.color}15`, border: `1px solid ${item.color}30`, borderRadius: '30px', color: item.color, fontWeight: 700, fontSize: '0.85rem', marginBottom: '25px', letterSpacing: '1px' }}>
+                    VALOR DIFERENCIAL
+                  </div>
+                  <h3 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '25px', color: 'white', lineHeight: 1.1 }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8, maxWidth: '600px', marginBottom: '40px' }}>
+                    {item.desc}
+                  </p>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                    <div style={{ width: '40px', height: '2px', background: item.color }} />
+                    <p style={{ color: 'rgba(255,255,255,0.9)', fontStyle: 'italic', fontWeight: 600, fontSize: '1.05rem', margin: 0 }}>
+                      {item.detail}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 

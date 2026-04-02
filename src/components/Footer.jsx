@@ -59,7 +59,7 @@ const Footer = ({ onNavigate, scrollTo }) => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '30px' }}>
         <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={handleLogoClick}>
           <img 
-            src={`${baseUrl}f5networking_logo_original_safe.png`} 
+            src={`${import.meta.env.BASE_URL}F5 finalizado 2.png`} 
             alt="F5 Networking" 
             width="225"
             height="60"

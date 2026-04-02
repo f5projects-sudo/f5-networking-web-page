@@ -110,7 +110,7 @@ const Navbar = ({ onNavigate, activePage }) => {
           onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }}
         >
           <img 
-            src={`${import.meta.env.BASE_URL}f5networking_logo_original_safe.png`}
+            src={`${import.meta.env.BASE_URL}F5 finalizado 2.png`}
             alt="Logo" 
             width="254"
             height="120"

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const WhatsAppButton = () => {
   // Reemplaza este número con el de la empresa (con código de país sin el '+')
-  const whatsappNumber = "5215555555555"; 
+  const whatsappNumber = "5213351200210"; 
   const whatsappMessage = encodeURIComponent("¡Hola! Me gustaría obtener más información sobre los servicios de F5 Networking.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 

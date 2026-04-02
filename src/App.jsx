@@ -12,6 +12,7 @@ const Voxis = lazy(() => import('./pages/Voxis'));
 const Equipamiento = lazy(() => import('./pages/Equipamiento'));
 const Privacidad = lazy(() => import('./pages/Privacidad'));
 const Terminos = lazy(() => import('./pages/Terminos'));
+const Pua = lazy(() => import('./pages/Pua'));
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Headset,
@@ -49,7 +50,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 const App = () => {
   const [currentPage, setCurrentPage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos'];
+    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua'];
     return validPages.includes(hash) ? hash : 'home';
   });
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -120,7 +121,7 @@ const App = () => {
     // Handle manual hash changes (e.g., back button or typing directly)
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos'];
+      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua'];
       if (validPages.includes(hash)) {
         setCurrentPage(hash);
       } else if (hash === '') {
@@ -174,6 +175,7 @@ const App = () => {
   else if (currentPage === 'equipamiento') PageContent = <Equipamiento onNavigate={setCurrentPage} />;
   else if (currentPage === 'privacidad') PageContent = <Privacidad onNavigate={setCurrentPage} />;
   else if (currentPage === 'terminos') PageContent = <Terminos onNavigate={setCurrentPage} />;
+  else if (currentPage === 'pua') PageContent = <Pua onNavigate={setCurrentPage} />;
 
   if (PageContent) {
     return (

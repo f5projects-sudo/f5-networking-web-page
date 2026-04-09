@@ -14,8 +14,9 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
 
-const ProductCard = ({ icon, title, index }) => {
+const ProductCard = ({ icon, title, desc, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -56,7 +57,7 @@ const ProductCard = ({ icon, title, index }) => {
 
       <h3 style={{ fontSize: '1.4rem', fontWeight: '800', marginBottom: '15px' }}>{title}</h3>
       <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.4)', lineHeight: '1.6' }}>
-        Equipamiento de alto rendimiento seleccionado para potenciar el talento de tu equipo.
+        {desc}
       </p>
 
       <motion.div 
@@ -74,6 +75,7 @@ const ProductCard = ({ icon, title, index }) => {
 };
 
 export default function Equipamiento({ onNavigate }) {
+  const { t } = useLanguage();
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -82,13 +84,15 @@ export default function Equipamiento({ onNavigate }) {
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacityHero = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
+  const cardDesc = t('equipamiento.products.cardDesc', 'Equipamiento de alto rendimiento seleccionado para potenciar el talento de tu equipo.');
+
   const products = [
-    { icon: <Printer />, title: "Impresoras" },
-    { icon: <Monitor />, title: "Monitores" },
-    { icon: <Headphones />, title: "Auriculares" },
-    { icon: <HardDrive />, title: "Almacenamiento" },
-    { icon: <Cpu />, title: "Procesadores" },
-    { icon: <MousePointer2 />, title: "Ratones" }
+    { icon: <Printer />, title: t('equipamiento.products.items.p1', 'Impresoras'), desc: cardDesc },
+    { icon: <Monitor />, title: t('equipamiento.products.items.p2', 'Monitores'), desc: cardDesc },
+    { icon: <Headphones />, title: t('equipamiento.products.items.p3', 'Auriculares'), desc: cardDesc },
+    { icon: <HardDrive />, title: t('equipamiento.products.items.p4', 'Almacenamiento'), desc: cardDesc },
+    { icon: <Cpu />, title: t('equipamiento.products.items.p5', 'Procesadores'), desc: cardDesc },
+    { icon: <MousePointer2 />, title: t('equipamiento.products.items.p6', 'Ratones'), desc: cardDesc }
   ];
 
   return (
@@ -139,16 +143,16 @@ export default function Equipamiento({ onNavigate }) {
                 textTransform: 'uppercase'
               }}
             >
-              Technology for People
+              {t('equipamiento.hero.tag', 'Technology for People')}
             </motion.div>
 
             <h1 style={{ fontSize: 'clamp(3.5rem, 10vw, 6rem)', fontWeight: '900', lineHeight: 0.95, marginBottom: '30px', letterSpacing: '-4px' }}>
-              INFRAESTRUCTURA <br />
-              <span className="gradient-text">CON PROPÓSITO</span>
+              {t('equipamiento.hero.title1', 'INFRAESTRUCTURA')} <br />
+              <span className="gradient-text">{t('equipamiento.hero.titleHighlight', 'CON PROPÓSITO')}</span>
             </h1>
 
             <p style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)', color: 'rgba(255,255,255,0.8)', maxWidth: '850px', margin: '0 auto 50px', lineHeight: 1.5, fontWeight: '500' }}>
-              Espacios pensados para las personas. Aseguramos el equipamiento necesario para que tu equipo trabaje con comodidad, eficiencia y sin límites tecnológicos.
+              {t('equipamiento.hero.desc', 'Espacios pensados para las personas. Aseguramos el equipamiento necesario para que tu equipo trabaje con comodidad, eficiencia y sin límites tecnológicos.')}
             </p>
 
             <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
@@ -173,7 +177,7 @@ export default function Equipamiento({ onNavigate }) {
                    }, 100);
                  }}
                >
-                 Explorar Soluciones
+                 {t('equipamiento.hero.btn', 'Explorar Soluciones')}
                </motion.button>
                <button 
                  className="glass" 
@@ -186,7 +190,7 @@ export default function Equipamiento({ onNavigate }) {
                  }}
                >
                  <ShieldCheck size={24} color="var(--color-secondary)" />
-                 Calidad Humana
+                 {t('equipamiento.hero.badge', 'Calidad Humana')}
                </button>
             </div>
           </motion.div>
@@ -203,10 +207,10 @@ export default function Equipamiento({ onNavigate }) {
             style={{ textAlign: 'center', marginBottom: '80px' }}
           >
             <h2 style={{ fontSize: '3rem', fontWeight: '900', letterSpacing: '-2px', marginBottom: '20px' }}>
-              HERRAMIENTAS PARA EL <span className="gradient-text">ÉXITO</span>
+              {t('equipamiento.products.title1', 'HERRAMIENTAS PARA EL')} <span className="gradient-text">{t('equipamiento.products.titleHighlight', 'ÉXITO')}</span>
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem' }}>
-              Diseñamos la implementación considerando el bienestar de tu equipo y el máximo rendimiento operativo.
+              {t('equipamiento.products.desc', 'Diseñamos la implementación considerando el bienestar de tu equipo y el máximo rendimiento operativo.')}
             </p>
           </motion.div>
 
@@ -228,16 +232,16 @@ export default function Equipamiento({ onNavigate }) {
            <div className="glass cta-glass-card" style={{ padding: '80px', borderRadius: '50px', border: '1px solid rgba(255,140,0,0.1)', textAlign: 'center', background: 'rgba(255,140,0,0.03)' }}>
               <Zap size={60} color="var(--color-secondary)" style={{ marginBottom: '30px', margin: '0 auto' }} />
               <h2 style={{ fontSize: '3.5rem', fontWeight: '900', letterSpacing: '-2px', marginBottom: '30px' }}>
-                EXPERIENCIA QUE <br /> <span className="gradient-text">INSPIRA</span>
+                {t('equipamiento.optimization.title1', 'EXPERIENCIA QUE')} <br /> <span className="gradient-text">{t('equipamiento.optimization.titleHighlight', 'INSPIRA')}</span>
               </h2>
               <p style={{ fontSize: '1.4rem', color: 'rgba(255,255,255,0.6)', maxWidth: '800px', margin: '0 auto 50px', lineHeight: 1.6 }}>
-                Ponemos el hardware al servicio del talento humano. Configuramos espacios que no solo funcionan, sino que motivan a dar lo mejor cada día.
+                {t('equipamiento.optimization.desc', 'Ponemos el hardware al servicio del talento humano. Configuramos espacios que no solo funcionan, sino que motivan a dar lo mejor cada día.')}
               </p>
               <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap' }}>
                  {[
-                   { icon: <ShieldCheck />, text: "Distribución Pensada en el Usuario" },
-                   { icon: <Settings />, text: "Configuración Ergonómica" },
-                   { icon: <ShoppingCart />, text: "Soporte Continuo F5" }
+                   { icon: <ShieldCheck />, text: t('equipamiento.optimization.features.f1', 'Distribución Pensada en el Usuario') },
+                   { icon: <Settings />, text: t('equipamiento.optimization.features.f2', 'Configuración Ergonómica') },
+                   { icon: <ShoppingCart />, text: t('equipamiento.optimization.features.f3', 'Soporte Continuo F5') }
                  ].map((feat, i) => (
                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '15px', color: 'rgba(255,255,255,0.8)', fontWeight: 'bold' }}>
                       <div style={{ color: 'var(--color-secondary)' }}>{feat.icon}</div>

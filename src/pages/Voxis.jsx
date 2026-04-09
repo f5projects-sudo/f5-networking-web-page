@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
 
 const VoiceWave = () => {
   const heights = React.useMemo(() => [...Array(20)].map(() => Math.random() * 80 + 20), []);
@@ -154,6 +155,7 @@ const IndustryTag = ({ icon, text }) => (
 );
 
 export default function Voxis({ onNavigate }) {
+  const { t } = useLanguage();
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -222,7 +224,7 @@ export default function Voxis({ onNavigate }) {
               textTransform: 'uppercase'
             }}
           >
-            Conversational AI Core
+            {t('voxis.hero.tag', 'Conversational AI Core')}
           </motion.div>
           
           <h1 style={{ 
@@ -240,7 +242,7 @@ export default function Voxis({ onNavigate }) {
           </h1>
           
           <p style={{ fontSize: 'clamp(1.1rem, 3vw, 2rem)', fontWeight: '500', color: 'rgba(255,255,255,0.6)', maxWidth: '800px', margin: '0 auto clamp(20px, 4vh, 40px)', lineHeight: 1.3 }}>
-            La voz inteligente que trabaja por tu empresa
+            {t('voxis.hero.desc', 'La voz inteligente que trabaja por tu empresa')}
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 'clamp(25px, 5vh, 50px)', transform: 'scale(0.8)' }}>
@@ -254,7 +256,7 @@ export default function Voxis({ onNavigate }) {
                whileTap={{ scale: 0.95 }}
                onClick={handleOpenDemo}
              >
-               Probar Demo
+               {t('voxis.hero.btn', 'Probar Demo')}
              </motion.button>
           </div>
         </motion.div>
@@ -276,10 +278,10 @@ export default function Voxis({ onNavigate }) {
         <div className="section-container">
           <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '80px' }}>
             <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--color-accent)', letterSpacing: '8px', marginBottom: '20px', textTransform: 'uppercase' }}>
-              Arquitectura Cognitiva
+              {t('voxis.nexus.tag', 'Arquitectura Cognitiva')}
             </h2>
             <h3 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', fontWeight: '900', letterSpacing: '-3px', lineHeight: 1 }}>
-              EL <span className="gradient-text">NÚCLEO</span> DE VØXIS
+              {t('voxis.nexus.title1', 'EL')} <span className="gradient-text">{t('voxis.nexus.title2', 'NÚCLEO')}</span> {t('voxis.nexus.title3', 'DE VØXIS')}
             </h3>
           </motion.div>
 
@@ -303,14 +305,14 @@ export default function Voxis({ onNavigate }) {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '25px', opacity: 0.8 }}>
                 <Activity size={18} color="var(--color-accent)" />
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', fontFamily: 'monospace', letterSpacing: '2px' }}>INTENT_SCANNER v4</span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', fontFamily: 'monospace', letterSpacing: '2px' }}>{t('voxis.nexus.hud1Title', 'INTENT_SCANNER v4')}</span>
               </div>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                 {[
-                  { label: "CONFIDENCE", value: "99.8%", color: "var(--color-primary)" },
-                  { label: "SEMANTIC_MATCH", value: "HIGH", color: "var(--color-accent)" },
-                  { label: "LATENCY", value: "118ms", color: "#4ade80" }
+                  { label: t('voxis.nexus.lbl1', "CONFIDENCE"), value: "99.8%", color: "var(--color-primary)" },
+                  { label: t('voxis.nexus.lbl2', "SEMANTIC_MATCH"), value: t('voxis.nexus.val2', "HIGH"), color: "var(--color-accent)" },
+                  { label: t('voxis.nexus.lbl3', "LATENCY"), value: "118ms", color: "#4ade80" }
                 ].map((stat, i) => (
                   <div key={i}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.7rem', fontWeight: 'bold', color: 'rgba(255,255,255,0.4)', marginBottom: '8px' }}>
@@ -331,7 +333,7 @@ export default function Voxis({ onNavigate }) {
 
               <div style={{ marginTop: '30px', padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.03)' }}>
                 <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>
-                  VØXIS entiende la intención detrás de cada palabra, permitiendo respuestas precisas y ejecución de tareas complejas en segundos.
+                  {t('voxis.nexus.hud1Desc', 'VØXIS entiende la intención detrás de cada palabra, permitiendo respuestas precisas y ejecución de tareas complejas en segundos.')}
                 </p>
               </div>
             </motion.div>
@@ -382,17 +384,17 @@ export default function Voxis({ onNavigate }) {
                   <Bot size={70} color="var(--color-accent)" style={{ filter: 'drop-shadow(0 0 20px rgba(0, 180, 255, 0.5))' }} />
                 </motion.div>
                 <div style={{ marginTop: '20px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '1rem', fontWeight: '900', letterSpacing: '2px' }}>CORE_VØXIS</div>
-                  <div style={{ fontSize: '0.6rem', color: '#4ade80', fontWeight: 'bold', fontFamily: 'monospace' }}>● ACTIVE_REASONING</div>
+                  <div style={{ fontSize: '1rem', fontWeight: '900', letterSpacing: '2px' }}>{t('voxis.nexus.core', 'CORE_VØXIS')}</div>
+                  <div style={{ fontSize: '0.6rem', color: '#4ade80', fontWeight: 'bold', fontFamily: 'monospace' }}>{t('voxis.nexus.status', '● ACTIVE_REASONING')}</div>
                 </div>
               </motion.div>
 
               {/* Data Floating Nodes */}
               {[
-                { icon: <Mic />, label: "LISTEN", color: "var(--color-primary)", top: "10%", left: "15%" },
-                { icon: <MessageSquare />, label: "THINK", color: "var(--color-accent)", top: "15%", right: "10%" },
-                { icon: <Zap />, label: "ACT", color: "var(--color-secondary)", bottom: "15%", left: "10%" },
-                { icon: <Shield />, label: "SECURE", color: "white", bottom: "10%", right: "20%" }
+                { icon: <Mic />, label: t('voxis.nexus.n1', "LISTEN"), color: "var(--color-primary)", top: "10%", left: "15%" },
+                { icon: <MessageSquare />, label: t('voxis.nexus.n2', "THINK"), color: "var(--color-accent)", top: "15%", right: "10%" },
+                { icon: <Zap />, label: t('voxis.nexus.n3', "ACT"), color: "var(--color-secondary)", bottom: "15%", left: "10%" },
+                { icon: <Shield />, label: t('voxis.nexus.n4', "SECURE"), color: "white", bottom: "10%", right: "20%" }
               ].map((node, i) => (
                 <motion.div
                   key={i}
@@ -455,15 +457,15 @@ export default function Voxis({ onNavigate }) {
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '25px', opacity: 0.8 }}>
                 <Headset size={18} color="var(--color-secondary)" />
-                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', fontFamily: 'monospace', letterSpacing: '2px' }}>HUMAN_LIKE_XP v2</span>
+                <span style={{ fontSize: '0.8rem', fontWeight: 'bold', fontFamily: 'monospace', letterSpacing: '2px' }}>{t('voxis.nexus.hud2Title', 'HUMAN_LIKE_XP v2')}</span>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
                 {[
-                  "Conversación sin 'robots' torpes",
-                  "Escalabilidad 24/7 sin esperas",
-                  "0% llamadas perdidas",
-                  "IA con empatía real"
+                  t('voxis.nexus.h1', "Conversación sin 'robots' torpes"),
+                  t('voxis.nexus.h2', "Escalabilidad 24/7 sin esperas"),
+                  t('voxis.nexus.h3', "0% llamadas perdidas"),
+                  t('voxis.nexus.h4', "IA con empatía real")
                 ].map((point, i) => (
                   <div key={i} style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
                     <div style={{ 
@@ -479,8 +481,8 @@ export default function Voxis({ onNavigate }) {
               </div>
 
               <div style={{ marginTop: '35px', textAlign: 'center', padding: '20px', background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.05), transparent)', borderRadius: '20px', border: '1px solid rgba(255,140,0,0.1)' }}>
-                <div style={{ fontSize: '0.7rem', color: 'var(--color-secondary)', fontWeight: 'bold', letterSpacing: '1px', marginBottom: '5px' }}>ESTADO DE OPERACIÓN</div>
-                <div style={{ fontSize: '1.2rem', fontWeight: '900', color: 'white' }}>INFALIBLE</div>
+                <div style={{ fontSize: '0.7rem', color: 'var(--color-secondary)', fontWeight: 'bold', letterSpacing: '1px', marginBottom: '5px' }}>{t('voxis.nexus.opState', 'ESTADO DE OPERACIÓN')}</div>
+                <div style={{ fontSize: '1.2rem', fontWeight: '900', color: 'white' }}>{t('voxis.nexus.infalible', 'INFALIBLE')}</div>
               </div>
             </motion.div>
 
@@ -493,10 +495,10 @@ export default function Voxis({ onNavigate }) {
         <div className="section-container">
           <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '100px' }}>
             <h2 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '25px', letterSpacing: '-2px' }}>
-              REDEFINE TU <span className="gradient-text">ALCANCE</span>
+              {t('voxis.cap.title1', 'REDEFINE TU')} <span className="gradient-text">{t('voxis.cap.title2', 'ALCANCE')}</span>
             </h2>
             <p style={{ fontSize: '1.3rem', color: 'rgba(255,255,255,0.4)', maxWidth: '700px', margin: '0 auto' }}>
-              Automatización de voz que no solo responde, sino que ejecuta acciones estratégicas para tu negocio.
+              {t('voxis.cap.desc', 'Automatización de voz que no solo responde, sino que ejecuta acciones estratégicas para tu negocio.')}
             </p>
           </motion.div>
 
@@ -504,38 +506,38 @@ export default function Voxis({ onNavigate }) {
             <CapacityCard 
               index={0}
               icon={<Phone />}
-              title="Atención Automática"
+              title={t('voxis.cap.c1Title', "Atención Automática")}
               desc={[
-                "Responde en segundos",
-                "Entiende preguntas reales",
-                "Da respuestas claras",
-                "Escala solo cuando hace falta"
+                t('voxis.cap.c1_1', "Responde en segundos"),
+                t('voxis.cap.c1_2', "Entiende preguntas reales"),
+                t('voxis.cap.c1_3', "Da respuestas claras"),
+                t('voxis.cap.c1_4', "Escala solo cuando hace falta")
               ]}
-              result="Resultado: ningún cliente se queda sin atención."
+              result={t('voxis.cap.c1Res', "Resultado: ningún cliente se queda sin atención.")}
             />
             <CapacityCard 
               index={1}
               icon={<Calendar />}
-              title="Agendamiento Inteligente"
+              title={t('voxis.cap.c2Title', "Agendamiento Inteligente")}
               desc={[
-                "Reserva, confirma y reprograma",
-                "Integración con calendarios y CRM",
-                "Sincronización bidireccional",
-                "Recordatorios automáticos"
+                t('voxis.cap.c2_1', "Reserva, confirma y reprograma"),
+                t('voxis.cap.c2_2', "Integración con calendarios y CRM"),
+                t('voxis.cap.c2_3', "Sincronización bidireccional"),
+                t('voxis.cap.c2_4', "Recordatorios automáticos")
               ]}
-              result="Resultado: más citas confirmadas, menos caos."
+              result={t('voxis.cap.c2Res', "Resultado: más citas confirmadas, menos caos.")}
             />
             <CapacityCard 
               index={2}
               icon={<TrendingUp />}
-              title="Calificación & Ventas"
+              title={t('voxis.cap.c3Title', "Calificación & Ventas")}
               desc={[
-                "Llama leads automáticamente",
-                "Detecta intención de compra",
-                "Entrega oportunidades listas",
-                "Cierre de ventas guiado"
+                t('voxis.cap.c3_1', "Llama leads automáticamente"),
+                t('voxis.cap.c3_2', "Detecta intención de compra"),
+                t('voxis.cap.c3_3', "Entrega oportunidades listas"),
+                t('voxis.cap.c3_4', "Cierre de ventas guiado")
               ]}
-              result="Resultado: tu equipo vende, no persigue."
+              result={t('voxis.cap.c3Res', "Resultado: tu equipo vende, no persigue.")}
             />
           </div>
         </div>
@@ -547,10 +549,10 @@ export default function Voxis({ onNavigate }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'center' }}>
             <motion.div {...fadeInUp}>
               <h2 style={{ fontSize: '3.5rem', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px' }}>
-                PARA QUIÉN ES <br /> <span className="gradient-text">VØXIS</span>
+                {t('voxis.industry.title', 'PARA QUIÉN ES')} <br /> <span className="gradient-text">VØXIS</span>
               </h2>
               <p style={{ fontSize: '1.3rem', color: 'rgba(255,255,255,0.4)', lineHeight: '1.8', marginBottom: '40px' }}>
-                VØXIS funciona donde la voz importa. Si tu negocio recibe llamadas y busca eficiencia sin sacrificar la calidad humana, VØXIS es tu aliado perfecto.
+                {t('voxis.industry.desc', 'VØXIS funciona donde la voz importa. Si tu negocio recibe llamadas y busca eficiencia sin sacrificar la calidad humana, VØXIS es tu aliado perfecto.')}
               </p>
               <motion.button 
                 style={{
@@ -577,19 +579,19 @@ export default function Voxis({ onNavigate }) {
                   }, 100);
                 }}
               >
-                Solicitar Diagnóstico <ChevronRight size={22} />
+                {t('voxis.industry.btn', 'Solicitar Diagnóstico')} <ChevronRight size={22} />
               </motion.button>
             </motion.div>
 
             <div 
               className="industry-tags-grid"
               style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
-              <IndustryTag icon={<Heart size={24} />} text="Clínicas y Salud" />
-              <IndustryTag icon={<Home size={24} />} text="Inmobiliarias" />
-              <IndustryTag icon={<Hotel size={24} />} text="Hotelería y Reservas" />
-              <IndustryTag icon={<GraduationCap size={24} />} text="Educación" />
-              <IndustryTag icon={<Store size={24} />} text="E-commerce" />
-              <IndustryTag icon={<Briefcase size={24} />} text="Empresas de Servicios" />
+              <IndustryTag icon={<Heart size={24} />} text={t('voxis.industry.i1', "Clínicas y Salud")} />
+              <IndustryTag icon={<Home size={24} />} text={t('voxis.industry.i2', "Inmobiliarias")} />
+              <IndustryTag icon={<Hotel size={24} />} text={t('voxis.industry.i3', "Hotelería y Reservas")} />
+              <IndustryTag icon={<GraduationCap size={24} />} text={t('voxis.industry.i4', "Educación")} />
+              <IndustryTag icon={<Store size={24} />} text={t('voxis.industry.i5', "E-commerce")} />
+              <IndustryTag icon={<Briefcase size={24} />} text={t('voxis.industry.i6', "Empresas de Servicios")} />
             </div>
           </div>
         </div>

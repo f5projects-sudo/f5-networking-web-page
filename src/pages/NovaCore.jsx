@@ -12,8 +12,10 @@ import {
 import NovaParticles from '../components/NovaParticles';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function NovaCore({ onNavigate }) {
+  const { t } = useLanguage();
   const [targetShape, setTargetShape] = useState('text'); // 'text', 'scatter', 'card'
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
@@ -135,7 +137,7 @@ export default function NovaCore({ onNavigate }) {
               cursor: 'pointer'
             }}
           >
-            <span style={{ fontSize: '0.8rem', letterSpacing: '2px', fontWeight: 'bold', opacity: 0.8 }}>SCROLL DOWN</span>
+            <span style={{ fontSize: '0.8rem', letterSpacing: '2px', fontWeight: 'bold', opacity: 0.8 }}>{t('novacore.hero.scroll', 'SCROLL DOWN')}</span>
             <ChevronDown size={30} />
           </motion.div>
         </motion.div>
@@ -146,13 +148,13 @@ export default function NovaCore({ onNavigate }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 100%, 300px), 1fr))', gap: 'clamp(30px, 5vw, 50px)', alignItems: 'center' }}>
           <motion.div {...fadeInUp}>
             <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', border: '1px solid rgba(0,180,255,0.2)', marginBottom: '20px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px' }}>
-              TECNOLOGÍA DE VANGUARDIA
+              {t('novacore.info.tag', 'TECNOLOGÍA DE VANGUARDIA')}
             </div>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold', lineHeight: 1.2 }}>
-              Atención Al Cliente <br/><span className="gradient-text">Inteligente 24/7</span>
+              {t('novacore.info.title1', 'Atención Al Cliente')} <br/><span className="gradient-text">{t('novacore.info.title2', 'Inteligente 24/7')}</span>
             </h2>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.9' }}>
-              NOVA CORE es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos, opera 24/7 y transforma cada interacción en resultados medibles.
+              {t('novacore.info.desc', 'NOVA CORE es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos, opera 24/7 y transforma cada interacción en resultados medibles.')}
             </p>
           </motion.div>
           <motion.div {...fadeInUp} style={{ position: 'relative' }}>
@@ -170,7 +172,7 @@ export default function NovaCore({ onNavigate }) {
       {/* ── Intro / What sets us apart ── */}
       <section id="nova-features" className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '100px' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '15px' }}>¿QUÉ NOS <span className="gradient-text">CARACTERIZA?</span></h2>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)', marginBottom: '15px' }}>{t('novacore.features.title1', '¿QUÉ NOS')} <span className="gradient-text">{t('novacore.features.title2', 'CARACTERIZA?')}</span></h2>
           <div style={{ width: '80px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
         </motion.div>
 
@@ -184,36 +186,36 @@ export default function NovaCore({ onNavigate }) {
           {/* Feature 1 */}
           <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}>
             <Activity size={40} style={{ color: 'var(--color-primary)', marginBottom: '20px' }} />
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Visibilidad y control en tiempo real</h3>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Monitorea y analiza la actividad de tu operación con herramientas avanzadas de seguimiento. Obtén datos claros para optimizar procesos, mejorar el rendimiento y tomar decisiones con mayor precisión.</p>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>{t('novacore.features.f1.title', 'Visibilidad y control en tiempo real')}</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>{t('novacore.features.f1.desc', 'Monitorea y analiza la actividad de tu operación con herramientas avanzadas de seguimiento. Obtén datos claros para optimizar procesos, mejorar el rendimiento y tomar decisiones con mayor precisión.')}</p>
           </motion.div>
 
           {/* Feature 2 */}
           <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-secondary)' }}>
             <PhoneOutgoing size={40} style={{ color: 'var(--color-secondary)', marginBottom: '20px' }} />
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Visualiza todas las llamadas salientes</h3>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Accede a un historial completo de llamadas realizadas y mantén un control detallado de la actividad en tiempo real.</p>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>{t('novacore.features.f2.title', 'Visualiza todas las llamadas salientes')}</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>{t('novacore.features.f2.desc', 'Accede a un historial completo de llamadas realizadas y mantén un control detallado de la actividad en tiempo real.')}</p>
           </motion.div>
 
           {/* Feature 3 */}
           <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-accent)' }}>
             <Filter size={40} style={{ color: 'var(--color-accent)', marginBottom: '20px' }} />
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Filtra por fecha, hora y rangos</h3>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Encuentra información específica rápidamente aplicando filtros avanzados según el periodo que necesites analizar.</p>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>{t('novacore.features.f3.title', 'Filtra por fecha, hora y rangos')}</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>{t('novacore.features.f3.desc', 'Encuentra información específica rápidamente aplicando filtros avanzados según el periodo que necesites analizar.')}</p>
           </motion.div>
 
           {/* Feature 4 */}
           <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-primary)' }}>
             <Clock size={40} style={{ color: 'var(--color-primary)', marginBottom: '20px' }} />
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Consulta duración y número de intentos</h3>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Revisa métricas clave como duración de llamadas y cantidad de intentos para medir eficiencia y rendimiento.</p>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>{t('novacore.features.f4.title', 'Consulta duración y número de intentos')}</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>{t('novacore.features.f4.desc', 'Revisa métricas clave como duración de llamadas y cantidad de intentos para medir eficiencia y rendimiento.')}</p>
           </motion.div>
 
           {/* Feature 5 */}
           <motion.div variants={itemVariants} className="glass" style={{ padding: '40px', borderRadius: '20px' }} whileHover={{ y: -10, border: '1px solid var(--color-secondary)' }}>
             <TrendingUp size={40} style={{ color: 'var(--color-secondary)', marginBottom: '20px' }} />
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>Analiza el tráfico por hora</h3>
-            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>Identifica picos de llamadas para optimizar recursos. Detecta los horarios con mayor actividad para mejorar la distribución de personal, automatización y capacidad operativa.</p>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '15px', color: 'white' }}>{t('novacore.features.f5.title', 'Analiza el tráfico por hora')}</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.6' }}>{t('novacore.features.f5.desc', 'Identifica picos de llamadas para optimizar recursos. Detecta los horarios con mayor actividad para mejorar la distribución de personal, automatización y capacidad operativa.')}</p>
           </motion.div>
         </motion.div>
       </section>
@@ -237,16 +239,16 @@ export default function NovaCore({ onNavigate }) {
           </motion.div>
           <motion.div {...fadeInUp}>
             <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(255,140,0,0.15)', color: 'var(--color-secondary)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', marginBottom: '20px', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '1px', alignItems: 'center', gap: '8px' }}>
-              <ShieldCheck size={16} /> SEGURIDAD TOTAL
+              <ShieldCheck size={16} /> {t('novacore.cash.tag', 'SEGURIDAD TOTAL')}
             </div>
             <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', color: 'white', marginBottom: '20px', fontWeight: 'bold' }}>
               <span style={{ color: 'var(--color-secondary)' }}>NOVA</span> CASH
             </h2>
             <h3 style={{ fontSize: '1.4rem', color: 'white', marginBottom: '25px', fontWeight: '500', lineHeight: 1.4 }}>
-              Control, validación y seguridad para tus operaciones financieras.
+              {t('novacore.cash.title', 'Control, validación y seguridad para tus operaciones financieras.')}
             </h3>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
-              Nova Cash es una solución diseñada para brindar visibilidad total de la operación, optimizar la validación de préstamos y garantizar altos estándares de seguridad y control en cada paso de tus transacciones.
+              {t('novacore.cash.desc', 'Nova Cash es una solución diseñada para brindar visibilidad total de la operación, optimizar la validación de préstamos y garantizar altos estándares de seguridad y control en cada paso de tus transacciones.')}
             </p>
           </motion.div>
         </div>
@@ -255,7 +257,7 @@ export default function NovaCore({ onNavigate }) {
       {/* ── CTA / Other Services ── */}
       <section id="nova-cta" className="section-container" style={{ textAlign: 'center', paddingBottom: '100px', position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} className="glass" style={{ padding: 'clamp(30px, 5vw, 60px)', borderRadius: '30px', maxWidth: '800px', margin: '0 auto' }}>
-          <h3 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '30px', color: 'white' }}>¡Conoce nuestros <span className="gradient-text">otros servicios!</span></h3>
+          <h3 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '30px', color: 'white' }}>{t('novacore.cta.title1', '¡Conoce nuestros')} <span className="gradient-text">{t('novacore.cta.title2', 'otros servicios!')}</span></h3>
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(255, 140, 0, 0.5)' }}
             whileTap={{ scale: 0.95 }}
@@ -269,7 +271,7 @@ export default function NovaCore({ onNavigate }) {
               }, 100);
             }}
           >
-            Volver a Inicio
+            {t('novacore.cta.btn', 'Volver a Inicio')}
           </motion.button>
         </motion.div>
       </section>

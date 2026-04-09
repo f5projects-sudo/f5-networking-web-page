@@ -5,8 +5,10 @@ import DecryptedText from '../components/DecryptedText';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CardSwap, { Card } from '../components/CardSwap';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Desarrollo({ onNavigate }) {
+  const { t } = useLanguage();
   // Asegurar que la vista inicie arriba
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -66,7 +68,7 @@ export default function Desarrollo({ onNavigate }) {
             <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', border: '1px solid rgba(0,180,255,0.2)', marginBottom: '20px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '2px', alignItems: 'center', gap: '8px' }}>
               <Code size={16} /> 
               <DecryptedText 
-                text="ENGINEERING THE FUTURE" 
+                text={t('desarrollo.hero.tag', 'ENGINEERING THE FUTURE')} 
                 animateOn="view"
                 speed={30}
                 maxIterations={10}
@@ -75,7 +77,7 @@ export default function Desarrollo({ onNavigate }) {
             
             <h1 style={{ fontSize: 'clamp(3rem, 6vw, 5.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.1, marginBottom: '30px' }}>
               <DecryptedText 
-                text="Desarrollo" 
+                text={t('desarrollo.hero.title1', 'Desarrollo')} 
                 animateOn="view"
                 speed={40} 
                 className="gradient-text" 
@@ -83,7 +85,7 @@ export default function Desarrollo({ onNavigate }) {
               />
               <br />
               <DecryptedText 
-                text="de Software" 
+                text={t('desarrollo.hero.title2', 'de Software')} 
                 animateOn="view"
                 speed={40} 
                 maxIterations={20}
@@ -93,7 +95,7 @@ export default function Desarrollo({ onNavigate }) {
 
             <p style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', lineHeight: '1.8', maxWidth: '700px' }}>
               <DecryptedText 
-                text="El desarrollo de software es el proceso integral de diseñar, crear, probar, implementar y mantener aplicaciones y sistemas informáticos, desde una app sencilla hasta plataformas complejas." 
+                text={t('desarrollo.hero.desc', 'El desarrollo de software es el proceso integral de diseñar, crear, probar, implementar y mantener aplicaciones y sistemas informáticos, desde una app sencilla hasta plataformas complejas.')} 
                 animateOn="view"
                 speed={40}
                 maxIterations={10}
@@ -109,32 +111,32 @@ export default function Desarrollo({ onNavigate }) {
           
           <motion.div {...fadeInUp}>
             <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', marginBottom: '30px', color: 'white', fontWeight: 'bold' }}>
-              Transformamos ideas en <span style={{ color: 'var(--color-primary)' }}>soluciones</span> funcionales
+              {t('desarrollo.intro.title1', 'Transformamos ideas en')} <span style={{ color: 'var(--color-primary)' }}>{t('desarrollo.intro.title2', 'soluciones')}</span> {t('desarrollo.intro.title3', 'funcionales')}
             </h2>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.9', marginBottom: '30px' }}>
-              Este proceso utiliza lenguajes de programación y metodologías especializadas para convertir conceptos en herramientas poderosas. Resolvemos problemas operativos, optimizamos procesos internos y mejoramos drásticamente la experiencia del usuario final.
+              {t('desarrollo.intro.desc', 'Este proceso utiliza lenguajes de programación y metodologías especializadas para convertir conceptos en herramientas poderosas. Resolvemos problemas operativos, optimizamos procesos internos y mejoramos drásticamente la experiencia del usuario final.')}
             </p>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                 <div style={{ padding: '12px', background: 'rgba(0,180,255,0.1)', borderRadius: '12px', color: 'var(--color-accent)' }}><Cpu size={24} /></div>
                 <div>
-                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>Arquitectura Robusta</h4>
-                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Sistemas diseñados para escalar y soportar altas demandas comerciales.</p>
+                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>{t('desarrollo.intro.f1Title', 'Arquitectura Robusta')}</h4>
+                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>{t('desarrollo.intro.f1Desc', 'Sistemas diseñados para escalar y soportar altas demandas comerciales.')}</p>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                 <div style={{ padding: '12px', background: 'rgba(0,86,179,0.1)', borderRadius: '12px', color: 'var(--color-primary)' }}><Shield size={24} /></div>
                 <div>
-                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>Seguridad Integral</h4>
-                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Protección de datos y código construido bajo los mejores estándares de la industria.</p>
+                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>{t('desarrollo.intro.f2Title', 'Seguridad Integral')}</h4>
+                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>{t('desarrollo.intro.f2Desc', 'Protección de datos y código construido bajo los mejores estándares de la industria.')}</p>
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
                 <div style={{ padding: '12px', background: 'rgba(255,140,0,0.1)', borderRadius: '12px', color: 'var(--color-secondary)' }}><Zap size={24} /></div>
                 <div>
-                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>Despliegue Rápido</h4>
-                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>Metodologías ágiles que garantizan entregas eficientes y continuas.</p>
+                  <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px' }}>{t('desarrollo.intro.f3Title', 'Despliegue Rápido')}</h4>
+                  <p style={{ color: 'var(--color-text-muted)', margin: 0 }}>{t('desarrollo.intro.f3Desc', 'Metodologías ágiles que garantizan entregas eficientes y continuas.')}</p>
                 </div>
               </div>
             </div>
@@ -180,9 +182,9 @@ export default function Desarrollo({ onNavigate }) {
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <Terminal size={20} color="var(--color-primary)" />
-                    <h3 style={{ margin: 0 }}>Ingeniería de Software</h3>
+                    <h3 style={{ margin: 0 }}>{t('desarrollo.cards.c1Title', 'Ingeniería de Software')}</h3>
                   </div>
-                  <p>Desarrollo integral de proyectos tecnológicos con recursos y perfiles altamente especializados.</p>
+                  <p>{t('desarrollo.cards.c1Desc', 'Desarrollo integral de proyectos tecnológicos con recursos y perfiles altamente especializados.')}</p>
                 </div>
               </Card>
               <Card>
@@ -190,9 +192,9 @@ export default function Desarrollo({ onNavigate }) {
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <RefreshCw size={20} color="var(--color-primary)" />
-                    <h3 style={{ margin: 0 }}>Refactorización</h3>
+                    <h3 style={{ margin: 0 }}>{t('desarrollo.cards.c2Title', 'Refactorización')}</h3>
                   </div>
-                  <p>Transformamos sistemas heredados para disminuir riesgos operativos y maximizar el rendimiento.</p>
+                  <p>{t('desarrollo.cards.c2Desc', 'Transformamos sistemas heredados para disminuir riesgos operativos y maximizar el rendimiento.')}</p>
                 </div>
               </Card>
               <Card>
@@ -200,9 +202,9 @@ export default function Desarrollo({ onNavigate }) {
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <Lock size={20} color="var(--color-primary)" />
-                    <h3 style={{ margin: 0 }}>Seguridad y Protección</h3>
+                    <h3 style={{ margin: 0 }}>{t('desarrollo.cards.c3Title', 'Seguridad y Protección')}</h3>
                   </div>
-                  <p>Prácticas de desarrollo seguro y pruebas continuas para asegurar la integridad de la información.</p>
+                  <p>{t('desarrollo.cards.c3Desc', 'Prácticas de desarrollo seguro y pruebas continuas para asegurar la integridad de la información.')}</p>
                 </div>
               </Card>
             </CardSwap>
@@ -225,33 +227,33 @@ export default function Desarrollo({ onNavigate }) {
               width: 'fit-content',
               margin: window.innerWidth < 1024 ? '0 auto 20px auto' : '0 0 20px 0'
             }}>
-              SERVICIOS ESPECIALIZADOS
+              {t('desarrollo.services.tag', 'SERVICIOS ESPECIALIZADOS')}
             </div>
-            <h2 style={{ fontSize: 'clamp(1.6rem, 5vw, 2.5rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>Nuestra <span style={{ color: 'var(--color-secondary)' }}>Experiencia</span></h2>
+            <h2 style={{ fontSize: 'clamp(1.6rem, 5vw, 2.5rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>{t('desarrollo.services.title1', 'Nuestra')} <span style={{ color: 'var(--color-secondary)' }}>{t('desarrollo.services.title2', 'Experiencia')}</span></h2>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
               <div>
                 <h4 style={{ color: 'white', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <Terminal size={18} /> INGENIERÍA DE SOFTWARE
+                  <Terminal size={18} /> {t('desarrollo.services.s1Title', 'INGENIERÍA DE SOFTWARE')}
                 </h4>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
-                  Nos especializamos en el desarrollo integral de proyectos tecnológicos, ofreciendo recursos, experiencia y perfiles altamente especializados.
+                  {t('desarrollo.services.s1Desc', 'Nos especializamos en el desarrollo integral de proyectos tecnológicos, ofreciendo recursos, experiencia y perfiles altamente especializados.')}
                 </p>
               </div>
               <div>
                 <h4 style={{ color: 'white', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <RefreshCw size={18} /> ACTUALIZACIÓN / REFACTORIZACIÓN
+                  <RefreshCw size={18} /> {t('desarrollo.services.s2Title', 'ACTUALIZACIÓN / REFACTORIZACIÓN')}
                 </h4>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
-                  Transformamos sistemas heredados para disminuir riesgos operativos, adaptarlos a requisitos actuales y maximizar su rendimiento.
+                  {t('desarrollo.services.s2Desc', 'Transformamos sistemas heredados para disminuir riesgos operativos, adaptarlos a requisitos actuales y maximizar su rendimiento.')}
                 </p>
               </div>
               <div>
                 <h4 style={{ color: 'white', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <Lock size={18} /> SEGURIDAD Y PROTECCIÓN
+                  <Lock size={18} /> {t('desarrollo.services.s3Title', 'SEGURIDAD Y PROTECCIÓN')}
                 </h4>
                 <p style={{ color: 'var(--color-text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
-                  La seguridad del software consiste en proteger aplicaciones y datos frente a accesos no autorizados mediante prácticas de desarrollo seguro y pruebas continuas.
+                  {t('desarrollo.services.s3Desc', 'La seguridad del software consiste en proteger aplicaciones y datos frente a accesos no autorizados mediante prácticas de desarrollo seguro y pruebas continuas.')}
                 </p>
               </div>
             </div>

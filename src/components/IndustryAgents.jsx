@@ -15,83 +15,86 @@ import {
   Headset 
 } from 'lucide-react';
 
-const industries = [
-  {
-    icon: <Receipt size={32} />,
-    title: "Collections",
-    description: "Automatización de cobranza y seguimiento de pagos de forma eficiente.",
-    color: "var(--color-primary)" // blue
-  },
-  {
-    icon: <Bot size={32} />,
-    title: "Asistente virtual",
-    description: "Atención automática 24/7 para resolver dudas y guiar a tus usuarios.",
-    color: "var(--color-secondary)" // orange
-  },
-  {
-    icon: <Home size={32} />,
-    title: "Bienes raíces",
-    description: "Gestión inteligente de prospectos, citas y seguimiento comercial.",
-    color: "var(--color-accent)" // teal/cyan
-  },
-  {
-    icon: <LineChart size={32} />,
-    title: "Finanzas",
-    description: "Optimización de procesos financieros, reportes y atención a clientes.",
-    color: "var(--color-primary)" // blue
-  },
-  {
-    icon: <Activity size={32} />,
-    title: "Hospitales",
-    description: "Automatización de citas, información médica y atención al paciente.",
-    color: "#ff4d4f" // red
-  },
-  {
-    icon: <ShoppingCart size={32} />,
-    title: "E-commerce",
-    description: "Soporte de ventas, seguimiento de pedidos y atención postventa.",
-    color: "var(--color-secondary)" // orange
-  },
-  {
-    icon: <FileText size={32} />,
-    title: "Información",
-    description: "Clasificación, gestión y respuesta automática a solicitudes frecuentes.",
-    color: "var(--color-accent)" // teal/cyan
-  },
-  {
-    icon: <GraduationCap size={32} />,
-    title: "Educación",
-    description: "Atención a estudiantes, inscripciones y soporte académico automatizado.",
-    color: "#9b59b6" // purple
-  },
-  {
-    icon: <Wrench size={32} />,
-    title: "Utilidades",
-    description: "Gestión de servicios, reportes y comunicación con usuarios.",
-    color: "var(--color-primary)" // blue
-  },
-  {
-    icon: <Landmark size={32} />,
-    title: "Bancos",
-    description: "Atención segura, automatización de consultas y procesos internos.",
-    color: "#52c41a" // green
-  },
-  {
-    icon: <Briefcase size={32} />,
-    title: "Negocios",
-    description: "Optimización operativa y atención inteligente para distintos giros.",
-    color: "var(--color-secondary)" // orange
-  },
-  {
-    icon: <Headset size={32} />,
-    title: "Atención al cliente",
-    description: "Respuestas rápidas, seguimiento y mejora de la experiencia del usuario.",
-    color: "var(--color-accent)" // teal/cyan
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const IndustryAgents = () => {
+  const { t } = useLanguage();
   const [isSmallScreen, setIsSmallScreen] = React.useState(window.innerWidth < 400);
+
+  const industries = [
+    {
+      icon: <Receipt size={32} />,
+      title: t('industryAgents.collections.title', "Collections"),
+      description: t('industryAgents.collections.desc', "Automatización de cobranza y seguimiento de pagos de forma eficiente."),
+      color: "var(--color-primary)" // blue
+    },
+    {
+      icon: <Bot size={32} />,
+      title: t('industryAgents.virtualAssistant.title', "Asistente virtual"),
+      description: t('industryAgents.virtualAssistant.desc', "Atención automática 24/7 para resolver dudas y guiar a tus usuarios."),
+      color: "var(--color-secondary)" // orange
+    },
+    {
+      icon: <Home size={32} />,
+      title: t('industryAgents.realEstate.title', "Bienes raíces"),
+      description: t('industryAgents.realEstate.desc', "Gestión inteligente de prospectos, citas y seguimiento comercial."),
+      color: "var(--color-accent)" // teal/cyan
+    },
+    {
+      icon: <LineChart size={32} />,
+      title: t('industryAgents.finance.title', "Finanzas"),
+      description: t('industryAgents.finance.desc', "Optimización de procesos financieros, reportes y atención a clientes."),
+      color: "var(--color-primary)" // blue
+    },
+    {
+      icon: <Activity size={32} />,
+      title: t('industryAgents.hospitals.title', "Hospitales"),
+      description: t('industryAgents.hospitals.desc', "Automatización de citas, información médica y atención al paciente."),
+      color: "#ff4d4f" // red
+    },
+    {
+      icon: <ShoppingCart size={32} />,
+      title: t('industryAgents.ecommerce.title', "E-commerce"),
+      description: t('industryAgents.ecommerce.desc', "Soporte de ventas, seguimiento de pedidos y atención postventa."),
+      color: "var(--color-secondary)" // orange
+    },
+    {
+      icon: <FileText size={32} />,
+      title: t('industryAgents.information.title', "Información"),
+      description: t('industryAgents.information.desc', "Clasificación, gestión y respuesta automática a solicitudes frecuentes."),
+      color: "var(--color-accent)" // teal/cyan
+    },
+    {
+      icon: <GraduationCap size={32} />,
+      title: t('industryAgents.education.title', "Educación"),
+      description: t('industryAgents.education.desc', "Atención a estudiantes, inscripciones y soporte académico automatizado."),
+      color: "#9b59b6" // purple
+    },
+    {
+      icon: <Wrench size={32} />,
+      title: t('industryAgents.utilities.title', "Utilidades"),
+      description: t('industryAgents.utilities.desc', "Gestión de servicios, reportes y comunicación con usuarios."),
+      color: "var(--color-primary)" // blue
+    },
+    {
+      icon: <Landmark size={32} />,
+      title: t('industryAgents.banks.title', "Bancos"),
+      description: t('industryAgents.banks.desc', "Atención segura, automatización de consultas y procesos internos."),
+      color: "#52c41a" // green
+    },
+    {
+      icon: <Briefcase size={32} />,
+      title: t('industryAgents.business.title', "Negocios"),
+      description: t('industryAgents.business.desc', "Optimización operativa y atención inteligente para distintos giros."),
+      color: "var(--color-secondary)" // orange
+    },
+    {
+      icon: <Headset size={32} />,
+      title: t('industryAgents.customerService.title', "Atención al cliente"),
+      description: t('industryAgents.customerService.desc', "Respuestas rápidas, seguimiento y mejora de la experiencia del usuario."),
+      color: "var(--color-accent)" // teal/cyan
+    }
+  ];
 
   React.useEffect(() => {
     const handleResize = () => setIsSmallScreen(window.innerWidth < 400);

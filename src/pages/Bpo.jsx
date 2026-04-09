@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
 
 const MethodologyStep = ({ id, title, desc, icon, color, delay, isEven }) => {
   return (
@@ -326,6 +327,7 @@ const ServiceNode = ({ icon, text, index }) => (
 );
 
 export default function Bpo({ onNavigate }) {
+  const { t } = useLanguage();
   // Asegurar que la vista inicie arriba
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -420,16 +422,16 @@ export default function Bpo({ onNavigate }) {
               fontWeight: '900', fontSize: '1rem', letterSpacing: '2px', alignItems: 'center', gap: '10px', 
               marginBottom: '20px' 
             }}>
-              <Headset size={20} /> BPO SERVICES
+              <Headset size={20} /> {t('bpo.hero.tag', 'BPO SERVICES')}
             </div>
             
             <h1 style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', fontWeight: '900', lineHeight: 1.1, marginBottom: '15px', textShadow: '0 5px 15px rgba(0,0,0,0.8)' }}>
-              UN SOCIO ESTRATÉGICO <br />
-              <span className="gradient-text" style={{ fontSize: '0.85em' }}>QUE ENTIENDE TU OPERACIÓN</span>
+              {t('bpo.hero.title1', 'UN SOCIO ESTRATÉGICO')} <br />
+              <span className="gradient-text" style={{ fontSize: '0.85em' }}>{t('bpo.hero.title2', 'QUE ENTIENDE TU OPERACIÓN')}</span>
             </h1>
 
             <p style={{ fontSize: '1.05rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6', marginBottom: '30px', textShadow: '0 2px 10px rgba(0,0,0,0.6)' }}>
-              En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
+              {t('bpo.hero.desc', 'En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.')}
             </p>
  
             <motion.button 
@@ -445,7 +447,7 @@ export default function Bpo({ onNavigate }) {
                 setTimeout(() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }), 100);
               }}
             >
-              ¡Me Interesa! <ChevronRight size={22} />
+              {t('bpo.hero.btn', '¡Me Interesa!')} <ChevronRight size={22} />
             </motion.button>
           </div>
         </section>
@@ -516,7 +518,7 @@ export default function Bpo({ onNavigate }) {
                 gap: '15px' 
               }}
             >
-              <Headset size={24} /> BPO SERVICES
+              <Headset size={24} /> {t('bpo.hero.tag', 'BPO SERVICES')}
             </motion.div>
 
             <div style={{ position: 'relative', zIndex: 20, width: '100%', maxWidth: '1200px', padding: '40px clamp(15px, 5vw, 40px) 0', display: 'flex', justifyContent: 'flex-start' }}>
@@ -534,8 +536,8 @@ export default function Bpo({ onNavigate }) {
                   marginBottom: '15px',
                   textShadow: '0 10px 30px rgba(0,0,0,0.5)'
                 }}>
-                  UN SOCIO ESTRATÉGICO <br />
-                  <span className="gradient-text" style={{ fontSize: '0.9em' }}>QUE ENTIENDE TU OPERACIÓN</span>
+                  {t('bpo.hero.title1', 'UN SOCIO ESTRATÉGICO')} <br />
+                  <span className="gradient-text" style={{ fontSize: '0.9em' }}>{t('bpo.hero.title2', 'QUE ENTIENDE TU OPERACIÓN')}</span>
                 </h1>
 
                 <p style={{ 
@@ -546,7 +548,7 @@ export default function Bpo({ onNavigate }) {
                   maxWidth: '650px',
                   textShadow: '0 2px 10px rgba(0,0,0,0.3)'
                 }}>
-                  En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.
+                  {t('bpo.hero.desc', 'En F5 conocemos que las mejores operaciones comienzan escuchando. Analizamos tus necesidades, entendemos tus prioridades y diseñamos soluciones BPO a la medida.')}
                 </p>
 
                 <div style={{ display: 'flex', gap: '20px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -574,7 +576,7 @@ export default function Bpo({ onNavigate }) {
                       }, 100);
                     }}
                   >
-                    ¡Me Interesa! <ChevronRight size={22} />
+                    {t('bpo.hero.btn', '¡Me Interesa!')} <ChevronRight size={22} />
                   </motion.button>
                 </div>
               </motion.div>
@@ -595,13 +597,13 @@ export default function Bpo({ onNavigate }) {
             {...fadeInUp}
           >
             <div style={{ display: 'inline-flex', padding: '8px 20px', background: 'rgba(255,140,0,0.1)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', color: 'var(--color-secondary)', fontSize: '0.9rem', fontWeight: '700', letterSpacing: '2px', marginBottom: '25px' }}>
-              PROCESO ESTRATÉGICO
+              {t('bpo.process.tag', 'PROCESO ESTRATÉGICO')}
             </div>
             <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px', lineHeight: '1' }}>
-              NUESTRA <span className="gradient-text">EXTENSIÓN</span> <br /> OPERATIVA
+              {t('bpo.process.title1', 'NUESTRA')} <span className="gradient-text">{t('bpo.process.title2', 'EXTENSIÓN')}</span> <br /> {t('bpo.process.title3', 'OPERATIVA')}
             </h2>
             <p style={{ fontSize: '1.3rem', color: 'rgba(255,255,255,0.4)', maxWidth: '800px', margin: '0 auto', lineHeight: '1.8' }}>
-              Diseñamos soluciones que trascienden la simple subcontratación. Somos el engranaje que potencia tu crecimiento con precisión quirúrgica.
+              {t('bpo.process.desc', 'Diseñamos soluciones que trascienden la simple subcontratación. Somos el engranaje que potencia tu crecimiento con precisión quirúrgica.')}
             </p>
           </motion.div>
 
@@ -624,29 +626,29 @@ export default function Bpo({ onNavigate }) {
             {[
               {
                 id: '01',
-                title: 'Escucha Activa',
-                desc: 'Auditoría exhaustiva de tus flujos de trabajo para identificar los pilares de tu éxito.',
+                title: t('bpo.process.s1Title', 'Escucha Activa'),
+                desc: t('bpo.process.s1Desc', 'Auditoría exhaustiva de tus flujos de trabajo para identificar los pilares de tu éxito.'),
                 icon: <Headset />,
                 color: 'var(--color-secondary)'
               },
               {
                 id: '02',
-                title: 'Análisis Estratégico',
-                desc: 'Inteligencia de datos aplicada para transformar debilidades en ventajas competitivas.',
+                title: t('bpo.process.s2Title', 'Análisis Estratégico'),
+                desc: t('bpo.process.s2Desc', 'Inteligencia de datos aplicada para transformar debilidades en ventajas competitivas.'),
                 icon: <BarChart3 />,
                 color: '#00b4ff'
               },
               {
                 id: '03',
-                title: 'Implementación Ágil',
-                desc: 'Despliegue táctico de recursos con tecnología de punta y supervisión 24/7.',
+                title: t('bpo.process.s3Title', 'Implementación Ágil'),
+                desc: t('bpo.process.s3Desc', 'Despliegue táctico de recursos con tecnología de punta y supervisión 24/7.'),
                 icon: <Zap />,
                 color: 'var(--color-primary)'
               },
               {
                 id: '04',
-                title: 'Optimización PCL',
-                desc: 'Control de calidad basado en resultados reales y mejora continua perpetua.',
+                title: t('bpo.process.s4Title', 'Optimización PCL'),
+                desc: t('bpo.process.s4Desc', 'Control de calidad basado en resultados reales y mejora continua perpetua.'),
                 icon: <TrendingUp />,
                 color: '#10b981'
               }
@@ -670,24 +672,24 @@ export default function Bpo({ onNavigate }) {
             style={{ textAlign: 'center', marginBottom: '80px' }}
           >
             <div style={{ display: 'inline-block', marginBottom: '20px', padding: '6px 15px', borderRadius: '10px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', fontFamily: 'monospace', fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)' }}>
-              COMPLIANCE & SECURITY LAYERS
+              {t('bpo.model.tag', 'COMPLIANCE & SECURITY LAYERS')}
             </div>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: '900', marginBottom: '25px', letterSpacing: '-1.5px' }}>
-              NUESTRO <span className="gradient-text">MODELO OPERATIVO</span>
+              {t('bpo.model.title1', 'NUESTRO')} <span className="gradient-text">{t('bpo.model.title2', 'MODELO OPERATIVO')}</span>
             </h2>
             <p style={{ maxWidth: '850px', margin: '0 auto', color: 'rgba(255,255,255,0.4)', fontSize: '1.2rem', lineHeight: '1.8' }}>
-              Implementamos protocolos de grado industrial para asegurar la integridad de tu información y la excelencia operativa constante.
+              {t('bpo.model.desc', 'Implementamos protocolos de grado industrial para asegurar la integridad de tu información y la excelencia operativa constante.')}
             </p>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px' }}>
             {[
-              { icon: <CheckCircle2 />, title: "Consentimiento y Privacidad", desc: "Gestión rigurosa de datos bajo estándares internacionales de protección." },
-              { icon: <Lock />, title: "Acceso Restringido", desc: "Doble factor de autenticación y control biométrico en todas nuestras capas." },
-              { icon: <Activity />, title: "Monitoreo y Auditoría", desc: "Supervisión proactiva en tiempo real con reportes de incidente automáticos." },
-              { icon: <Shield />, title: "Respuesta a Incidentes", desc: "Protocolos de acción inmediata para garantizar la continuidad del negocio." },
-              { icon: <Zap />, title: "Integración Tecnológica", desc: "Arquitectura robusta diseñada para un escalado sin interrupciones operativas." },
-              { icon: <Users />, title: "Gestión de Talento", desc: "Equipos certificados y en constante capacitación técnica y operativa." }
+              { icon: <CheckCircle2 />, title: t('bpo.model.m1Title', "Consentimiento y Privacidad"), desc: t('bpo.model.m1Desc', "Gestión rigurosa de datos bajo estándares internacionales de protección.") },
+              { icon: <Lock />, title: t('bpo.model.m2Title', "Acceso Restringido"), desc: t('bpo.model.m2Desc', "Doble factor de autenticación y control biométrico en todas nuestras capas.") },
+              { icon: <Activity />, title: t('bpo.model.m3Title', "Monitoreo y Auditoría"), desc: t('bpo.model.m3Desc', "Supervisión proactiva en tiempo real con reportes de incidente automáticos.") },
+              { icon: <Shield />, title: t('bpo.model.m4Title', "Respuesta a Incidentes"), desc: t('bpo.model.m4Desc', "Protocolos de acción inmediata para garantizar la continuidad del negocio.") },
+              { icon: <Zap />, title: t('bpo.model.m5Title', "Integración Tecnológica"), desc: t('bpo.model.m5Desc', "Arquitectura robusta diseñada para un escalado sin interrupciones operativas.") },
+              { icon: <Users />, title: t('bpo.model.m6Title', "Gestión de Talento"), desc: t('bpo.model.m6Desc', "Equipos certificados y en constante capacitación técnica y operativa.") }
             ].map((item, i) => (
               <OperationalCard key={i} {...item} index={i} />
             ))}
@@ -704,22 +706,22 @@ export default function Bpo({ onNavigate }) {
             <motion.div {...fadeInUp}>
               <div style={{ marginBottom: '40px' }}>
                 <div style={{ display: 'inline-block', marginBottom: '20px', padding: '6px 15px', borderRadius: '10px', background: 'rgba(0,180,255,0.1)', border: '1px solid rgba(0,180,255,0.2)', fontFamily: 'monospace', fontSize: '0.8rem', color: '#00b4ff', textTransform: 'uppercase', letterSpacing: '2px' }}>
-                  CORE OPERATIONS
+                  {t('bpo.services.tag', 'CORE OPERATIONS')}
                 </div>
                 <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: '900', marginBottom: '25px', letterSpacing: '-2px', lineHeight: 1 }}>
-                  BPO <span className="gradient-text">SERVICES</span>
+                  {t('bpo.services.title1', 'BPO')} <span className="gradient-text">{t('bpo.services.title2', 'SERVICES')}</span>
                 </h2>
                 <p style={{ fontSize: '1.25rem', color: 'rgba(255,255,255,0.4)', lineHeight: '1.8', marginBottom: '40px' }}>
-                  Diseñamos centros de mando operativos que integran talento bilingüe con tecnología de vanguardia para atención profesional 24/7.
+                  {t('bpo.services.desc', 'Diseñamos centros de mando operativos que integran talento bilingüe con tecnología de vanguardia para atención profesional 24/7.')}
                 </p>
               </div>
               
               <div style={{ display: 'grid', gap: '10px' }}>
                 {[
-                  { icon: <Globe />, text: "Agentes 100% Bilingües Certificados" },
-                  { icon: <TrendingUp />, text: "Infraestructura Escalable (10-300+ pos)" },
-                  { icon: <UserCheck />, text: "Liderazgo técnico dedicado por unidad" },
-                  { icon: <BarChart3 />, text: "Métricas y KPIs en tiempo real (SLA High-Tier)" }
+                  { icon: <Globe />, text: t('bpo.services.s1', "Agentes 100% Bilingües Certificados") },
+                  { icon: <TrendingUp />, text: t('bpo.services.s2', "Infraestructura Escalable (10-300+ pos)") },
+                  { icon: <UserCheck />, text: t('bpo.services.s3', "Liderazgo técnico dedicado por unidad") },
+                  { icon: <BarChart3 />, text: t('bpo.services.s4', "Métricas y KPIs en tiempo real (SLA High-Tier)") }
                 ].map((feature, i) => (
                   <ServiceNode key={i} {...feature} index={i} />
                 ))}
@@ -744,7 +746,7 @@ export default function Bpo({ onNavigate }) {
               >
                 <div style={{ background: 'rgba(10,10,10,0.85)', backdropFilter: 'blur(20px)', padding: '25px 35px', borderRadius: '25px', border: '1px solid rgba(255,140,0,0.4)', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
                   <div style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--color-secondary)', lineHeight: 1 }}>+300</div>
-                  <div style={{ fontSize: '0.8rem', opacity: 0.5, letterSpacing: '1px', textTransform: 'uppercase', marginTop: '5px' }}>Posiciones Listas</div>
+                  <div style={{ fontSize: '0.8rem', opacity: 0.5, letterSpacing: '1px', textTransform: 'uppercase', marginTop: '5px' }}>{t('bpo.services.stat1', 'Posiciones Listas')}</div>
                 </div>
               </motion.div>
 
@@ -788,8 +790,8 @@ export default function Bpo({ onNavigate }) {
                   boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
                 }}
               >
-                <div style={{ fontSize: '0.85rem', opacity: 0.6, marginBottom: '4px', letterSpacing: '1px' }}>ACCESO OPERATIVO</div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 'bold' }}>24/7 <span style={{ color: '#10b981', fontSize: '0.9rem', verticalAlign: 'middle' }}>● LIVE</span></div>
+                <div style={{ fontSize: '0.85rem', opacity: 0.6, marginBottom: '4px', letterSpacing: '1px' }}>{t('bpo.services.stat2Tag', 'ACCESO OPERATIVO')}</div>
+                <div style={{ fontSize: '1.4rem', fontWeight: 'bold' }}>24/7 <span style={{ color: '#10b981', fontSize: '0.9rem', verticalAlign: 'middle' }}>● {t('bpo.services.stat2Live', 'LIVE')}</span></div>
               </motion.div>
             </div>
           </div>

@@ -87,7 +87,7 @@ button {
 
 @media (max-width: 768px) {
   .section-container {
-    padding: 60px 15px;
+    padding: 60px 24px;
   }
   
   h1 { font-size: 2.5rem !important; }
@@ -435,7 +435,16 @@ elevenlabs-convai {
   }
 
   .nav-logo-container {
-    margin-left: 0px !important; /* Reset to center or normal flow */
+    margin-left: 0px !important; 
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-logo-container:hover {
+    transform: translateY(-2px);
+  }
+
+  .nav-logo-container:hover img {
+    filter: drop-shadow(0 0 15px rgba(0, 180, 255, 0.3)) !important;
   }
   
   .contact-grid {
@@ -478,11 +487,13 @@ elevenlabs-convai {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    gap: 20px !important;
   }
   
   .hero-cta-container button, .hero-cta-container a {
     width: 100%;
     justify-content: center;
+    padding: 16px 24px !important;
   }
 
   .voxis-cognitive-grid {
@@ -546,7 +557,7 @@ elevenlabs-convai {
 /* ── Pantallas Ultra Estrechas (341px) ── */
 @media (max-width: 400px) {
   .section-container {
-    padding: 20px 15px !important;
+    padding: 40px 20px !important;
   }
 
   elevenlabs-convai {

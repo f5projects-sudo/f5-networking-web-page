@@ -6,6 +6,7 @@ import ScrambledText from '../components/ScrambledText';
 import DataCenterFloorPlan from '../components/DataCenterFloorPlan';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
 
 const ConnectivityBackground = () => (
   <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0, opacity: 0.4 }}>
@@ -42,6 +43,7 @@ const ConnectivityBackground = () => (
 );
 
 export default function Cableado({ onNavigate }) {
+  const { t } = useLanguage();
   const containerRef = useRef(null);
   const [isMobile, setIsMobile] = React.useState(false);
   React.useEffect(() => {
@@ -125,7 +127,7 @@ export default function Cableado({ onNavigate }) {
               transition={{ duration: 0.8, ease: 'easeOut' }}
             >
               <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(255,140,0,0.1)', borderRadius: '30px', border: '1px solid rgba(255,140,0,0.2)', marginBottom: '20px', color: 'var(--color-secondary)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '2px', alignItems: 'center', gap: '8px' }}>
-                <Network size={16} /> INFRAESTRUCTURA DE RED
+                <Network size={16} /> {t('cableado.hero.tag', 'INFRAESTRUCTURA DE RED')}
               </div>
               
               <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: '900', color: 'white', lineHeight: 1.1, marginBottom: '0px' }}>
@@ -134,13 +136,13 @@ export default function Cableado({ onNavigate }) {
                   style={{ margin: '0', padding: '0', display: 'block' }}
                   speed={0.1}
                 >
-                  Cableado
+                  {t('cableado.hero.title1', 'Cableado')}
                 </ScrambledText>
                 <ScrambledText 
                   style={{ margin: '0', padding: '0', display: 'block' }}
                   speed={0.1}
                 >
-                  Estructurado
+                  {t('cableado.hero.title2', 'Estructurado')}
                 </ScrambledText>
               </h1>
 
@@ -156,7 +158,7 @@ export default function Cableado({ onNavigate }) {
                     display: 'block'
                   }}
                 >
-                  Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. Analizamos tu espacio y tus necesidades actuales para construir el futuro de tu conectividad.
+                  {t('cableado.hero.desc', 'Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables. Analizamos tu espacio y tus necesidades actuales para construir el futuro de tu conectividad.')}
                 </p>
               </div>
 
@@ -185,7 +187,7 @@ export default function Cableado({ onNavigate }) {
                   }, 100);
                 }}
               >
-                Más Información <Info size={18} />
+                {t('cableado.hero.btn', 'Más Información')} <Info size={18} />
               </motion.button>
             </motion.div>
 
@@ -217,8 +219,8 @@ export default function Cableado({ onNavigate }) {
             viewport={{ once: true }}
             style={{ textAlign: 'center', marginBottom: '40px' }}
           >
-            <h3 style={{ color: 'var(--color-secondary)', fontSize: '1rem', letterSpacing: '4px', fontWeight: '900', textTransform: 'uppercase', marginBottom: '10px' }}>SISTEMA INTERACTIVO</h3>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', maxWidth: '600px', margin: '0 auto' }}>Visualización inyectada de Servidores y Redes LAN. (Explora desplazándote lateralmente)</p>
+            <h3 style={{ color: 'var(--color-secondary)', fontSize: '1rem', letterSpacing: '4px', fontWeight: '900', textTransform: 'uppercase', marginBottom: '10px' }}>{t('cableado.interactive.title', 'SISTEMA INTERACTIVO')}</h3>
+            <p style={{ color: 'var(--color-text-muted)', fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', maxWidth: '600px', margin: '0 auto' }}>{t('cableado.interactive.desc', 'Visualización inyectada de Servidores y Redes LAN. (Explora desplazándote lateralmente)')}</p>
           </motion.div>
         </div>
         
@@ -261,7 +263,7 @@ export default function Cableado({ onNavigate }) {
               WebkitOverflowScrolling: 'touch'
             }}
           >
-            <DataCenterFloorPlan />
+            <DataCenterFloorPlan t={t} />
           </div>
         </div>
       </section>
@@ -273,7 +275,7 @@ export default function Cableado({ onNavigate }) {
           style={{ textAlign: 'center', marginBottom: 'clamp(40px, 8vw, 70px)' }}
         >
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
-            Organizamos y montamos racks de forma <span className="gradient-text-secondary">clara y funcional</span>
+            {t('cableado.rack.title1', 'Organizamos y montamos racks de forma ')}<span className="gradient-text-secondary">{t('cableado.rack.title2', 'clara y funcional')}</span>
           </h2>
           <div style={{ width: '80px', height: '4px', background: 'linear-gradient(90deg, var(--color-secondary), transparent)', margin: '0 auto' }}></div>
         </motion.div>
@@ -286,12 +288,12 @@ export default function Cableado({ onNavigate }) {
           style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(20px, 4vw, 30px)' }}
         >
           {[
-            { icon: <Network size={32} />, title: "Switches de red", desc: "Instalación, configuración y optimización de switches de alta capacidad para flujos constantes." },
-            { icon: <ShieldCheck size={32} />, title: "Seguridad con Fortinet", desc: "Implementación de firewalls y soluciones de seguridad perimetral líderes en el mercado mundial." },
-            { icon: <Server size={32} />, title: "Charola tipo charofil", desc: "Canalización profesional, aérea y organizada para la máxima protección física de tu fibra y cobre." },
-            { icon: <Settings size={32} />, title: "Patch Panels", desc: "Terminación técnica de precisión y administración eficiente de todos los puntos críticos de red." },
-            { icon: <LayoutDashboard size={32} />, title: "Gestión Profesional", desc: "Organización exhaustiva horizontal y vertical diseñada para mantenimientos sin interrupciones." },
-            { icon: <Tag size={32} />, title: "Sistemas de Etiquetado", desc: "Identificación lógica rigurosa bajo normas internacionales para un diagnóstico veloz." }
+            { icon: <Network size={32} />, title: t('cableado.rack.items.i1Title', 'Switches de red'), desc: t('cableado.rack.items.i1Desc', 'Instalación, configuración y optimización de switches de alta capacidad para flujos constantes.') },
+            { icon: <ShieldCheck size={32} />, title: t('cableado.rack.items.i2Title', 'Seguridad con Fortinet'), desc: t('cableado.rack.items.i2Desc', 'Implementación de firewalls y soluciones de seguridad perimetral líderes en el mercado mundial.') },
+            { icon: <Server size={32} />, title: t('cableado.rack.items.i3Title', 'Charola tipo charofil'), desc: t('cableado.rack.items.i3Desc', 'Canalización profesional, aérea y organizada para la máxima protección física de tu fibra y cobre.') },
+            { icon: <Settings size={32} />, title: t('cableado.rack.items.i4Title', 'Patch Panels'), desc: t('cableado.rack.items.i4Desc', 'Terminación técnica de precisión y administración eficiente de todos los puntos críticos de red.') },
+            { icon: <LayoutDashboard size={32} />, title: t('cableado.rack.items.i5Title', 'Gestión Profesional'), desc: t('cableado.rack.items.i5Desc', 'Organización exhaustiva horizontal y vertical diseñada para mantenimientos sin interrupciones.') },
+            { icon: <Tag size={32} />, title: t('cableado.rack.items.i6Title', 'Sistemas de Etiquetado'), desc: t('cableado.rack.items.i6Desc', 'Identificación lógica rigurosa bajo normas internacionales para un diagnóstico veloz.') }
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -364,10 +366,10 @@ export default function Cableado({ onNavigate }) {
           style={{ textAlign: 'center', maxWidth: '900px', margin: '0 auto clamp(40px, 8vw, 80px)' }}
         >
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.8rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold' }}>
-            Tu red no solo funciona hoy, <span style={{ color: 'var(--color-secondary)' }}>crece contigo</span>.
+            {t('cableado.core.title1', 'Tu red no solo funciona hoy, ')}<span style={{ color: 'var(--color-secondary)' }}>{t('cableado.core.title2', 'crece contigo.')}</span>
           </h2>
           <p style={{ fontSize: 'clamp(1.1rem, 2.8vw, 1.3rem)', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
-            Desarrollamos una infraestructura sólida y preparada para el futuro, ideal para empresas que no pueden darse el lujo de fallar. Si tu negocio depende de la red, estás en el lugar correcto.
+            {t('cableado.core.desc', 'Desarrollamos una infraestructura sólida y preparada para el futuro, ideal para empresas que no pueden darse el lujo de fallar. Si tu negocio depende de la red, estás en el lugar correcto.')}
           </p>
         </motion.div>
 
@@ -375,18 +377,18 @@ export default function Cableado({ onNavigate }) {
           {[
             {
               icon: <Cpu size={30} />,
-              title: "Eficiencia Garantizada",
-              desc: "Optimización del flujo de datos y reducción de latencia mediante un diseño estructurado inteligente."
+              title: t('cableado.core.items.i1Title', 'Eficiencia Garantizada'),
+              desc: t('cableado.core.items.i1Desc', 'Optimización del flujo de datos y reducción de latencia mediante un diseño estructurado inteligente.')
             },
             {
               icon: <Zap size={30} />,
-              title: "Escalabilidad Real",
-              desc: "Infraestructuras pensadas para soportar la expansión de tu empresa sin necesidad de re-cableados costosos."
+              title: t('cableado.core.items.i2Title', 'Escalabilidad Real'),
+              desc: t('cableado.core.items.i2Desc', 'Infraestructuras pensadas para soportar la expansión de tu empresa sin necesidad de re-cableados costosos.')
             },
             {
               icon: <Shield size={30} />,
-              title: "Sólida y Confiable",
-              desc: "Materiales de alta calidad y estándares internacionales para asegurar que tu red nunca sea el cuello de botella."
+              title: t('cableado.core.items.i3Title', 'Sólida y Confiable'),
+              desc: t('cableado.core.items.i3Desc', 'Materiales de alta calidad y estándares internacionales para asegurar que tu red nunca sea el cuello de botella.')
             }
           ].map((item, i) => (
             <motion.div

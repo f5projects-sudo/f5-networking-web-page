@@ -46,8 +46,10 @@ import MapFooter from './components/MapFooter';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import WhatsAppButton from './components/WhatsAppButton';
+import { useLanguage } from './context/LanguageContext';
 
 const App = () => {
+  const { t } = useLanguage();
   const [currentPage, setCurrentPage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
     const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua'];
@@ -195,17 +197,17 @@ const App = () => {
 
   const services = [
     {
-      title: "AXIA – Agentes de IA para atención omnicanal",
+      title: t('home.services.axia.title', "AXIA – Agentes de IA para atención omnicanal"),
       icon: <Cpu size={40} className="text-primary" />,
-      description: "AXIA es una solución avanzada de agentes de inteligencia artificial diseñada para gestionar y automatizar la comunicación con clientes a través de múltiples canales digitales. Permite centralizar la atención en plataformas como WhatsApp, Webchat, Messenger e Instagram, brindando respuestas inmediatas, consistentes y personalizadas en cada interacción.",
-      features: ["Nube Privada", "Seguridad SSL", "Auto-escalado"],
+      description: t('home.services.axia.desc', "AXIA es una solución avanzada de agentes de inteligencia artificial diseñada para gestionar y automatizar la comunicación con clientes a través de múltiples canales digitales. Permite centralizar la atención en plataformas como WhatsApp, Webchat, Messenger e Instagram, brindando respuestas inmediatas, consistentes y personalizadas en cada interacción."),
+      features: [t('home.services.axia.f1', "Nube Privada"), t('home.services.axia.f2', "Seguridad SSL"), t('home.services.axia.f3', "Auto-escalado")],
       path: 'axia'
     },
     {
-      title: "BPO Services",
+      title: t('home.services.bpo.title', "BPO Services"),
       icon: <Headset size={40} className="text-secondary" />,
-      description: "Soluciones de Call Center de alto impacto. Optimizamos la atención al cliente con procesos eficientes y talento especializado.",
-      features: ["Atención 24/7", "Multilingüe", "KPIs en tiempo real"],
+      description: t('home.services.bpo.desc', "Soluciones de Call Center de alto impacto. Optimizamos la atención al cliente con procesos eficientes y talento especializado."),
+      features: [t('home.services.bpo.f1', "Atención 24/7"), t('home.services.bpo.f2', "Multilingüe"), t('home.services.bpo.f3', "KPIs en tiempo real")],
       path: 'bpo'
     },
     /* {
@@ -216,45 +218,45 @@ const App = () => {
       path: 'voxis'
     }, */
     {
-      title: "ECHO - CRM Omnicanal",
+      title: t('home.services.echo.title', "ECHO - CRM Omnicanal"),
       icon: <MessageSquare size={40} className="text-accent" />,
-      description: "Centraliza todas tus comunicaciones. WhatsApp, Redes Sociales y Chat en una sola plataforma unificada.",
-      features: ["Inbox Unificado", "Chatbots integrados", "Reportes avanzados"],
+      description: t('home.services.echo.desc', "Centraliza todas tus comunicaciones. WhatsApp, Redes Sociales y Chat en una sola plataforma unificada."),
+      features: [t('home.services.echo.f1', "Inbox Unificado"), t('home.services.echo.f2', "Chatbots integrados"), t('home.services.echo.f3', "Reportes avanzados")],
       path: 'echo'
     },
     {
-      title: "Telefonía SIP / PBX",
+      title: t('home.services.pbx.title', "Telefonía SIP / PBX"),
       icon: <Phone size={40} className="text-white" />,
-      description: "Infraestructura robusta de voz. Telefonía IP escalable y segura para empresas que no pueden detenerse.",
-      features: ["Voz sobre IP", "Troncales SIP", "Escalabilidad Global"],
+      description: t('home.services.pbx.desc', "Infraestructura robusta de voz. Telefonía IP escalable y segura para empresas que no pueden detenerse."),
+      features: [t('home.services.pbx.f1', "Voz sobre IP"), t('home.services.pbx.f2', "Troncales SIP"), t('home.services.pbx.f3', "Escalabilidad Global")],
       path: 'pbx'
     },
     {
-      title: "NOVA CORE",
+      title: t('home.services.nova.title', "NOVA CORE"),
       icon: <Zap size={40} className="text-secondary" />,
-      description: "Es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos y opera 24/7.",
-      features: ["Escalabilidad Instantánea", "Atención 24/7", "Eficiencia Máxima"],
+      description: t('home.services.nova.desc', "Es una plataforma inteligente que replica las funciones de un equipo completo de atención al cliente, escala en segundos y opera 24/7."),
+      features: [t('home.services.nova.f1', "Escalabilidad Instantánea"), t('home.services.nova.f2', "Atención 24/7"), t('home.services.nova.f3', "Eficiencia Máxima")],
       path: 'nova-core'
     },
     {
-      title: "Cableado Estructurado",
+      title: t('home.services.cableado.title', "Cableado Estructurado"),
       icon: <Network size={40} className="text-accent" />,
-      description: "Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables para una red que crece contigo.",
-      features: ["Redes Escalables", "Infraestructura Sólida", "Seguridad de Red"],
+      description: t('home.services.cableado.desc', "Diseñamos e instalamos infraestructuras de red eficientes, ordenadas y escalables para una red que crece contigo."),
+      features: [t('home.services.cableado.f1', "Redes Escalables"), t('home.services.cableado.f2', "Infraestructura Sólida"), t('home.services.cableado.f3', "Seguridad de Red")],
       path: 'cableado'
     },
     {
-      title: "Desarrollo de Software",
+      title: t('home.services.dev.title', "Desarrollo de Software"),
       icon: <Globe size={40} className="text-primary" />,
-      description: "Soluciones a medida. Desde aplicaciones móviles hasta plataformas web complejas diseñadas para tu negocio.",
-      features: ["Full Stack", "Metodología Ágil", "UX/UI Premium"],
+      description: t('home.services.dev.desc', "Soluciones a medida. Desde aplicaciones móviles hasta plataformas web complejas diseñadas para tu negocio."),
+      features: [t('home.services.dev.f1', "Full Stack"), t('home.services.dev.f2', "Metodología Ágil"), t('home.services.dev.f3', "UX/UI Premium")],
       path: 'desarrollo'
     },
     {
-      title: "Venta de Equipos",
+      title: t('home.services.equipment.title', "Venta de Equipos"),
       icon: <Smartphone size={40} className="text-secondary" />,
-      description: "Equipamiento tecnológico de última generación. Switches, laptops y servidores de las mejores marcas.",
-      features: ["Garantía Directa", "Soporte Técnico", "Envío Nacional"],
+      description: t('home.services.equipment.desc', "Equipamiento tecnológico de última generación. Switches, laptops y servidores de las mejores marcas."),
+      features: [t('home.services.equipment.f1', "Garantía Directa"), t('home.services.equipment.f2', "Soporte Técnico"), t('home.services.equipment.f3', "Envío Nacional")],
       path: 'equipamiento'
     }
   ];
@@ -275,7 +277,7 @@ const App = () => {
             <span style={{ color: 'var(--color-secondary)' }}>F</span>5 <span className="gradient-text">Networking</span>
           </h1>
           <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 30px' }}>
-            Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.
+            {t('home.hero.subtitle', 'Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.')}
           </p>
           <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap', width: '100%', marginTop: '30px' }}>
             <motion.button
@@ -285,7 +287,7 @@ const App = () => {
               whileHover={{ scale: 1.05, background: 'var(--color-secondary)', boxShadow: '0 0 20px rgba(255,140,0,0.4)' }}
               whileTap={{ scale: 0.95 }}
             >
-              Ver Soluciones <ChevronRight size={18} />
+              {t('home.hero.btnSolutions', 'Ver Soluciones')} <ChevronRight size={18} />
             </motion.button>
             <motion.button
               onClick={() => scrollTo('contact')}
@@ -318,7 +320,7 @@ const App = () => {
       <section style={{ position: 'relative', zIndex: 10, padding: '30px 0 60px 0', overflow: 'hidden', borderBottom: '1px solid rgba(0, 180, 255, 0.1)', background: 'transparent' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '40px' }}>
           <p style={{ color: 'var(--color-primary)', letterSpacing: '3px', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>
-            Marcas con las que trabajamos
+            {t('home.brands.title', 'Marcas con las que trabajamos')}
           </p>
         </motion.div>
         
@@ -421,10 +423,10 @@ const App = () => {
               boxShadow: '0 0 30px rgba(0,180,255,0.15)'
             }}>
               <Activity size={18} className="pulse" />
-              SISTEMAS E INFRAESTRUCTURA
+              {t('home.services.header.tag', 'SISTEMAS E INFRAESTRUCTURA')}
             </div>
             <h2 style={{ fontSize: 'clamp(3rem, 9vw, 6.5rem)', marginBottom: '30px', fontWeight: '950', letterSpacing: isMobile ? '-1px' : '-4px', lineHeight: isMobile ? 1.1 : 0.85 }}>
-              Expertise <span className="gradient-text">Inmersivo</span>
+              {t('home.services.header.title1', 'Expertise')} <span className="gradient-text">{t('home.services.header.title2', 'Inmersivo')}</span>
             </h2>
             <div style={{ width: '180px', height: '8px', background: 'var(--color-secondary)', borderRadius: '10px', margin: '0 auto' }}></div>
           </motion.div>
@@ -567,7 +569,7 @@ const App = () => {
                       variants={{ hover: { x: 12, color: accentColor }}}
                       style={{ display: 'flex', alignItems: 'center', gap: '10px', fontWeight: '950', letterSpacing: '2px', fontSize: '0.85rem', alignSelf: isMobile ? 'flex-end' : 'auto' }}
                     >
-                      EXPLORAR <ChevronRight size={20} />
+                      {t('common.explore', 'EXPLORAR')} <ChevronRight size={20} />
                     </motion.div>
                   </div>
 
@@ -599,8 +601,8 @@ const App = () => {
         <div style={{ position: 'absolute', top: '10%', left: '0%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(0, 180, 255, 0.05) 0%, transparent 70%)', zIndex: -1, filter: 'blur(60px)' }} />
 
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>Quiénes <span className="gradient-text">Somos</span></h2>
-          <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>{t('home.about.who', 'Quiénes')} <span className="gradient-text">{t('home.about.arewe', 'Somos')}</span></h2>
+          <div style={{ width: '60px', height: '4px', margin: '0 auto', background: 'var(--color-primary)' }}></div>
         </motion.div>
 
         {/* SaaS Horizontal Expansion Accordion for Quiénes Somos */}
@@ -615,24 +617,27 @@ const App = () => {
           {[
             {
               id: 0,
-              title: "NUESTRA MISIÓN",
+              title: t('home.about.missionTitle', "NUESTRA MISIÓN"),
+              tag: t('home.about.missionTag', "MISIÓN"),
               icon: <Target size={32} strokeWidth={1} />,
               color: 'var(--color-primary)',
-              content: "Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada."
+              content: t('home.about.missionDesc', "Conectar empresas con el futuro mediante tecnología avanzada, soluciones automatizadas y atención personalizada.")
             },
             {
               id: 1,
-              title: "NUESTRA VISIÓN",
+              title: t('home.about.visionTitle', "NUESTRA VISIÓN"),
+              tag: t('home.about.visionTag', "VISIÓN"),
               icon: <Rocket size={32} strokeWidth={1} />,
               color: 'var(--color-secondary)',
-              content: "Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes."
+              content: t('home.about.visionDesc', "Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes.")
             },
             {
               id: 2,
-              title: "VALORES CLAVE",
+              title: t('home.about.valuesTitle', "VALORES CLAVE"),
+              tag: t('home.about.valuesTag', "VALORES"),
               icon: <Gem size={32} strokeWidth={1} />,
               color: 'var(--color-accent)',
-              content: "Innovación, Compromiso, Calidad, Eficiencia y Confianza total en cada uno de nuestros procesos e interacciones con el cliente."
+              content: t('home.about.valuesDesc', "Innovación, Compromiso, Calidad, Eficiencia y Confianza total en cada uno de nuestros procesos e interacciones con el cliente.")
             }
           ].map((panel) => {
             const isExpanded = activeQuienes === panel.id;
@@ -740,7 +745,7 @@ const App = () => {
                         marginBottom: '20px',
                         letterSpacing: '1px'
                       }}>
-                        Nuestra <strong style={{color: '#fff', fontWeight: 700}}>{panel.title.replace('NUESTRA ', '').replace(' CLAVE', '')}</strong>
+                        {t('common.our', 'Nuestra')} <strong style={{color: '#fff', fontWeight: 700}}>{panel.tag}</strong>
                       </h4>
 
                       <p style={{
@@ -765,10 +770,10 @@ const App = () => {
       {/* Why Choose Us Section - Interactive Showcase */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10, padding: '40px 0' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>¿Por qué <span className="gradient-text">elegirnos?</span></h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>{t('home.choose.title1', '¿Por qué')} <span className="gradient-text">{t('home.choose.title2', 'elegirnos?')}</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 30px' }}></div>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.8' }}>
-            Transformamos retos complejos en soluciones tecnológicas innovadoras, escalables y diseñadas para el mundo de hoy.
+            {t('home.choose.desc', 'Transformamos retos complejos en soluciones tecnológicas innovadoras, escalables y diseñadas para el mundo de hoy.')}
           </p>
         </motion.div>
 
@@ -788,10 +793,10 @@ const App = () => {
           {/* Left: Tab Menu */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {[
-              { id: 0, title: 'Ajuste a la medida', icon: <Settings size={20} />, color: 'var(--color-primary)' },
-              { id: 1, title: 'Automatización', icon: <Zap size={20} />, color: 'var(--color-secondary)' },
-              { id: 2, title: 'Confiabilidad', icon: <Shield size={20} />, color: 'var(--color-accent)' },
-              { id: 3, title: 'Soporte Continuo', icon: <Headset size={20} />, color: '#9b59b6' }
+              { id: 0, title: t('home.choose.tab1.title', 'Ajuste a la medida'), icon: <Settings size={20} />, color: 'var(--color-primary)' },
+              { id: 1, title: t('home.choose.tab2.title', 'Automatización'), icon: <Zap size={20} />, color: 'var(--color-secondary)' },
+              { id: 2, title: t('home.choose.tab3.title', 'Confiabilidad'), icon: <Shield size={20} />, color: 'var(--color-accent)' },
+              { id: 3, title: t('home.choose.tab4.title', 'Soporte Continuo'), icon: <Headset size={20} />, color: '#9b59b6' }
             ].map((tab) => {
               const isActive = activeReason === tab.id;
               return (
@@ -846,33 +851,33 @@ const App = () => {
               {[
                 { 
                   id: 0, 
-                  title: 'Ingeniería a la Medida', 
-                  desc: 'Comprendemos que no existen dos empresas iguales. Por ello, diseñamos ecosistemas tecnológicos desde cero o reestructuramos tu core actual para que se adapte milimétricamente a tus flujos operativos reales.', 
-                  detail: 'Sin software enlatado. Solo tecnología que impulsa tu diferencial.',
+                  title: t('home.choose.tab1.fullTitle', 'Ingeniería a la Medida'), 
+                  desc: t('home.choose.tab1.desc', 'Comprendemos que no existen dos empresas iguales. Por ello, diseñamos ecosistemas tecnológicos desde cero o reestructuramos tu core actual para que se adapte milimétricamente a tus flujos operativos reales.'), 
+                  detail: t('home.choose.tab1.detail', 'Sin software enlatado. Solo tecnología que impulsa tu diferencial.'),
                   icon: <Settings size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: 'var(--color-primary)'
                 },
                 { 
                   id: 1, 
-                  title: 'Automatización Inteligente', 
-                  desc: 'Eliminamos el error humano y la fricción en tareas repetitivas. Construimos orquestadores robóticos y secuencias de eventos (RPA, Webhooks o IaaS) que multiplican la eficiencia de tu equipo dramáticamente.', 
-                  detail: 'Más tiempo para estrategia. Menos tiempo en tareas mecánicas.',
+                  title: t('home.choose.tab2.fullTitle', 'Automatización Inteligente'), 
+                  desc: t('home.choose.tab2.desc', 'Eliminamos el error humano y la fricción en tareas repetitivas. Construimos orquestadores robóticos y secuencias de eventos (RPA, Webhooks o IaaS) que multiplican la eficiencia de tu equipo dramáticamente.'), 
+                  detail: t('home.choose.tab2.detail', 'Más tiempo para estrategia. Menos tiempo en tareas mecánicas.'),
                   icon: <Zap size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: 'var(--color-secondary)'
                 },
                 { 
                   id: 2, 
-                  title: 'Seguridad Zero Trust', 
-                  desc: 'Desplegamos infraestructura robusta bajo el modelo Zero Trust. Tus datos permanecen en bóvedas criptográficas con redundancia geográfica para garantizar un 99.9% de uptime constante.', 
-                  detail: 'Duerme tranquilo mientras tu red trabaja sin latencia ni brechas.',
+                  title: t('home.choose.tab3.fullTitle', 'Seguridad Zero Trust'), 
+                  desc: t('home.choose.tab3.desc', 'Desplegamos infraestructura robusta bajo el modelo Zero Trust. Tus datos permanecen en bóvedas criptográficas con redundancia geográfica para garantizar un 99.9% de uptime constante.'), 
+                  detail: t('home.choose.tab3.detail', 'Duerme tranquilo mientras tu red trabaja sin latencia ni brechas.'),
                   icon: <Shield size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: 'var(--color-accent)'
                 },
                 { 
                   id: 3, 
-                  title: 'Monitorización 24/7', 
-                  desc: 'Nuestro compromiso no termina en el despliegue. Tu organización dispondrá de un escuadrón técnico exclusivo que monitorea activamente tus nodos para prevenir caídas antes de que siquiera ocurran.', 
-                  detail: 'SLA líder en la industria con respuesta reactiva inmediata.',
+                  title: t('home.choose.tab4.fullTitle', 'Monitorización 24/7'), 
+                  desc: t('home.choose.tab4.desc', 'Nuestro compromiso no termina en el despliegue. Tu organización dispondrá de un escuadrón técnico exclusivo que monitorea activamente tus nodos para prevenir caídas antes de que siquiera ocurran.'), 
+                  detail: t('home.choose.tab4.detail', 'SLA líder en la industria con respuesta reactiva inmediata.'),
                   icon: <Headset size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: '#9b59b6'
                 }
@@ -891,7 +896,7 @@ const App = () => {
                   </div>
 
                   <div style={{ display: 'inline-block', padding: '6px 16px', background: `${item.color}15`, border: `1px solid ${item.color}30`, borderRadius: '30px', color: item.color, fontWeight: 700, fontSize: '0.85rem', marginBottom: '25px', letterSpacing: '1px' }}>
-                    VALOR DIFERENCIAL
+                    {t('home.choose.badge', 'VALOR DIFERENCIAL')}
                   </div>
                   <h3 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '25px', color: 'white', lineHeight: 1.1 }}>
                     {item.title}
@@ -916,10 +921,10 @@ const App = () => {
       {/* Nuestra Metodología Section */}
       <section className="section-container">
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestra Metodología</h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('home.methodology.title', 'Nuestra Metodología')}</h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto 25px' }}></div>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', lineHeight: '1.8', fontSize: '1rem' }}>
-            Trabajamos con un proceso claro, estructurado y colaborativo que nos permite transformar ideas en soluciones funcionales y eficientes. Desde la recopilación de información hasta la implementación final, cada etapa está pensada para entender tus objetivos, validar propuestas y asegurar resultados reales para tu negocio.
+            {t('home.methodology.desc', 'Trabajamos con un proceso claro, estructurado y colaborativo que nos permite transformar ideas en soluciones funcionales y eficientes. Desde la recopilación de información hasta la implementación final, cada etapa está pensada para entender tus objetivos, validar propuestas y asegurar resultados reales para tu negocio.')}
           </p>
         </motion.div>
 
@@ -936,43 +941,43 @@ const App = () => {
 
           {[
             {
-              num: '01', title: 'Reunir Información',
-              desc: 'Entendimiento del proceso, identificación de variables y reconocimiento de tus objetivos organizacionales.',
+              num: '01', title: t('home.methodology.steps.s1.title', 'Reunir Información'),
+              desc: t('home.methodology.steps.s1.desc', 'Entendimiento del proceso, identificación de variables y reconocimiento de tus objetivos organizacionales.'),
               Icon: ClipboardList,
               colors: { border: 'var(--color-primary)', glow: '#0056B3' },
               isRight: true
             },
             {
-              num: '02', title: 'Diseño y Análisis',
-              desc: 'Diseño de la medición de gestión estructural y presentación analítica de nuestras propuestas.',
+              num: '02', title: t('home.methodology.steps.s2.title', 'Diseño y Análisis'),
+              desc: t('home.methodology.steps.s2.desc', 'Diseño de la medición de gestión estructural y presentación analítica de nuestras propuestas.'),
               Icon: Search,
               colors: { border: 'var(--color-secondary)', glow: '#FF8C00' },
               isRight: false
             },
             {
-              num: '03', title: 'Prototipo y Sistematización',
-              desc: 'Sistematización de los indicadores y construcción de una primera vista funcional de tu producto.',
+              num: '03', title: t('home.methodology.steps.s3.title', 'Prototipo y Sistematización'),
+              desc: t('home.methodology.steps.s3.desc', 'Sistematización de los indicadores y construcción de una primera vista funcional de tu producto.'),
               Icon: Code,
               colors: { border: 'var(--color-accent)', glow: '#00B4FF' },
               isRight: true
             },
             {
-              num: '04', title: 'Medición Periódica',
-              desc: 'Medición de indicadores de acuerdo a prioridades preestablecidas. Ajustes iterativos conjuntos.',
+              num: '04', title: t('home.methodology.steps.s4.title', 'Medición Periódica'),
+              desc: t('home.methodology.steps.s4.desc', 'Medición de indicadores de acuerdo a prioridades preestablecidas. Ajustes iterativos conjuntos.'),
               Icon: MessageCircle,
               colors: { border: 'var(--color-primary)', glow: '#9b59b6' },
               isRight: false
             },
             {
-              num: '05', title: 'Análisis de Resultados',
-              desc: 'Análisis profundo de resultados de medición y acompañamiento experto para la toma de decisiones.',
+              num: '05', title: t('home.methodology.steps.s5.title', 'Análisis de Resultados'),
+              desc: t('home.methodology.steps.s5.desc', 'Análisis profundo de resultados de medición y acompañamiento experto para la toma de decisiones.'),
               Icon: Settings,
               colors: { border: 'var(--color-secondary)', glow: '#27ae60' },
               isRight: true
             },
             {
-              num: '06', title: 'Presentación Final',
-              desc: 'Presentación de información a todas las partes interesadas y despliegue del producto productivo.',
+              num: '06', title: t('home.methodology.steps.s6.title', 'Presentación Final'),
+              desc: t('home.methodology.steps.s6.desc', 'Presentación de información a todas las partes interesadas y despliegue del producto productivo.'),
               Icon: CheckCircle2,
               colors: { border: 'var(--color-accent)', glow: '#FF8C00' },
               isRight: false
@@ -1088,8 +1093,10 @@ const App = () => {
       {/* CTA / Contact */}
       <section id="contact" className="section-container" style={{ textAlign: 'center' }}>
         <motion.div {...fadeInUp}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>¿Listo para llevar tu empresa al <span className="gradient-text">siguiente nivel</span>?</h2>
-          <p style={{ color: 'var(--color-text-muted)', marginBottom: '50px' }}>Únete a las empresas que ya están optimizando su comunicación con F5 Networking.</p>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>
+            {t('home.contact.title', '¿Listo para llevar tu empresa al')} <span className="gradient-text">{t('home.contact.subtitle', 'siguiente nivel')}</span>?
+          </h2>
+          <p style={{ color: 'var(--color-text-muted)', marginBottom: '50px' }}>{t('home.contact.message', 'Únete a las empresas que ya están optimizando su comunicación con F5 Networking.')}</p>
 
           <motion.form
             {...fadeInUp}
@@ -1107,9 +1114,9 @@ const App = () => {
             }}
           >
             {[
-              { id: 'name', label: 'Nombre *', type: 'text', placeholder: 'Tu nombre completo' },
-              { id: 'email', label: 'Email *', type: 'email', placeholder: 'correo@empresa.com' },
-              { id: 'phone', label: 'Teléfono *', type: 'tel', placeholder: '+52 123 456 7890' },
+              { id: 'name', label: t('home.contact.name', 'Nombre') + ' *', type: 'text', placeholder: t('home.contact.namePlaceholder', 'Tu nombre completo') },
+              { id: 'email', label: t('home.contact.email', 'Email') + ' *', type: 'email', placeholder: 'correo@empresa.com' },
+              { id: 'phone', label: t('home.contact.phone', 'Teléfono') + ' *', type: 'tel', placeholder: '+52 123 456 7890' },
             ].map(({ id, label, type, placeholder }) => (
               <div key={id} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 <label style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', fontWeight: 600 }}>{label}</label>
@@ -1136,9 +1143,9 @@ const App = () => {
             ))}
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <label style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', fontWeight: 600 }}>Mensaje *</label>
+              <label style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', fontWeight: 600 }}>{t('home.contact.msgField', 'Mensaje')} *</label>
               <textarea
-                placeholder="¿En qué podemos ayudarte?"
+                placeholder={t('home.contact.msgPlaceholder', '¿En qué podemos ayudarte?')}
                 rows={5}
                 value={form.message}
                 onChange={e => setForm({ ...form, message: e.target.value })}
@@ -1174,7 +1181,7 @@ const App = () => {
                 }} 
               />
               <label htmlFor="privacy-policy" style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', lineHeight: '1.4' }}>
-                He leído y acepto los <span onClick={(e) => { e.preventDefault(); setCurrentPage('terminos'); }} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>Términos y Condiciones</span> y el <span onClick={(e) => { e.preventDefault(); setCurrentPage('privacidad'); }} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>Aviso de Privacidad</span> y autorizo el uso de mis datos para ser contactado, incluyendo a través de herramientas automatizadas como chatbot y WhatsApp.
+                {t('home.contact.privacyPrefix', 'He leído y acepto los')} <span onClick={(e) => { e.preventDefault(); setCurrentPage('terminos'); }} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>{t('footer.legal.terms', 'Términos y Condiciones')}</span> {t('home.contact.andThe', 'y el')} <span onClick={(e) => { e.preventDefault(); setCurrentPage('privacidad'); }} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>{t('footer.legal.privacy', 'Aviso de Privacidad')}</span> {t('home.contact.privacySuffix', 'y autorizo el uso de mis datos para ser contactado.')}
               </label>
             </div>
 
@@ -1198,7 +1205,7 @@ const App = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {sent ? '✅ ¡Mensaje enviado!' : <><Send size={18} /> Enviar Mensaje</>}
+              {sent ? `✅ ${t('home.contact.sent', '¡Mensaje enviado!')}` : <><Send size={18} /> {t('home.contact.submit', 'Enviar Mensaje')}</>}
             </motion.button>
           </motion.form>
         </motion.div>

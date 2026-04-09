@@ -12,6 +12,7 @@ import {
   Layout, 
   FileText 
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 // Componente interno para las líneas animadas
 const AnimatedEdge = ({ d, dashed = false, delay = 0 }) => (
@@ -41,6 +42,7 @@ const AnimatedEdge = ({ d, dashed = false, delay = 0 }) => (
 );
 
 const N8nWorkflow = () => {
+  const { t } = useLanguage();
   const [scale, setScale] = React.useState(1);
   const containerRef = React.useRef(null);
 
@@ -144,8 +146,8 @@ const N8nWorkflow = () => {
                 <FileText size={24} color="#ff4d4f" />
               </div>
               <div>
-                <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>On "Create User"</div>
-                <div style={{ color: '#aaa', fontSize: '11px', marginTop: '4px' }}>Form Submission</div>
+                <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>{t('n8nWorkflow.nodes.trigger.title', "On \"Create User\"")}</div>
+                <div style={{ color: '#aaa', fontSize: '11px', marginTop: '4px' }}>{t('n8nWorkflow.nodes.trigger.desc', "Form Submission")}</div>
               </div>
             </div>
           </motion.div>
@@ -171,33 +173,33 @@ const N8nWorkflow = () => {
                   <Bot size={32} color="#fff" />
                 </div>
                 <div>
-                  <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '16px' }}>AI Agent</div>
-                  <div style={{ color: 'var(--color-accent)', fontSize: '12px', marginTop: '2px', fontWeight: '600' }}>Tools Agent</div>
+                  <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '16px' }}>{t('n8nWorkflow.nodes.agent.title', "AI Agent")}</div>
+                  <div style={{ color: 'var(--color-accent)', fontSize: '12px', marginTop: '2px', fontWeight: '600' }}>{t('n8nWorkflow.nodes.agent.type', "Tools Agent")}</div>
                 </div>
               </div>
               <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', marginBottom: '10px' }} />
-              <div style={{ fontSize: '11px', color: '#999', textAlign: 'center' }}>Processing logical decisions</div>
+              <div style={{ fontSize: '11px', color: '#999', textAlign: 'center' }}>{t('n8nWorkflow.nodes.agent.status', "Processing logical decisions")}</div>
             </div>
           </motion.div>
 
           <motion.div variants={nodeVariants} style={{ position: 'absolute', top: '320px', left: '260px' }}>
              <div style={{ display: 'flex', alignItems: 'center', background: '#252528', border: '1px solid #722ed1', borderRadius: '8px', padding: '8px 12px', width: '110px' }}>
                <Database size={16} color="#722ed1" style={{ marginRight: '8px' }} />
-               <span style={{ color: '#fff', fontSize: '11px' }}>Memory</span>
+               <span style={{ color: '#fff', fontSize: '11px' }}>{t('n8nWorkflow.nodes.memory', "Memory")}</span>
             </div>
           </motion.div>
           
           <motion.div variants={nodeVariants} style={{ position: 'absolute', top: '320px', left: '380px' }}>
              <div style={{ display: 'flex', alignItems: 'center', background: '#252528', border: '1px solid #eb2f96', borderRadius: '8px', padding: '8px 12px', width: '130px' }}>
                <MessageSquare size={16} color="#eb2f96" style={{ marginRight: '8px' }} />
-               <span style={{ color: '#fff', fontSize: '11px' }}>Chat Model</span>
+               <span style={{ color: '#fff', fontSize: '11px' }}>{t('n8nWorkflow.nodes.chatModel', "Chat Model")}</span>
             </div>
           </motion.div>
           
           <motion.div variants={nodeVariants} style={{ position: 'absolute', top: '320px', left: '520px' }}>
              <div style={{ display: 'flex', alignItems: 'center', background: '#252528', border: '1px solid #fa8c16', borderRadius: '8px', padding: '8px 12px', width: '90px' }}>
                <Wrench size={16} color="#fa8c16" style={{ marginRight: '8px' }} />
-               <span style={{ color: '#fff', fontSize: '11px' }}>Tools</span>
+               <span style={{ color: '#fff', fontSize: '11px' }}>{t('n8nWorkflow.nodes.tools', "Tools")}</span>
             </div>
           </motion.div>
 
@@ -207,12 +209,12 @@ const N8nWorkflow = () => {
                 <GitMerge size={24} color="#9b59b6" />
               </div>
               <div>
-                <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>If Condition</div>
-                <div style={{ color: '#aaa', fontSize: '11px', marginTop: '4px' }}>Is a manager?</div>
+                <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>{t('n8nWorkflow.nodes.condition.title', "If Condition")}</div>
+                <div style={{ color: '#aaa', fontSize: '11px', marginTop: '4px' }}>{t('n8nWorkflow.nodes.condition.q', "Is a manager?")}</div>
               </div>
             </div>
-            <div style={{ position: 'absolute', right: '-35px', top: '-15px', color: '#52c41a', fontSize: '12px', fontWeight: 'bold', background: '#1c1c1c', padding: '2px 6px', borderRadius: '4px' }}>True</div>
-            <div style={{ position: 'absolute', right: '-35px', bottom: '-15px', color: '#ff4d4f', fontSize: '12px', fontWeight: 'bold', background: '#1c1c1c', padding: '2px 6px', borderRadius: '4px' }}>False</div>
+            <div style={{ position: 'absolute', right: '-35px', top: '-15px', color: '#52c41a', fontSize: '12px', fontWeight: 'bold', background: '#1c1c1c', padding: '2px 6px', borderRadius: '4px' }}>{t('n8nWorkflow.common.true', "True")}</div>
+            <div style={{ position: 'absolute', right: '-35px', bottom: '-15px', color: '#ff4d4f', fontSize: '12px', fontWeight: 'bold', background: '#1c1c1c', padding: '2px 6px', borderRadius: '4px' }}>{t('n8nWorkflow.common.false', "False")}</div>
           </motion.div>
 
           <motion.div variants={nodeVariants} style={{ position: 'absolute', top: '65px', left: '1050px' }}>
@@ -221,8 +223,8 @@ const N8nWorkflow = () => {
                 <MessageSquare size={24} color="#52c41a" />
               </div>
               <div>
-                <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>Slack</div>
-                <div style={{ color: '#aaa', fontSize: '11px', marginTop: '4px' }}>Add to channel</div>
+                <div style={{ color: '#fff', fontWeight: 'bold', fontSize: '14px' }}>{t('n8nWorkflow.nodes.slack.title', "Slack")}</div>
+                <div style={{ color: '#aaa', fontSize: '11px', marginTop: '4px' }}>{t('n8nWorkflow.nodes.slack.action', "Add to channel")}</div>
               </div>
             </div>
           </motion.div>

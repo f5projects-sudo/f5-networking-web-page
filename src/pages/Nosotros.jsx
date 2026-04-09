@@ -15,6 +15,7 @@ import {
 import BubbleBackground from '../components/BubbleBackground';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { useLanguage } from '../context/LanguageContext';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -27,19 +28,21 @@ const fadeInUp = {
 const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZARRO', 'PINKCREARTE', 'KREDIAPAY'];
 
 /* ── Methodology steps ── */
-const steps = [
-  { num: '01', title: 'Reunir Información', desc: 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.', color: 'var(--color-primary)', glow: '#0056B3', fromLeft: true },
-  { num: '02', title: 'Análisis', desc: 'De diferentes soluciones y presentación de nuestras propuestas.', color: 'var(--color-secondary)', glow: '#FF8C00', fromLeft: false },
-  { num: '03', title: 'Prototipo', desc: 'Primera vista de tu producto.', color: 'var(--color-accent)', glow: '#00B4FF', fromLeft: true },
-  { num: '04', title: 'Feedback', desc: '¡Te escuchamos! Ajustes del prototipo y comentarios.', color: 'var(--color-primary)', glow: '#9b59b6', fromLeft: false },
-  { num: '05', title: 'Pruebas', desc: 'Listo para probar en campo.', color: 'var(--color-secondary)', glow: '#27ae60', fromLeft: true },
-  { num: '06', title: 'Implementación', desc: 'Tu producto 100% productivo.', color: 'var(--color-accent)', glow: '#FF8C00', fromLeft: false },
+// These will be translated in the component now.
+const getSteps = (t) => [
+  { num: '01', title: t('nosotros.methodology.s0Title', 'Reunir Información'), desc: t('nosotros.methodology.s0Desc', 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.'), color: 'var(--color-primary)', glow: '#0056B3', fromLeft: true },
+  { num: '02', title: t('nosotros.methodology.s1Title', 'Análisis'), desc: t('nosotros.methodology.s1Desc', 'De diferentes soluciones y presentación de nuestras propuestas.'), color: 'var(--color-secondary)', glow: '#FF8C00', fromLeft: false },
+  { num: '03', title: t('nosotros.methodology.s2Title', 'Prototipo'), desc: t('nosotros.methodology.s2Desc', 'Primera vista de tu producto.'), color: 'var(--color-accent)', glow: '#00B4FF', fromLeft: true },
+  { num: '04', title: t('nosotros.methodology.s3Title', 'Feedback'), desc: t('nosotros.methodology.s3Desc', '¡Te escuchamos! Ajustes del prototipo y comentarios.'), color: 'var(--color-primary)', glow: '#9b59b6', fromLeft: false },
+  { num: '05', title: t('nosotros.methodology.s4Title', 'Pruebas'), desc: t('nosotros.methodology.s4Desc', 'Listo para probar en campo.'), color: 'var(--color-secondary)', glow: '#27ae60', fromLeft: true },
+  { num: '06', title: t('nosotros.methodology.s5Title', 'Implementación'), desc: t('nosotros.methodology.s5Desc', 'Tu producto 100% productivo.'), color: 'var(--color-accent)', glow: '#FF8C00', fromLeft: false },
 ];
 
 /* ── Certifications ── */
 const certs = ['Codedex', 'Oracle', 'Alura Latam', 'Santander Open Academy', 'AWS'];
 
 export default function Nosotros({ onNavigate }) {
+  const { t } = useLanguage();
   const [isMobile, setIsMobile] = useState(false);
   const [activeReason, setActiveReason] = useState(0);
 
@@ -49,6 +52,8 @@ export default function Nosotros({ onNavigate }) {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const steps = getSteps(t);
 
   return (
     <div className="app">
@@ -66,16 +71,16 @@ export default function Nosotros({ onNavigate }) {
           {/* Lado Izquierdo: Textos */}
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} style={{ position: 'relative', zIndex: 2 }}>
             <div style={{ display: 'inline-block', padding: '8px 24px', background: 'rgba(255, 140, 0, 0.1)', border: '1px solid rgba(255, 140, 0, 0.3)', borderRadius: '30px', marginBottom: '28px', boxShadow: '0 0 20px rgba(255, 140, 0, 0.1)' }}>
-              <p style={{ color: 'var(--color-secondary)', fontWeight: 800, letterSpacing: '4px', fontSize: '0.75rem', margin: 0, textTransform: 'uppercase' }}>QUIÉNES SOMOS</p>
+              <p style={{ color: 'var(--color-secondary)', fontWeight: 800, letterSpacing: '4px', fontSize: '0.75rem', margin: 0, textTransform: 'uppercase' }}>{t('nosotros.hero.tag', 'QUIÉNES SOMOS')}</p>
             </div>
             
             <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 4.8rem)', marginBottom: '28px', lineHeight: 1.05, fontWeight: 900, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-              Evolución <br/>
-              <span className="gradient-text">Tecnológica</span>
+              {t('nosotros.hero.title1', 'Evolución')} <br/>
+              <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Tecnológica')}</span>
             </h1>
             
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: '1.9', maxWidth: '540px', marginBottom: '45px' }}>
-              F5 Networking es una compañía pionera en crear soluciones escalables de conectividad, automatización e infraestructura digital. Simplificamos lo complejo y aceleramos la transformación corporativa para el mundo de hoy.
+              {t('nosotros.hero.desc', 'F5 Networking es una compañía pionera en crear soluciones escalables de conectividad, automatización e infraestructura digital. Simplificamos lo complejo y aceleramos la transformación corporativa para el mundo de hoy.')}
             </p>
 
             <motion.button
@@ -99,7 +104,7 @@ export default function Nosotros({ onNavigate }) {
                 document.getElementById('elegirnos')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
-              Descubrir Valor <ChevronDown size={20} />
+              {t('nosotros.hero.btn', 'Descubrir Valor')} <ChevronDown size={20} />
             </motion.button>
           </motion.div>
 
@@ -114,8 +119,8 @@ export default function Nosotros({ onNavigate }) {
               <div style={{ background: 'rgba(0, 180, 255, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                 <Zap size={28} style={{ color: 'var(--color-accent)' }} />
               </div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>+5 Años</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>Innovando en infraestructura digital corporativa</p>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c1Title', '+5 Años')}</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>{t('nosotros.hero.c1Desc', 'Innovando en infraestructura digital corporativa')}</p>
             </motion.div>
 
             {/* Tarjeta 2: Centro Derecha */}
@@ -127,8 +132,8 @@ export default function Nosotros({ onNavigate }) {
               <div style={{ background: 'rgba(255, 140, 0, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                 <Users size={28} style={{ color: 'var(--color-secondary)' }} />
               </div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>99.9%</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>Fiabilidad sostenida en servicios implementados</p>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c2Title', '99.9%')}</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>{t('nosotros.hero.c2Desc', 'Fiabilidad sostenida en servicios implementados')}</p>
             </motion.div>
 
             {/* Tarjeta 3: Abajo Izquierda */}
@@ -140,8 +145,8 @@ export default function Nosotros({ onNavigate }) {
               <div style={{ background: 'rgba(155, 89, 182, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                 <ShieldCheck size={28} style={{ color: '#9b59b6' }} />
               </div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>24/7</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>Monitoreo preventivo y soporte ininterrumpido</p>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c3Title', '24/7')}</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>{t('nosotros.hero.c3Desc', 'Monitoreo preventivo y soporte ininterrumpido')}</p>
             </motion.div>
           </div>
 
@@ -206,10 +211,10 @@ export default function Nosotros({ onNavigate }) {
       {/* ── ¿Por qué elegirnos? ── */}
       <section id="elegirnos" className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '40px' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>¿Por qué <span className="gradient-text">elegirnos?</span></h2>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>{t('nosotros.choose.title1', '¿Por qué ')}<span className="gradient-text">{t('nosotros.choose.titleHighlight', 'elegirnos?')}</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 30px' }}></div>
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.8' }}>
-            Transformamos retos complejos en soluciones tecnológicas innovadoras, escalables y diseñadas para el mundo de hoy.
+            {t('nosotros.choose.desc', 'Transformamos retos complejos en soluciones tecnológicas innovadoras, escalables y diseñadas para el mundo de hoy.')}
           </p>
         </motion.div>
 
@@ -229,10 +234,10 @@ export default function Nosotros({ onNavigate }) {
           {/* Left: Tab Menu */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {[
-              { id: 0, title: 'Ajuste a la medida', icon: <Settings2 size={20} />, color: 'var(--color-primary)' },
-              { id: 1, title: 'Automatización', icon: <Zap size={20} />, color: 'var(--color-secondary)' },
-              { id: 2, title: 'Confiabilidad', icon: <ShieldCheck size={20} />, color: 'var(--color-accent)' },
-              { id: 3, title: 'Soporte Continuo', icon: <HeadphonesIcon size={20} />, color: '#9b59b6' }
+              { id: 0, title: t('nosotros.choose.t0Title', 'Ajuste a la medida'), icon: <Settings2 size={20} />, color: 'var(--color-primary)' },
+              { id: 1, title: t('nosotros.choose.t1Title', 'Automatización'), icon: <Zap size={20} />, color: 'var(--color-secondary)' },
+              { id: 2, title: t('nosotros.choose.t2Title', 'Confiabilidad'), icon: <ShieldCheck size={20} />, color: 'var(--color-accent)' },
+              { id: 3, title: t('nosotros.choose.t3Title', 'Soporte Continuo'), icon: <HeadphonesIcon size={20} />, color: '#9b59b6' }
             ].map((tab) => {
               const isActive = activeReason === tab.id;
               return (
@@ -286,33 +291,33 @@ export default function Nosotros({ onNavigate }) {
               {[
                 { 
                   id: 0, 
-                  title: 'Ingeniería a la Medida', 
-                  desc: 'Comprendemos que no existen dos empresas iguales. Por ello, diseñamos ecosistemas tecnológicos desde cero o reestructuramos tu core actual para que se adapte milimétricamente a tus flujos operativos reales.', 
-                  detail: 'Sin software enlatado. Solo tecnología que impulsa tu diferencial.',
+                  title: t('nosotros.choose.d0Title', 'Ingeniería a la Medida'), 
+                  desc: t('nosotros.choose.d0Desc', 'Comprendemos que no existen dos empresas iguales. Por ello, diseñamos ecosistemas tecnológicos desde cero o reestructuramos tu core actual para que se adapte milimétricamente a tus flujos operativos reales.'), 
+                  detail: t('nosotros.choose.d0Detail', 'Sin software enlatado. Solo tecnología que impulsa tu diferencial.'),
                   icon: <Settings2 size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: 'var(--color-primary)'
                 },
                 { 
                   id: 1, 
-                  title: 'Automatización Inteligente', 
-                  desc: 'Eliminamos el error humano y la fricción en tareas repetitivas. Construimos orquestadores robóticos y secuencias de eventos (RPA, Webhooks o IaaS) que multiplican la eficiencia de tu equipo dramáticamente.', 
-                  detail: 'Más tiempo para estrategia. Menos tiempo en tareas mecánicas.',
+                  title: t('nosotros.choose.d1Title', 'Automatización Inteligente'), 
+                  desc: t('nosotros.choose.d1Desc', 'Eliminamos el error humano y la fricción en tareas repetitivas. Construimos orquestadores robóticos y secuencias de eventos (RPA, Webhooks o IaaS) que multiplican la eficiencia de tu equipo dramáticamente.'), 
+                  detail: t('nosotros.choose.d1Detail', 'Más tiempo para estrategia. Menos tiempo en tareas mecánicas.'),
                   icon: <Zap size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: 'var(--color-secondary)'
                 },
                 { 
                   id: 2, 
-                  title: 'Seguridad Zero Trust', 
-                  desc: 'Desplegamos infraestructura robusta bajo el modelo Zero Trust. Tus datos permanecen en bóvedas criptográficas con redundancia geográfica para garantizar un 99.9% de uptime constante.', 
-                  detail: 'Duerme tranquilo mientras tu red trabaja sin latencia ni brechas.',
+                  title: t('nosotros.choose.d2Title', 'Seguridad Zero Trust'), 
+                  desc: t('nosotros.choose.d2Desc', 'Desplegamos infraestructura robusta bajo el modelo Zero Trust. Tus datos permanecen en bóvedas criptográficas con redundancia geográfica para garantizar un 99.9% de uptime constante.'), 
+                  detail: t('nosotros.choose.d2Detail', 'Duerme tranquilo mientras tu red trabaja sin latencia ni brechas.'),
                   icon: <ShieldCheck size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: 'var(--color-accent)'
                 },
                 { 
                   id: 3, 
-                  title: 'Monitorización 24/7', 
-                  desc: 'Nuestro compromiso no termina en el despliegue. Tu organización dispondrá de un escuadrón técnico exclusivo que monitorea activamente tus nodos para prevenir caídas antes de que siquiera ocurran.', 
-                  detail: 'SLA líder en la industria con respuesta reactiva inmediata.',
+                  title: t('nosotros.choose.d3Title', 'Monitorización 24/7'), 
+                  desc: t('nosotros.choose.d3Desc', 'Nuestro compromiso no termina en el despliegue. Tu organización dispondrá de un escuadrón técnico exclusivo que monitorea activamente tus nodos para prevenir caídas antes de que siquiera ocurran.'), 
+                  detail: t('nosotros.choose.d3Detail', 'SLA líder en la industria con respuesta reactiva inmediata.'),
                   icon: <HeadphonesIcon size={isMobile ? 120 : 200} strokeWidth={1} />,
                   color: '#9b59b6'
                 }
@@ -330,7 +335,7 @@ export default function Nosotros({ onNavigate }) {
                   </div>
 
                   <div style={{ display: 'inline-block', padding: '6px 16px', background: `${item.color}15`, border: `1px solid ${item.color}30`, borderRadius: '30px', color: item.color, fontWeight: 700, fontSize: '0.85rem', marginBottom: '25px', letterSpacing: '1px' }}>
-                    VALOR DIFERENCIAL
+                    {t('nosotros.choose.badge', 'VALOR DIFERENCIAL')}
                   </div>
                   <h3 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '25px', color: 'white', lineHeight: 1.1 }}>
                     {item.title}
@@ -355,7 +360,7 @@ export default function Nosotros({ onNavigate }) {
       {/* ── Nuestro Equipo ── */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestro <span className="gradient-text">Equipo</span></h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.team.title1', 'Nuestro ')}<span className="gradient-text">{t('nosotros.team.titleHighlight', 'Equipo')}</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
         </motion.div>
 
@@ -368,7 +373,7 @@ export default function Nosotros({ onNavigate }) {
             <Users size={44} style={{ color: 'var(--color-accent)' }} />
           </div>
           <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.9', fontSize: '1.1rem', flex: 1, minWidth: '280px' }}>
-            Es un grupo dinámico de expertos dedicados a la innovación y la excelencia, con habilidades en desarrollo de software, análisis de datos y diseño de experiencias de usuario. Creamos soluciones impactantes que empoderan a nuestros clientes.
+            {t('nosotros.team.desc', 'Es un grupo dinámico de expertos dedicados a la innovación y la excelencia, con habilidades en desarrollo de software, análisis de datos y diseño de experiencias de usuario. Creamos soluciones impactantes que empoderan a nuestros clientes.')}
           </p>
         </motion.div>
       </section>
@@ -376,7 +381,7 @@ export default function Nosotros({ onNavigate }) {
       {/* ── Marcas que confían (marquee) ── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '40px 0', overflow: 'hidden' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '30px' }}>
-          <p style={{ color: 'var(--color-text-muted)', letterSpacing: '3px', fontSize: '0.8rem', fontWeight: 600 }}>MARCAS QUE CONFÍAN EN NOSOTROS</p>
+          <p style={{ color: 'var(--color-text-muted)', letterSpacing: '3px', fontSize: '0.8rem', fontWeight: 600 }}>{t('nosotros.brands.tag', 'MARCAS QUE CONFÍAN EN NOSOTROS')}</p>
         </motion.div>
         <div className="marquee-wrapper">
           <div className="marquee-track">
@@ -390,7 +395,7 @@ export default function Nosotros({ onNavigate }) {
       {/* ── Metodología ── */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestra <span className="gradient-text">Metodología</span></h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.methodology.title1', 'Nuestra ')}<span className="gradient-text">{t('nosotros.methodology.titleHighlight', 'Metodología')}</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
         </motion.div>
 
@@ -418,7 +423,7 @@ export default function Nosotros({ onNavigate }) {
       {/* ── Certificaciones ── */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>Nuestras <span className="gradient-text">Certificaciones</span></h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.certifications.title1', 'Nuestras ')}<span className="gradient-text">{t('nosotros.certifications.titleHighlight', 'Certificaciones')}</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>
         </motion.div>
 

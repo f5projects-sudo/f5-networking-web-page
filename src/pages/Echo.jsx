@@ -18,8 +18,10 @@ import {
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ScrollVelocity from '../components/ScrollVelocity';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Echo({ onNavigate }) {
+  const { t } = useLanguage();
   // Asegurar que la vista inicie arriba
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -68,7 +70,7 @@ export default function Echo({ onNavigate }) {
               transition={{ duration: 0.8 }}
             >
               <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', border: '1px solid rgba(0,180,255,0.2)', marginBottom: '20px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.9rem', letterSpacing: '2px', alignItems: 'center', gap: '8px' }}>
-                <MessageSquare size={16} /> CRM OMNICANAL
+                <MessageSquare size={16} /> {t('echo.hero.tag', 'CRM OMNICANAL')}
               </div>
               
               <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', fontWeight: '900', lineHeight: 1.2, marginBottom: '0px' }}>
@@ -79,11 +81,11 @@ export default function Echo({ onNavigate }) {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   style={{ display: 'inline-block' }}
                 >
-                  ECHO
+                  {t('echo.hero.title1', 'ECHO')}
                 </motion.span>
               </h1>
               <h2 style={{ fontSize: '2rem', color: 'white', opacity: 0.9, marginTop: '-5px' }}>
-                Comunicación más inteligente para tu negocio
+                {t('echo.hero.title2', 'Comunicación más inteligente para tu negocio')}
               </h2>
 
               <div style={{ marginTop: '30px' }}>
@@ -94,7 +96,7 @@ export default function Echo({ onNavigate }) {
                   margin: '0', 
                   maxWidth: '100%'
                 }}>
-                  Hoy los clientes esperan respuestas rápidas, atención clara y comunicación constante, sin importar el canal que utilicen. ECHO nace para ayudarte a mantener el control total de cada conversación y convertir la comunicación en una ventaja competitiva.
+                  {t('echo.hero.desc', 'Hoy los clientes esperan respuestas rápidas, atención clara y comunicación constante, sin importar el canal que utilicen. ECHO nace para ayudarte a mantener el control total de cada conversación y convertir la comunicación en una ventaja competitiva.')}
                 </p>
               </div>
 
@@ -121,7 +123,7 @@ export default function Echo({ onNavigate }) {
                     }, 100);
                   }}
                 >
-                  Solicitar Demo <Info size={18} />
+                  {t('echo.hero.btn', 'Solicitar Demo')} <Info size={18} />
                 </motion.button>
               </div>
             </motion.div>
@@ -174,7 +176,7 @@ export default function Echo({ onNavigate }) {
         {/* Dynamic Marquee */}
         <div style={{ marginTop: '80px', position: 'relative', zIndex: 1 }}>
           <ScrollVelocity 
-            texts={['ECHO CRM • OMNICANALIDAD • ', 'MENSAJERÍA INTELIGENTE • ']} 
+            texts={[t('echo.hero.marquee1', 'ECHO CRM • OMNICANALIDAD • '), t('echo.hero.marquee2', 'MENSAJERÍA INTELIGENTE • ')]} 
             velocity={50} 
             className="custom-scroll-text"
           />
@@ -188,7 +190,7 @@ export default function Echo({ onNavigate }) {
           style={{ textAlign: 'center', marginBottom: '70px' }}
         >
           <h2 style={{ fontSize: 'clamp(2rem, 8vw, 2.8rem)', color: 'white', marginBottom: '25px', fontWeight: 'bold', lineHeight: 1.2, wordBreak: 'break-word' }}>
-            Centraliza cada <span className="gradient-text">interacción</span>
+            {t('echo.features.title1', 'Centraliza cada')} <span className="gradient-text">{t('echo.features.title2', 'interacción')}</span>
           </h2>
           <div style={{ width: '80px', height: '4px', background: 'linear-gradient(90deg, var(--color-primary), transparent)', margin: '0 auto' }}></div>
         </motion.div>
@@ -197,38 +199,38 @@ export default function Echo({ onNavigate }) {
           {[
             { 
               icon: <Share2 size={32} />, 
-              title: "Inbox Unificado", 
-              desc: "WhatsApp, Instagram, FB Messenger y más en un solo lugar. Di adiós a saltar entre pestañas.",
+              title: t('echo.features.f1Title', "Inbox Unificado"), 
+              desc: t('echo.features.f1Desc', "WhatsApp, Instagram, FB Messenger y más en un solo lugar. Di adiós a saltar entre pestañas."),
               color: "rgba(0,180,255,0.1)"
             },
             { 
               icon: <Zap size={32} />, 
-              title: "Chatbots Inteligentes", 
-              desc: "Automatiza respuestas comunes y califica prospectos 24/7 sin intervención humana.",
+              title: t('echo.features.f2Title', "Chatbots Inteligentes"), 
+              desc: t('echo.features.f2Desc', "Automatiza respuestas comunes y califica prospectos 24/7 sin intervención humana."),
               color: "rgba(255,140,0,0.1)"
             },
             { 
               icon: <BarChart3 size={32} />, 
-              title: "Reportes Avanzados", 
-              desc: "Mide el rendimiento de tu equipo, tiempos de respuesta y tasas de conversión en tiempo real.",
+              title: t('echo.features.f3Title', "Reportes Avanzados"), 
+              desc: t('echo.features.f3Desc', "Mide el rendimiento de tu equipo, tiempos de respuesta y tasas de conversión en tiempo real."),
               color: "rgba(0,180,255,0.1)"
             },
             { 
               icon: <Users size={32} />, 
-              title: "Gestión de Agentes", 
-              desc: "Asigna conversaciones automáticamente según la carga de trabajo o especialidad del agente.",
+              title: t('echo.features.f4Title', "Gestión de Agentes"), 
+              desc: t('echo.features.f4Desc', "Asigna conversaciones automáticamente según la carga de trabajo o especialidad del agente."),
               color: "rgba(255,140,0,0.1)"
             },
             { 
               icon: <Smartphone size={32} />, 
-              title: "Multiplataforma", 
-              desc: "Accede desde tu navegador o dispositivos móviles. Mantén el control donde quiera que estés.",
+              title: t('echo.features.f5Title', "Multiplataforma"), 
+              desc: t('echo.features.f5Desc', "Accede desde tu navegador o dispositivos móviles. Mantén el control donde quiera que estés."),
               color: "rgba(0,180,255,0.1)"
             },
             { 
               icon: <Globe size={32} />, 
-              title: "API & Integraciones", 
-              desc: "Conecta ECHO con tu stack tecnológico actual mediante Webhooks y nuestra API robusta.",
+              title: t('echo.features.f6Title', "API & Integraciones"), 
+              desc: t('echo.features.f6Desc', "Conecta ECHO con tu stack tecnológico actual mediante Webhooks y nuestra API robusta."),
               color: "rgba(255,140,0,0.1)"
             }
           ].map((item, i) => (
@@ -276,13 +278,13 @@ export default function Echo({ onNavigate }) {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '80px', alignItems: 'center' }}>
           <motion.div {...fadeInUp}>
             <h2 style={{ fontSize: 'clamp(2rem, 8vw, 2.5rem)', color: 'white', marginBottom: '30px', fontWeight: 'bold', lineHeight: '1.3', wordBreak: 'break-word' }}>
-              Solución de <span className="gradient-text">CRM omnicanal</span>
+              {t('echo.solution.title1', 'Solución de')} <span className="gradient-text">{t('echo.solution.title2', 'CRM omnicanal')}</span>
             </h2>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8', marginBottom: '30px' }}>
-              ECHO es una plataforma de CRM omnicanal que centraliza todos tus canales de mensajería en un solo lugar, permitiéndote gestionar conversaciones, automatizar procesos y medir resultados en tiempo real. 
+              {t('echo.solution.desc1', 'ECHO es una plataforma de CRM omnicanal que centraliza todos tus canales de mensajería en un solo lugar, permitiéndote gestionar conversaciones, automatizar procesos y medir resultados en tiempo real.')} 
             </p>
             <p style={{ fontSize: '1.15rem', color: 'var(--color-text-muted)', lineHeight: '1.8' }}>
-              Optimiza la operación, mejora la atención al cliente y garantiza una experiencia más eficiente, ordenada y profesional en cada interacción.
+              {t('echo.solution.desc2', 'Optimiza la operación, mejora la atención al cliente y garantiza una experiencia más eficiente, ordenada y profesional en cada interacción.')}
             </p>
           </motion.div>
           
@@ -295,9 +297,9 @@ export default function Echo({ onNavigate }) {
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
               {[
-                'Centralización Absoluta',
-                'Automatización Inteligente',
-                'Escalabilidad de Negocio'
+                t('echo.solution.p1', 'Centralización Absoluta'),
+                t('echo.solution.p2', 'Automatización Inteligente'),
+                t('echo.solution.p3', 'Escalabilidad de Negocio')
               ].map((text, i) => (
                 <div key={i} style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                   <div style={{ color: 'var(--color-primary)' }}><CheckCircle2 size={24} /></div>
@@ -316,17 +318,17 @@ export default function Echo({ onNavigate }) {
             {...fadeInUp}
             style={{ textAlign: 'center', marginBottom: '60px' }}
           >
-            <h2 style={{ fontSize: 'clamp(2rem, 8vw, 2.8rem)', color: 'white', fontWeight: 'bold', lineHeight: 1.2, wordBreak: 'break-word' }}>Diferenciadores</h2>
+            <h2 style={{ fontSize: 'clamp(2rem, 8vw, 2.8rem)', color: 'white', fontWeight: 'bold', lineHeight: 1.2, wordBreak: 'break-word' }}>{t('echo.diff.title', 'Diferenciadores')}</h2>
             <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '20px auto' }}></div>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '25px' }}>
             {[
-              { icon: <MessageSquare size={28} />, title: "Centraliza tus canales de texto", desc: "WhatsApp, FB, IG y más en una interfaz única." },
-              { icon: <Zap size={28} />, title: "Gestiona conversaciones en un solo sistema", desc: "Flujo de trabajo optimizado para tu equipo de ventas." },
-              { icon: <Cpu size={28} />, title: "Automatiza procesos operativos", desc: "Bots que califican y derivan chats automáticamente." },
-              { icon: <TrendingUp size={28} />, title: "Mide resultados con reportes y métricas", desc: "Datos precisos para decisiones estratégicas." },
-              { icon: <Users size={28} />, title: "Mejora la experiencia del cliente", desc: "Respuestas inmediatas que generan confianza." }
+              { icon: <MessageSquare size={28} />, title: t('echo.diff.d1Title', "Centraliza tus canales de texto"), desc: t('echo.diff.d1Desc', "WhatsApp, FB, IG y más en una interfaz única.") },
+              { icon: <Zap size={28} />, title: t('echo.diff.d2Title', "Gestiona conversaciones en un solo sistema"), desc: t('echo.diff.d2Desc', "Flujo de trabajo optimizado para tu equipo de ventas.") },
+              { icon: <Cpu size={28} />, title: t('echo.diff.d3Title', "Automatiza procesos operativos"), desc: t('echo.diff.d3Desc', "Bots que califican y derivan chats automáticamente.") },
+              { icon: <TrendingUp size={28} />, title: t('echo.diff.d4Title', "Mide resultados con reportes y métricas"), desc: t('echo.diff.d4Desc', "Datos precisos para decisiones estratégicas.") },
+              { icon: <Users size={28} />, title: t('echo.diff.d5Title', "Mejora la experiencia del cliente"), desc: t('echo.diff.d5Desc', "Respuestas inmediatas que generan confianza.") }
             ].map((diff, i) => (
               <motion.div
                 key={i}
@@ -364,10 +366,10 @@ export default function Echo({ onNavigate }) {
           <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(0,180,255,0.15) 0%, transparent 70%)', borderRadius: '50%', zIndex: 0 }}></div>
           
           <h3 style={{ fontSize: '3rem', marginBottom: '25px', color: 'white', fontWeight: 'bold' }}>
-            ¿Listo para llevar tu comunicación al <span className="gradient-text">siguiente nivel?</span>
+            {t('echo.cta.title1', '¿Listo para llevar tu comunicación al')} <span className="gradient-text">{t('echo.cta.title2', 'siguiente nivel?')}</span>
           </h3>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', marginBottom: '45px', maxWidth: '600px', margin: '0 auto 45px' }}>
-            Únete a las empresas que ya están transformando su atención al cliente con ECHO.
+            {t('echo.cta.desc', 'Únete a las empresas que ya están transformando su atención al cliente con ECHO.')}
           </p>
           
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
@@ -382,7 +384,7 @@ export default function Echo({ onNavigate }) {
                 }, 100);
               }}
             >
-              ¡Envíanos Un Mensaje! <Mail size={20} />
+              {t('echo.cta.btn', '¡Envíanos Un Mensaje!')} <Mail size={20} />
             </motion.button>
           </div>
         </motion.div>

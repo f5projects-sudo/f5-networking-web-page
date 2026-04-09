@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../context/LanguageContext';
 
 const FloatingNumbers = () => {
   const [numbers, setNumbers] = React.useState([]);
@@ -78,7 +79,7 @@ const FloatingNumbers = () => {
   );
 };
 
-const SMSDashboard = () => {
+const SMSDashboard = ({ t }) => {
   const [percent, setPercent] = React.useState(82.4);
   const [sentCount, setSentCount] = React.useState(12431);
   const [logs, setLogs] = React.useState([
@@ -116,20 +117,20 @@ const SMSDashboard = () => {
       margin: '0 auto'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '25px', alignItems: 'center' }}>
-        <h4 style={{ margin: 0, fontSize: '0.85rem', fontWeight: '900', color: 'var(--color-accent)', letterSpacing: '2px' }}>CAMPAÑA ACTIVA</h4>
+        <h4 style={{ margin: 0, fontSize: '0.85rem', fontWeight: '900', color: 'var(--color-accent)', letterSpacing: '2px' }}>{t('pbx.sms.smsActive', 'CAMPAÑA ACTIVA')}</h4>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <motion.div 
             animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
             style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981', boxShadow: '0 0 10px #10b981' }} 
           />
-          <span style={{ fontSize: '0.75rem', fontWeight: '900', color: '#10b981' }}>LIVE</span>
+          <span style={{ fontSize: '0.75rem', fontWeight: '900', color: '#10b981' }}>{t('pbx.sms.smsLive', 'LIVE')}</span>
         </div>
       </div>
 
       <div style={{ marginBottom: '30px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px', fontSize: '0.85rem' }}>
-          <span style={{ opacity: 0.5, fontWeight: '700' }}>Progreso de Envío</span>
+          <span style={{ opacity: 0.5, fontWeight: '700' }}>{t('pbx.sms.smsProgress', 'Progreso de Envío')}</span>
           <span style={{ fontWeight: '900', color: '#fff' }}>{percent.toFixed(1)}%</span>
         </div>
         <div style={{ height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', overflow: 'hidden' }}>
@@ -143,17 +144,17 @@ const SMSDashboard = () => {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(10px, 3vw, 20px)', marginBottom: '30px' }}>
         <div style={{ textAlign: 'center', padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-          <div style={{ fontSize: '0.65rem', opacity: 0.4, marginBottom: '8px', fontWeight: '800' }}>ENVIADOS</div>
+          <div style={{ fontSize: '0.65rem', opacity: 0.4, marginBottom: '8px', fontWeight: '800' }}>{t('pbx.sms.smsSent', 'ENVIADOS')}</div>
           <div style={{ fontSize: '1.4rem', fontWeight: '900', fontFamily: 'monospace', color: '#fff' }}>{sentCount.toLocaleString()}</div>
         </div>
         <div style={{ textAlign: 'center', padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-          <div style={{ fontSize: '0.65rem', opacity: 0.4, marginBottom: '8px', fontWeight: '800' }}>ENTREGA</div>
+          <div style={{ fontSize: '0.65rem', opacity: 0.4, marginBottom: '8px', fontWeight: '800' }}>{t('pbx.sms.smsDelivered', 'ENTREGA')}</div>
           <div style={{ fontSize: '1.4rem', fontWeight: '900', color: '#10b981' }}>99.9%</div>
         </div>
       </div>
 
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '25px' }}>
-        <div style={{ fontSize: '0.7rem', opacity: 0.3, marginBottom: '15px', fontWeight: '800', letterSpacing: '1px' }}>LOG DE ACTIVIDAD</div>
+        <div style={{ fontSize: '0.7rem', opacity: 0.3, marginBottom: '15px', fontWeight: '800', letterSpacing: '1px' }}>{t('pbx.sms.smsActivityTitle', 'LOG DE ACTIVIDAD')}</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {logs.map(log => (
             <motion.div 
@@ -163,7 +164,7 @@ const SMSDashboard = () => {
               style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', fontFamily: 'monospace', color: 'rgba(255,255,255,0.7)' }}
             >
               <span style={{ fontWeight: '700' }}>{log.phone}</span>
-              <span style={{ color: '#10b981', fontWeight: '900' }}>DELIVERED</span>
+              <span style={{ color: '#10b981', fontWeight: '900' }}>{t('pbx.sms.smsStatusDelivered', 'DELIVERED')}</span>
             </motion.div>
           ))}
         </div>
@@ -273,6 +274,7 @@ const TiltCard = ({ children, style, spotlightColor = "rgba(255,255,255,0.07)", 
 };
 
 export default function Pbx({ onNavigate }) {
+  const { t } = useLanguage();
   // Ensure view starts at top
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -400,7 +402,7 @@ export default function Pbx({ onNavigate }) {
                   gap: '10px' 
                 }}
               >
-                <Cloud size={18} /> CLOUD COMMUNICATIONS
+                <Cloud size={18} /> {t('pbx.hero.tag', 'CLOUD COMMUNICATIONS')}
               </motion.div>
               
               <motion.h1 
@@ -413,8 +415,8 @@ export default function Pbx({ onNavigate }) {
                   textShadow: '0 10px 30px rgba(0,0,0,0.5)'
                 }}
               >
-                POWERFUL <br />
-                <span className="gradient-text">PBX SOLUTIONS</span>
+                {t('pbx.hero.title1', 'POWERFUL')} <br />
+                <span className="gradient-text">{t('pbx.hero.title2', 'PBX SOLUTIONS')}</span>
               </motion.h1>
               
               <motion.p 
@@ -428,7 +430,7 @@ export default function Pbx({ onNavigate }) {
                   textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                 }}
               >
-                Nuestro PBX es una solución de telefonía empresarial en la nube que permite gestionar, centralizar y optimizar las comunicaciones de tu empresa desde una sola plataforma. Ofrece llamadas de alta calidad, estabilidad y seguridad.
+                {t('pbx.hero.desc', 'Nuestro PBX es una solución de telefonía empresarial en la nube que permite gestionar, centralizar y optimizar las comunicaciones de tu empresa desde una sola plataforma. Ofrece llamadas de alta calidad, estabilidad y seguridad.')}
               </motion.p>
 
               <motion.div 
@@ -459,14 +461,14 @@ export default function Pbx({ onNavigate }) {
                     }, 100);
                   }}
                 >
-                  Discover More <ChevronRight size={22} />
+                  {t('pbx.hero.btn', 'Discover More')} <ChevronRight size={22} />
                 </motion.button>
 
                 {/* Floating Micro-specs */}
                 <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>
                   {[
-                    { icon: <ShieldCheck size={20} />, text: "Secure SIP" },
-                    { icon: <Activity size={20} />, text: "99.9% Uptime" }
+                    { icon: <ShieldCheck size={20} />, text: t('pbx.hero.spec1', "Secure SIP") },
+                    { icon: <Activity size={20} />, text: t('pbx.hero.spec2', "99.9% Uptime") }
                   ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'rgba(255,255,255,0.8)', fontSize: '0.9rem', fontWeight: '500' }}>
                       <span style={{ color: 'var(--color-accent)' }}>{item.icon}</span>
@@ -498,9 +500,9 @@ export default function Pbx({ onNavigate }) {
               <div style={{ marginBottom: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60px' }}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" width="100" height="40" loading="lazy" style={{ height: '40px', filter: 'brightness(1.5)' }} />
               </div>
-              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>Infraestructura AWS</h3>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>{t('pbx.infrastructure.awsTitle', 'Infraestructura AWS')}</h3>
               <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '1.05rem', textAlign: 'center' }}>
-                Nube de alta fiabilidad para una escalabilidad masiva y latencia mínima.
+                {t('pbx.infrastructure.awsDesc', 'Nube de alta fiabilidad para una escalabilidad masiva y latencia mínima.')}
               </p>
             </TiltCard>
 
@@ -516,9 +518,9 @@ export default function Pbx({ onNavigate }) {
               {...fadeInUp}
             >
               <div style={{ color: '#1db954', marginBottom: '30px', display: 'flex', justifyContent: 'center' }}><ShieldCheck size={55} strokeWidth={1.5} /></div>
-              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>Seguridad de Clase Empresarial</h3>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>{t('pbx.infrastructure.securityTitle', 'Seguridad de Clase Empresarial')}</h3>
               <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '1.05rem', textAlign: 'center' }}>
-                Monitorización 24/7 y encriptación de extremo a extremo en cada llamada.
+                {t('pbx.infrastructure.securityDesc', 'Monitorización 24/7 y encriptación de extremo a extremo en cada llamada.')}
               </p>
             </TiltCard>
 
@@ -536,9 +538,9 @@ export default function Pbx({ onNavigate }) {
               <div style={{ marginBottom: '30px', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '60px' }}>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" width="100" height="35" loading="lazy" style={{ height: '35px' }} />
               </div>
-              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>Comunicaciones Twilio</h3>
+              <h3 style={{ fontSize: '1.6rem', fontWeight: '800', marginBottom: '20px', textAlign: 'center', letterSpacing: '-0.5px' }}>{t('pbx.infrastructure.twilioTitle', 'Comunicaciones Twilio')}</h3>
               <p style={{ color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontSize: '1.05rem', textAlign: 'center' }}>
-                Conectividad global ininterrumpida a través de la red más confiable del mundo.
+                {t('pbx.infrastructure.twilioDesc', 'Conectividad global ininterrumpida a través de la red más confiable del mundo.')}
               </p>
             </TiltCard>
           </div>
@@ -553,16 +555,16 @@ export default function Pbx({ onNavigate }) {
             style={{ textAlign: 'center', marginBottom: '80px' }}
           >
             <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px' }}>
-              Estabilidad que impulsa <span className="gradient-text">tu negocio</span>
+              {t('pbx.features.title1', 'Estabilidad que impulsa')} <span className="gradient-text">{t('pbx.features.title2', 'tu negocio')}</span>
             </h2>
             <div style={{ width: '100px', height: '4px', background: 'var(--color-primary)', margin: '0 auto 30px' }}></div>
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
             {[
-              { icon: <Mic2 size={35} strokeWidth={1.5} />, title: "Audio Superior", desc: "Llamadas con claridad HD cristalina y latencia casi nula." },
-              { icon: <Activity size={35} strokeWidth={1.5} />, title: "99.9% Uptime", desc: "Sistemas redundantes para una operación que nunca se detiene." },
-              { icon: <Lock size={35} strokeWidth={1.5} />, title: "Cifrado SSL/SIP", desc: "Seguridad bancaria en todas tus líneas telefónicas." }
+              { icon: <Mic2 size={35} strokeWidth={1.5} />, title: t('pbx.features.f1Title', "Audio Superior"), desc: t('pbx.features.f1Desc', "Llamadas con claridad HD cristalina y latencia casi nula.") },
+              { icon: <Activity size={35} strokeWidth={1.5} />, title: t('pbx.features.f2Title', "99.9% Uptime"), desc: t('pbx.features.f2Desc', "Sistemas redundantes para una operación que nunca se detiene.") },
+              { icon: <Lock size={35} strokeWidth={1.5} />, title: t('pbx.features.f3Title', "Cifrado SSL/SIP"), desc: t('pbx.features.f3Desc', "Seguridad bancaria en todas tus líneas telefónicas.") }
             ].map((feature, i) => (
               <TiltCard 
                 key={i}
@@ -597,18 +599,23 @@ export default function Pbx({ onNavigate }) {
               viewport={{ once: true }}
             >
               <div style={{ display: 'inline-flex', padding: '8px 16px', background: 'rgba(0,180,255,0.1)', borderRadius: '30px', marginBottom: '25px', color: 'var(--color-accent)', fontWeight: 'bold', fontSize: '0.8rem', letterSpacing: '1px' }}>
-                IDENTIDAD TELEFÓNICA
+                {t('pbx.dids.tag', 'IDENTIDAD TELEFÓNICA')}
               </div>
               <h2 style={{ fontSize: 'clamp(2rem, 8vw, 3rem)', fontWeight: 'bold', marginBottom: '25px', wordBreak: 'break-word', lineHeight: 1.1 }}>
-                DIDS: Conexión <br />
-                <span className="gradient-text">Sin Fronteras</span>
+                {t('pbx.dids.title1', 'DIDS: Conexión')} <br />
+                <span className="gradient-text">{t('pbx.dids.title2', 'Sin Fronteras')}</span>
               </h2>
               <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', lineHeight: '1.8', marginBottom: '35px' }}>
-                DIDs es una solución diseñada para conectar empresas con sus clientes de manera simple, profesional y escalable. Permite asignar números directos a diferentes áreas o usuarios.
+                {t('pbx.dids.desc', 'DIDs es una solución diseñada para conectar empresas con sus clientes de manera simple, profesional y escalable. Permite asignar números directos a diferentes áreas o usuarios.')}
               </p>
               
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
-                {['Directo', 'Escalable', 'Profesional', 'Organizado'].map((tag, i) => (
+                {[
+                  t('pbx.dids.tags.t1', 'Directo'), 
+                  t('pbx.dids.tags.t2', 'Escalable'), 
+                  t('pbx.dids.tags.t3', 'Profesional'), 
+                  t('pbx.dids.tags.t4', 'Organizado')
+                ].map((tag, i) => (
                   <span key={i} style={{ padding: '6px 15px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.1)' }}>{tag}</span>
                 ))}
               </div>
@@ -622,11 +629,11 @@ export default function Pbx({ onNavigate }) {
               style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '20px' }}
             >
               {[
-                { icon: <Headset size={30} />, label: "Call Centers" },
-                { icon: <Cpu size={30} />, label: "Tech Companies" },
-                { icon: <ShoppingCart size={30} />, label: "E-Commerce" },
-                { icon: <Building2 size={30} />, label: "Support" },
-                { icon: <Rocket size={30} />, label: "Startups" }
+                { icon: <Headset size={30} />, label: t('pbx.dids.segments.s1', "Call Centers") },
+                { icon: <Cpu size={30} />, label: t('pbx.dids.segments.s2', "Tech Companies") },
+                { icon: <ShoppingCart size={30} />, label: t('pbx.dids.segments.s3', "E-Commerce") },
+                { icon: <Building2 size={30} />, label: t('pbx.dids.segments.s4', "Support") },
+                { icon: <Rocket size={30} />, label: t('pbx.dids.segments.s5', "Startups") }
               ].map((segment, i) => (
                 <TiltCard
                   key={i}
@@ -672,18 +679,20 @@ export default function Pbx({ onNavigate }) {
                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" width="80" height="25" loading="lazy" style={{ height: '25px', opacity: 0.8 }} />
                 </div>
                 <h2 style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px', lineHeight: 1.1, wordBreak: 'break-word' }}>
-                  SMS: CONEXIÓN <span className="gradient-text">DIRECTA</span>
+                  {t('pbx.sms.title1', 'SMS: CONEXIÓN')} <span className="gradient-text">{t('pbx.sms.title2', 'DIRECTA')}</span>
                 </h2>
                 <p style={{ maxWidth: '600px', marginBottom: '40px', fontSize: '1.15rem', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7' }}>
-                  Brindamos un servicio de SMS seguro, estable y fácil de integrar, impulsado por <span style={{ color: '#fff' }}>Twilio</span>. Ayudamos a las empresas a comunicarse con sus clientes de manera eficiente mediante campañas masivas y notificaciones críticas.
+                  {t('pbx.sms.desc1', 'Brindamos un servicio de SMS seguro, estable y fácil de integrar, impulsado por ')}
+                  <span style={{ color: '#fff' }}>Twilio</span>
+                  {t('pbx.sms.desc2', '. Ayudamos a las empresas a comunicarse con sus clientes de manera eficiente mediante campañas masivas y notificaciones críticas.')}
                 </p>
                 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '20px', maxWidth: '500px' }}>
                   {[
-                    { icon: <Zap size={20} />, label: "Entrega Inmediata" },
-                    { icon: <ShieldCheck size={20} />, label: "Seguridad 2FA" },
-                    { icon: <Smartphone size={20} />, label: "API Global" },
-                    { icon: <Rocket size={20} />, label: "Escalabilidad" }
+                    { icon: <Zap size={20} />, label: t('pbx.sms.f1', "Entrega Inmediata") },
+                    { icon: <ShieldCheck size={20} />, label: t('pbx.sms.f2', "Seguridad 2FA") },
+                    { icon: <Smartphone size={20} />, label: t('pbx.sms.f3', "API Global") },
+                    { icon: <Rocket size={20} />, label: t('pbx.sms.f4', "Escalabilidad") }
                   ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', fontSize: '0.95rem' }}>
                       <div style={{ color: 'var(--color-accent)' }}>{item.icon}</div>
@@ -698,7 +707,7 @@ export default function Pbx({ onNavigate }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                <SMSDashboard />
+                <SMSDashboard t={t} />
               </motion.div>
             </div>
           </TiltCard>

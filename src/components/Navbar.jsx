@@ -183,7 +183,7 @@ const Navbar = ({ onNavigate, activePage }) => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '6px',
+              gap: '7px',
               background: 'rgba(255,255,255,0.05)',
               border: '1px solid rgba(255,255,255,0.12)',
               borderRadius: '24px',
@@ -209,16 +209,15 @@ const Navbar = ({ onNavigate, activePage }) => {
             }}
           >
             {language === 'es' ? (
-              /* Currently ES → show current flag + label, click → switch to EN */
               <>
-                <span style={{ fontSize: '1.3rem', lineHeight: 1 }}>🇲🇽</span>
-                <span style={{ opacity: 0.85 }}>ES</span>
+                <img src="https://flagcdn.com/w20/mx.png" width="20" height="14" alt="México" style={{ borderRadius: '2px', display: 'block' }} />
+                <span style={{ opacity: 0.9 }}>ES</span>
               </>
             ) : (
-              /* Currently EN → show current flags + label, click → switch to ES */
               <>
-                <span style={{ fontSize: '1.1rem', lineHeight: 1, letterSpacing: '-2px' }}>🇺🇸🇨🇦</span>
-                <span style={{ opacity: 0.85, marginLeft: '4px' }}>EN</span>
+                <img src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="USA" style={{ borderRadius: '2px', display: 'block' }} />
+                <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="Canada" style={{ borderRadius: '2px', display: 'block', marginLeft: '3px' }} />
+                <span style={{ opacity: 0.9, marginLeft: '2px' }}>EN</span>
               </>
             )}
           </button>
@@ -250,7 +249,6 @@ const Navbar = ({ onNavigate, activePage }) => {
           
           {/* Mobile Language Toggle — Flag Selector */}
           <div style={{ textAlign: 'center', marginTop: '20px', paddingBottom: '20px' }}>
-            {/* Current language indicator */}
             <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', marginBottom: '10px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
               {language === 'es' ? 'Idioma actual' : 'Current language'}
             </p>
@@ -262,42 +260,45 @@ const Navbar = ({ onNavigate, activePage }) => {
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '4px',
+                  gap: '6px',
                   background: language === 'es' ? 'rgba(0,180,255,0.15)' : 'rgba(255,255,255,0.06)',
                   border: language === 'es' ? '1px solid rgba(0,180,255,0.5)' : '1px solid rgba(255,255,255,0.12)',
                   borderRadius: '14px',
-                  padding: '10px 18px',
+                  padding: '12px 18px',
                   color: 'white',
                   cursor: 'pointer',
                   fontWeight: '600',
                   fontSize: '0.85rem',
-                  minWidth: '80px'
+                  minWidth: '90px'
                 }}
               >
-                <span style={{ fontSize: '1.8rem' }}>🇲🇽</span>
+                <img src="https://flagcdn.com/w40/mx.png" width="40" height="27" alt="México" style={{ borderRadius: '4px', display: 'block' }} />
                 <span>Español</span>
               </button>
-              {/* EN Option */}
+              {/* EN Option — US + CA */}
               <button
                 onClick={() => { if (language !== 'en') { toggleLanguage(); } setIsMenuOpen(false); }}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '4px',
+                  gap: '6px',
                   background: language === 'en' ? 'rgba(0,180,255,0.15)' : 'rgba(255,255,255,0.06)',
                   border: language === 'en' ? '1px solid rgba(0,180,255,0.5)' : '1px solid rgba(255,255,255,0.12)',
                   borderRadius: '14px',
-                  padding: '10px 18px',
+                  padding: '12px 18px',
                   color: 'white',
                   cursor: 'pointer',
                   fontWeight: '600',
                   fontSize: '0.85rem',
-                  minWidth: '80px'
+                  minWidth: '90px'
                 }}
               >
-                <span style={{ fontSize: '1.4rem', letterSpacing: '-3px' }}>🇺🇸🇨🇦</span>
-                <span style={{ marginTop: '2px' }}>English</span>
+                <div style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
+                  <img src="https://flagcdn.com/w40/us.png" width="32" height="21" alt="USA" style={{ borderRadius: '3px', display: 'block' }} />
+                  <img src="https://flagcdn.com/w40/ca.png" width="32" height="21" alt="Canada" style={{ borderRadius: '3px', display: 'block' }} />
+                </div>
+                <span>English</span>
               </button>
             </div>
           </div>

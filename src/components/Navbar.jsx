@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Menu, X, Globe } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = ({ onNavigate, activePage }) => {
@@ -176,28 +176,51 @@ const Navbar = ({ onNavigate, activePage }) => {
             </div>
           </div>
           
-          {/* Desktop Language Toggle */}
-          <button 
+          {/* Desktop Language Toggle — Flag Selector */}
+          <button
             onClick={toggleLanguage}
+            title={language === 'es' ? 'Switch to English' : 'Cambiar a Español'}
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '6px',
               background: 'rgba(255,255,255,0.05)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: '20px',
-              padding: '6px 12px',
+              border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: '24px',
+              padding: '5px 12px 5px 8px',
               color: 'white',
               cursor: 'pointer',
-              fontWeight: 'bold',
-              transition: 'background 0.3s, transform 0.2s',
-              marginLeft: '10px'
+              fontWeight: '600',
+              fontSize: '0.82rem',
+              letterSpacing: '0.04em',
+              transition: 'background 0.25s, transform 0.15s, box-shadow 0.25s',
+              marginLeft: '10px',
+              whiteSpace: 'nowrap'
             }}
-            onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.15)'}
-            onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+            onMouseOver={(e) => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.13)';
+              e.currentTarget.style.transform = 'translateY(-1px)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.3)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
           >
-            <Globe size={18} />
-            {language.toUpperCase()}
+            {language === 'es' ? (
+              /* Currently ES → show current flag + label, click → switch to EN */
+              <>
+                <span style={{ fontSize: '1.3rem', lineHeight: 1 }}>🇲🇽</span>
+                <span style={{ opacity: 0.85 }}>ES</span>
+              </>
+            ) : (
+              /* Currently EN → show current flags + label, click → switch to ES */
+              <>
+                <span style={{ fontSize: '1.1rem', lineHeight: 1, letterSpacing: '-2px' }}>🇺🇸🇨🇦</span>
+                <span style={{ opacity: 0.85, marginLeft: '4px' }}>EN</span>
+              </>
+            )}
           </button>
         </div>
 
@@ -225,27 +248,58 @@ const Navbar = ({ onNavigate, activePage }) => {
             </div>
           </div>
           
-          {/* Mobile Language Toggle */}
+          {/* Mobile Language Toggle — Flag Selector */}
           <div style={{ textAlign: 'center', marginTop: '20px', paddingBottom: '20px' }}>
-            <button 
-              onClick={() => { toggleLanguage(); setIsMenuOpen(false); }}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                borderRadius: '20px',
-                padding: '10px 24px',
-                color: 'white',
-                cursor: 'pointer',
-                fontWeight: 'bold',
-                fontSize: '1rem'
-              }}
-            >
-              <Globe size={20} />
-              {language === 'es' ? 'English' : 'Español'}
-            </button>
+            {/* Current language indicator */}
+            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', marginBottom: '10px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+              {language === 'es' ? 'Idioma actual' : 'Current language'}
+            </p>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+              {/* ES Option */}
+              <button
+                onClick={() => { if (language !== 'es') { toggleLanguage(); } setIsMenuOpen(false); }}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '4px',
+                  background: language === 'es' ? 'rgba(0,180,255,0.15)' : 'rgba(255,255,255,0.06)',
+                  border: language === 'es' ? '1px solid rgba(0,180,255,0.5)' : '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: '14px',
+                  padding: '10px 18px',
+                  color: 'white',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                  fontSize: '0.85rem',
+                  minWidth: '80px'
+                }}
+              >
+                <span style={{ fontSize: '1.8rem' }}>🇲🇽</span>
+                <span>Español</span>
+              </button>
+              {/* EN Option */}
+              <button
+                onClick={() => { if (language !== 'en') { toggleLanguage(); } setIsMenuOpen(false); }}
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: '4px',
+                  background: language === 'en' ? 'rgba(0,180,255,0.15)' : 'rgba(255,255,255,0.06)',
+                  border: language === 'en' ? '1px solid rgba(0,180,255,0.5)' : '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: '14px',
+                  padding: '10px 18px',
+                  color: 'white',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                  fontSize: '0.85rem',
+                  minWidth: '80px'
+                }}
+              >
+                <span style={{ fontSize: '1.4rem', letterSpacing: '-3px' }}>🇺🇸🇨🇦</span>
+                <span style={{ marginTop: '2px' }}>English</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

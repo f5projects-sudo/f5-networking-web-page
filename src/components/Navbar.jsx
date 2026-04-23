@@ -90,7 +90,7 @@ const Navbar = ({ onNavigate, activePage }) => {
         top: 0, 
         width: '100%', 
         zIndex: 9999, 
-        backgroundColor: 'rgba(5, 5, 5, 0.95)', // Permanent solid for visibility
+        backgroundColor: 'rgba(26, 26, 31, 0.97)', // Graphite — matches new dark palette
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         backdropFilter: 'blur(15px)',
         WebkitBackdropFilter: 'blur(15px)'

@@ -586,7 +586,7 @@ export default function Bpo({ onNavigate }) {
       )}
 
       {/* ── Metodología Component (Floating Panels 2.0) ── */}
-      <section style={{ padding: 'clamp(40px, 8vw, 100px) 0', position: 'relative', background: '#050505', overflow: 'hidden', zIndex: 10 }}>
+      <section style={{ padding: 'clamp(40px, 8vw, 100px) 0', position: 'relative', background: '#1a1a1f', overflow: 'hidden', zIndex: 10 }}>
         {/* Background Decorative Accents */}
         <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(255,140,0,0.03) 0%, transparent 70%)', zIndex: 0 }} />
         <div style={{ position: 'absolute', bottom: '10%', left: '-10%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,86,179,0.03) 0%, transparent 70%)', zIndex: 0 }} />
@@ -665,7 +665,7 @@ export default function Bpo({ onNavigate }) {
       </section>
 
       {/* ── Modelo Operativo Section (Security Control Center) ── */}
-      <section style={{ padding: 'clamp(60px, 10vw, 140px) 0', position: 'relative', zIndex: 10, background: '#050505', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
+      <section style={{ padding: 'clamp(60px, 10vw, 140px) 0', position: 'relative', zIndex: 10, background: '#1a1a1f', borderTop: '1px solid rgba(255,255,255,0.03)' }}>
         <div className="section-container">
           <motion.div 
             {...fadeInUp}
@@ -698,7 +698,7 @@ export default function Bpo({ onNavigate }) {
       </section>
 
       {/* ── BPO Services Section (Global Support Hub 2.0) ── */}
-      <section style={{ padding: '160px 0', background: 'radial-gradient(circle at 50% 50%, rgba(255,140,0,0.02) 0%, #050505 100%)', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: '160px 0', background: 'radial-gradient(circle at 50% 50%, rgba(255,140,0,0.02) 0%, #1a1a1f 100%)', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
           <div className="bpo-services-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.3fr', gap: 'clamp(40px, 8vw, 100px)', alignItems: 'center' }}>
             
@@ -744,7 +744,7 @@ export default function Bpo({ onNavigate }) {
                   gap: '15px'
                 }}
               >
-                <div style={{ background: 'rgba(10,10,10,0.85)', backdropFilter: 'blur(20px)', padding: '25px 35px', borderRadius: '25px', border: '1px solid rgba(255,140,0,0.4)', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
+                <div style={{ background: 'rgba(26,26,31,0.85)', backdropFilter: 'blur(20px)', padding: '25px 35px', borderRadius: '25px', border: '1px solid rgba(255,140,0,0.4)', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
                   <div style={{ fontSize: '2.5rem', fontWeight: '900', color: 'var(--color-secondary)', lineHeight: 1 }}>+300</div>
                   <div style={{ fontSize: '0.8rem', opacity: 0.5, letterSpacing: '1px', textTransform: 'uppercase', marginTop: '5px' }}>{t('bpo.services.stat1', 'Posiciones Listas')}</div>
                 </div>

@@ -115,7 +115,7 @@ export default function Cableado({ onNavigate }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(5,5,5,0.7), #050505)',
+          background: 'linear-gradient(to bottom, rgba(26,26,31,0.7), #1a1a1f)',
           zIndex: -1
         }} />
 
@@ -236,7 +236,7 @@ export default function Cableado({ onNavigate }) {
               top: 0, 
               bottom: 20, 
               width: '100px', 
-              background: 'linear-gradient(to left, #050505, transparent)', 
+              background: 'linear-gradient(to left, #1a1a1f, transparent)', 
               zIndex: 5, 
               pointerEvents: 'none',
               display: 'flex',

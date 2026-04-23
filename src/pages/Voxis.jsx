@@ -331,7 +331,7 @@ export default function Voxis({ onNavigate }) {
                 ))}
             </div>
 
-              <div style={{ marginTop: '30px', padding: '15px', background: 'rgba(0,0,0,0.3)', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.03)' }}>
+              <div style={{ marginTop: '30px', padding: '15px', background: 'rgba(26,26,31,0.6)', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.03)' }}>
                 <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6 }}>
                   {t('voxis.nexus.hud1Desc', 'VØXIS entiende la intención detrás de cada palabra, permitiendo respuestas precisas y ejecución de tareas complejas en segundos.')}
                 </p>
@@ -423,7 +423,7 @@ export default function Voxis({ onNavigate }) {
                   <div style={{ 
                     width: '50px', 
                     height: '50px', 
-                    background: 'rgba(0,0,0,0.4)', 
+                    background: 'rgba(26,26,31,0.6)', 
                     borderRadius: '50%', 
                     display: 'flex', 
                     alignItems: 'center', 

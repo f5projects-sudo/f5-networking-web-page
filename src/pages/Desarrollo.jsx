@@ -54,7 +54,7 @@ export default function Desarrollo({ onNavigate }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, transparent, #050505 95%)',
+          background: 'linear-gradient(to bottom, transparent, #1a1a1f 95%)',
           zIndex: -1
         }} />
 

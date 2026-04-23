@@ -27,7 +27,7 @@ export default function Terminos({ onNavigate }) {
   };
 
   return (
-    <div style={{ backgroundColor: '#050505', minHeight: '100vh', color: '#fff', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ backgroundColor: '#1a1a1f', minHeight: '100vh', color: '#fff', position: 'relative', overflow: 'hidden' }}>
       <BubbleBackground />
       <Navbar onNavigate={onNavigate} activePage="terminos" />
 

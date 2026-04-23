@@ -61,7 +61,7 @@ export default function Axia({ onNavigate }) {
             transition={{ duration: 0.8, delay: 1 }}
             whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(0, 180, 255, 0.5)' }}
             whileTap={{ scale: 0.95 }}
-            style={{ padding: '12px 30px', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(10px)', border: '1px solid var(--color-accent)', borderRadius: '50px', color: 'white', fontWeight: 'bold', fontSize: '1rem', cursor: 'pointer' }}
+            style={{ padding: '12px 30px', background: 'rgba(26,26,31,0.5)', backdropFilter: 'blur(10px)', border: '1px solid var(--color-accent)', borderRadius: '50px', color: 'white', fontWeight: 'bold', fontSize: '1rem', cursor: 'pointer' }}
             onClick={() => {
               const featuresSection = document.getElementById('axia-features');
               if(featuresSection) featuresSection.scrollIntoView({ behavior: 'smooth' });

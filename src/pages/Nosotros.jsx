@@ -127,7 +127,7 @@ export default function Nosotros({ onNavigate }) {
             <motion.div 
               initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
               className="glass floating-card-reverse"
-              style={{ position: 'absolute', right: '0%', top: '35%', padding: '28px', borderRadius: '24px', width: '260px', border: '1px solid rgba(255, 140, 0, 0.3)', background: 'rgba(5, 5, 5, 0.8)', zIndex: 3, boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
+              style={{ position: 'absolute', right: '0%', top: '35%', padding: '28px', borderRadius: '24px', width: '260px', border: '1px solid rgba(255, 140, 0, 0.3)', background: 'rgba(26, 26, 31, 0.85)', zIndex: 3, boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
             >
               <div style={{ background: 'rgba(255, 140, 0, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
                 <Users size={28} style={{ color: 'var(--color-secondary)' }} />
@@ -286,7 +286,7 @@ export default function Nosotros({ onNavigate }) {
           </div>
 
           {/* Right: Display Panel */}
-          <div style={{ position: 'relative', minHeight: isMobile ? '400px' : '480px', background: 'rgba(0,0,0,0.3)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.03)', overflow: 'hidden', padding: isMobile ? '30px 20px' : '50px 60px', display: 'flex', alignItems: 'center' }}>
+          <div style={{ position: 'relative', minHeight: isMobile ? '400px' : '480px', background: 'rgba(26,26,31,0.5)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.03)', overflow: 'hidden', padding: isMobile ? '30px 20px' : '50px 60px', display: 'flex', alignItems: 'center' }}>
             <AnimatePresence mode="wait">
               {[
                 { 

@@ -483,7 +483,7 @@ export default function Pbx({ onNavigate }) {
       </section>
 
       {/* ── Infrastructure Section ── */}
-      <section style={{ padding: '100px 0', background: 'rgba(0,0,0,0.3)', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: '100px 0', background: 'rgba(26,26,31,0.5)', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             <TiltCard 
@@ -588,7 +588,7 @@ export default function Pbx({ onNavigate }) {
       </section>
 
       {/* ── DID'S Section ── */}
-      <section style={{ padding: '120px 0', background: '#050505', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '120px 0', background: '#1a1a1f', position: 'relative', overflow: 'hidden' }}>
         <FloatingNumbers />
         {/* Transparent overlay to ensure background is behind but content is visible */}
         <div className="section-container" style={{ position: 'relative', zIndex: 10 }}>

@@ -182,7 +182,7 @@ const App = () => {
   if (PageContent) {
     return (
       <Suspense fallback={
-        <div style={{ height: '100dvh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#050505', color: 'var(--color-primary)' }}>
+        <div style={{ height: '100dvh', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#1a1a1f', color: 'var(--color-primary)' }}>
           <div className="hardware-accelerated" style={{ width: '40px', height: '40px', border: '3px solid rgba(0,180,255,0.3)', borderTopColor: 'var(--color-accent)', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
           <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
         </div>

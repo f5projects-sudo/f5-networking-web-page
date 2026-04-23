@@ -58,7 +58,7 @@ export default function Echo({ onNavigate }) {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(5,5,5,0.8), #050505)',
+          background: 'linear-gradient(to bottom, rgba(26,26,31,0.8), #1a1a1f)',
           zIndex: -1
         }} />
 
@@ -312,7 +312,7 @@ export default function Echo({ onNavigate }) {
       </section>
 
       {/* ── Diferenciadores ── */}
-      <section style={{ padding: '100px 0', background: 'linear-gradient(to bottom, #050505, rgba(0,180,255,0.05), #050505)', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: '100px 0', background: 'linear-gradient(to bottom, #1a1a1f, rgba(0,180,255,0.05), #1a1a1f)', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
           <motion.div 
             {...fadeInUp}

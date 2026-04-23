@@ -213,7 +213,7 @@ const NovaParticles = ({ targetShape = 'none' }) => {
     // Loop de animación
     const animate = () => {
       // Limpiamos con leve alpha para efecto estela
-      ctx.fillStyle = 'rgba(10, 10, 10, 0.2)';
+      ctx.fillStyle = 'rgba(26, 26, 31, 0.2)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       const particles = particlesRef.current;

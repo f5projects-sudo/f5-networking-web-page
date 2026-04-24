@@ -42,6 +42,7 @@ import {
   Gem
 } from 'lucide-react';
 import BubbleBackground from './components/BubbleBackground';
+import HeroCarousel from './components/HeroCarousel';
 import MapFooter from './components/MapFooter';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
@@ -265,56 +266,8 @@ const App = () => {
     <div className="app">
       <BubbleBackground />
 
-      {/* Hero Section */}
-      <section id="hero" style={{ minHeight: '100dvh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '100px 20px 40px', position: 'relative', zIndex: 1 }}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          style={{ width: '100%', maxWidth: '900px', marginTop: '40px' }}
-        >
-          <h1 style={{ fontSize: 'clamp(2.2rem, 8vw, 5rem)', marginBottom: '10px', wordBreak: 'break-word' }}>
-            <span style={{ color: 'var(--color-secondary)' }}>F</span>5 <span className="gradient-text">Networking</span>
-          </h1>
-          <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', maxWidth: '600px', margin: '0 auto 30px' }}>
-            {t('home.hero.subtitle', 'Redefiniendo la tecnología de comunicación. Facilitando el crecimiento a través de IA y conectividad omnicanal.')}
-          </p>
-          <div style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexWrap: 'wrap', width: '100%', marginTop: '30px' }}>
-            <motion.button
-              onClick={() => scrollTo('services')}
-              className="glass"
-              style={{ padding: '14px 28px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '1rem', fontWeight: 600, border: '1px solid var(--color-secondary)', cursor: 'pointer', background: 'rgba(255,140,0,0.15)', color: 'white', minWidth: '160px', justifyContent: 'center' }}
-              whileHover={{ scale: 1.05, background: 'var(--color-secondary)', boxShadow: '0 0 20px rgba(255,140,0,0.4)' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {t('home.hero.btnSolutions', 'Ver Soluciones')} <ChevronRight size={18} />
-            </motion.button>
-            <motion.button
-              onClick={() => scrollTo('contact')}
-              className="glass"
-              style={{ 
-                padding: '14px 28px', 
-                borderRadius: '50px', 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '8px', 
-                fontSize: '1rem', 
-                fontWeight: 600, 
-                border: 'none', 
-                cursor: 'pointer', 
-                background: 'linear-gradient(135deg, #0056b3, #2d7ae8)', 
-                color: 'white', 
-                minWidth: '160px', 
-                justifyContent: 'center' 
-              }}
-              whileHover={{ scale: 1.05, boxShadow: '0 4px 20px rgba(45,122,232,0.35)' }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contactar Experto
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
+      {/* Hero Carousel */}
+      <HeroCarousel />
 
       {/* ── Marcas con las que trabajamos (Carousel) ── */}
       <section style={{ position: 'relative', zIndex: 10, padding: '30px 0 60px 0', overflow: 'hidden', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'transparent' }}>

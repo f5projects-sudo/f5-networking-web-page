@@ -8,8 +8,8 @@ const slides = [
     url: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&auto=format&fit=crop&q=80',
     alt: 'Data Center Infrastructure',
     tag: 'Infraestructura Cloud',
-    title: 'Potencia tu empresa\ncon tecnología de punta',
-    subtitle: 'Infraestructura de datos redundante, segura y escalable para que tu operación nunca se detenga.',
+    title: 'Soluciones de automatización e\ninteligencia artificial para empresas\nque buscan escalar su operación',
+    subtitle: 'Diseñamos, desarrollamos e implementamos tecnología a la medida para optimizar procesos, reducir costos operativos y mejorar la eficiencia de tu negocio.',
   },
   {
     id: 1,

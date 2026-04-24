@@ -154,7 +154,7 @@ const HeroCarousel = ({ onNavigate }) => {
             {/* Tag pill */}
             <motion.div variants={textItem} style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '6px 16px', marginBottom: '24px',
+              padding: '6px 16px', marginBottom: '32px',
               background: 'rgba(255,140,0,0.18)',
               border: '1px solid rgba(255,140,0,0.4)',
               borderRadius: '50px',
@@ -168,30 +168,32 @@ const HeroCarousel = ({ onNavigate }) => {
 
             {/* Title */}
             <motion.h1 variants={textItem} style={{
-              fontSize: 'clamp(2rem, 5vw, 3.8rem)',
+              fontSize: 'clamp(2.2rem, 5.5vw, 4.2rem)',
               fontWeight: 800,
-              lineHeight: 1.15,
-              marginBottom: '20px',
+              lineHeight: 1.1,
+              marginBottom: '28px',
               color: '#ffffff',
-              letterSpacing: '-0.5px',
-              whiteSpace: 'pre-line'
+              letterSpacing: '-1.5px',
+              whiteSpace: 'pre-line',
+              textShadow: '0 10px 30px rgba(0,0,0,0.3)'
             }}>
               {slide.title}
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p variants={textItem} style={{
-              fontSize: 'clamp(0.95rem, 1.8vw, 1.15rem)',
-              color: 'rgba(255,255,255,0.72)',
-              lineHeight: 1.7,
-              marginBottom: '36px',
-              maxWidth: '540px'
+              fontSize: 'clamp(1rem, 1.6vw, 1.25rem)',
+              color: 'rgba(255,255,255,0.85)',
+              lineHeight: 1.6,
+              marginBottom: '48px',
+              maxWidth: '580px',
+              fontWeight: 400
             }}>
               {slide.subtitle}
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={textItem} style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+            <motion.div variants={textItem} style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
               <motion.button
                 whileHover={{ scale: 1.04, background: '#ff8c00' }}
                 whileTap={{ scale: 0.96 }}

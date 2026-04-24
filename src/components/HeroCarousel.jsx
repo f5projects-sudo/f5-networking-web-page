@@ -71,7 +71,7 @@ const HeroCarousel = ({ onNavigate }) => {
     if (isPaused) return;
     const timer = setInterval(next, INTERVAL);
     return () => clearInterval(timer);
-  }, [next, isPaused]);
+  }, [next, isPaused, current]);
 
   // Image slide variants
   const imageVariants = {
@@ -268,19 +268,24 @@ const HeroCarousel = ({ onNavigate }) => {
         .map(({ pos, icon, onClick }) => (
           <motion.button
             key={pos}
-            onClick={onClick}
+            onClick={() => {
+              onClick();
+              // Resetting the timer is handled by the useEffect dependency on 'current'
+            }}
             whileHover={{ scale: 1.1, background: 'rgba(255,255,255,0.18)' }}
             whileTap={{ scale: 0.95 }}
             aria-label={pos === 'left' ? 'Anterior' : 'Siguiente'}
             style={{
               position: 'absolute',
-              [pos]: '20px', bottom: '48px',
-              zIndex: 20,
+              [pos]: '20px', 
+              top: '50%',
+              transform: 'translateY(-50%)',
+              zIndex: 30,
               background: 'rgba(26,26,31,0.55)',
               border: '1px solid rgba(255,255,255,0.15)',
               backdropFilter: 'blur(8px)',
               borderRadius: '50%',
-              width: '44px', height: '44px',
+              width: '50px', height: '50px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', color: 'white'
             }}

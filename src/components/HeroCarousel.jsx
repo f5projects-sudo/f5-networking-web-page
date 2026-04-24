@@ -5,9 +5,9 @@ import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 const slides = [
   {
     id: 0,
-    url: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&auto=format&fit=crop&q=80',
-    alt: 'Data Center Infrastructure',
-    tag: 'Infraestructura Cloud',
+    url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&auto=format&fit=crop&q=80',
+    alt: 'Artificial Intelligence Visualization',
+    tag: 'Inteligencia Artificial',
     title: 'Soluciones de automatización e\ninteligencia artificial para empresas\nque buscan escalar su operación',
     subtitle: 'Diseñamos, desarrollamos e implementamos tecnología a la medida para optimizar procesos, reducir costos operativos y mejorar la eficiencia de tu negocio.',
   },

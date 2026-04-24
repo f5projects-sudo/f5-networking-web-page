@@ -302,12 +302,12 @@ const App = () => {
                 fontWeight: 600, 
                 border: 'none', 
                 cursor: 'pointer', 
-                background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', 
+                background: 'linear-gradient(135deg, #0056b3, #2d7ae8)', 
                 color: 'white', 
                 minWidth: '160px', 
                 justifyContent: 'center' 
               }}
-              whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0,132,255,0.4)' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 4px 20px rgba(45,122,232,0.35)' }}
               whileTap={{ scale: 0.95 }}
             >
               Contactar Experto
@@ -317,7 +317,7 @@ const App = () => {
       </section>
 
       {/* ── Marcas con las que trabajamos (Carousel) ── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '30px 0 60px 0', overflow: 'hidden', borderBottom: '1px solid rgba(0, 180, 255, 0.1)', background: 'transparent' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '30px 0 60px 0', overflow: 'hidden', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'transparent' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '40px' }}>
           <p style={{ color: 'var(--color-primary)', letterSpacing: '3px', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>
             {t('home.brands.title', 'Marcas con las que trabajamos')}

@@ -82,8 +82,8 @@ const CapacityCard = ({ icon, title, desc, result, index }) => {
         justifyContent: 'center',
         color: 'var(--color-accent)',
         marginBottom: '35px',
-        border: '1px solid rgba(0,180,255,0.2)',
-        boxShadow: '0 15px 30px -10px rgba(0,180,255,0.3)'
+        border: '1px solid rgba(91,156,246,0.2)',
+        boxShadow: '0 15px 30px -10px rgba(91,156,246,0.12)'
       }}>
         {React.cloneElement(icon, { size: 34 })}
       </div>
@@ -372,8 +372,8 @@ export default function Voxis({ onNavigate }) {
                   flexDirection: 'column', 
                   alignItems: 'center', 
                   justifyContent: 'center',
-                  background: 'rgba(0, 180, 255, 0.05)',
-                  boxShadow: '0 0 80px rgba(0, 180, 255, 0.15)',
+                  background: 'rgba(91,156,246,0.05)',
+                  boxShadow: '0 0 80px rgba(91,156,246,0.08)',
                   cursor: 'pointer'
                 }}
               >
@@ -381,7 +381,7 @@ export default function Voxis({ onNavigate }) {
                   animate={{ y: [-5, 5, -5] }}
                   transition={{ duration: 3, repeat: Infinity }}
                 >
-                  <Bot size={70} color="var(--color-accent)" style={{ filter: 'drop-shadow(0 0 20px rgba(0, 180, 255, 0.5))' }} />
+                  <Bot size={70} color="var(--color-accent)" />
                 </motion.div>
                 <div style={{ marginTop: '20px', textAlign: 'center' }}>
                   <div style={{ fontSize: '1rem', fontWeight: '900', letterSpacing: '2px' }}>{t('voxis.nexus.core', 'CORE_VØXIS')}</div>

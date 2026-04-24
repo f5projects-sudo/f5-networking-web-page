@@ -84,7 +84,7 @@ export default function Nosotros({ onNavigate }) {
             </p>
 
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 180, 255, 0.5)' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 4px 20px rgba(91,156,246,0.25)' }}
               whileTap={{ scale: 0.95 }}
               style={{
                 padding: '16px 36px',

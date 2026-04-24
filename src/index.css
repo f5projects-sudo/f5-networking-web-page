@@ -3,7 +3,7 @@
 :root {
   --color-primary: #0056b3;
   --color-secondary: #ff8c00;
-  --color-accent: #00d4ff;
+  --color-accent: #5b9cf6;      /* Soft professional blue — replaces neon cyan */
   --color-background: #1a1a1f;
   --color-surface: #23232b;
   --color-text: #f8f9fa;
@@ -147,10 +147,11 @@ button {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -320,7 +321,7 @@ button {
   inset: -2px;
   border-radius: inherit;
   z-index: -1;
-  background: conic-gradient(from var(--border-angle), transparent 0%, transparent 68%, rgba(0,180,255,0.3) 78%, rgba(0,212,255,0.9) 88%, white 93%, rgba(0,212,255,0.9) 97%, transparent 100%);
+  background: conic-gradient(from var(--border-angle), transparent 0%, transparent 72%, rgba(91,156,246,0.2) 82%, rgba(91,156,246,0.6) 90%, rgba(200,220,255,0.8) 93%, rgba(91,156,246,0.6) 97%, transparent 100%);
   animation: border-spin 2.4s linear infinite;
 }
 

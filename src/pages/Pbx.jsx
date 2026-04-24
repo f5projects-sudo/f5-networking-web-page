@@ -64,11 +64,10 @@ const FloatingNumbers = () => {
             left: `${num.x}%`,
             fontSize: `${num.size}rem`,
             fontWeight: '900',
-            color: 'rgba(0, 212, 255, 0.8)',
+            color: 'rgba(255, 255, 255, 0.12)',
             whiteSpace: 'nowrap',
             fontFamily: "'Courier New', Courier, monospace",
             letterSpacing: '2px',
-            textShadow: '0 0 15px rgba(0, 212, 255, 0.5)',
             zIndex: 0
           }}
         >
@@ -106,10 +105,10 @@ const SMSDashboard = ({ t }) => {
 
   return (
     <div style={{ 
-      background: 'rgba(5, 15, 25, 0.6)', 
+      background: 'rgba(26, 26, 31, 0.7)', 
       borderRadius: '28px', 
       padding: 'clamp(20px, 5vw, 35px)', 
-      border: '1px solid rgba(0, 212, 255, 0.15)', 
+      border: '1px solid rgba(255,255,255,0.08)', 
       backdropFilter: 'blur(20px)',
       boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
       width: '100%',
@@ -135,7 +134,7 @@ const SMSDashboard = ({ t }) => {
         </div>
         <div style={{ height: '10px', background: 'rgba(255,255,255,0.05)', borderRadius: '5px', overflow: 'hidden' }}>
           <motion.div 
-            style={{ height: '100%', background: 'linear-gradient(90deg, #00d4ff, #10b981)', width: `${percent}%`, boxShadow: '0 0 15px rgba(0,212,255,0.5)' }}
+            style={{ height: '100%', background: 'linear-gradient(90deg, #5b9cf6, #10b981)', width: `${percent}%` }}
             initial={{ width: '0%' }}
             animate={{ width: `${percent}%` }}
           />
@@ -233,7 +232,7 @@ const TiltCard = ({ children, style, spotlightColor = "rgba(255,255,255,0.07)", 
       {...props}
     >
       <div style={{
-        background: 'rgba(10, 10, 10, 0.95)',
+        background: 'rgba(26, 26, 31, 0.97)',
         borderRadius: 'inherit',
         height: '100%',
         width: '100%',
@@ -318,7 +317,7 @@ export default function Pbx({ onNavigate }) {
           left: 0,
           width: '100%',
           height: '100%',
-          backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(0, 86, 179, 0.08), transparent 50%), radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.05), transparent 50%)',
+          backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(0, 86, 179, 0.08), transparent 50%), radial-gradient(circle at 20% 80%, rgba(91,156,246,0.04), transparent 50%)',
           zIndex: 0,
           pointerEvents: 'none'
         }}
@@ -392,7 +391,7 @@ export default function Pbx({ onNavigate }) {
                   background: 'rgba(0,86,179,0.2)', 
                   backdropFilter: 'blur(10px)',
                   borderRadius: '30px', 
-                  border: '1px solid rgba(0,212,255,0.3)', 
+                  border: '1px solid rgba(255,255,255,0.12)', 
                   marginBottom: '35px', 
                   color: 'var(--color-accent)', 
                   fontWeight: 'bold', 

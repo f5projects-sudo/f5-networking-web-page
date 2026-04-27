@@ -596,8 +596,8 @@ const App = () => {
             },
             {
               id: 2,
-              ourPrefix: t('home.about.ours', 'Nuestras'),
-              title: t('home.about.valuesTitle', "NUESTRAS VALORES"),
+              ourPrefix: t('home.about.ours', 'Nuestros'),
+              title: t('home.about.valuesTitle', "NUESTROS VALORES"),
               tag: t('home.about.valuesTag', "VALORES"),
               icon: <Gem size={32} strokeWidth={1} />,
               color: 'var(--color-accent)',

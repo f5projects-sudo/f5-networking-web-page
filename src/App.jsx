@@ -578,6 +578,7 @@ const App = () => {
           {[
             {
               id: 0,
+              ourPrefix: t('common.our', 'Nuestra'),
               title: t('home.about.missionTitle', "NUESTRA MISIÓN"),
               tag: t('home.about.missionTag', "MISIÓN"),
               icon: <Target size={32} strokeWidth={1} />,
@@ -586,6 +587,7 @@ const App = () => {
             },
             {
               id: 1,
+              ourPrefix: t('common.our', 'Nuestra'),
               title: t('home.about.visionTitle', "NUESTRA VISIÓN"),
               tag: t('home.about.visionTag', "VISIÓN"),
               icon: <Rocket size={32} strokeWidth={1} />,
@@ -594,7 +596,8 @@ const App = () => {
             },
             {
               id: 2,
-              title: t('home.about.valuesTitle', "VALORES CLAVE"),
+              ourPrefix: t('home.about.ours', 'Nuestras'),
+              title: t('home.about.valuesTitle', "NUESTRAS VALORES"),
               tag: t('home.about.valuesTag', "VALORES"),
               icon: <Gem size={32} strokeWidth={1} />,
               color: 'var(--color-accent)',
@@ -706,7 +709,7 @@ const App = () => {
                         marginBottom: '20px',
                         letterSpacing: '1px'
                       }}>
-                        {t('common.our', 'Nuestra')} <strong style={{color: '#fff', fontWeight: 700}}>{panel.tag}</strong>
+                        {panel.ourPrefix} <strong style={{color: '#fff', fontWeight: 700}}>{panel.tag}</strong>
                       </h4>
 
                       <p style={{

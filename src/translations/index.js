@@ -104,7 +104,8 @@ const translations = {
         "visionTitle": "NUESTRA VISIÓN",
         "visionTag": "VISIÓN",
         "visionDesc": "Ser líderes en innovación tecnológica y transformación digital en América Latina, ofreciendo soluciones que impulsen el crecimiento sostenible de nuestros clientes.",
-        "valuesTitle": "NUESTRA VALORES",
+        "ours": "Nuestras",
+        "valuesTitle": "NUESTRAS VALORES",
         "valuesTag": "VALORES",
         "valuesDesc": "Innovación, Compromiso, Calidad, Eficiencia y Confianza total en cada uno de nuestros procesos e interacciones con el cliente."
       },
@@ -1065,7 +1066,8 @@ const translations = {
         "visionTitle": "OUR VISION",
         "visionTag": "VISION",
         "visionDesc": "To be leaders in technological innovation and digital transformation in Latin America, offering solutions that drive sustainable growth for our clients.",
-        "valuesTitle": "KEY VALUES",
+        "ours": "OUR",
+        "valuesTitle": "OUR VALUES",
         "valuesTag": "VALUES",
         "valuesDesc": "Innovation, Commitment, Quality, Efficiency, and complete Trust in each of our processes and customer interactions."
       },

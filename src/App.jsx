@@ -563,10 +563,8 @@ const App = () => {
         {/* Decorative elements */}
         <div style={{ position: 'absolute', top: '10%', left: '0%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(0, 180, 255, 0.05) 0%, transparent 70%)', zIndex: -1, filter: 'blur(60px)' }} />
 
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>{t('home.about.who', 'Quiénes')} <span className="gradient-text">{t('home.about.arewe', 'Somos')}</span></h2>
-          <div style={{ width: '60px', height: '4px', margin: '0 auto', background: 'var(--color-primary)' }}></div>
-        </motion.div>
+        {/* Removed header as requested */}
+
 
         {/* SaaS Horizontal Expansion Accordion for Quiénes Somos */}
         <div style={{

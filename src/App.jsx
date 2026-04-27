@@ -932,7 +932,7 @@ const App = () => {
               { id: 'phone', label: t('home.contact.phone', 'Teléfono') + ' *', type: 'tel', placeholder: '+52 123 456 7890' },
             ].map(({ id, label, type, placeholder }) => (
               <div key={id} style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                <label style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', fontWeight: 600 }}>{label}</label>
+                <label style={{ color: 'var(--color-secondary)', fontSize: '0.9rem', fontWeight: 600 }}>{label}</label>
                 <input
                   type={type}
                   placeholder={placeholder}
@@ -956,7 +956,7 @@ const App = () => {
             ))}
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <label style={{ color: 'var(--color-text-muted)', fontSize: '0.9rem', fontWeight: 600 }}>{t('home.contact.msgField', 'Mensaje')} *</label>
+              <label style={{ color: 'var(--color-secondary)', fontSize: '0.9rem', fontWeight: 600 }}>{t('home.contact.msgField', 'Mensaje')} *</label>
               <textarea
                 placeholder={t('home.contact.msgPlaceholder', '¿En qué podemos ayudarte?')}
                 rows={5}

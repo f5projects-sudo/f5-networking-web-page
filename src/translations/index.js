@@ -928,6 +928,35 @@ const translations = {
         "city": "44160 Guadalajara, Jal."
       },
       "copyright": "Todos los derechos reservados."
+    },
+    "carousel": {
+      "slides": [
+        {
+          "tag": "Inteligencia Artificial",
+          "title": "Soluciones de automatización e\ninteligencia artificial para empresas\nque buscan escalar su operación",
+          "subtitle": "Diseñamos, desarrollamos e implementamos tecnología a la medida para optimizar procesos, reducir costos operativos y mejorar la eficiencia de tu negocio."
+        },
+        {
+          "tag": "Espacios de Trabajo",
+          "title": "Entornos corporativos\nconectados e inteligentes",
+          "subtitle": "Soluciones de conectividad unificada para oficinas modernas que demandan máxima productividad."
+        },
+        {
+          "tag": "Conectividad Global",
+          "title": "Alcance mundial,\noperación nearshore",
+          "subtitle": "Red de telecomunicaciones con presencia en México, EUA y Canadá para una cobertura sin fronteras."
+        },
+        {
+          "tag": "BPO & Call Center",
+          "title": "Atención al cliente\nal más alto nivel",
+          "subtitle": "Servicios de Call Center y BPO con agentes especializados, KPIs en tiempo real y operación 24/7."
+        },
+        {
+          "tag": "Equipo Especializado",
+          "title": "Talento humano y\ntecnología, juntos",
+          "subtitle": "Profesionales certificados combinados con IA y automatización para resultados extraordinarios."
+        }
+      ]
     }
   },
   en: {
@@ -1859,6 +1888,35 @@ const translations = {
         "city": "44160 Guadalajara, Jal."
       },
       "copyright": "All rights reserved."
+    },
+    "carousel": {
+      "slides": [
+        {
+          "tag": "Artificial Intelligence",
+          "title": "Automation and artificial\nintelligence solutions for companies\nseeking to scale their operation",
+          "subtitle": "We design, develop and implement custom technology to optimize processes, reduce operating costs and improve the efficiency of your business."
+        },
+        {
+          "tag": "Workspaces",
+          "title": "Connected and intelligent\ncorporate environments",
+          "subtitle": "Unified connectivity solutions for modern offices that demand maximum productivity."
+        },
+        {
+          "tag": "Global Connectivity",
+          "title": "Worldwide reach,\nnearshore operation",
+          "subtitle": "Telecommunications network with presence in Mexico, USA and Canada for borderless coverage."
+        },
+        {
+          "tag": "BPO & Call Center",
+          "title": "Customer service\nat the highest level",
+          "subtitle": "Call Center and BPO services with specialized agents, real-time KPIs and 24/7 operation."
+        },
+        {
+          "tag": "Specialized Team",
+          "title": "Human talent and\ntechnology, together",
+          "subtitle": "Certified professionals combined with AI and automation for extraordinary results."
+        }
+      ]
     }
   }
 };

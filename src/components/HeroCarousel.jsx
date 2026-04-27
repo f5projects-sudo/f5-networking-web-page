@@ -1,56 +1,51 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const slides = [
   {
     id: 0,
     url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&auto=format&fit=crop&q=80',
     alt: 'Artificial Intelligence Visualization',
-    tag: 'Inteligencia Artificial',
-    title: 'Soluciones de automatización e\ninteligencia artificial para empresas\nque buscan escalar su operación',
-    subtitle: 'Diseñamos, desarrollamos e implementamos tecnología a la medida para optimizar procesos, reducir costos operativos y mejorar la eficiencia de tu negocio.',
   },
   {
     id: 1,
     url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&auto=format&fit=crop&q=80',
     alt: 'Corporate Technology Office',
-    tag: 'Espacios de Trabajo',
-    title: 'Entornos corporativos\nconectados e inteligentes',
-    subtitle: 'Soluciones de conectividad unificada para oficinas modernas que demandan máxima productividad.',
   },
   {
     id: 2,
     url: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&auto=format&fit=crop&q=80',
     alt: 'Global Network Connectivity',
-    tag: 'Conectividad Global',
-    title: 'Alcance mundial,\noperación nearshore',
-    subtitle: 'Red de telecomunicaciones con presencia en México, EUA y Canadá para una cobertura sin fronteras.',
   },
   {
     id: 3,
     url: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&auto=format&fit=crop&q=80',
     alt: 'Enterprise Communication Hub',
-    tag: 'BPO & Call Center',
-    title: 'Atención al cliente\nal más alto nivel',
-    subtitle: 'Servicios de Call Center y BPO con agentes especializados, KPIs en tiempo real y operación 24/7.',
   },
   {
     id: 4,
     url: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1920&auto=format&fit=crop&q=80',
     alt: 'Business Technology Team',
-    tag: 'Equipo Especializado',
-    title: 'Talento humano y\ntecnología, juntos',
-    subtitle: 'Profesionales certificados combinados con IA y automatización para resultados extraordinarios.',
   }
 ];
 
 const INTERVAL = 6000;
 
 const HeroCarousel = ({ onNavigate }) => {
+  const { language, t } = useLanguage();
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
+
+  // Get translated content for the current slide
+  const translatedSlides = t('carousel.slides', { returnObjects: true }) || [];
+  const slideContent = translatedSlides[current] || {
+    tag: '...',
+    title: '...',
+    subtitle: '...'
+  };
 
   const next = useCallback(() => {
     setDirection(1);
@@ -144,7 +139,7 @@ const HeroCarousel = ({ onNavigate }) => {
       }}>
         <AnimatePresence mode="wait">
           <motion.div
-            key={`text-${current}`}
+            key={`text-${current}-${language}`} // Ensure text re-animates on language change
             variants={textContainer}
             initial="hidden"
             animate="visible"
@@ -163,7 +158,7 @@ const HeroCarousel = ({ onNavigate }) => {
               color: '#ffb347'
             }}>
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ff8c00', display: 'inline-block' }} />
-              {slide.tag}
+              {slideContent.tag}
             </motion.div>
 
             {/* Title */}
@@ -177,7 +172,7 @@ const HeroCarousel = ({ onNavigate }) => {
               whiteSpace: 'pre-line',
               textShadow: '0 10px 30px rgba(0,0,0,0.3)'
             }}>
-              {slide.title}
+              {slideContent.title}
             </motion.h1>
 
             {/* Subtitle */}
@@ -189,7 +184,7 @@ const HeroCarousel = ({ onNavigate }) => {
               maxWidth: '580px',
               fontWeight: 400
             }}>
-              {slide.subtitle}
+              {slideContent.subtitle}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -213,7 +208,7 @@ const HeroCarousel = ({ onNavigate }) => {
                   boxShadow: '0 4px 20px rgba(255,140,0,0.3)'
                 }}
               >
-                Ver Soluciones <ArrowRight size={16} />
+                {t('home.hero.btnSolutions')} <ArrowRight size={16} />
               </motion.button>
 
               <motion.button
@@ -234,7 +229,7 @@ const HeroCarousel = ({ onNavigate }) => {
                   backdropFilter: 'blur(8px)'
                 }}
               >
-                Contactar Experto
+                {t('home.hero.btnContact')}
               </motion.button>
             </motion.div>
           </motion.div>

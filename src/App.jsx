@@ -381,7 +381,17 @@ const App = () => {
             <h2 style={{ fontSize: 'clamp(3rem, 9vw, 6.5rem)', marginBottom: '30px', fontWeight: '950', letterSpacing: isMobile ? '-1px' : '-4px', lineHeight: isMobile ? 1.1 : 0.85 }}>
               {t('home.services.header.title1', 'Expertise')} <span className="gradient-text">{t('home.services.header.title2', 'Inmersivo')}</span>
             </h2>
-            <div style={{ width: '180px', height: '8px', background: 'var(--color-secondary)', borderRadius: '10px', margin: '0 auto' }}></div>
+            <div style={{ width: '180px', height: '8px', background: 'var(--color-secondary)', borderRadius: '10px', margin: '0 auto 40px' }}></div>
+            <p style={{ 
+              color: 'var(--color-text-muted)', 
+              maxWidth: '800px', 
+              margin: '0 auto', 
+              fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)', 
+              lineHeight: '1.6',
+              fontWeight: 400
+            }}>
+              {t('home.services.header.desc')}
+            </p>
           </motion.div>
 
           <div style={{ 

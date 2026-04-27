@@ -35,7 +35,8 @@ const translations = {
         "header": {
           "tag": "SISTEMAS E INFRAESTRUCTURA",
           "title1": "Expertise",
-          "title2": "Inmersivo"
+          "title2": "Inmersivo",
+          "desc": "En F5 Networking ayudamos a empresas a transformar su operación mediante soluciones tecnológicas diseñadas a la medida. Nos enfocamos en resolver problemas reales, no en implementar tecnología innecesaria."
         },
         "axia": {
           "title": "AXIA – Agentes de IA para atención omnicanal",
@@ -995,7 +996,8 @@ const translations = {
         "header": {
           "tag": "SYSTEMS & INFRASTRUCTURE",
           "title1": "Immersive",
-          "title2": "Expertise"
+          "title2": "Expertise",
+          "desc": "At F5 Networking we help companies transform their operation through custom-designed technological solutions. We focus on solving real problems, not implementing unnecessary technology."
         },
         "axia": {
           "title": "AXIA – AI Agents for Omnichannel Support",

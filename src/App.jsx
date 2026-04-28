@@ -289,7 +289,7 @@ const App = () => {
                   { name: 'Monday.com', iconUrl: 'mondaydotcom', color: '#00CA72' },
                   { name: 'Gemini', iconUrl: 'googlegemini', color: '#8E75B2' },
                   { name: 'Supabase', color: '#3ECF8E' },
-                  { name: 'Airtable', color: '#FCB431' },
+                  { name: 'Airtable', color: '#FCB431', customIcon: 'https://api.iconify.design/logos:airtable.svg' },
                   { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900', hideText: true, logoHeight: '56px' }, // Orange AWS
                   { name: 'Google Cloud', iconUrl: 'googlecloud', color: '#4285F4' },
                   { name: 'GitHub', iconUrl: 'github', color: '#FFFFFF' }, // White Github on dark

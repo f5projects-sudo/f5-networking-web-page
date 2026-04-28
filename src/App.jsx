@@ -290,7 +290,7 @@ const App = () => {
                   { name: 'Gemini', iconUrl: 'googlegemini', color: '#8E75B2' },
                   { name: 'Supabase', color: '#3ECF8E' },
                   { name: 'Airtable', color: '#FCB431' },
-                  { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900', hideText: true }, // Orange AWS
+                  { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900', hideText: true, logoHeight: '56px' }, // Orange AWS
                   { name: 'Google Cloud', iconUrl: 'googlecloud', color: '#4285F4' },
                   { name: 'GitHub', iconUrl: 'github', color: '#FFFFFF' }, // White Github on dark
                   { name: 'Docker', color: '#2496ED' },
@@ -314,7 +314,7 @@ const App = () => {
                       <img 
                         src={brand.customIcon || `https://cdn.simpleicons.org/${brand.iconUrl || brand.name.toLowerCase().replace(/ /g, '')}/${brand.color.replace('#', '')}`}
                         alt={brand.name} 
-                        style={{ height: '32px', width: 'auto', display: 'block', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }}
+                        style={{ height: brand.logoHeight || '32px', width: 'auto', display: 'block', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }}
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       />
                     )}

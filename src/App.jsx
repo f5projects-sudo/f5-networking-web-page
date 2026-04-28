@@ -284,7 +284,7 @@ const App = () => {
               <div key={loopIndex} style={{ display: 'flex' }}>
                 {[
                   { name: 'Twilio', color: '#F22F46', customIcon: 'https://api.iconify.design/simple-icons:twilio.svg?color=%23F22F46' },
-                  { name: 'Net2Phone', color: '#0056B3', customIcon: 'https://api.iconify.design/mdi:phone-voip.svg?color=%230056B3' },
+                  { name: 'Net2Phone', color: '#0090FF' },
                   { name: 'OpenAI', iconUrl: 'openai', color: '#FFFFFF', customIcon: 'https://api.iconify.design/simple-icons:openai.svg?color=%23FFFFFF' }, // Using White
                   { name: 'Monday.com', iconUrl: 'mondaydotcom', color: '#FFFFFF', customIcon: 'https://api.iconify.design/logos:monday-icon.svg' },
                   { name: 'Gemini', iconUrl: 'googlegemini', color: '#FFFFFF', customIcon: 'https://api.iconify.design/logos:google-bard-icon.svg', logoHeight: '38px' },
@@ -310,24 +310,42 @@ const App = () => {
                     onMouseEnter={(e) => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'scale(1.05)'; }}
                     onMouseLeave={(e) => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'scale(1)'; }}
                   >
-                    {!brand.noIcon && (
-                      <img 
-                        src={brand.customIcon || `https://cdn.simpleicons.org/${brand.iconUrl || brand.name.toLowerCase().replace(/ /g, '')}/${brand.color.replace('#', '')}`}
-                        alt={brand.name} 
-                        style={{ height: brand.logoHeight || '32px', width: 'auto', display: 'block', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }}
-                        onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                      />
-                    )}
-                    {!brand.hideText && (
-                      <span style={{ 
-                        fontSize: '1.2rem', 
-                        fontWeight: 700, 
-                        color: brand.color,
-                        letterSpacing: '1px',
-                        textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+                    {brand.name === 'Net2Phone' ? (
+                      <div style={{ 
+                        fontSize: '1.8rem', 
+                        fontWeight: 900, 
+                        fontStyle: 'italic', 
+                        letterSpacing: '-1px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        textShadow: '0 2px 8px rgba(0,0,0,0.5)'
                       }}>
-                        {brand.name}
-                      </span>
+                        <span style={{ color: '#0090FF' }}>net</span>
+                        <span style={{ color: '#ED1C24' }}>2</span>
+                        <span style={{ color: '#0090FF' }}>phone</span>
+                      </div>
+                    ) : (
+                      <>
+                        {!brand.noIcon && (
+                          <img 
+                            src={brand.customIcon || `https://cdn.simpleicons.org/${brand.iconUrl || brand.name.toLowerCase().replace(/ /g, '')}/${brand.color.replace('#', '')}`}
+                            alt={brand.name} 
+                            style={{ height: brand.logoHeight || '32px', width: 'auto', display: 'block', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }}
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          />
+                        )}
+                        {!brand.hideText && (
+                          <span style={{ 
+                            fontSize: '1.2rem', 
+                            fontWeight: 700, 
+                            color: brand.color,
+                            letterSpacing: '1px',
+                            textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+                          }}>
+                            {brand.name}
+                          </span>
+                        )}
+                      </>
                     )}
                   </div>
                 ))}

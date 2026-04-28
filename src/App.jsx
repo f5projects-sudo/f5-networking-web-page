@@ -271,9 +271,9 @@ const App = () => {
       <HeroCarousel />
 
       {/* ── Marcas con las que trabajamos (Carousel) ── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '30px 0 60px 0', overflow: 'hidden', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'transparent' }}>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <p style={{ color: 'var(--color-primary)', letterSpacing: '3px', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>
+      <section style={{ position: 'relative', zIndex: 10, padding: '20px 0 20px 0', overflow: 'hidden', borderBottom: '1px solid rgba(255,255,255,0.06)', background: 'transparent' }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ textAlign: 'center', marginBottom: '20px' }}>
+          <p style={{ color: '#FFFFFF', letterSpacing: '3px', fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase' }}>
             {t('home.brands.title', 'Marcas con las que trabajamos')}
           </p>
         </motion.div>

@@ -290,7 +290,7 @@ const App = () => {
                   { name: 'Gemini', iconUrl: 'googlegemini', color: '#8E75B2' },
                   { name: 'Supabase', color: '#3ECF8E' },
                   { name: 'Airtable', color: '#FCB431' },
-                  { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900' }, // Orange AWS
+                  { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900', hideText: true }, // Orange AWS
                   { name: 'Google Cloud', iconUrl: 'googlecloud', color: '#4285F4' },
                   { name: 'GitHub', iconUrl: 'github', color: '#FFFFFF' }, // White Github on dark
                   { name: 'Docker', color: '#2496ED' },
@@ -318,15 +318,17 @@ const App = () => {
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}
                       />
                     )}
-                    <span style={{ 
-                      fontSize: '1.2rem', 
-                      fontWeight: 700, 
-                      color: brand.color,
-                      letterSpacing: '1px',
-                      textShadow: '0 2px 10px rgba(0,0,0,0.8)'
-                    }}>
-                      {brand.name}
-                    </span>
+                    {!brand.hideText && (
+                      <span style={{ 
+                        fontSize: '1.2rem', 
+                        fontWeight: 700, 
+                        color: brand.color,
+                        letterSpacing: '1px',
+                        textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+                      }}>
+                        {brand.name}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>

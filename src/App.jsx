@@ -287,7 +287,7 @@ const App = () => {
                   { name: 'Net2Phone', color: '#0056B3', customIcon: 'https://api.iconify.design/mdi:phone-voip.svg?color=%230056B3' },
                   { name: 'OpenAI', iconUrl: 'openai', color: '#FFFFFF', customIcon: 'https://api.iconify.design/simple-icons:openai.svg?color=%23FFFFFF' }, // Using White
                   { name: 'Monday.com', iconUrl: 'mondaydotcom', color: '#00CA72' },
-                  { name: 'Gemini', iconUrl: 'googlegemini', color: '#8E75B2' },
+                  { name: 'Gemini', iconUrl: 'googlegemini', color: '#8E75B2', customIcon: 'https://api.iconify.design/logos:google-gemini.svg', hideText: true, logoHeight: '38px' },
                   { name: 'Supabase', color: '#3ECF8E' },
                   { name: 'Airtable', color: '#FCB431', customIcon: 'https://api.iconify.design/logos:airtable.svg' },
                   { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900', hideText: true, logoHeight: '56px' }, // Orange AWS

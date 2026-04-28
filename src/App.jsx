@@ -291,7 +291,7 @@ const App = () => {
                   { name: 'Supabase', color: '#3ECF8E' },
                   { name: 'Airtable', color: '#FCB431', customIcon: 'https://api.iconify.design/logos:airtable.svg' },
                   { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900', hideText: true, logoHeight: '56px' }, // Orange AWS
-                  { name: 'Google Cloud', iconUrl: 'googlecloud', color: '#4285F4' },
+                  { name: 'Google Cloud', iconUrl: 'googlecloud', color: '#4285F4', customIcon: 'https://api.iconify.design/logos:google-cloud.svg' },
                   { name: 'GitHub', iconUrl: 'github', color: '#FFFFFF' }, // White Github on dark
                   { name: 'Docker', color: '#2496ED' },
                   { name: 'REDIS', iconUrl: 'redis', color: '#FF4438' },

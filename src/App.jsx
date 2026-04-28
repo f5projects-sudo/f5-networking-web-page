@@ -283,14 +283,14 @@ const App = () => {
             {[...Array(2)].map((_, loopIndex) => (
               <div key={loopIndex} style={{ display: 'flex' }}>
                 {[
-                  { name: 'Twilio', color: '#F22F46' },
-                  { name: 'Net2Phone', color: '#0056B3', noIcon: true },
-                  { name: 'OpenAI', iconUrl: 'openai', color: '#10A37F' }, // Using Green
+                  { name: 'Twilio', color: '#F22F46', customIcon: 'https://api.iconify.design/simple-icons:twilio.svg?color=%23F22F46' },
+                  { name: 'Net2Phone', color: '#0056B3', customIcon: 'https://api.iconify.design/mdi:phone-voip.svg?color=%230056B3' },
+                  { name: 'OpenAI', iconUrl: 'openai', color: '#10A37F', customIcon: 'https://api.iconify.design/simple-icons:openai.svg?color=%2310A37F' }, // Using Green
                   { name: 'Monday.com', iconUrl: 'mondaydotcom', color: '#00CA72' },
                   { name: 'Gemini', iconUrl: 'googlegemini', color: '#8E75B2' },
                   { name: 'Supabase', color: '#3ECF8E' },
                   { name: 'Airtable', color: '#FCB431' },
-                  { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900' }, // Orange AWS
+                  { name: 'AWS', iconUrl: 'amazonwebservices', color: '#FF9900', customIcon: 'https://api.iconify.design/simple-icons:amazonaws.svg?color=%23FF9900' }, // Orange AWS
                   { name: 'Google Cloud', iconUrl: 'googlecloud', color: '#4285F4' },
                   { name: 'GitHub', iconUrl: 'github', color: '#FFFFFF' }, // White Github on dark
                   { name: 'Docker', color: '#2496ED' },
@@ -312,7 +312,7 @@ const App = () => {
                   >
                     {!brand.noIcon && (
                       <img 
-                        src={`https://cdn.simpleicons.org/${brand.iconUrl || brand.name.toLowerCase().replace(/ /g, '')}/${brand.color.replace('#', '')}`}
+                        src={brand.customIcon || `https://cdn.simpleicons.org/${brand.iconUrl || brand.name.toLowerCase().replace(/ /g, '')}/${brand.color.replace('#', '')}`}
                         alt={brand.name} 
                         style={{ height: '32px', width: 'auto', display: 'block', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.5))' }}
                         onError={(e) => { e.currentTarget.style.display = 'none'; }}

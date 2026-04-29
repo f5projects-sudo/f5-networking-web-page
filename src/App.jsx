@@ -284,6 +284,7 @@ const App = () => {
             {[...Array(2)].map((_, loopIndex) => (
               <div key={loopIndex} style={{ display: 'flex' }}>
                 {[
+                  { name: 'Meta', color: '#FFFFFF', customIcon: 'https://api.iconify.design/logos:meta-icon.svg' },
                   { name: 'Twilio', color: '#F22F46', customIcon: 'https://api.iconify.design/simple-icons:twilio.svg?color=%23F22F46' },
                   { name: 'Net2Phone', color: '#0090FF' },
                   { name: 'OpenAI', iconUrl: 'openai', color: '#FFFFFF', customIcon: 'https://api.iconify.design/simple-icons:openai.svg?color=%23FFFFFF' }, // Using White

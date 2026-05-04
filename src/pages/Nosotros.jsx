@@ -170,7 +170,7 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── Qué nos diferencia (Enhanced 3D Isometric Infographic) ── */}
-      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '60px 5%', overflow: 'hidden' }}>
+      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '60px 5%', overflow: 'visible' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-1px', marginBottom: '10px' }}>
             {t('nosotros.differentiator.title', 'Qué nos diferencia')}
@@ -192,7 +192,7 @@ export default function Nosotros({ onNavigate }) {
           {/* Isometric Canvas */}
           <div style={{ 
             position: 'relative', 
-            width: isMobile ? '260px' : '500px', 
+            width: isMobile ? '240px' : '380px', 
             height: '400px',
             perspective: '1200px',
             transformStyle: 'preserve-3d'
@@ -288,21 +288,22 @@ export default function Nosotros({ onNavigate }) {
 
                   {/* Label & Description */}
                   <motion.div
-                    initial={{ opacity: 0, x: isEven ? 60 : -60 }}
+                    initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: (i * 0.3) + 0.4 }}
                     style={{
                       position: 'absolute',
                       top: '50%',
-                      [isEven ? 'left' : 'right']: isMobile ? '105%' : '110%',
+                      [isEven ? 'left' : 'right']: isMobile ? '100%' : 'calc(100% + 30px)',
                       transform: 'translateY(-50%)',
-                      width: isMobile ? '170px' : '320px',
+                      width: isMobile ? '160px' : '260px',
                       textAlign: isEven ? 'left' : 'right',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: isEven ? 'flex-start' : 'flex-end',
-                      gap: '10px'
+                      gap: '10px',
+                      zIndex: 20
                     }}
                   >
                     <div style={{ 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // eslint-disable-line no-unused-vars
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Settings2,
   Zap,
@@ -32,8 +32,6 @@ const fadeInUp = {
 /* ── Rotating marquee brand strip ── */
 const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZZARRO', 'PINKCREARTE', 'KREDIAPAY'];
 
-
-
 /* ── Certifications ── */
 const certs = ['Codedex', 'Oracle', 'Alura Latam', 'Santander Open Academy', 'AWS'];
 
@@ -49,34 +47,24 @@ export default function Nosotros({ onNavigate }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-
-
   return (
     <div className="app">
       <BubbleBackground />
 
-      {/* Hero / Intro Rediseño Split */}
+      {/* Hero / Intro */}
       <section id="quienes-somos-hero" style={{ position: 'relative', zIndex: 10, minHeight: '80vh', display: 'flex', alignItems: 'center', padding: '160px 5% 80px', overflow: 'hidden' }}>
-        
-        {/* Decorative Background Orbs */}
         <div style={{ position: 'absolute', top: '10%', right: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0, 180, 255, 0.12) 0%, transparent 70%)', zIndex: -1, filter: 'blur(80px)' }} />
         <div style={{ position: 'absolute', bottom: '10%', left: '10%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 140, 0, 0.08) 0%, transparent 70%)', zIndex: -1, filter: 'blur(80px)' }} />
 
-        <div className="section-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center', width: '100%' }}>
-          
-          {/* Lado Izquierdo: Textos */}
-          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} style={{ position: 'relative', zIndex: 2 }}>
-
-            
+        <div className="section-container" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '60px', alignItems: 'center', width: '100%' }}>
+          <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 4.8rem)', marginBottom: '28px', lineHeight: 1.05, fontWeight: 900, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
               {t('nosotros.hero.title1', 'Evolución')} <br/>
               <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Tecnológica')}</span>
             </h1>
-            
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: '1.9', maxWidth: '540px', marginBottom: '45px' }}>
               {t('nosotros.hero.desc', 'F5 Networking es una compañía pionera en crear soluciones escalables de conectividad, automatización e infraestructura digital. Simplificamos lo complejo y aceleramos la transformación corporativa para el mundo de hoy.')}
             </p>
-
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 4px 20px rgba(91,156,246,0.25)' }}
               whileTap={{ scale: 0.95 }}
@@ -84,266 +72,71 @@ export default function Nosotros({ onNavigate }) {
                 padding: '16px 36px',
                 borderRadius: '50px',
                 background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
-                color: 'white',
-                border: 'none',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '12px',
-                transition: 'all 0.3s'
+                color: 'white', border: 'none', fontSize: '1.05rem', fontWeight: 700, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '12px'
               }}
-              onClick={() => {
-                document.getElementById('elegirnos')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+              onClick={() => document.getElementById('elegirnos')?.scrollIntoView({ behavior: 'smooth' })}
             >
               {t('nosotros.hero.btn', 'Descubrir Valor')} <ChevronDown size={20} />
             </motion.button>
           </motion.div>
 
-          {/* Lado Derecho: Tarjetas Glassmorphism Flotantes */}
-          <div className="floating-cards-container" style={{ position: 'relative', height: '550px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Tarjeta 1: Arriba Izquierda */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
-              className="glass floating-card"
-              style={{ position: 'absolute', top: '5%', left: '0%', padding: '28px', borderRadius: '24px', width: '240px', border: '1px solid rgba(0, 180, 255, 0.25)', background: 'rgba(5, 5, 5, 0.75)', zIndex: 2 }}
-            >
-              <div style={{ background: 'rgba(0, 180, 255, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Zap size={28} style={{ color: 'var(--color-accent)' }} />
-              </div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c1Title', '+5 Años')}</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500, whiteSpace: 'pre-line' }}>{t('nosotros.hero.c1Desc', 'Innovando en infraestructura digital corporativa')}</p>
+          <div className="floating-cards-container" style={{ position: 'relative', height: isMobile ? 'auto' : '550px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="glass floating-card" style={{ position: isMobile ? 'relative' : 'absolute', top: '5%', left: '0%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '240px', border: '1px solid rgba(0, 180, 255, 0.25)', background: 'rgba(5, 5, 5, 0.75)' }}>
+              <div style={{ background: 'rgba(0, 180, 255, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}><Zap size={28} style={{ color: 'var(--color-accent)' }} /></div>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px' }}>{t('nosotros.hero.c1Title', '+5 Años')}</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>{t('nosotros.hero.c1Desc')}</p>
             </motion.div>
 
-            {/* Tarjeta 2: Centro Derecha */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
-              className="glass floating-card-reverse"
-              style={{ position: 'absolute', right: '0%', top: '35%', padding: '28px', borderRadius: '24px', width: '260px', border: '1px solid rgba(255, 140, 0, 0.3)', background: 'rgba(26, 26, 31, 0.85)', zIndex: 3, boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
-            >
-              <div style={{ background: 'rgba(255, 140, 0, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <Users size={28} style={{ color: 'var(--color-secondary)' }} />
-              </div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c2Title', '99.9%')}</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500, whiteSpace: 'pre-line' }}>{t('nosotros.hero.c2Desc', 'Fiabilidad sostenida en servicios implementados')}</p>
+            <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="glass floating-card-reverse" style={{ position: isMobile ? 'relative' : 'absolute', right: '0%', top: '35%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '260px', border: '1px solid rgba(255, 140, 0, 0.3)', background: 'rgba(26, 26, 31, 0.85)' }}>
+              <div style={{ background: 'rgba(255, 140, 0, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}><Users size={28} style={{ color: 'var(--color-secondary)' }} /></div>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px' }}>{t('nosotros.hero.c2Title', '99.9%')}</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>{t('nosotros.hero.c2Desc')}</p>
             </motion.div>
 
-            {/* Tarjeta 3: Abajo Izquierda */}
-            <motion.div 
-              initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}
-              className="glass floating-card-slow"
-              style={{ position: 'absolute', bottom: '0%', left: '15%', padding: '28px', borderRadius: '24px', width: '240px', border: '1px solid rgba(155, 89, 182, 0.25)', background: 'rgba(5, 5, 5, 0.75)', zIndex: 1 }}
-            >
-              <div style={{ background: 'rgba(155, 89, 182, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-                <ShieldCheck size={28} style={{ color: '#9b59b6' }} />
-              </div>
-              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c3Title', '24/7')}</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500, whiteSpace: 'pre-line' }}>{t('nosotros.hero.c3Desc', 'Monitoreo preventivo y soporte ininterrumpido')}</p>
+            <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="glass floating-card-slow" style={{ position: isMobile ? 'relative' : 'absolute', bottom: '0%', left: '15%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '240px', border: '1px solid rgba(155, 89, 182, 0.25)', background: 'rgba(5, 5, 5, 0.75)' }}>
+              <div style={{ background: 'rgba(155, 89, 182, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}><ShieldCheck size={28} style={{ color: '#9b59b6' }} /></div>
+              <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px' }}>{t('nosotros.hero.c3Title', '24/7')}</h3>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>{t('nosotros.hero.c3Desc')}</p>
             </motion.div>
           </div>
-
-          <style>{`
-            .floating-card {
-              animation: float-cycle 6s ease-in-out infinite;
-            }
-            .floating-card-reverse {
-              animation: float-cycle-reverse 7s ease-in-out infinite;
-            }
-            .floating-card-slow {
-              animation: float-cycle 8s ease-in-out infinite reverse;
-            }
-
-            @keyframes float-cycle {
-              0% { transform: translateY(0px); }
-              50% { transform: translateY(-15px); }
-              100% { transform: translateY(0px); }
-            }
-            @keyframes float-cycle-reverse {
-              0% { transform: translateY(0px); }
-              50% { transform: translateY(15px); }
-              100% { transform: translateY(0px); }
-            }
-
-            @media (max-width: 968px) {
-              #quienes-somos-hero .section-container {
-                grid-template-columns: 1fr !important;
-                gap: 60px !important;
-                text-align: center;
-              }
-              #quienes-somos-hero .section-container > div:first-child {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-              }
-              #quienes-somos-hero .section-container > div:first-child p {
-                text-align: center;
-              }
-              .floating-cards-container {
-                height: auto !important;
-                flex-direction: column;
-                gap: 20px;
-                padding-bottom: 40px;
-              }
-              .floating-card, .floating-card-reverse, .floating-card-slow {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                right: auto !important;
-                bottom: auto !important;
-                width: 100% !important;
-                max-width: 400px;
-                margin: 0 auto;
-              }
-            }
-          `}</style>
         </div>
       </section>
 
       {/* ── ¿Por qué elegirnos? ── */}
-      <section id="elegirnos" className="section-container" style={{ position: 'relative', zIndex: 10, paddingTop: '40px' }}>
+      <section id="elegirnos" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '80px 5%' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', marginBottom: '15px', fontWeight: 900 }}>{t('nosotros.choose.title1', '¿Por qué ')}<span className="gradient-text">{t('nosotros.choose.titleHighlight', 'elegirnos?')}</span></h2>
-          <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto 30px' }}></div>
-          <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.8' }}>
-            {t('nosotros.choose.desc', 'Transformamos retos complejos en soluciones tecnológicas innovadoras, escalables y diseñadas para el mundo de hoy.')}
-          </p>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 900 }}>{t('nosotros.choose.title1')}<span className="gradient-text">{t('nosotros.choose.titleHighlight')}</span></h2>
+          <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '20px auto' }}></div>
+          <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.1rem' }}>{t('nosotros.choose.desc')}</p>
         </motion.div>
 
-        {/* Dynamic SaaS Showcase */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: isMobile ? '1fr' : '300px 1fr', 
-          gap: '30px', 
-          background: 'rgba(5, 5, 8, 0.4)', 
-          border: '1px solid rgba(255, 255, 255, 0.05)', 
-          borderRadius: '30px', 
-          padding: isMobile ? '20px' : '40px',
-          boxShadow: '0 30px 60px rgba(0,0,0,0.4)',
-          overflow: 'hidden'
-        }}>
-          
-          {/* Left: Tab Menu */}
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '300px 1fr', gap: '30px', background: 'rgba(5, 5, 8, 0.4)', borderRadius: '30px', padding: isMobile ? '20px' : '40px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             {[
-              { id: 0, title: t('nosotros.choose.t0Title', 'Ajuste a la medida'), icon: <Settings2 size={20} />, color: 'var(--color-primary)' },
-              { id: 1, title: t('nosotros.choose.t1Title', 'Automatización'), icon: <Zap size={20} />, color: 'var(--color-secondary)' },
-              { id: 2, title: t('nosotros.choose.t2Title', 'Confiabilidad'), icon: <ShieldCheck size={20} />, color: 'var(--color-accent)' },
-              { id: 3, title: t('nosotros.choose.t3Title', 'Soporte Continuo'), icon: <HeadphonesIcon size={20} />, color: '#9b59b6' }
-            ].map((tab) => {
-              const isActive = activeReason === tab.id;
-              return (
-                <motion.button
-                  key={tab.id}
-                  onClick={() => setActiveReason(tab.id)}
-                  whileHover={{ x: 5 }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '15px',
-                    padding: '18px 20px',
-                    borderRadius: '16px',
-                    background: isActive ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
-                    border: '1px solid',
-                    borderColor: isActive ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-                    color: isActive ? 'white' : 'var(--color-text-muted)',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                    transition: 'all 0.3s ease',
-                    position: 'relative',
-                    overflow: 'hidden'
-                  }}
-                >
-                  <div style={{ 
-                    position: 'absolute', left: 0, top: '20%', bottom: '20%', width: '4px', 
-                    background: tab.color, 
-                    borderRadius: '0 4px 4px 0',
-                    opacity: isActive ? 1 : 0,
-                    transition: 'opacity 0.3s',
-                    boxShadow: isActive ? `0 0 10px ${tab.color}` : 'none'
-                  }} />
-                  
-                  <div style={{ 
-                    color: isActive ? tab.color : 'inherit', 
-                    background: isActive ? `${tab.color}15` : 'transparent',
-                    padding: '8px',
-                    borderRadius: '10px'
-                  }}>
-                    {tab.icon}
-                  </div>
-                  <span style={{ fontSize: '1.05rem', fontWeight: isActive ? 700 : 500 }}>{tab.title}</span>
-                </motion.button>
-              );
-            })}
+              { id: 0, title: t('nosotros.choose.t0Title'), icon: <Settings2 size={20} />, color: 'var(--color-primary)' },
+              { id: 1, title: t('nosotros.choose.t1Title'), icon: <Zap size={20} />, color: 'var(--color-secondary)' },
+              { id: 2, title: t('nosotros.choose.t2Title'), icon: <ShieldCheck size={20} />, color: 'var(--color-accent)' },
+              { id: 3, title: t('nosotros.choose.t3Title'), icon: <HeadphonesIcon size={20} />, color: '#9b59b6' }
+            ].map((tab) => (
+              <button key={tab.id} onClick={() => setActiveReason(tab.id)} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '18px 20px', borderRadius: '16px', background: activeReason === tab.id ? 'rgba(255, 255, 255, 0.08)' : 'transparent', border: 'none', color: activeReason === tab.id ? 'white' : 'var(--color-text-muted)', cursor: 'pointer', textAlign: 'left', transition: '0.3s' }}>
+                <div style={{ color: activeReason === tab.id ? tab.color : 'inherit' }}>{tab.icon}</div>
+                <span style={{ fontWeight: activeReason === tab.id ? 700 : 500 }}>{tab.title}</span>
+              </button>
+            ))}
           </div>
 
-          {/* Right: Display Panel */}
-          <div style={{ position: 'relative', minHeight: isMobile ? '400px' : '480px', background: 'rgba(26,26,31,0.5)', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.03)', overflow: 'hidden', padding: isMobile ? '30px 20px' : '50px 60px', display: 'flex', alignItems: 'center' }}>
+          <div style={{ background: 'rgba(26,26,31,0.5)', borderRadius: '24px', padding: isMobile ? '30px 20px' : '50px 60px', minHeight: '400px', display: 'flex', alignItems: 'center' }}>
             <AnimatePresence mode="wait">
               {[
-                { 
-                  id: 0, 
-                  title: t('nosotros.choose.d0Title', 'Ingeniería a la Medida'), 
-                  desc: t('nosotros.choose.d0Desc', 'Comprendemos que no existen dos empresas iguales. Por ello, diseñamos ecosistemas tecnológicos desde cero o reestructuramos tu core actual para que se adapte milimétricamente a tus flujos operativos reales.'), 
-                  detail: t('nosotros.choose.d0Detail', 'Sin software enlatado. Solo tecnología que impulsa tu diferencial.'),
-                  icon: <Settings2 size={isMobile ? 120 : 200} strokeWidth={1} />,
-                  color: 'var(--color-primary)'
-                },
-                { 
-                  id: 1, 
-                  title: t('nosotros.choose.d1Title', 'Automatización Inteligente'), 
-                  desc: t('nosotros.choose.d1Desc', 'Eliminamos el error humano y la fricción en tareas repetitivas. Construimos orquestadores robóticos y secuencias de eventos (RPA, Webhooks o IaaS) que multiplican la eficiencia de tu equipo dramáticamente.'), 
-                  detail: t('nosotros.choose.d1Detail', 'Más tiempo para estrategia. Menos tiempo en tareas mecánicas.'),
-                  icon: <Zap size={isMobile ? 120 : 200} strokeWidth={1} />,
-                  color: 'var(--color-secondary)'
-                },
-                { 
-                  id: 2, 
-                  title: t('nosotros.choose.d2Title', 'Seguridad Zero Trust'), 
-                  desc: t('nosotros.choose.d2Desc', 'Desplegamos infraestructura robusta bajo el modelo Zero Trust. Tus datos permanecen en bóvedas criptográficas con redundancia geográfica para garantizar un 99.9% de uptime constante.'), 
-                  detail: t('nosotros.choose.d2Detail', 'Duerme tranquilo mientras tu red trabaja sin latencia ni brechas.'),
-                  icon: <ShieldCheck size={isMobile ? 120 : 200} strokeWidth={1} />,
-                  color: 'var(--color-accent)'
-                },
-                { 
-                  id: 3, 
-                  title: t('nosotros.choose.d3Title', 'Monitorización 24/7'), 
-                  desc: t('nosotros.choose.d3Desc', 'Nuestro compromiso no termina en el despliegue. Tu organización dispondrá de un escuadrón técnico exclusivo que monitorea activamente tus nodos para prevenir caídas antes de que siquiera ocurran.'), 
-                  detail: t('nosotros.choose.d3Detail', 'SLA líder en la industria con respuesta reactiva inmediata.'),
-                  icon: <HeadphonesIcon size={isMobile ? 120 : 200} strokeWidth={1} />,
-                  color: '#9b59b6'
-                }
+                { id: 0, title: t('nosotros.choose.d0Title'), desc: t('nosotros.choose.d0Desc'), detail: t('nosotros.choose.d0Detail'), icon: <Settings2 size={150} />, color: 'var(--color-primary)' },
+                { id: 1, title: t('nosotros.choose.d1Title'), desc: t('nosotros.choose.d1Desc'), detail: t('nosotros.choose.d1Detail'), icon: <Zap size={150} />, color: 'var(--color-secondary)' },
+                { id: 2, title: t('nosotros.choose.d2Title'), desc: t('nosotros.choose.d2Desc'), detail: t('nosotros.choose.d2Detail'), icon: <ShieldCheck size={150} />, color: 'var(--color-accent)' },
+                { id: 3, title: t('nosotros.choose.d3Title'), desc: t('nosotros.choose.d3Desc'), detail: t('nosotros.choose.d3Detail'), icon: <HeadphonesIcon size={150} />, color: '#9b59b6' }
               ].filter(item => item.id === activeReason).map(item => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
-                  animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, y: -30, filter: 'blur(10px)' }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  style={{ position: 'relative', width: '100%', zIndex: 2 }}
-                >
-                  <div style={{ position: 'absolute', right: isMobile ? '-20%' : '-15%', top: '50%', transform: 'translateY(-50%)', opacity: 0.04, filter: 'blur(2px)' }}>
-                    {React.cloneElement(item.icon, { color: item.color })}
-                  </div>
-
-                  <div style={{ display: 'inline-block', padding: '6px 16px', background: `${item.color}15`, border: `1px solid ${item.color}30`, borderRadius: '30px', color: item.color, fontWeight: 700, fontSize: '0.85rem', marginBottom: '25px', letterSpacing: '1px' }}>
-                    {t('nosotros.choose.badge', 'VALOR DIFERENCIAL')}
-                  </div>
-                  <h3 style={{ fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 800, marginBottom: '25px', color: 'white', lineHeight: 1.1 }}>
-                    {item.title}
-                  </h3>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: 1.8, maxWidth: '600px', marginBottom: '40px' }}>
-                    {item.desc}
-                  </p>
-                  
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    <div style={{ width: '40px', height: '2px', background: item.color }} />
-                    <p style={{ color: 'rgba(255,255,255,0.9)', fontStyle: 'italic', fontWeight: 600, fontSize: '1.05rem', margin: 0 }}>
-              {item.detail}
-                    </p>
-                  </div>
+                <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
+                  <h3 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'white', marginBottom: '20px' }}>{item.title}</h3>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '30px' }}>{item.desc}</p>
+                  <p style={{ color: 'white', fontWeight: 600, fontStyle: 'italic' }}>{item.detail}</p>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -351,83 +144,22 @@ export default function Nosotros({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── Quienes Somos ── */}
-      <section className="section-container" style={{ position: 'relative', zIndex: 10, padding: '80px 5%' }}>
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '1.2rem', color: 'var(--color-secondary)', fontWeight: 800, letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '15px' }}>
-            {t('nosotros.team.title1', 'Quienes ')}<span className="gradient-text">{t('nosotros.team.titleHighlight', 'somos')}</span>
-          </h2>
-          <div style={{ width: '40px', height: '3px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>
-        </motion.div>
-
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: isMobile ? '1fr' : '1.2fr 0.8fr', 
-          gap: '60px', 
-          alignItems: 'center' 
-        }}>
+      {/* ── Quienes Somos (Team) ── */}
+      <section id="quienes-somos" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '80px 5%' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 0.8fr', gap: '60px', alignItems: 'center' }}>
           <motion.div {...fadeInUp}>
-            <h3 style={{ 
-              fontSize: 'clamp(2rem, 4vw, 3.2rem)', 
-              fontWeight: 900, 
-              lineHeight: 1.1, 
-              marginBottom: '35px', 
-              color: 'white' 
-            }}>
-              {t('nosotros.team.headline', 'Construimos soluciones tecnológicas que escalan negocio')}
-            </h3>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
-              <p style={{ 
-                color: 'var(--color-text-muted)', 
-                lineHeight: '1.8', 
-                fontSize: '1.15rem',
-                margin: 0
-              }}>
-                {t('nosotros.team.desc', 'Es un grupo dinámico de expertos dedicados a la innovación y la excelencia, con habilidades en desarrollo de software, análisis de datos y diseño de experiencias de usuario. Creamos soluciones impactantes que empoderan a nuestros clientes.')}
-              </p>
-            </div>
+            <h2 style={{ fontSize: '1.2rem', color: 'var(--color-secondary)', letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '20px' }}>{t('nosotros.team.title1')} {t('nosotros.team.titleHighlight')}</h2>
+            <h3 style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: '30px', color: 'white' }}>{t('nosotros.team.headline')}</h3>
+            <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.8', fontSize: '1.15rem' }}>{t('nosotros.team.desc')}</p>
           </motion.div>
-
-          <motion.div 
-            {...fadeInUp} 
-            transition={{ delay: 0.2 }}
-            style={{ position: 'relative' }}
-          >
-            <div style={{
-              position: 'absolute',
-              inset: '-15px',
-              border: '1px solid rgba(255, 140, 0, 0.3)',
-              borderRadius: '24px',
-              zIndex: -1
-            }} />
-            <div style={{
-              position: 'relative',
-              borderRadius: '20px',
-              overflow: 'hidden',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-              border: '1px solid rgba(255,255,255,0.1)'
-            }}>
-              <img 
-                src={teamImg} 
-                alt="F5 Networking Team" 
-                style={{ width: '100%', height: 'auto', display: 'block' }} 
-              />
-              <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: 'linear-gradient(to top, rgba(10,10,12,0.4), transparent)'
-              }} />
-            </div>
+          <motion.div {...fadeInUp} transition={{ delay: 0.2 }} style={{ borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <img src={teamImg} alt="Team" style={{ width: '100%', display: 'block' }} />
           </motion.div>
         </div>
       </section>
 
-      {/* ── Marcas que confían (marquee) ── */}
-      <section style={{ position: 'relative', zIndex: 10, padding: '40px 0', overflow: 'hidden' }}>
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '30px' }}>
-          <p style={{ color: 'var(--color-text-muted)', letterSpacing: '3px', fontSize: '0.8rem', fontWeight: 600 }}>{t('nosotros.brands.tag', 'MARCAS QUE CONFÍAN EN NOSOTROS')}</p>
-        </motion.div>
+      {/* ── Marcas ── */}
+      <section style={{ position: 'relative', zIndex: 10, padding: '60px 0', overflow: 'hidden' }}>
         <div className="marquee-wrapper">
           <div className="marquee-track">
             {[...brands, ...brands, ...brands].map((b, i) => (
@@ -437,182 +169,70 @@ export default function Nosotros({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── Qué nos diferencia (Total Redesign) ── */}
-      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '120px 5%' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '0.8fr 1.2fr', gap: '80px' }}>
-          
-          {/* Left Side: Sticky Headline */}
-          <motion.div 
-            style={{ position: isMobile ? 'relative' : 'sticky', top: '150px', height: 'fit-content' }}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 style={{ 
-              fontSize: 'clamp(3rem, 8vw, 5rem)', 
-              fontWeight: 900, 
-              lineHeight: 0.9, 
-              marginBottom: '40px',
-              textTransform: 'uppercase',
-              letterSpacing: '-2px'
-            }}>
-              {t('nosotros.differentiator.title', 'Qué nos diferencia').split(' ').map((word, i) => (
-                <span key={i} style={{ display: 'block', color: i === 2 ? 'var(--color-accent)' : 'white' }}>{word}</span>
-              ))}
-            </h2>
-            <div style={{ 
-              width: '120px', 
-              height: '8px', 
-              background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent))', 
-              borderRadius: '10px',
-              marginBottom: '40px'
-            }} />
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', lineHeight: 1.6, maxWidth: '300px' }}>
-              No solo construimos código, transformamos operaciones completas.
-            </p>
-          </motion.div>
+      {/* ── Qué nos diferencia (3D Isometric Stack) ── */}
+      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '120px 5%', overflow: 'hidden' }}>
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '120px' }}>
+          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textTransform: 'uppercase' }}>{t('nosotros.differentiator.title')}</h2>
+          <div style={{ width: '100px', height: '6px', background: 'var(--color-accent)', margin: '20px auto', borderRadius: '10px' }} />
+        </motion.div>
 
-          {/* Right Side: Bento Grid of Points */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(10, 1fr)', 
-            gridAutoRows: 'minmax(250px, auto)',
-            gap: '24px' 
-          }}>
-            
-            {/* Card 1: 60% Width */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              style={{ 
-                gridColumn: isMobile ? 'span 1' : 'span 6',
-                background: 'linear-gradient(135deg, rgba(0, 180, 255, 0.1), rgba(0, 180, 255, 0.02))',
-                borderRadius: '32px',
-                padding: '40px',
-                border: '1px solid rgba(0, 180, 255, 0.15)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-              whileHover={{ y: -5, background: 'rgba(0, 180, 255, 0.15)' }}
-            >
-              <Target size={32} color="var(--color-accent)" style={{ marginBottom: '20px' }} />
-              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'white', marginBottom: '12px' }}>{t('nosotros.differentiator.b1')}</h3>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', lineHeight: 1.5, margin: 0 }}>
-                Resultados medibles que impactan directamente en tu rentabilidad.
-              </p>
-            </motion.div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '600px', position: 'relative' }}>
+          <div style={{ position: 'relative', width: isMobile ? '280px' : '500px', height: '400px' }}>
+            {[1, 2, 3, 4].map((num, i) => {
+              const layerGradients = [
+                'linear-gradient(135deg, #1e3a8a, #3b82f6)', 
+                'linear-gradient(135deg, #6b21a8, #a855f7)', 
+                'linear-gradient(135deg, #9d174d, #ec4899)', 
+                'linear-gradient(135deg, #9a3412, #f97316)'
+              ];
+              const isEven = num % 2 === 0;
 
-            {/* Card 2: 40% Width */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              style={{ 
-                gridColumn: isMobile ? 'span 1' : 'span 4',
-                background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '32px',
-                padding: '40px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                textAlign: 'center'
-              }}
-              whileHover={{ y: -5, background: 'rgba(255, 255, 255, 0.06)' }}
-            >
-              <Cpu size={40} color="var(--color-secondary)" />
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginTop: '20px' }}>{t('nosotros.differentiator.b2')}</h3>
-            </motion.div>
-
-            {/* Card 3: 40% Width (Offset Row) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              style={{ 
-                gridColumn: isMobile ? 'span 1' : 'span 4',
-                background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '32px',
-                padding: '40px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                textAlign: 'center'
-              }}
-              whileHover={{ y: -5, background: 'rgba(255, 255, 255, 0.06)' }}
-            >
-              <Layers size={40} color="#9b59b6" />
-              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginTop: '20px' }}>{t('nosotros.differentiator.b3')}</h3>
-            </motion.div>
-
-            {/* Card 4: 60% Width */}
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              style={{ 
-                gridColumn: isMobile ? 'span 1' : 'span 6',
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                borderRadius: '32px',
-                padding: '40px',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
-              }}
-              whileHover={{ y: -5, background: 'rgba(255, 255, 255, 0.08)' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '15px' }}>
-                <Handshake size={32} color="white" />
-                <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'white', margin: 0 }}>{t('nosotros.differentiator.b4')}</h3>
-              </div>
-              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', lineHeight: 1.5 }}>
-                Socio estratégico comprometido con el éxito de tu transformación digital.
-              </p>
-            </motion.div>
-
+              return (
+                <div key={num} style={{ position: 'absolute', width: '100%', bottom: i * 70, zIndex: 10 - i }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: -300, scale: 0.5 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: 'spring', stiffness: 80, damping: 12, delay: i * 0.4 }}
+                    style={{ width: '100%', height: '120px', background: layerGradients[i], transform: 'rotateX(60deg) rotateZ(-45deg)', borderRadius: '12px', boxShadow: '15px 15px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.3)' }}
+                  />
+                  <motion.div
+                    initial={{ opacity: 0, x: isEven ? 80 : -80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: (i * 0.4) + 0.3 }}
+                    style={{ position: 'absolute', top: '20px', [isEven ? 'left' : 'right']: isMobile ? '105%' : '115%', width: isMobile ? '160px' : '300px', textAlign: isEven ? 'left' : 'right', display: 'flex', flexDirection: isEven ? 'row' : 'row-reverse', alignItems: 'center', gap: '15px' }}
+                  >
+                    <div style={{ width: isMobile ? '20px' : '50px', height: '2px', background: 'var(--color-accent)', opacity: 0.6 }} />
+                    <div>
+                      <h4 style={{ color: 'var(--color-accent)', fontSize: isMobile ? '0.9rem' : '1.3rem', fontWeight: 900, margin: 0, textTransform: 'uppercase' }}>{t(`nosotros.differentiator.b${num}`).split(' ')[0]}</h4>
+                      <p style={{ color: 'white', fontSize: isMobile ? '0.75rem' : '1rem', fontWeight: 600, margin: '4px 0 0 0' }}>{t(`nosotros.differentiator.b${num}`)}</p>
+                    </div>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ── Certificaciones ── */}
-
-      <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
+      <section className="section-container" style={{ position: 'relative', zIndex: 10, padding: '80px 5%' }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.certifications.title1', 'Nuestras ')}<span className="gradient-text">{t('nosotros.certifications.titleHighlight', 'Certificaciones')}</span></h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.certifications.title1')}<span className="gradient-text">{t('nosotros.certifications.titleHighlight')}</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>
         </motion.div>
-
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
           {certs.map((cert, i) => (
-            <motion.div
-              key={i}
-              className="glass"
-              style={{ padding: '18px 32px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', gap: '10px' }}
-              {...fadeInUp}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ scale: 1.06, border: '1px solid var(--color-accent)' }}
-            >
+            <motion.div key={i} className="glass" style={{ padding: '18px 32px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', gap: '10px' }} {...fadeInUp} transition={{ delay: i * 0.1 }} whileHover={{ scale: 1.06, border: '1px solid var(--color-accent)' }}>
               <Award size={18} style={{ color: 'var(--color-secondary)' }} />
-              <span style={{ fontWeight: 600, letterSpacing: '0.5px' }}>{cert}</span>
+              <span style={{ fontWeight: 600 }}>{cert}</span>
             </motion.div>
           ))}
         </div>
       </section>
 
-
       <Footer onNavigate={onNavigate} />
-      
       <Navbar onNavigate={onNavigate} activePage="nosotros" />
     </div>
   );

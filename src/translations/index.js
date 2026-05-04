@@ -693,6 +693,13 @@ const translations = {
       "brands": {
         "tag": "MARCAS QUE CONFÍAN EN NOSOTROS"
       },
+      "differentiator": {
+        "title": "Qué nos diferencia",
+        "b1": "Enfoque en resultados operativos, no solo desarrollo",
+        "b2": "Soluciones diseñadas sobre la realidad de cada operación",
+        "b3": "Integración de tecnología, datos y procesos en un mismo sistema",
+        "b4": "Acompañamiento cercano desde la estrategia hasta la implementación"
+      },
       "methodology": {
         "title1": "Nuestra ",
         "titleHighlight": "Metodología",
@@ -1655,6 +1662,13 @@ const translations = {
       },
       "brands": {
         "tag": "BRANDS THAT TRUST US"
+      },
+      "differentiator": {
+        "title": "What sets us apart",
+        "b1": "Focus on operational results, not just development",
+        "b2": "Solutions designed based on the reality of each operation",
+        "b3": "Integration of technology, data, and processes in a single system",
+        "b4": "Close support from strategy to implementation"
       },
       "methodology": {
         "title1": "Our ",

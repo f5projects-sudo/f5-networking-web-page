@@ -433,9 +433,73 @@ export default function Nosotros({ onNavigate }) {
         </div>
       </section>
 
+      {/* ── Qué nos diferencia ── */}
+      <section className="section-container" style={{ position: 'relative', zIndex: 10, padding: '60px 5%' }}>
+        <div style={{ 
+          background: 'rgba(255, 255, 255, 0.03)', 
+          border: '1px solid rgba(255, 255, 255, 0.05)', 
+          borderRadius: '40px', 
+          padding: isMobile ? '40px 25px' : '60px 80px',
+          boxShadow: '0 40px 100px rgba(0,0,0,0.3)',
+          backdropFilter: 'blur(10px)'
+        }}>
+          <motion.div {...fadeInUp} style={{ textAlign: 'left', marginBottom: '40px' }}>
+            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 900, marginBottom: '20px' }}>
+              {t('nosotros.differentiator.title', 'Qué nos diferencia')}
+            </h2>
+            <div style={{ width: '80px', height: '4px', background: 'var(--color-accent)', borderRadius: '2px' }}></div>
+          </motion.div>
 
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', 
+            gap: '30px' 
+          }}>
+            {[1, 2, 3, 4].map((num) => (
+              <motion.div 
+                key={num}
+                {...fadeInUp}
+                transition={{ delay: num * 0.1 }}
+                style={{ 
+                  display: 'flex', 
+                  alignItems: 'flex-start', 
+                  gap: '20px',
+                  background: 'rgba(255,255,255,0.02)',
+                  padding: '24px',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(255,255,255,0.03)',
+                  transition: 'transform 0.3s ease'
+                }}
+                whileHover={{ transform: 'translateY(-5px)', background: 'rgba(255,255,255,0.04)' }}
+              >
+                <div style={{ 
+                  background: 'rgba(0, 180, 255, 0.1)', 
+                  padding: '10px', 
+                  borderRadius: '12px',
+                  color: 'var(--color-accent)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <CheckCircle2 size={24} />
+                </div>
+                <p style={{ 
+                  color: 'var(--color-text-muted)', 
+                  fontSize: '1.1rem', 
+                  lineHeight: '1.5', 
+                  margin: 0,
+                  fontWeight: 500
+                }}>
+                  {t(`nosotros.differentiator.b${num}`)}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── Certificaciones ── */}
+
       <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.certifications.title1', 'Nuestras ')}<span className="gradient-text">{t('nosotros.certifications.titleHighlight', 'Certificaciones')}</span></h2>

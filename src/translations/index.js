@@ -685,9 +685,10 @@ const translations = {
         "d3Detail": "SLA líder en la industria con respuesta reactiva inmediata."
       },
       "team": {
-        "title1": "Nuestro ",
-        "titleHighlight": "Equipo",
-        "desc": "Es un grupo dinámico de expertos dedicados a la innovación y la excelencia, con habilidades en desarrollo de software, análisis de datos y diseño de experiencias de usuario. Creamos soluciones impactantes que empoderan a nuestros clientes."
+        "title1": "Quienes ",
+        "titleHighlight": "somos",
+        "headline": "Construimos soluciones tecnológicas que escalan negocio",
+        "desc": "Somos un equipo especializado en desarrollo tecnológico, infraestructura digital y análisis de datos enfocado en resolver problemas reales de negocio. Diseñamos e implementamos soluciones que optimizan la operación, automatizan procesos y permiten escalar de forma eficiente. No trabajamos sobre supuestos: entendemos cada operación, detectamos puntos críticos y construimos sistemas que generan impacto medible."
       },
       "brands": {
         "tag": "MARCAS QUE CONFÍAN EN NOSOTROS"
@@ -1647,9 +1648,10 @@ const translations = {
         "d3Detail": "Industry-leading SLA with immediate reactive response."
       },
       "team": {
-        "title1": "Our ",
-        "titleHighlight": "Team",
-        "desc": "It is a dynamic group of experts dedicated to innovation and excellence, with skills in software development, data analysis, and user experience design. We create impactful solutions that empower our clients."
+        "title1": "Who ",
+        "titleHighlight": "we are",
+        "headline": "We build technological solutions that scale businesses",
+        "desc": "We are a team specialized in technological development, digital infrastructure, and data analysis focused on solving real business problems. We design and implement solutions that optimize operations, automate processes, and allow for efficient scaling. We don't work on assumptions: we understand each operation, detect critical points, and build systems that generate a measurable impact."
       },
       "brands": {
         "tag": "BRANDS THAT TRUST US"

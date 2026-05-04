@@ -347,7 +347,7 @@ export default function Nosotros({ onNavigate }) {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                     <div style={{ width: '40px', height: '2px', background: item.color }} />
                     <p style={{ color: 'rgba(255,255,255,0.9)', fontStyle: 'italic', fontWeight: 600, fontSize: '1.05rem', margin: 0 }}>
-                      {item.detail}
+              {item.detail}
                     </p>
                   </div>
                 </motion.div>
@@ -357,25 +357,76 @@ export default function Nosotros({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── Nuestro Equipo ── */}
-      <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '50px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.team.title1', 'Nuestro ')}<span className="gradient-text">{t('nosotros.team.titleHighlight', 'Equipo')}</span></h2>
-          <div style={{ width: '60px', height: '4px', background: 'var(--color-primary)', margin: '0 auto' }}></div>
+      {/* ── Quienes Somos ── */}
+      <section className="section-container" style={{ position: 'relative', zIndex: 10, padding: '80px 5%' }}>
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <h2 style={{ fontSize: '1.2rem', color: 'var(--color-secondary)', fontWeight: 800, letterSpacing: '4px', textTransform: 'uppercase', marginBottom: '15px' }}>
+            {t('nosotros.team.title1', 'Quienes ')}<span className="gradient-text">{t('nosotros.team.titleHighlight', 'somos')}</span>
+          </h2>
+          <div style={{ width: '40px', height: '3px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>
         </motion.div>
 
-        <motion.div
-          {...fadeInUp}
-          className="glass"
-          style={{ padding: '60px', borderRadius: '24px', display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap', background: 'linear-gradient(135deg, rgba(0,86,179,0.08), rgba(0,180,255,0.05))' }}
-        >
-          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '90px', height: '90px', background: 'rgba(0,180,255,0.15)', borderRadius: '50%', flexShrink: 0 }}>
-            <Users size={44} style={{ color: 'var(--color-accent)' }} />
-          </div>
-          <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.9', fontSize: '1.1rem', flex: 1, minWidth: '280px' }}>
-            {t('nosotros.team.desc', 'Es un grupo dinámico de expertos dedicados a la innovación y la excelencia, con habilidades en desarrollo de software, análisis de datos y diseño de experiencias de usuario. Creamos soluciones impactantes que empoderan a nuestros clientes.')}
-          </p>
-        </motion.div>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: isMobile ? '1fr' : '1.2fr 0.8fr', 
+          gap: '60px', 
+          alignItems: 'center' 
+        }}>
+          <motion.div {...fadeInUp}>
+            <h3 style={{ 
+              fontSize: 'clamp(2rem, 4vw, 3.2rem)', 
+              fontWeight: 900, 
+              lineHeight: 1.1, 
+              marginBottom: '35px', 
+              color: 'white' 
+            }}>
+              {t('nosotros.team.headline', 'Construimos soluciones tecnológicas que escalan negocio')}
+            </h3>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+              <p style={{ 
+                color: 'var(--color-text-muted)', 
+                lineHeight: '1.8', 
+                fontSize: '1.15rem',
+                margin: 0
+              }}>
+                {t('nosotros.team.desc', 'Es un grupo dinámico de expertos dedicados a la innovación y la excelencia, con habilidades en desarrollo de software, análisis de datos y diseño de experiencias de usuario. Creamos soluciones impactantes que empoderan a nuestros clientes.')}
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            {...fadeInUp} 
+            transition={{ delay: 0.2 }}
+            style={{ position: 'relative' }}
+          >
+            <div style={{
+              position: 'absolute',
+              inset: '-15px',
+              border: '1px solid rgba(255, 140, 0, 0.3)',
+              borderRadius: '24px',
+              zIndex: -1
+            }} />
+            <div style={{
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+              border: '1px solid rgba(255,255,255,0.1)'
+            }}>
+              <img 
+                src="/src/assets/quienes-somos.png" 
+                alt="F5 Networking Team" 
+                style={{ width: '100%', height: 'auto', display: 'block' }} 
+              />
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(to top, rgba(10,10,12,0.4), transparent)'
+              }} />
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* ── Marcas que confían (marquee) ── */}

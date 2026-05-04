@@ -120,7 +120,7 @@ export default function Nosotros({ onNavigate }) {
                 <Zap size={28} style={{ color: 'var(--color-accent)' }} />
               </div>
               <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c1Title', '+5 Años')}</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>{t('nosotros.hero.c1Desc', 'Innovando en infraestructura digital corporativa')}</p>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500, whiteSpace: 'pre-line' }}>{t('nosotros.hero.c1Desc', 'Innovando en infraestructura digital corporativa')}</p>
             </motion.div>
 
             {/* Tarjeta 2: Centro Derecha */}
@@ -133,7 +133,7 @@ export default function Nosotros({ onNavigate }) {
                 <Users size={28} style={{ color: 'var(--color-secondary)' }} />
               </div>
               <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c2Title', '99.9%')}</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>{t('nosotros.hero.c2Desc', 'Fiabilidad sostenida en servicios implementados')}</p>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500, whiteSpace: 'pre-line' }}>{t('nosotros.hero.c2Desc', 'Fiabilidad sostenida en servicios implementados')}</p>
             </motion.div>
 
             {/* Tarjeta 3: Abajo Izquierda */}
@@ -146,7 +146,7 @@ export default function Nosotros({ onNavigate }) {
                 <ShieldCheck size={28} style={{ color: '#9b59b6' }} />
               </div>
               <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px', lineHeight: 1 }}>{t('nosotros.hero.c3Title', '24/7')}</h3>
-              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500 }}>{t('nosotros.hero.c3Desc', 'Monitoreo preventivo y soporte ininterrumpido')}</p>
+              <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: 1.5, margin: 0, fontWeight: 500, whiteSpace: 'pre-line' }}>{t('nosotros.hero.c3Desc', 'Monitoreo preventivo y soporte ininterrumpido')}</p>
             </motion.div>
           </div>
 

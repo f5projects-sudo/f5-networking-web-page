@@ -9,6 +9,10 @@ import {
   ChevronRight,
   Send,
   Award,
+  Target,
+  Cpu,
+  Layers,
+  Handshake,
   CheckCircle2,
   ChevronDown
 } from 'lucide-react';
@@ -433,99 +437,147 @@ export default function Nosotros({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── Qué nos diferencia ── */}
-      <section className="section-container" style={{ position: 'relative', zIndex: 10, padding: '60px 5%' }}>
-        <div style={{ 
-          background: 'rgba(255, 255, 255, 0.03)', 
-          border: '1px solid rgba(255, 255, 255, 0.05)', 
-          borderRadius: '40px', 
-          padding: isMobile ? '40px 25px' : '60px 80px',
-          boxShadow: '0 40px 100px rgba(0,0,0,0.3)',
-          backdropFilter: 'blur(10px)'
-        }}>
-          <motion.div {...fadeInUp} style={{ textAlign: 'left', marginBottom: '40px' }}>
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)', fontWeight: 900, marginBottom: '20px' }}>
-              {t('nosotros.differentiator.title', 'Qué nos diferencia')}
+      {/* ── Qué nos diferencia (Total Redesign) ── */}
+      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '120px 5%' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '0.8fr 1.2fr', gap: '80px' }}>
+          
+          {/* Left Side: Sticky Headline */}
+          <motion.div 
+            style={{ position: isMobile ? 'relative' : 'sticky', top: '150px', height: 'fit-content' }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 style={{ 
+              fontSize: 'clamp(3rem, 8vw, 5rem)', 
+              fontWeight: 900, 
+              lineHeight: 0.9, 
+              marginBottom: '40px',
+              textTransform: 'uppercase',
+              letterSpacing: '-2px'
+            }}>
+              {t('nosotros.differentiator.title', 'Qué nos diferencia').split(' ').map((word, i) => (
+                <span key={i} style={{ display: 'block', color: i === 2 ? 'var(--color-accent)' : 'white' }}>{word}</span>
+              ))}
             </h2>
-            <div style={{ width: '80px', height: '4px', background: 'var(--color-accent)', borderRadius: '2px' }}></div>
+            <div style={{ 
+              width: '120px', 
+              height: '8px', 
+              background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent))', 
+              borderRadius: '10px',
+              marginBottom: '40px'
+            }} />
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.2rem', lineHeight: 1.6, maxWidth: '300px' }}>
+              No solo construimos código, transformamos operaciones completas.
+            </p>
           </motion.div>
 
+          {/* Right Side: Bento Grid of Points */}
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', 
-            gap: '30px' 
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', 
+            gridAutoRows: 'minmax(280px, auto)',
+            gap: '24px' 
           }}>
-            {[1, 2, 3, 4].map((num) => (
-              <motion.div 
-                key={num}
-                initial={{ opacity: 0, x: -80 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: num * 0.15, 
-                  ease: [0.21, 1.11, 0.81, 0.99] // Custom cubic-bezier for a smooth elegant pop
-                }}
-                style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '24px',
-                  background: 'rgba(255,255,255,0.02)',
-                  padding: '32px',
-                  borderRadius: '24px',
-                  border: '1px solid rgba(255,255,255,0.05)',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  zIndex: 1
-                }}
-                whileHover={{ 
-                  y: -8, 
-                  background: 'rgba(255,255,255,0.05)',
-                  borderColor: 'rgba(0, 180, 255, 0.3)',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
-                }}
-              >
-                {/* Background Number for Elegance */}
-                <span style={{
-                  position: 'absolute',
-                  right: '-10px',
-                  bottom: '-20px',
-                  fontSize: '8rem',
-                  fontWeight: 900,
-                  color: 'rgba(255, 255, 255, 0.03)',
-                  zIndex: -1,
-                  userSelect: 'none'
-                }}>
-                  {num}
-                </span>
+            
+            {/* Card 1: Large Focus */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              style={{ 
+                gridColumn: isMobile ? 'span 1' : 'span 2',
+                background: 'linear-gradient(135deg, rgba(0, 86, 179, 0.15), rgba(0, 180, 255, 0.05))',
+                borderRadius: '32px',
+                padding: '40px',
+                border: '1px solid rgba(0, 180, 255, 0.2)',
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              }}
+              whileHover={{ scale: 1.02, background: 'linear-gradient(135deg, rgba(0, 86, 179, 0.25), rgba(0, 180, 255, 0.1))' }}
+            >
+              <div style={{ background: 'var(--color-primary)', width: '60px', height: '60px', borderRadius: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '30px' }}>
+                <Target size={32} color="white" />
+              </div>
+              <h3 style={{ fontSize: '2rem', fontWeight: 800, color: 'white', marginBottom: '15px' }}>{t('nosotros.differentiator.b1')}</h3>
+              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', lineHeight: 1.6, maxWidth: '500px' }}>
+                Priorizamos la rentabilidad y fluidez de tu negocio sobre la simple entrega de software. Cada línea de código tiene un propósito financiero y operativo.
+              </p>
+              <div style={{ position: 'absolute', right: '-20px', bottom: '-20px', opacity: 0.05, transform: 'rotate(-15deg)' }}>
+                <Target size={240} />
+              </div>
+            </motion.div>
 
-                <div style={{ 
-                  background: 'linear-gradient(135deg, rgba(0, 180, 255, 0.2), rgba(0, 180, 255, 0.05))', 
-                  minWidth: '56px', 
-                  height: '56px', 
-                  borderRadius: '16px',
-                  color: 'var(--color-accent)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
-                  border: '1px solid rgba(0, 180, 255, 0.2)'
-                }}>
-                  <CheckCircle2 size={28} strokeWidth={2.5} />
-                </div>
-                
-                <p style={{ 
-                  color: 'rgba(255,255,255,0.9)', 
-                  fontSize: '1.2rem', 
-                  lineHeight: '1.4', 
-                  margin: 0,
-                  fontWeight: 600,
-                  letterSpacing: '-0.01em'
-                }}>
-                  {t(`nosotros.differentiator.b${num}`)}
-                </p>
-              </motion.div>
-            ))}
+            {/* Card 2: Small Square */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              style={{ 
+                background: 'rgba(255, 140, 0, 0.05)',
+                borderRadius: '32px',
+                padding: '40px',
+                border: '1px solid rgba(255, 140, 0, 0.15)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}
+              whileHover={{ y: -10, background: 'rgba(255, 140, 0, 0.1)' }}
+            >
+              <Cpu size={40} color="var(--color-secondary)" />
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', marginTop: '40px' }}>{t('nosotros.differentiator.b2')}</h3>
+            </motion.div>
+
+            {/* Card 3: Small Square */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              style={{ 
+                background: 'rgba(155, 89, 182, 0.05)',
+                borderRadius: '32px',
+                padding: '40px',
+                border: '1px solid rgba(155, 89, 182, 0.15)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}
+              whileHover={{ y: -10, background: 'rgba(155, 89, 182, 0.1)' }}
+            >
+              <Layers size={40} color="#9b59b6" />
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', marginTop: '40px' }}>{t('nosotros.differentiator.b3')}</h3>
+            </motion.div>
+
+            {/* Card 4: Long Row */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              style={{ 
+                gridColumn: isMobile ? 'span 1' : 'span 2',
+                background: 'rgba(255, 255, 255, 0.03)',
+                borderRadius: '32px',
+                padding: '40px',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '40px'
+              }}
+              whileHover={{ x: 10, background: 'rgba(255, 255, 255, 0.06)' }}
+            >
+              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '20px', borderRadius: '100%' }}>
+                <Handshake size={48} color="white" />
+              </div>
+              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'white', margin: 0 }}>{t('nosotros.differentiator.b4')}</h3>
+            </motion.div>
+
           </div>
         </div>
       </section>

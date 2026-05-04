@@ -169,44 +169,204 @@ export default function Nosotros({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── Qué nos diferencia (3D Isometric Stack) ── */}
-      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '120px 5%', overflow: 'hidden' }}>
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '120px' }}>
-          <h2 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 900, textTransform: 'uppercase' }}>{t('nosotros.differentiator.title')}</h2>
-          <div style={{ width: '100px', height: '6px', background: 'var(--color-accent)', margin: '20px auto', borderRadius: '10px' }} />
+      {/* ── Qué nos diferencia (Enhanced 3D Isometric Infographic) ── */}
+      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '100px 5%', overflow: 'hidden' }}>
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '80px' }}>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-1px' }}>
+            {t('nosotros.differentiator.title', 'Qué nos diferencia')}
+          </h2>
+          <div style={{ width: '80px', height: '6px', background: 'var(--color-accent)', margin: '15px auto', borderRadius: '10px' }} />
         </motion.div>
 
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '600px', position: 'relative' }}>
-          <div style={{ position: 'relative', width: isMobile ? '280px' : '500px', height: '400px' }}>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: isMobile ? '700px' : '650px',
+          position: 'relative',
+          marginTop: isMobile ? '40px' : '0'
+        }}>
+          {/* Isometric Canvas */}
+          <div style={{ 
+            position: 'relative', 
+            width: isMobile ? '260px' : '450px', 
+            height: '400px',
+            perspective: '1200px',
+            transformStyle: 'preserve-3d'
+          }}>
             {[1, 2, 3, 4].map((num, i) => {
-              const layerGradients = [
-                'linear-gradient(135deg, #1e3a8a, #3b82f6)', 
-                'linear-gradient(135deg, #6b21a8, #a855f7)', 
-                'linear-gradient(135deg, #9d174d, #ec4899)', 
-                'linear-gradient(135deg, #9a3412, #f97316)'
+              const colors = [
+                { top: '#3b82f6', side: '#1e40af', icon: <Target size={24} /> },
+                { top: '#a855f7', side: '#6b21a8', icon: <Cpu size={24} /> },
+                { top: '#ec4899', side: '#9d174d', icon: <Layers size={24} /> },
+                { top: '#f97316', side: '#9a3412', icon: <Handshake size={24} /> }
               ];
+              const config = colors[i];
               const isEven = num % 2 === 0;
+              
+              // Stagger offsets
+              const xOffset = i * (isMobile ? 20 : 40);
+              const yOffset = i * (isMobile ? -15 : -25);
 
               return (
-                <div key={num} style={{ position: 'absolute', width: '100%', bottom: i * 70, zIndex: 10 - i }}>
+                <div key={num} style={{ 
+                  position: 'absolute', 
+                  width: '100%', 
+                  bottom: i * (isMobile ? 60 : 80), 
+                  left: xOffset,
+                  zIndex: 10 - i,
+                  transform: `translateY(${yOffset}px)`
+                }}>
+                  {/* 3D Slab */}
                   <motion.div
-                    initial={{ opacity: 0, y: -300, scale: 0.5 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    initial={{ opacity: 0, y: -200, rotateX: 60, rotateZ: -45 }}
+                    whileInView={{ opacity: 1, y: 0, rotateX: 60, rotateZ: -45 }}
                     viewport={{ once: true }}
-                    transition={{ type: 'spring', stiffness: 80, damping: 12, delay: i * 0.4 }}
-                    style={{ width: '100%', height: '120px', background: layerGradients[i], transform: 'rotateX(60deg) rotateZ(-45deg)', borderRadius: '12px', boxShadow: '15px 15px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.3)' }}
-                  />
+                    transition={{ type: 'spring', stiffness: 90, damping: 14, delay: i * 0.3 }}
+                    style={{
+                      width: '100%',
+                      height: isMobile ? '80px' : '100px',
+                      position: 'relative',
+                      transformStyle: 'preserve-3d',
+                    }}
+                  >
+                    {/* Top Face */}
+                    <div style={{
+                      position: 'absolute',
+                      inset: 0,
+                      background: `linear-gradient(135deg, ${config.top}, #ffffff20)`,
+                      borderRadius: '8px',
+                      boxShadow: 'inset 0 0 20px rgba(255,255,255,0.3)',
+                      border: '1px solid rgba(255,255,255,0.4)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'flex-end',
+                      paddingRight: '20px'
+                    }}>
+                       <span style={{ 
+                         fontSize: isMobile ? '1.5rem' : '2.5rem', 
+                         fontWeight: 900, 
+                         color: 'rgba(255,255,255,0.4)',
+                         transform: 'rotateZ(45deg)' 
+                       }}>
+                         0{num}
+                       </span>
+                    </div>
+
+                    {/* Right Side (Depth) */}
+                    <div style={{
+                      position: 'absolute',
+                      top: '100%',
+                      left: 0,
+                      width: '100%',
+                      height: '25px',
+                      background: config.side,
+                      transform: 'rotateX(-90deg)',
+                      transformOrigin: 'top',
+                      borderRadius: '0 0 8px 8px',
+                      border: '1px solid rgba(0,0,0,0.2)'
+                    }} />
+
+                    {/* Left Side (Depth) */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      right: '100%',
+                      width: '25px',
+                      height: '100%',
+                      background: config.side,
+                      transform: 'rotateY(-90deg)',
+                      transformOrigin: 'right',
+                      borderRadius: '8px 0 0 8px',
+                      border: '1px solid rgba(0,0,0,0.2)',
+                      filter: 'brightness(0.8)'
+                    }} />
+                  </motion.div>
+
+                  {/* Label & Description */}
                   <motion.div
-                    initial={{ opacity: 0, x: isEven ? 80 : -80 }}
+                    initial={{ opacity: 0, x: isEven ? 60 : -60 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: (i * 0.4) + 0.3 }}
-                    style={{ position: 'absolute', top: '20px', [isEven ? 'left' : 'right']: isMobile ? '105%' : '115%', width: isMobile ? '160px' : '300px', textAlign: isEven ? 'left' : 'right', display: 'flex', flexDirection: isEven ? 'row' : 'row-reverse', alignItems: 'center', gap: '15px' }}
+                    transition={{ duration: 0.8, delay: (i * 0.3) + 0.4 }}
+                    style={{
+                      position: 'absolute',
+                      top: '50%',
+                      [isEven ? 'left' : 'right']: isMobile ? '105%' : '110%',
+                      transform: 'translateY(-50%)',
+                      width: isMobile ? '170px' : '320px',
+                      textAlign: isEven ? 'left' : 'right',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: isEven ? 'flex-start' : 'flex-end',
+                      gap: '10px'
+                    }}
                   >
-                    <div style={{ width: isMobile ? '20px' : '50px', height: '2px', background: 'var(--color-accent)', opacity: 0.6 }} />
-                    <div>
-                      <h4 style={{ color: 'var(--color-accent)', fontSize: isMobile ? '0.9rem' : '1.3rem', fontWeight: 900, margin: 0, textTransform: 'uppercase' }}>{t(`nosotros.differentiator.b${num}`).split(' ')[0]}</h4>
-                      <p style={{ color: 'white', fontSize: isMobile ? '0.75rem' : '1rem', fontWeight: 600, margin: '4px 0 0 0' }}>{t(`nosotros.differentiator.b${num}`)}</p>
+                    <div style={{ 
+                      display: 'flex', 
+                      flexDirection: isEven ? 'row' : 'row-reverse', 
+                      alignItems: 'center', 
+                      gap: '12px' 
+                    }}>
+                      <div style={{ 
+                        padding: '8px', 
+                        background: `${config.top}20`, 
+                        borderRadius: '12px', 
+                        color: config.top,
+                        border: `1px solid ${config.top}40`
+                      }}>
+                        {config.icon}
+                      </div>
+                      <div style={{ 
+                        background: config.top, 
+                        color: 'white', 
+                        padding: '4px 12px', 
+                        borderRadius: '20px', 
+                        fontSize: '0.75rem', 
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        letterSpacing: '1px'
+                      }}>
+                        {t('nosotros.differentiator.badge', 'DETALLE')}
+                      </div>
+                    </div>
+
+                    <h4 style={{ 
+                      color: 'white', 
+                      fontSize: isMobile ? '0.9rem' : '1.25rem', 
+                      fontWeight: 800, 
+                      margin: 0,
+                      textTransform: 'uppercase'
+                    }}>
+                      {t(`nosotros.differentiator.b${num}`).split(' ')[0]}
+                    </h4>
+                    
+                    <p style={{ 
+                      color: 'var(--color-text-muted)', 
+                      fontSize: isMobile ? '0.7rem' : '0.9rem', 
+                      lineHeight: 1.4, 
+                      margin: 0,
+                      maxWidth: '260px'
+                    }}>
+                      {t(`nosotros.differentiator.b${num}`)}
+                    </p>
+
+                    {/* Progress line decoration */}
+                    <div style={{ 
+                      width: '100%', 
+                      height: '3px', 
+                      background: 'rgba(255,255,255,0.05)', 
+                      borderRadius: '10px',
+                      marginTop: '5px',
+                      overflow: 'hidden'
+                    }}>
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: '100%' }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: (i * 0.3) + 0.6 }}
+                        style={{ height: '100%', background: `linear-gradient(to right, ${config.top}, transparent)` }}
+                      />
                     </div>
                   </motion.div>
                 </div>

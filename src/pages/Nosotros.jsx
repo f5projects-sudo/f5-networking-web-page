@@ -475,107 +475,110 @@ export default function Nosotros({ onNavigate }) {
           {/* Right Side: Bento Grid of Points */}
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, 1fr)', 
-            gridAutoRows: 'minmax(280px, auto)',
+            gridTemplateColumns: isMobile ? '1fr' : 'repeat(10, 1fr)', 
+            gridAutoRows: 'minmax(250px, auto)',
             gap: '24px' 
           }}>
             
-            {/* Card 1: Large Focus */}
+            {/* Card 1: 60% Width */}
             <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              style={{ 
-                gridColumn: isMobile ? 'span 1' : 'span 2',
-                background: 'linear-gradient(135deg, rgba(0, 86, 179, 0.15), rgba(0, 180, 255, 0.05))',
-                borderRadius: '32px',
-                padding: '40px',
-                border: '1px solid rgba(0, 180, 255, 0.2)',
-                position: 'relative',
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
-              }}
-              whileHover={{ scale: 1.02, background: 'linear-gradient(135deg, rgba(0, 86, 179, 0.25), rgba(0, 180, 255, 0.1))' }}
-            >
-              <div style={{ background: 'var(--color-primary)', width: '60px', height: '60px', borderRadius: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '30px' }}>
-                <Target size={32} color="white" />
-              </div>
-              <h3 style={{ fontSize: '2rem', fontWeight: 800, color: 'white', marginBottom: '15px' }}>{t('nosotros.differentiator.b1')}</h3>
-              <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1.1rem', lineHeight: 1.6, maxWidth: '500px' }}>
-                Priorizamos la rentabilidad y fluidez de tu negocio sobre la simple entrega de software. Cada línea de código tiene un propósito financiero y operativo.
-              </p>
-              <div style={{ position: 'absolute', right: '-20px', bottom: '-20px', opacity: 0.05, transform: 'rotate(-15deg)' }}>
-                <Target size={240} />
-              </div>
-            </motion.div>
-
-            {/* Card 2: Small Square */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              style={{ 
-                background: 'rgba(255, 140, 0, 0.05)',
-                borderRadius: '32px',
-                padding: '40px',
-                border: '1px solid rgba(255, 140, 0, 0.15)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}
-              whileHover={{ y: -10, background: 'rgba(255, 140, 0, 0.1)' }}
-            >
-              <Cpu size={40} color="var(--color-secondary)" />
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', marginTop: '40px' }}>{t('nosotros.differentiator.b2')}</h3>
-            </motion.div>
-
-            {/* Card 3: Small Square */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              style={{ 
-                background: 'rgba(155, 89, 182, 0.05)',
-                borderRadius: '32px',
-                padding: '40px',
-                border: '1px solid rgba(155, 89, 182, 0.15)',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between'
-              }}
-              whileHover={{ y: -10, background: 'rgba(155, 89, 182, 0.1)' }}
-            >
-              <Layers size={40} color="#9b59b6" />
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'white', marginTop: '40px' }}>{t('nosotros.differentiator.b3')}</h3>
-            </motion.div>
-
-            {/* Card 4: Long Row */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.5 }}
               style={{ 
-                gridColumn: isMobile ? 'span 1' : 'span 2',
+                gridColumn: isMobile ? 'span 1' : 'span 6',
+                background: 'linear-gradient(135deg, rgba(0, 180, 255, 0.1), rgba(0, 180, 255, 0.02))',
+                borderRadius: '32px',
+                padding: '40px',
+                border: '1px solid rgba(0, 180, 255, 0.15)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+              whileHover={{ y: -5, background: 'rgba(0, 180, 255, 0.15)' }}
+            >
+              <Target size={32} color="var(--color-accent)" style={{ marginBottom: '20px' }} />
+              <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'white', marginBottom: '12px' }}>{t('nosotros.differentiator.b1')}</h3>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', lineHeight: 1.5, margin: 0 }}>
+                Resultados medibles que impactan directamente en tu rentabilidad.
+              </p>
+            </motion.div>
+
+            {/* Card 2: 40% Width */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              style={{ 
+                gridColumn: isMobile ? 'span 1' : 'span 4',
                 background: 'rgba(255, 255, 255, 0.03)',
                 borderRadius: '32px',
                 padding: '40px',
                 border: '1px solid rgba(255, 255, 255, 0.08)',
                 display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 alignItems: 'center',
-                gap: '40px'
+                textAlign: 'center'
               }}
-              whileHover={{ x: 10, background: 'rgba(255, 255, 255, 0.06)' }}
+              whileHover={{ y: -5, background: 'rgba(255, 255, 255, 0.06)' }}
             >
-              <div style={{ background: 'rgba(255,255,255,0.05)', padding: '20px', borderRadius: '100%' }}>
-                <Handshake size={48} color="white" />
+              <Cpu size={40} color="var(--color-secondary)" />
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginTop: '20px' }}>{t('nosotros.differentiator.b2')}</h3>
+            </motion.div>
+
+            {/* Card 3: 40% Width (Offset Row) */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              style={{ 
+                gridColumn: isMobile ? 'span 1' : 'span 4',
+                background: 'rgba(255, 255, 255, 0.03)',
+                borderRadius: '32px',
+                padding: '40px',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center'
+              }}
+              whileHover={{ y: -5, background: 'rgba(255, 255, 255, 0.06)' }}
+            >
+              <Layers size={40} color="#9b59b6" />
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'white', marginTop: '20px' }}>{t('nosotros.differentiator.b3')}</h3>
+            </motion.div>
+
+            {/* Card 4: 60% Width */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              style={{ 
+                gridColumn: isMobile ? 'span 1' : 'span 6',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                borderRadius: '32px',
+                padding: '40px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              }}
+              whileHover={{ y: -5, background: 'rgba(255, 255, 255, 0.08)' }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '15px' }}>
+                <Handshake size={32} color="white" />
+                <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: 'white', margin: 0 }}>{t('nosotros.differentiator.b4')}</h3>
               </div>
-              <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'white', margin: 0 }}>{t('nosotros.differentiator.b4')}</h3>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1rem', lineHeight: 1.5 }}>
+                Socio estratégico comprometido con el éxito de tu transformación digital.
+              </p>
             </motion.div>
 
           </div>

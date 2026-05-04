@@ -34,12 +34,11 @@ const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZZARRO', 'PINKCREARTE', 
 
 /* ── Certifications ── */
 const certs = [
-  { name: 'AWS', logo: 'https://api.iconify.design/logos:aws.svg' },
-  { name: 'Cisco', logo: 'https://api.iconify.design/logos:cisco.svg' },
-  { name: 'Fortinet', logo: 'https://api.iconify.design/logos:fortinet.svg' },
-  { name: 'Microsoft', logo: 'https://api.iconify.design/logos:microsoft-icon.svg' },
+  { name: 'Codedex', logo: 'https://www.codedex.io/apple-touch-icon.png' },
   { name: 'Oracle', logo: 'https://api.iconify.design/logos:oracle.svg' },
-  { name: 'Panduit', logo: 'https://api.iconify.design/simple-icons:panduit.svg?color=%23e31837' }
+  { name: 'Alura Latam', logo: 'https://api.iconify.design/logos:alura-icon.svg' },
+  { name: 'Santander Open Academy', logo: 'https://api.iconify.design/logos:santander.svg' },
+  { name: 'AWS', logo: 'https://api.iconify.design/logos:aws.svg' }
 ];
 
 export default function Nosotros({ onNavigate }) {
@@ -403,11 +402,13 @@ export default function Nosotros({ onNavigate }) {
                 borderRadius: '24px', 
                 border: '1px solid rgba(255,255,255,0.08)', 
                 display: 'flex', 
+                flexDirection: 'column',
                 alignItems: 'center', 
                 justifyContent: 'center',
-                minWidth: '180px',
-                height: '100px',
-                background: 'rgba(255,255,255,0.02)'
+                minWidth: '200px',
+                height: '130px',
+                background: 'rgba(255,255,255,0.02)',
+                gap: '15px'
               }} 
               {...fadeInUp} 
               transition={{ delay: i * 0.1 }} 
@@ -421,12 +422,22 @@ export default function Nosotros({ onNavigate }) {
                 src={cert.logo} 
                 alt={cert.name} 
                 style={{ 
-                  maxHeight: '45px', 
-                  maxWidth: '120px', 
+                  maxHeight: '40px', 
+                  maxWidth: '140px', 
                   objectFit: 'contain',
                   opacity: 1
                 }} 
               />
+              <span style={{ 
+                fontSize: '0.7rem', 
+                fontWeight: 700, 
+                color: 'var(--color-text-muted)', 
+                textTransform: 'uppercase', 
+                letterSpacing: '1px',
+                textAlign: 'center'
+              }}>
+                {cert.name}
+              </span>
             </motion.div>
           ))}
         </div>

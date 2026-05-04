@@ -12,6 +12,7 @@ import {
   CheckCircle2,
   ChevronDown
 } from 'lucide-react';
+import teamImg from '../assets/quienes-somos.jpg';
 import BubbleBackground from '../components/BubbleBackground';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -415,7 +416,7 @@ export default function Nosotros({ onNavigate }) {
               border: '1px solid rgba(255,255,255,0.1)'
             }}>
               <img 
-                src="/src/assets/quienes-somos.png" 
+                src={teamImg} 
                 alt="F5 Networking Team" 
                 style={{ width: '100%', height: 'auto', display: 'block' }} 
               />

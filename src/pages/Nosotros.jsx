@@ -34,10 +34,10 @@ const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZZARRO', 'PINKCREARTE', 
 
 /* ── Certifications ── */
 const certs = [
-  { name: 'Codedex', logo: 'https://www.codedex.io/apple-touch-icon.png' },
+  { name: 'Codedex', logo: 'https://api.iconify.design/tabler:brand-codepen.svg?color=%23ffffff' }, // Codepen icon as a clean professional placeholder for Codedex
   { name: 'Oracle', logo: 'https://api.iconify.design/logos:oracle.svg' },
-  { name: 'Alura Latam', logo: 'https://api.iconify.design/logos:alura-icon.svg' },
-  { name: 'Santander Open Academy', logo: 'https://api.iconify.design/logos:santander.svg' },
+  { name: 'Alura Latam', logo: 'https://api.iconify.design/simple-icons:alura.svg?color=%23ffffff' },
+  { name: 'Santander Open Academy', logo: 'https://api.iconify.design/simple-icons:santander.svg?color=%23ec0000' },
   { name: 'AWS', logo: 'https://api.iconify.design/logos:aws.svg' }
 ];
 
@@ -405,8 +405,8 @@ export default function Nosotros({ onNavigate }) {
                 flexDirection: 'column',
                 alignItems: 'center', 
                 justifyContent: 'center',
-                minWidth: '200px',
-                height: '130px',
+                minWidth: '220px',
+                height: '150px',
                 background: 'rgba(255,255,255,0.02)',
                 gap: '15px'
               }} 
@@ -422,10 +422,11 @@ export default function Nosotros({ onNavigate }) {
                 src={cert.logo} 
                 alt={cert.name} 
                 style={{ 
-                  maxHeight: '40px', 
-                  maxWidth: '140px', 
+                  maxHeight: '60px', 
+                  maxWidth: '160px', 
                   objectFit: 'contain',
-                  opacity: 1
+                  opacity: 1,
+                  filter: cert.name === 'AWS' ? 'brightness(1.5)' : 'none'
                 }} 
               />
               <span style={{ 

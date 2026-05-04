@@ -33,7 +33,14 @@ const fadeInUp = {
 const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZZARRO', 'PINKCREARTE', 'KREDIAPAY'];
 
 /* ── Certifications ── */
-const certs = ['Codedex', 'Oracle', 'Alura Latam', 'Santander Open Academy', 'AWS'];
+const certs = [
+  { name: 'AWS', logo: 'https://api.iconify.design/logos:aws.svg' },
+  { name: 'Cisco', logo: 'https://api.iconify.design/logos:cisco.svg' },
+  { name: 'Fortinet', logo: 'https://api.iconify.design/logos:fortinet.svg' },
+  { name: 'Microsoft', logo: 'https://api.iconify.design/logos:microsoft-icon.svg' },
+  { name: 'Oracle', logo: 'https://api.iconify.design/logos:oracle.svg' },
+  { name: 'Panduit', logo: 'https://api.iconify.design/simple-icons:panduit.svg?color=%23e31837' }
+];
 
 export default function Nosotros({ onNavigate }) {
   const { t } = useLanguage();
@@ -386,11 +393,40 @@ export default function Nosotros({ onNavigate }) {
           <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.certifications.title1')}<span className="gradient-text">{t('nosotros.certifications.titleHighlight')}</span></h2>
           <div style={{ width: '60px', height: '4px', background: 'var(--color-secondary)', margin: '0 auto' }}></div>
         </motion.div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', alignItems: 'center' }}>
           {certs.map((cert, i) => (
-            <motion.div key={i} className="glass" style={{ padding: '18px 32px', borderRadius: '50px', border: '1px solid rgba(255,255,255,0.12)', display: 'flex', alignItems: 'center', gap: '10px' }} {...fadeInUp} transition={{ delay: i * 0.1 }} whileHover={{ scale: 1.06, border: '1px solid var(--color-accent)' }}>
-              <Award size={18} style={{ color: 'var(--color-secondary)' }} />
-              <span style={{ fontWeight: 600 }}>{cert}</span>
+            <motion.div 
+              key={i} 
+              className="glass" 
+              style={{ 
+                padding: '20px 40px', 
+                borderRadius: '24px', 
+                border: '1px solid rgba(255,255,255,0.08)', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center',
+                minWidth: '180px',
+                height: '100px',
+                background: 'rgba(255,255,255,0.02)'
+              }} 
+              {...fadeInUp} 
+              transition={{ delay: i * 0.1 }} 
+              whileHover={{ 
+                scale: 1.05, 
+                border: '1px solid var(--color-accent)',
+                background: 'rgba(255,255,255,0.05)'
+              }}
+            >
+              <img 
+                src={cert.logo} 
+                alt={cert.name} 
+                style={{ 
+                  maxHeight: '45px', 
+                  maxWidth: '120px', 
+                  objectFit: 'contain',
+                  opacity: 1
+                }} 
+              />
             </motion.div>
           ))}
         </div>

@@ -458,37 +458,69 @@ export default function Nosotros({ onNavigate }) {
             {[1, 2, 3, 4].map((num) => (
               <motion.div 
                 key={num}
-                {...fadeInUp}
-                transition={{ delay: num * 0.1 }}
+                initial={{ opacity: 0, x: -80 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: num * 0.15, 
+                  ease: [0.21, 1.11, 0.81, 0.99] // Custom cubic-bezier for a smooth elegant pop
+                }}
                 style={{ 
                   display: 'flex', 
-                  alignItems: 'flex-start', 
-                  gap: '20px',
+                  alignItems: 'center', 
+                  gap: '24px',
                   background: 'rgba(255,255,255,0.02)',
-                  padding: '24px',
-                  borderRadius: '20px',
-                  border: '1px solid rgba(255,255,255,0.03)',
-                  transition: 'transform 0.3s ease'
+                  padding: '32px',
+                  borderRadius: '24px',
+                  border: '1px solid rgba(255,255,255,0.05)',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  zIndex: 1
                 }}
-                whileHover={{ transform: 'translateY(-5px)', background: 'rgba(255,255,255,0.04)' }}
+                whileHover={{ 
+                  y: -8, 
+                  background: 'rgba(255,255,255,0.05)',
+                  borderColor: 'rgba(0, 180, 255, 0.3)',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
+                }}
               >
+                {/* Background Number for Elegance */}
+                <span style={{
+                  position: 'absolute',
+                  right: '-10px',
+                  bottom: '-20px',
+                  fontSize: '8rem',
+                  fontWeight: 900,
+                  color: 'rgba(255, 255, 255, 0.03)',
+                  zIndex: -1,
+                  userSelect: 'none'
+                }}>
+                  {num}
+                </span>
+
                 <div style={{ 
-                  background: 'rgba(0, 180, 255, 0.1)', 
-                  padding: '10px', 
-                  borderRadius: '12px',
+                  background: 'linear-gradient(135deg, rgba(0, 180, 255, 0.2), rgba(0, 180, 255, 0.05))', 
+                  minWidth: '56px', 
+                  height: '56px', 
+                  borderRadius: '16px',
                   color: 'var(--color-accent)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(0, 180, 255, 0.2)'
                 }}>
-                  <CheckCircle2 size={24} />
+                  <CheckCircle2 size={28} strokeWidth={2.5} />
                 </div>
+                
                 <p style={{ 
-                  color: 'var(--color-text-muted)', 
-                  fontSize: '1.1rem', 
-                  lineHeight: '1.5', 
+                  color: 'rgba(255,255,255,0.9)', 
+                  fontSize: '1.2rem', 
+                  lineHeight: '1.4', 
                   margin: 0,
-                  fontWeight: 500
+                  fontWeight: 600,
+                  letterSpacing: '-0.01em'
                 }}>
                   {t(`nosotros.differentiator.b${num}`)}
                 </p>

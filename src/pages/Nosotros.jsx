@@ -170,26 +170,29 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── Qué nos diferencia (Enhanced 3D Isometric Infographic) ── */}
-      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '100px 5%', overflow: 'hidden' }}>
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '80px' }}>
-          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-1px' }}>
+      <section id="diferenciadores" className="section-container" style={{ position: 'relative', zIndex: 10, padding: '60px 5%', overflow: 'hidden' }}>
+        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '-1px', marginBottom: '10px' }}>
             {t('nosotros.differentiator.title', 'Qué nos diferencia')}
           </h2>
-          <div style={{ width: '80px', height: '6px', background: 'var(--color-accent)', margin: '15px auto', borderRadius: '10px' }} />
+          <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 15px' }}>
+            {t('nosotros.differentiator.subtitle', 'Innovación, precisión y acompañamiento estratégico en cada capa de su infraestructura.')}
+          </p>
+          <div style={{ width: '80px', height: '6px', background: 'var(--color-accent)', margin: '0 auto', borderRadius: '10px' }} />
         </motion.div>
 
         <div style={{ 
           display: 'flex', 
           justifyContent: 'center',
           alignItems: 'center',
-          minHeight: isMobile ? '700px' : '650px',
+          minHeight: isMobile ? '600px' : '550px',
           position: 'relative',
-          marginTop: isMobile ? '40px' : '0'
+          marginTop: isMobile ? '20px' : '0'
         }}>
           {/* Isometric Canvas */}
           <div style={{ 
             position: 'relative', 
-            width: isMobile ? '260px' : '450px', 
+            width: isMobile ? '260px' : '500px', 
             height: '400px',
             perspective: '1200px',
             transformStyle: 'preserve-3d'

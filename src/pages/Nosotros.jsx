@@ -26,18 +26,9 @@ const fadeInUp = {
 };
 
 /* ── Rotating marquee brand strip ── */
-const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZARRO', 'PINKCREARTE', 'KREDIAPAY'];
+const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZZARRO', 'PINKCREARTE', 'KREDIAPAY'];
 
-/* ── Methodology steps ── */
-// These will be translated in the component now.
-const getSteps = (t) => [
-  { num: '01', title: t('nosotros.methodology.s0Title', 'Reunir Información'), desc: t('nosotros.methodology.s0Desc', 'Centralización de la información de tu empresa o negocio y reconocimiento de tus objetivos.'), color: 'var(--color-primary)', glow: '#0056B3', fromLeft: true },
-  { num: '02', title: t('nosotros.methodology.s1Title', 'Análisis'), desc: t('nosotros.methodology.s1Desc', 'De diferentes soluciones y presentación de nuestras propuestas.'), color: 'var(--color-secondary)', glow: '#FF8C00', fromLeft: false },
-  { num: '03', title: t('nosotros.methodology.s2Title', 'Prototipo'), desc: t('nosotros.methodology.s2Desc', 'Primera vista de tu producto.'), color: 'var(--color-accent)', glow: '#00B4FF', fromLeft: true },
-  { num: '04', title: t('nosotros.methodology.s3Title', 'Feedback'), desc: t('nosotros.methodology.s3Desc', '¡Te escuchamos! Ajustes del prototipo y comentarios.'), color: 'var(--color-primary)', glow: '#9b59b6', fromLeft: false },
-  { num: '05', title: t('nosotros.methodology.s4Title', 'Pruebas'), desc: t('nosotros.methodology.s4Desc', 'Listo para probar en campo.'), color: 'var(--color-secondary)', glow: '#27ae60', fromLeft: true },
-  { num: '06', title: t('nosotros.methodology.s5Title', 'Implementación'), desc: t('nosotros.methodology.s5Desc', 'Tu producto 100% productivo.'), color: 'var(--color-accent)', glow: '#FF8C00', fromLeft: false },
-];
+
 
 /* ── Certifications ── */
 const certs = ['Codedex', 'Oracle', 'Alura Latam', 'Santander Open Academy', 'AWS'];
@@ -54,7 +45,7 @@ export default function Nosotros({ onNavigate }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const steps = getSteps(t);
+
 
   return (
     <div className="app">
@@ -442,33 +433,7 @@ export default function Nosotros({ onNavigate }) {
         </div>
       </section>
 
-      {/* ── Metodología ── */}
-      <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>
-        <motion.div {...fadeInUp} style={{ textAlign: 'center', marginBottom: '20px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '15px' }}>{t('nosotros.methodology.title1', 'Nuestra ')}<span className="gradient-text">{t('nosotros.methodology.titleHighlight', 'Metodología')}</span></h2>
-          <div style={{ width: '60px', height: '4px', background: 'var(--color-accent)', margin: '0 auto' }}></div>
-        </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginTop: '50px' }}>
-          {steps.map((step, i) => (
-            <motion.div
-              key={i}
-              className="glass"
-              style={{ padding: '36px 28px', borderRadius: '20px', borderLeft: `3px solid ${step.color}`, position: 'relative', overflow: 'hidden' }}
-              {...fadeInUp}
-              transition={{ delay: i * 0.08 }}
-              whileHover={{ y: -6 }}
-            >
-              <div style={{ fontSize: '4rem', fontWeight: 900, lineHeight: 1, background: `linear-gradient(135deg, ${step.glow}, ${step.color})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', opacity: 0.25, marginBottom: '8px' }}>{step.num}</div>
-              <h3 style={{ fontSize: '1.15rem', marginBottom: '12px', marginTop: '-8px' }}>{step.title}</h3>
-              <p style={{ color: 'var(--color-text-muted)', lineHeight: '1.7', fontSize: '0.92rem' }}>{step.desc}</p>
-              <div style={{ position: 'absolute', bottom: '16px', right: '20px', opacity: 0.15 }}>
-                <CheckCircle2 size={40} style={{ color: step.color }} />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       {/* ── Certificaciones ── */}
       <section className="section-container" style={{ position: 'relative', zIndex: 10 }}>

@@ -71,9 +71,7 @@ export default function Nosotros({ onNavigate }) {
           
           {/* Lado Izquierdo: Textos */}
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} style={{ position: 'relative', zIndex: 2 }}>
-            <div style={{ display: 'inline-block', padding: '8px 24px', background: 'rgba(255, 140, 0, 0.1)', border: '1px solid rgba(255, 140, 0, 0.3)', borderRadius: '30px', marginBottom: '28px', boxShadow: '0 0 20px rgba(255, 140, 0, 0.1)' }}>
-              <p style={{ color: 'var(--color-secondary)', fontWeight: 800, letterSpacing: '4px', fontSize: '0.75rem', margin: 0, textTransform: 'uppercase' }}>{t('nosotros.hero.tag', 'QUIÉNES SOMOS')}</p>
-            </div>
+
             
             <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 4.8rem)', marginBottom: '28px', lineHeight: 1.05, fontWeight: 900, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
               {t('nosotros.hero.title1', 'Evolución')} <br/>

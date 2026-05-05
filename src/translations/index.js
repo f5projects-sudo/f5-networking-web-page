@@ -658,7 +658,7 @@ const translations = {
         "c1Title": "+5 Años",
         "c1Desc": "Innovando en infraestructura digital corporativa",
         "c2Title": "99.9%",
-        "c2Desc": "99.9% uptime\nServicios desplegados",
+        "c2Desc": "Uptime en servicios desplegados",
         "c3Title": "24/7",
         "c3Desc": "Monitoreo preventivo y soporte ininterrumpido"
       },
@@ -1630,7 +1630,7 @@ const translations = {
         "c1Title": "+5 Years",
         "c1Desc": "Innovating in corporate digital infrastructure",
         "c2Title": "99.9%",
-        "c2Desc": "99.9% uptime\nDeployed services",
+        "c2Desc": "Uptime on deployed services",
         "c3Title": "24/7",
         "c3Desc": "Preventive monitoring and uninterrupted support"
       },

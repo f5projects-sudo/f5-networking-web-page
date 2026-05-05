@@ -85,20 +85,20 @@ export default function Nosotros({ onNavigate }) {
             </motion.button>
           </motion.div>
 
-          <div className="floating-cards-container" style={{ position: 'relative', height: isMobile ? 'auto' : '550px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="glass floating-card" style={{ position: isMobile ? 'relative' : 'absolute', top: '2%', left: '12%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '240px', border: '1px solid rgba(0, 180, 255, 0.25)', background: 'rgba(5, 5, 5, 0.8)', zIndex: 1 }}>
+          <div className="floating-cards-container" style={{ position: 'relative', height: isMobile ? 'auto' : '600px', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="glass floating-card" style={{ position: isMobile ? 'relative' : 'absolute', top: '0%', left: '0%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '240px', border: '1px solid rgba(0, 180, 255, 0.25)', background: 'rgba(5, 5, 5, 0.8)', zIndex: 1 }}>
               <div style={{ background: 'rgba(0, 180, 255, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}><Zap size={28} style={{ color: 'var(--color-accent)' }} /></div>
               <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px' }}>{t('nosotros.hero.c1Title', '+5 Años')}</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>{t('nosotros.hero.c1Desc')}</p>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="glass floating-card-reverse" style={{ position: isMobile ? 'relative' : 'absolute', right: '2%', top: '25%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '260px', border: '1px solid rgba(255, 140, 0, 0.3)', background: 'rgba(5, 5, 5, 0.8)', zIndex: 2 }}>
+            <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="glass floating-card-reverse" style={{ position: isMobile ? 'relative' : 'absolute', right: '-2%', top: '35%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '260px', border: '1px solid rgba(255, 140, 0, 0.3)', background: 'rgba(5, 5, 5, 0.8)', zIndex: 2 }}>
               <div style={{ background: 'rgba(255, 140, 0, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}><Users size={28} style={{ color: 'var(--color-secondary)' }} /></div>
               <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px' }}>{t('nosotros.hero.c2Title', '99.9%')}</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>{t('nosotros.hero.c2Desc')}</p>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="glass floating-card-slow" style={{ position: isMobile ? 'relative' : 'absolute', bottom: '2%', left: '18%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '240px', border: '1px solid rgba(155, 89, 182, 0.25)', background: 'rgba(5, 5, 5, 0.8)', zIndex: 1 }}>
+            <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }} className="glass floating-card-slow" style={{ position: isMobile ? 'relative' : 'absolute', bottom: '0%', left: '10%', padding: '28px', borderRadius: '24px', width: isMobile ? '100%' : '240px', border: '1px solid rgba(155, 89, 182, 0.25)', background: 'rgba(5, 5, 5, 0.8)', zIndex: 1 }}>
               <div style={{ background: 'rgba(155, 89, 182, 0.15)', width: '56px', height: '56px', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}><ShieldCheck size={28} style={{ color: '#9b59b6' }} /></div>
               <h3 style={{ fontSize: '2.2rem', fontWeight: 900, color: 'white', marginBottom: '8px' }}>{t('nosotros.hero.c3Title', '24/7')}</h3>
               <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem' }}>{t('nosotros.hero.c3Desc')}</p>

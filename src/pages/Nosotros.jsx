@@ -151,46 +151,33 @@ export default function Nosotros({ onNavigate }) {
       </section>
 
       {/* ── Quienes Somos (Team) ── */}
-      <section id="quienes-somos" className="section-container" style={{ position: 'relative', zIndex: 10, padding: isMobile ? '80px 5%' : '140px 5%' }}>
-        <motion.div {...fadeInUp} style={{ marginBottom: '80px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '20px' }}>
-            <div style={{ width: '40px', height: '2px', background: 'var(--color-secondary)' }}></div>
-            <span style={{ fontSize: '0.9rem', color: 'var(--color-secondary)', letterSpacing: '4px', fontWeight: 800, textTransform: 'uppercase' }}>
-              {t('nosotros.team.title1')} {t('nosotros.team.titleHighlight')}
-            </span>
-          </div>
-          <h3 style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: 900, lineHeight: 1.0, color: 'white', letterSpacing: '-2px', maxWidth: '1000px' }}>
-            {t('nosotros.team.headline')}
-          </h3>
-        </motion.div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 0.7fr', gap: isMobile ? '40px' : '100px', alignItems: 'start' }}>
-          <motion.div 
-            {...fadeInUp} 
-            transition={{ delay: 0.2 }} 
-            style={{ 
-              position: 'relative',
-              borderRadius: '40px', 
-              overflow: 'hidden', 
-              boxShadow: '0 40px 100px -20px rgba(0, 0, 0, 0.8)',
-              border: '1px solid rgba(255,255,255,0.1)'
-            }}
-          >
-            <img src={teamImg} alt="Team" style={{ width: '100%', height: 'auto', display: 'block' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
-          </motion.div>
-          
-          <motion.div {...fadeInUp} transition={{ delay: 0.4 }} style={{ paddingTop: '20px' }}>
-            <p style={{ 
-              color: 'var(--color-text-muted)', 
-              lineHeight: '2.0', 
-              fontSize: '1.35rem', 
-              borderLeft: '4px solid var(--color-secondary)', 
-              paddingLeft: '40px',
-              fontWeight: 400
-            }}>
+      <section id="quienes-somos" style={{ position: 'relative', zIndex: 10, padding: isMobile ? '80px 5%' : '160px 10%', background: '#0a0a0c' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '60px' : '120px', alignItems: 'center', maxWidth: '1300px', margin: '0 auto' }}>
+          <motion.div {...fadeInUp}>
+            <h3 style={{ fontSize: 'clamp(2rem, 3.2vw, 3rem)', fontWeight: 500, lineHeight: 1.35, color: 'white', marginBottom: '40px', letterSpacing: '-0.5px' }}>
+              “{t('nosotros.team.headline')}”
+            </h3>
+            
+            <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '50px', maxWidth: '500px' }}>
               {t('nosotros.team.desc')}
             </p>
+
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px' }}>
+              <p style={{ fontSize: '0.85rem', color: 'white', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '5px' }}>
+                F5 Networking Group
+              </p>
+              <p style={{ fontSize: '0.75rem', color: 'var(--color-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                {t('nosotros.team.title1')}{t('nosotros.team.titleHighlight')}
+              </p>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            {...fadeInUp} 
+            transition={{ delay: 0.3 }}
+            style={{ borderRadius: '40px', overflow: 'hidden' }}
+          >
+            <img src={teamImg} alt="Team" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
           </motion.div>
         </div>
       </section>

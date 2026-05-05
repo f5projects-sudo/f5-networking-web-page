@@ -116,16 +116,16 @@ export default function Nosotros({ onNavigate }) {
         </motion.div>
 
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '300px 1fr', gap: '30px', background: 'rgba(5, 5, 8, 0.4)', borderRadius: '30px', padding: isMobile ? '20px' : '40px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', justifyContent: 'center' }}>
             {[
-              { id: 0, title: t('nosotros.choose.t0Title'), icon: <Settings2 size={20} />, color: 'var(--color-primary)' },
-              { id: 1, title: t('nosotros.choose.t1Title'), icon: <Zap size={20} />, color: 'var(--color-secondary)' },
-              { id: 2, title: t('nosotros.choose.t2Title'), icon: <ShieldCheck size={20} />, color: 'var(--color-accent)' },
-              { id: 3, title: t('nosotros.choose.t3Title'), icon: <HeadphonesIcon size={20} />, color: '#9b59b6' }
+              { id: 0, title: t('nosotros.choose.t0Title'), icon: <Settings2 size={22} />, color: 'var(--color-primary)' },
+              { id: 1, title: t('nosotros.choose.t1Title'), icon: <Zap size={22} />, color: 'var(--color-secondary)' },
+              { id: 2, title: t('nosotros.choose.t2Title'), icon: <ShieldCheck size={22} />, color: 'var(--color-accent)' },
+              { id: 3, title: t('nosotros.choose.t3Title'), icon: <HeadphonesIcon size={22} />, color: '#9b59b6' }
             ].map((tab) => (
-              <button key={tab.id} onClick={() => setActiveReason(tab.id)} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '22px 25px', borderRadius: '16px', background: activeReason === tab.id ? 'rgba(255, 255, 255, 0.08)' : 'transparent', border: 'none', color: activeReason === tab.id ? 'white' : 'var(--color-text-muted)', cursor: 'pointer', textAlign: 'left', transition: '0.3s' }}>
+              <button key={tab.id} onClick={() => setActiveReason(tab.id)} style={{ display: 'flex', alignItems: 'center', gap: '18px', padding: '24px 30px', borderRadius: '16px', background: activeReason === tab.id ? 'rgba(255, 255, 255, 0.08)' : 'transparent', border: 'none', color: activeReason === tab.id ? 'white' : 'var(--color-text-muted)', cursor: 'pointer', textAlign: 'left', transition: '0.3s' }}>
                 <div style={{ color: activeReason === tab.id ? tab.color : 'inherit' }}>{tab.icon}</div>
-                <span style={{ fontWeight: activeReason === tab.id ? 700 : 500 }}>{tab.title}</span>
+                <span style={{ fontWeight: activeReason === tab.id ? 700 : 500, fontSize: '1.05rem' }}>{tab.title}</span>
               </button>
             ))}
           </div>

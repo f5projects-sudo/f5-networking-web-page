@@ -376,7 +376,11 @@ export default function Nosotros({ onNavigate }) {
                       margin: 0,
                       maxWidth: '260px'
                     }}>
-                      {t(`nosotros.differentiator.b${num}`)}
+                      {(() => {
+                        const fullText = t(`nosotros.differentiator.b${num}`);
+                        const remaining = fullText.split(' ').slice(1).join(' ');
+                        return remaining.charAt(0).toUpperCase() + remaining.slice(1);
+                      })()}
                     </p>
 
                     {/* Progress line decoration */}

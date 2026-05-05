@@ -698,10 +698,10 @@ const translations = {
         "title": "Qué nos diferencia",
         "subtitle": "Innovación, precisión y acompañamiento estratégico en cada capa de su infraestructura.",
         "badge": "DETALLE",
-        "b1": "En resultados operativos, no solo desarrollo",
-        "b2": "Diseñadas sobre la realidad de cada operación",
-        "b3": "De tecnología, datos y procesos en un mismo sistema",
-        "b4": "Cercano desde la estrategia hasta la implementación"
+        "b1": "Enfoque en resultados operativos, no solo desarrollo",
+        "b2": "Soluciones diseñadas sobre la realidad de cada operación",
+        "b3": "Integración de tecnología, datos y procesos en un mismo sistema",
+        "b4": "Acompañamiento cercano desde la estrategia hasta la implementación"
       },
       "methodology": {
         "title1": "Nuestra ",
@@ -1671,10 +1671,10 @@ const translations = {
         "title": "What sets us apart",
         "subtitle": "Innovation, precision, and strategic guidance in every layer of your infrastructure.",
         "badge": "DETAIL",
-        "b1": "On operational results, not just development",
-        "b2": "Designed based on the reality of each operation",
-        "b3": "Of technology, data, and processes in a single system",
-        "b4": "Support from strategy to implementation"
+        "b1": "Focus on operational results, not just development",
+        "b2": "Solutions designed based on the reality of each operation",
+        "b3": "Integration of technology, data, and processes in a single system",
+        "b4": "Close support from strategy to implementation"
       },
       "methodology": {
         "title1": "Our ",

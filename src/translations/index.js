@@ -664,8 +664,8 @@ const translations = {
         "c3Desc": "Monitoreo preventivo y soporte ininterrumpido"
       },
       "choose": {
-        "title1": "¿Por qué ",
-        "titleHighlight": "elegirnos?",
+        "title1": "¿Por qué elegirnos?",
+        "titleHighlight": "",
         "desc": "Transformamos retos complejos en soluciones tecnológicas innovadoras, escalables y diseñadas para el mundo de hoy.",
         "badge": "VALOR DIFERENCIAL",
         "t0Title": "Adaptación al negocio",
@@ -689,7 +689,7 @@ const translations = {
         "title1": "Quienes ",
         "titleHighlight": "somos",
         "headline": "Construimos soluciones tecnológicas que escalan negocio",
-        "desc": "Somos un equipo especializado en desarrollo tecnológico, infraestructura digital y análisis de datos enfocado en resolver problemas reales de negocio. Diseñamos e implementamos soluciones que optimizan la operación, automatizan procesos y permiten escalar de forma eficiente. No trabajamos sobre supuestos: entendemos cada operación, detectamos puntos críticos y construimos sistemas que generan impacto medible."
+        "desc": "Somos un equipo especializado en desarrollo tecnológico, infraestructura digital y análisis de datos enfocado en resolver problemas reales de negocio.\n\nDiseñamos e implementamos soluciones que optimizan la operación, automatizan procesos y permiten escalar de forma eficiente.\n\nNo trabajamos sobre supuestos: entendemos cada operación, detectamos puntos críticos y construimos sistemas que generan impacto medible."
       },
       "brands": {
         "tag": "MARCAS QUE CONFÍAN EN NOSOTROS"
@@ -1086,8 +1086,8 @@ const translations = {
         "title": "Brands we work with"
       },
       "choose": {
-        "title1": "Why",
-        "title2": "Choose Us?",
+        "title1": "Why Choose Us?",
+        "titleHighlight": "",
         "desc": "We transform complex challenges into innovative, scalable technological solutions designed for today's world.",
         "badge": "DIFFERENTIAL VALUE",
         "tab1": {
@@ -1637,8 +1637,8 @@ const translations = {
         "c3Desc": "Preventive monitoring and uninterrupted support"
       },
       "choose": {
-        "title1": "Why ",
-        "titleHighlight": "choose us?",
+        "title1": "Why choose us?",
+        "titleHighlight": "",
         "desc": "We transform complex challenges into innovative, scalable technological solutions designed for today's world.",
         "badge": "DIFFERENTIAL VALUE",
         "t0Title": "Business Adaptation",

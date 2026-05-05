@@ -155,10 +155,10 @@ export default function Nosotros({ onNavigate }) {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '60px' : '120px', alignItems: 'center', maxWidth: '1300px', margin: '0 auto' }}>
           <motion.div {...fadeInUp}>
             <h3 style={{ fontSize: 'clamp(2rem, 3.2vw, 3rem)', fontWeight: 500, lineHeight: 1.35, color: 'white', marginBottom: '40px', letterSpacing: '-0.5px' }}>
-              “{t('nosotros.team.headline')}”
+              {t('nosotros.team.headline')}
             </h3>
             
-            <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '50px', maxWidth: '500px' }}>
+            <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '50px', maxWidth: '600px', whiteSpace: 'pre-line' }}>
               {t('nosotros.team.desc')}
             </p>
 

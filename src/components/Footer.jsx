@@ -25,8 +25,40 @@ const Footer = ({ onNavigate, scrollTo }) => {
   };
 
   return (
-    <footer style={{ padding: '80px 5% 40px', borderTop: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(15px)' }}>
-      <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
+    <footer style={{ position: 'relative', backgroundColor: '#071822', color: 'white', padding: '0 5% 40px', marginTop: '250px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+      
+      {/* Growing Graph SVG (Top Border) */}
+      <div style={{ position: 'absolute', top: '-249px', left: 0, width: '100%', height: '250px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
+        <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMax slice" style={{ width: '100%', height: '100%', display: 'block' }}>
+          <defs>
+            <linearGradient id="graphGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="var(--color-primary)" />
+              <stop offset="50%" stopColor="var(--color-secondary)" />
+              <stop offset="100%" stopColor="var(--color-accent)" />
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* Solid background filling under the curve */}
+          <path fill="#071822" d="M0,200 Q 800,200 1440,40 L1440,250 L0,250 Z" />
+
+          {/* Glowing line graph */}
+          <path fill="none" stroke="url(#graphGradient)" strokeWidth="4" d="M0,200 Q 800,200 1440,40" filter="url(#glow)" />
+          
+          {/* Glowing nodes */}
+          <g fill="#071822" strokeWidth="4">
+            <circle cx="390" cy="190" r="8" filter="url(#glow)" stroke="var(--color-primary)" />
+            <circle cx="760" cy="160" r="8" filter="url(#glow)" stroke="var(--color-secondary)" />
+            <circle cx="1110" cy="110" r="8" filter="url(#glow)" stroke="var(--color-accent)" />
+            <circle cx="1310" cy="70" r="8" filter="url(#glow)" stroke="var(--color-accent)" />
+          </g>
+        </svg>
+      </div>
+
+      <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1, paddingTop: '40px' }}>
         
         {/* TOP SECTION: Logo & Socials */}
         <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', justifyContent: 'space-between', alignItems: 'center', gap: '30px', marginBottom: '60px' }}>

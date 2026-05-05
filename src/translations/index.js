@@ -651,7 +651,8 @@ const translations = {
     "nosotros": {
       "hero": {
         "tag": "QUIÉNES SOMOS",
-        "titleHighlight": "Facilitamos crecimiento",
+        "titleHighlight": "Facilitamos ",
+        "titleCrecimiento": "crecimiento",
         "titleSuffix": " a través de tecnología que escala tu operación",
         "desc": "F5 Networking diseña e implementa soluciones de infraestructura, automatización y datos que convierten la complejidad operativa en eficiencia real.",
         "btn": "Descubrir Valor",
@@ -1623,7 +1624,8 @@ const translations = {
     "nosotros": {
       "hero": {
         "tag": "WHO WE ARE",
-        "titleHighlight": "We facilitate growth",
+        "titleHighlight": "We facilitate ",
+        "titleCrecimiento": "growth",
         "titleSuffix": " through technology that scales your operation",
         "desc": "F5 Networking designs and implements infrastructure, automation, and data solutions that turn operational complexity into real efficiency.",
         "btn": "Discover Value",

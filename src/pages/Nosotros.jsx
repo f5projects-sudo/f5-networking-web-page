@@ -64,7 +64,8 @@ export default function Nosotros({ onNavigate }) {
         <div className="section-container" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 0.8fr', gap: '40px', alignItems: 'center', width: '100%' }}>
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', marginBottom: '28px', lineHeight: 1.15, fontWeight: 900, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-              <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Facilitamos crecimiento')}</span>
+              <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Facilitamos ')}</span>
+              <span style={{ color: 'var(--color-secondary)' }}>{t('nosotros.hero.titleCrecimiento', 'crecimiento')}</span>
               {t('nosotros.hero.titleSuffix', ' a través de tecnología que escala tu operación')}
             </h1>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: '1.9', maxWidth: '650px', marginBottom: '45px' }}>

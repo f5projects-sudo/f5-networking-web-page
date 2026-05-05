@@ -61,14 +61,14 @@ export default function Nosotros({ onNavigate }) {
         <div style={{ position: 'absolute', top: '10%', right: '10%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(0, 180, 255, 0.12) 0%, transparent 70%)', zIndex: -1, filter: 'blur(80px)' }} />
         <div style={{ position: 'absolute', bottom: '10%', left: '10%', width: '350px', height: '350px', background: 'radial-gradient(circle, rgba(255, 140, 0, 0.08) 0%, transparent 70%)', zIndex: -1, filter: 'blur(80px)' }} />
 
-        <div className="section-container" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '60px', alignItems: 'center', width: '100%' }}>
+        <div className="section-container" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.3fr 0.7fr', gap: '60px', alignItems: 'center', width: '100%' }}>
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-            <h1 style={{ fontSize: 'clamp(2.8rem, 6vw, 4.8rem)', marginBottom: '28px', lineHeight: 1.05, fontWeight: 900, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-              {t('nosotros.hero.title1', 'Evolución')} <br/>
-              <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Tecnológica')}</span>
+            <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', marginBottom: '28px', lineHeight: 1.15, fontWeight: 900, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
+              <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Facilitamos crecimiento')}</span>
+              {t('nosotros.hero.titleSuffix', ' a través de tecnología que escala tu operación')}
             </h1>
-            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: '1.9', maxWidth: '540px', marginBottom: '45px' }}>
-              {t('nosotros.hero.desc', 'F5 Networking es una compañía pionera en crear soluciones escalables de conectividad, automatización e infraestructura digital. Simplificamos lo complejo y aceleramos la transformación corporativa para el mundo de hoy.')}
+            <p style={{ color: 'var(--color-text-muted)', fontSize: '1.15rem', lineHeight: '1.9', maxWidth: '650px', marginBottom: '45px' }}>
+              {t('nosotros.hero.desc', 'F5 Networking diseña e implementa soluciones de infraestructura, automatización y datos que convierten la complejidad operativa en eficiencia real.')}
             </p>
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 4px 20px rgba(91,156,246,0.25)' }}

@@ -35,7 +35,7 @@ const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZZARRO', 'PINKCREARTE', 
 /* ── Certifications ── */
 const certs = [
   { name: 'Oracle', logo: 'https://api.iconify.design/logos:oracle.svg' },
-  { name: 'Alura Latam', logo: 'https://api.iconify.design/simple-icons:alura.svg?color=%23ffffff' },
+  { name: 'Alura Latam', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/alura.svg' },
   { name: 'Santander Open Academy', logo: 'https://yt3.googleusercontent.com/oQkQKStMp7FgHQHZwqhm3shH6yum2_MdYSJZCHNNCoJ1c5pWX0J-qNVURDwmZzDtEJm6640vaqA=s900-c-k-c0x00ffffff-no-rj' },
   { name: 'AWS', logo: 'https://api.iconify.design/logos:aws.svg' }
 ];
@@ -439,12 +439,13 @@ export default function Nosotros({ onNavigate }) {
                 src={cert.logo} 
                 alt={cert.name} 
                 style={{ 
-                  maxHeight: '75px', 
-                  maxWidth: '180px', 
+                  height: cert.name === 'AWS' ? '50px' : '85px', 
+                  width: cert.name === 'AWS' ? '140px' : 'auto',
+                  maxWidth: '200px', 
                   objectFit: 'contain',
                   opacity: 1,
                   borderRadius: cert.name === 'Santander Open Academy' ? '50%' : '0',
-                  filter: cert.name === 'AWS' ? 'brightness(0) invert(1)' : 'none'
+                  filter: (cert.name === 'AWS' || cert.name === 'Alura Latam') ? 'brightness(0) invert(1)' : 'none'
                 }} 
               />
               <span style={{ 

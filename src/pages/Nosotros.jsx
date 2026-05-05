@@ -34,10 +34,9 @@ const brands = ['AFISA', 'CREDITERIUM', 'RECYGLASS', 'BIZZARRO', 'PINKCREARTE', 
 
 /* ── Certifications ── */
 const certs = [
-  { name: 'Codedex', logo: 'https://api.iconify.design/tabler:brand-codepen.svg?color=%23ffffff' }, // Codepen icon as a clean professional placeholder for Codedex
   { name: 'Oracle', logo: 'https://api.iconify.design/logos:oracle.svg' },
-  { name: 'Alura Latam', logo: 'https://api.iconify.design/simple-icons:alura.svg?color=%23ffffff' },
-  { name: 'Santander Open Academy', logo: 'https://api.iconify.design/simple-icons:santander.svg?color=%23ec0000' },
+  { name: 'Alura Latam', logo: 'https://yt3.googleusercontent.com/ytc/AIdro_nS6_Z_9_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0_0=s900-c-k-c0x00ffffff-no-rj' },
+  { name: 'Santander Open Academy', logo: 'https://yt3.googleusercontent.com/oQkQKStMp7FgHQHZwqhm3shH6yum2_MdYSJZCHNNCoJ1c5pWX0J-qNVURDwmZzDtEJm6640vaqA=s900-c-k-c0x00ffffff-no-rj' },
   { name: 'AWS', logo: 'https://api.iconify.design/logos:aws.svg' }
 ];
 

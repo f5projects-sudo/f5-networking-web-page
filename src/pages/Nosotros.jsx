@@ -115,34 +115,33 @@ export default function Nosotros({ onNavigate }) {
           <p style={{ color: 'var(--color-text-muted)', maxWidth: '750px', margin: '0 auto', fontSize: '1.1rem' }}>{t('nosotros.choose.desc')}</p>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '350px 1fr', gap: '30px', background: 'rgba(5, 5, 8, 0.4)', borderRadius: '30px', padding: isMobile ? '20px' : '40px', border: '1px solid rgba(255, 255, 255, 0.05)', minHeight: '550px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '300px 1fr', gap: '30px', background: 'rgba(5, 5, 8, 0.4)', borderRadius: '30px', padding: isMobile ? '20px' : '40px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             {[
-              { id: 0, title: t('nosotros.choose.t0Title'), icon: <Settings2 size={24} />, color: 'var(--color-primary)' },
-              { id: 1, title: t('nosotros.choose.t1Title'), icon: <Zap size={24} />, color: 'var(--color-secondary)' },
-              { id: 2, title: t('nosotros.choose.t2Title'), icon: <ShieldCheck size={24} />, color: 'var(--color-accent)' },
-              { id: 3, title: t('nosotros.choose.t3Title'), icon: <HeadphonesIcon size={24} />, color: '#9b59b6' }
+              { id: 0, title: t('nosotros.choose.t0Title'), icon: <Settings2 size={20} />, color: 'var(--color-primary)' },
+              { id: 1, title: t('nosotros.choose.t1Title'), icon: <Zap size={20} />, color: 'var(--color-secondary)' },
+              { id: 2, title: t('nosotros.choose.t2Title'), icon: <ShieldCheck size={20} />, color: 'var(--color-accent)' },
+              { id: 3, title: t('nosotros.choose.t3Title'), icon: <HeadphonesIcon size={20} />, color: '#9b59b6' }
             ].map((tab) => (
-              <button key={tab.id} onClick={() => setActiveReason(tab.id)} style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '20px', padding: '25px 30px', borderRadius: '20px', background: activeReason === tab.id ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.02)', border: '1px solid', borderColor: activeReason === tab.id ? 'rgba(255,255,255,0.1)' : 'transparent', color: activeReason === tab.id ? 'white' : 'var(--color-text-muted)', cursor: 'pointer', textAlign: 'left', transition: '0.3s' }}>
+              <button key={tab.id} onClick={() => setActiveReason(tab.id)} style={{ display: 'flex', alignItems: 'center', gap: '15px', padding: '22px 25px', borderRadius: '16px', background: activeReason === tab.id ? 'rgba(255, 255, 255, 0.08)' : 'transparent', border: 'none', color: activeReason === tab.id ? 'white' : 'var(--color-text-muted)', cursor: 'pointer', textAlign: 'left', transition: '0.3s' }}>
                 <div style={{ color: activeReason === tab.id ? tab.color : 'inherit' }}>{tab.icon}</div>
-                <span style={{ fontWeight: activeReason === tab.id ? 700 : 500, fontSize: '1.15rem' }}>{tab.title}</span>
+                <span style={{ fontWeight: activeReason === tab.id ? 700 : 500 }}>{tab.title}</span>
               </button>
             ))}
           </div>
 
-          <div style={{ background: 'rgba(26,26,31,0.6)', borderRadius: '24px', padding: isMobile ? '40px 30px' : '60px 80px', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ background: 'rgba(26,26,31,0.5)', borderRadius: '24px', padding: isMobile ? '30px 20px' : '50px 60px', minHeight: '400px', display: 'flex', alignItems: 'center' }}>
             <AnimatePresence mode="wait">
               {[
-                { id: 0, title: t('nosotros.choose.d0Title'), desc: t('nosotros.choose.d0Desc'), detail: t('nosotros.choose.d0Detail'), icon: <Settings2 size={180} />, color: 'var(--color-primary)' },
-                { id: 1, title: t('nosotros.choose.d1Title'), desc: t('nosotros.choose.d1Desc'), detail: t('nosotros.choose.d1Detail'), icon: <Zap size={180} />, color: 'var(--color-secondary)' },
-                { id: 2, title: t('nosotros.choose.d2Title'), desc: t('nosotros.choose.d2Desc'), detail: t('nosotros.choose.d2Detail'), icon: <ShieldCheck size={180} />, color: 'var(--color-accent)' },
-                { id: 3, title: t('nosotros.choose.d3Title'), desc: t('nosotros.choose.d3Desc'), detail: t('nosotros.choose.d3Detail'), icon: <HeadphonesIcon size={180} />, color: '#9b59b6' }
+                { id: 0, title: t('nosotros.choose.d0Title'), desc: t('nosotros.choose.d0Desc'), detail: t('nosotros.choose.d0Detail'), icon: <Settings2 size={150} />, color: 'var(--color-primary)' },
+                { id: 1, title: t('nosotros.choose.d1Title'), desc: t('nosotros.choose.d1Desc'), detail: t('nosotros.choose.d1Detail'), icon: <Zap size={150} />, color: 'var(--color-secondary)' },
+                { id: 2, title: t('nosotros.choose.d2Title'), desc: t('nosotros.choose.d2Desc'), detail: t('nosotros.choose.d2Detail'), icon: <ShieldCheck size={150} />, color: 'var(--color-accent)' },
+                { id: 3, title: t('nosotros.choose.d3Title'), desc: t('nosotros.choose.d3Desc'), detail: t('nosotros.choose.d3Detail'), icon: <HeadphonesIcon size={150} />, color: '#9b59b6' }
               ].filter(item => item.id === activeReason).map(item => (
-                <motion.div key={item.id} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.4 }} style={{ position: 'relative', zIndex: 2 }}>
-                  <h3 style={{ fontSize: '3.2rem', fontWeight: 800, color: 'white', marginBottom: '25px', lineHeight: 1.1 }}>{item.title}</h3>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '1.25rem', lineHeight: 1.8, marginBottom: '35px', maxWidth: '700px' }}>{item.desc}</p>
-                  <p style={{ color: 'white', fontWeight: 600, fontStyle: 'italic', fontSize: '1.1rem' }}>{item.detail}</p>
-                  <div style={{ position: 'absolute', top: '-20%', right: '-10%', opacity: 0.03, color: 'white', zIndex: -1 }}>{item.icon}</div>
+                <motion.div key={item.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={{ duration: 0.4 }}>
+                  <h3 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'white', marginBottom: '20px' }}>{item.title}</h3>
+                  <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '30px' }}>{item.desc}</p>
+                  <p style={{ color: 'white', fontWeight: 600, fontStyle: 'italic' }}>{item.detail}</p>
                 </motion.div>
               ))}
             </AnimatePresence>

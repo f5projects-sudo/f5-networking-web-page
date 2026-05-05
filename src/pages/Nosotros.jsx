@@ -159,9 +159,28 @@ export default function Nosotros({ onNavigate }) {
               {t('nosotros.team.headline')}
             </h3>
             
-            <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '40px', maxWidth: '600px', whiteSpace: 'pre-line' }}>
+            <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '50px', maxWidth: '600px', whiteSpace: 'pre-line' }}>
               {t('nosotros.team.desc')}
             </p>
+
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px' }}>
+              <p style={{ fontSize: '0.85rem', color: 'white', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '5px' }}>
+                F5 Networking Group
+              </p>
+              <p style={{ fontSize: '0.75rem', color: 'var(--color-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>
+                {t('nosotros.team.title1')}{t('nosotros.team.titleHighlight')}
+              </p>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            {...fadeInUp} 
+            transition={{ delay: 0.3 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '30px', alignItems: 'flex-end' }}
+          >
+            <div style={{ borderRadius: '40px', overflow: 'hidden', width: '100%' }}>
+              <img src={teamImg} alt="Team" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
+            </div>
 
             <motion.button 
               whileHover={{ scale: 1.05 }} 
@@ -179,30 +198,12 @@ export default function Nosotros({ onNavigate }) {
                 alignItems: 'center', 
                 gap: '12px', 
                 cursor: 'pointer',
-                marginBottom: '50px',
                 boxShadow: '0 8px 25px rgba(0, 86, 179, 0.2)'
               }}
             >
               {t('nosotros.team.btn')}
               <ArrowRight size={18} />
             </motion.button>
-
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px' }}>
-              <p style={{ fontSize: '0.85rem', color: 'white', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '5px' }}>
-                F5 Networking Group
-              </p>
-              <p style={{ fontSize: '0.75rem', color: 'var(--color-secondary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>
-                {t('nosotros.team.title1')}{t('nosotros.team.titleHighlight')}
-              </p>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            {...fadeInUp} 
-            transition={{ delay: 0.3 }}
-            style={{ borderRadius: '40px', overflow: 'hidden' }}
-          >
-            <img src={teamImg} alt="Team" style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} />
           </motion.div>
         </div>
       </section>

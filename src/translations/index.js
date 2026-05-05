@@ -689,7 +689,8 @@ const translations = {
         "title1": "Quienes ",
         "titleHighlight": "somos",
         "headline": "Construimos soluciones tecnológicas que escalan negocio",
-        "desc": "Somos un equipo especializado en desarrollo tecnológico, infraestructura digital y análisis de datos enfocado en resolver problemas reales de negocio.\n\nDiseñamos e implementamos soluciones que optimizan la operación, automatizan procesos y permiten escalar de forma eficiente.\n\nNo trabajamos sobre supuestos: entendemos cada operación, detectamos puntos críticos y construimos sistemas que generan impacto medible."
+        "desc": "Somos un equipo especializado en desarrollo tecnológico, infraestructura digital y análisis de datos enfocado en resolver problemas reales de negocio.\n\nDiseñamos e implementamos soluciones que optimizan la operación, automatizan procesos y permiten escalar de forma eficiente.\n\nNo trabajamos sobre supuestos: entendemos cada operación, detectamos puntos críticos y construimos sistemas que generan impacto medible.",
+        "btn": "Explorar soluciones"
       },
       "brands": {
         "tag": "MARCAS QUE CONFÍAN EN NOSOTROS"
@@ -1662,7 +1663,8 @@ const translations = {
         "title1": "Who ",
         "titleHighlight": "we are",
         "headline": "We build technological solutions that scale businesses",
-        "desc": "We are a team specialized in technological development, digital infrastructure, and data analysis focused on solving real business problems. We design and implement solutions that optimize operations, automate processes, and allow for efficient scaling. We don't work on assumptions: we understand each operation, detect critical points, and build systems that generate a measurable impact."
+        "desc": "We are a team specialized in technological development, digital infrastructure, and data analysis focused on solving real business problems. We design and implement solutions that optimize operations, automate processes, and allow for efficient scaling. We don't work on assumptions: we understand each operation, detect critical points, and build systems that generate a measurable impact.",
+        "btn": "Explore solutions"
       },
       "brands": {
         "tag": "BRANDS THAT TRUST US"

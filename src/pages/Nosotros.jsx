@@ -14,7 +14,8 @@ import {
   Layers,
   Handshake,
   CheckCircle2,
-  ChevronDown
+  ChevronDown,
+  ArrowRight
 } from 'lucide-react';
 import teamImg from '../assets/quienes-somos.jpg';
 import BubbleBackground from '../components/BubbleBackground';
@@ -158,9 +159,33 @@ export default function Nosotros({ onNavigate }) {
               {t('nosotros.team.headline')}
             </h3>
             
-            <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '50px', maxWidth: '600px', whiteSpace: 'pre-line' }}>
+            <p style={{ color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', fontSize: '1.1rem', marginBottom: '40px', maxWidth: '600px', whiteSpace: 'pre-line' }}>
               {t('nosotros.team.desc')}
             </p>
+
+            <motion.button 
+              whileHover={{ scale: 1.05 }} 
+              whileTap={{ scale: 0.95 }}
+              onClick={() => onNavigate('soluciones')}
+              className="glass" 
+              style={{ 
+                padding: '16px 32px', 
+                borderRadius: '14px', 
+                background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))', 
+                color: 'white', 
+                fontWeight: 700, 
+                border: 'none', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '12px', 
+                cursor: 'pointer',
+                marginBottom: '50px',
+                boxShadow: '0 8px 25px rgba(0, 86, 179, 0.2)'
+              }}
+            >
+              {t('nosotros.team.btn')}
+              <ArrowRight size={18} />
+            </motion.button>
 
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px' }}>
               <p style={{ fontSize: '0.85rem', color: 'white', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '5px' }}>

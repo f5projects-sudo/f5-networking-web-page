@@ -1,7 +1,7 @@
 import React from 'react';
 import MapFooter from './MapFooter';
 import { useLanguage } from '../context/LanguageContext';
-import { Linkedin, Instagram, Facebook, Youtube, MessageCircle, Wrench, Handshake, MapPin, Phone, Mail } from 'lucide-react';
+import { Linkedin, Instagram, Facebook, Youtube, MessageCircle, Wrench, Handshake, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = ({ onNavigate, scrollTo }) => {
@@ -9,11 +9,8 @@ const Footer = ({ onNavigate, scrollTo }) => {
   const currentYear = new Date().getFullYear();
 
   const handleLogoClick = () => {
-    if (scrollTo) {
-      scrollTo('hero');
-    } else if (onNavigate) {
-      onNavigate('home');
-    }
+    if (scrollTo) scrollTo('hero');
+    else if (onNavigate) onNavigate('home');
   };
 
   const handleNavigation = (path, e) => {
@@ -25,91 +22,77 @@ const Footer = ({ onNavigate, scrollTo }) => {
   };
 
   return (
-    <footer style={{ position: 'relative', backgroundColor: '#071822', color: 'white', padding: '0 5% 40px', marginTop: '250px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+    <footer style={{ position: 'relative', backgroundColor: '#030a10', color: 'white', marginTop: '150px', fontFamily: 'system-ui, -apple-system, sans-serif', overflow: 'hidden' }}>
       
-      {/* Growing Graph SVG (Top Border) */}
-      <div style={{ position: 'absolute', top: '-249px', left: 0, width: '100%', height: '250px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
-        <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMax slice" style={{ width: '100%', height: '100%', display: 'block' }}>
+      {/* Background Ambient Glows */}
+      <div style={{ position: 'absolute', top: '0', left: '20%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,180,255,0.05) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none', transform: 'translate(-50%, -50%)' }} />
+      <div style={{ position: 'absolute', bottom: '0', right: '10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(255,140,0,0.05) 0%, rgba(0,0,0,0) 70%)', pointerEvents: 'none', transform: 'translate(50%, 50%)' }} />
+
+      {/* Elegant Abstract Growth Curve (Top Border) */}
+      <div style={{ position: 'absolute', top: '-150px', left: 0, width: '100%', height: '150px', overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
+        <svg viewBox="0 0 1440 150" preserveAspectRatio="none" style={{ width: '100%', height: '100%', display: 'block' }}>
           <defs>
-            <linearGradient id="graphGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="var(--color-primary)" />
-              <stop offset="50%" stopColor="var(--color-secondary)" />
-              <stop offset="100%" stopColor="var(--color-accent)" />
+            <linearGradient id="elegantGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#030a10" stopOpacity="1" />
+              <stop offset="40%" stopColor="#030a10" stopOpacity="1" />
+              <stop offset="100%" stopColor="rgba(0, 180, 255, 0.15)" stopOpacity="1" />
             </linearGradient>
-            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="6" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
+            <linearGradient id="elegantLine" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgba(0,180,255,0)" />
+              <stop offset="50%" stopColor="rgba(0,180,255,0.2)" />
+              <stop offset="100%" stopColor="rgba(0,180,255,0.8)" />
+            </linearGradient>
           </defs>
-
-          {/* Solid background filling under the curve */}
-          <path fill="#071822" d="M0,200 Q 800,200 1440,40 L1440,250 L0,250 Z" />
-
-          {/* Glowing line graph */}
-          <path fill="none" stroke="url(#graphGradient)" strokeWidth="4" d="M0,200 Q 800,200 1440,40" filter="url(#glow)" />
-          
-          {/* Glowing nodes */}
-          <g fill="#071822" strokeWidth="4">
-            <circle cx="390" cy="190" r="8" filter="url(#glow)" stroke="var(--color-primary)" />
-            <circle cx="760" cy="160" r="8" filter="url(#glow)" stroke="var(--color-secondary)" />
-            <circle cx="1110" cy="110" r="8" filter="url(#glow)" stroke="var(--color-accent)" />
-            <circle cx="1310" cy="70" r="8" filter="url(#glow)" stroke="var(--color-accent)" />
-          </g>
+          <path fill="url(#elegantGlow)" d="M0,150 L0,120 Q 720,120 1440,0 L1440,150 Z" />
+          <path fill="none" stroke="url(#elegantLine)" strokeWidth="1" d="M0,120 Q 720,120 1440,0" />
         </svg>
       </div>
 
-      <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1, paddingTop: '40px' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 1, padding: '80px 5% 40px' }}>
         
         {/* TOP SECTION: Logo & Socials */}
-        <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', justifyContent: 'space-between', alignItems: 'center', gap: '30px', marginBottom: '60px' }}>
+        <div style={{ display: 'flex', flexDirection: window.innerWidth < 768 ? 'column' : 'row', justifyContent: 'space-between', alignItems: 'center', gap: '30px', marginBottom: '80px' }}>
           {/* Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={handleLogoClick}>
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
+            onClick={handleLogoClick}
+          >
             <img 
               src={`${import.meta.env.BASE_URL}F5 finalizado 2.png`} 
               alt="F5 Networking" 
-              width="225"
-              height="100"
-              style={{ 
-                height: '100px', 
-                width: 'auto', 
-                display: 'block', 
-                opacity: 0.9,
-                filter: 'drop-shadow(0 0 8px rgba(0, 180, 255, 0.15))',
-                transition: 'all 0.3s ease'
-              }} 
+              style={{ height: '80px', width: 'auto', display: 'block', opacity: 0.95, filter: 'drop-shadow(0 0 15px rgba(0, 180, 255, 0.2))' }} 
             />
-          </div>
+          </motion.div>
 
           {/* Social Icons */}
-          <div style={{ display: 'flex', gap: '20px' }}>
+          <div style={{ display: 'flex', gap: '15px' }}>
             {[
-              { icon: <Linkedin size={22} />, url: '#' },
-              { icon: <Instagram size={22} />, url: '#' },
-              { icon: <Facebook size={22} />, url: '#' },
-              { icon: <Youtube size={22} />, url: '#' }
+              { icon: <Linkedin size={20} strokeWidth={1.5} />, url: '#' },
+              { icon: <Instagram size={20} strokeWidth={1.5} />, url: '#' },
+              { icon: <Facebook size={20} strokeWidth={1.5} />, url: '#' },
+              { icon: <Youtube size={20} strokeWidth={1.5} />, url: '#' }
             ].map((social, idx) => (
               <motion.a 
                 key={idx}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -5, color: 'var(--color-primary)' }}
+                whileHover={{ y: -3, backgroundColor: 'rgba(0,180,255,0.1)', color: '#00B4FF', borderColor: 'rgba(0,180,255,0.3)' }}
                 whileTap={{ scale: 0.95 }}
                 style={{
-                  width: '45px',
-                  height: '45px',
-                  borderRadius: '12px',
-                  background: 'rgba(255,255,255,0.03)',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  backgroundColor: 'transparent',
                   border: '1px solid rgba(255,255,255,0.1)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: 'white',
-                  transition: 'background 0.3s',
+                  color: 'rgba(255,255,255,0.7)',
+                  transition: 'all 0.3s ease',
                   textDecoration: 'none'
                 }}
-                onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'}
-                onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}
               >
                 {social.icon}
               </motion.a>
@@ -117,122 +100,170 @@ const Footer = ({ onNavigate, scrollTo }) => {
           </div>
         </div>
 
-        {/* MIDDLE SECTION: 3 CTAs */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '80px' }}>
-          {/* CTA 1: Iniciar Conversación */}
-          <motion.a
-            href="https://wa.me/5213341701107"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ y: -8, border: '1px solid rgba(0, 180, 255, 0.5)', boxShadow: '0 10px 30px rgba(0, 180, 255, 0.15)' }}
-            className="glass"
-            style={{ padding: '35px 25px', borderRadius: '24px', textAlign: 'center', textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}
-          >
-            <div style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(0,180,255,0.2), rgba(0,86,179,0.1))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-primary)' }}>
-              <MessageCircle size={35} />
-            </div>
-            <h3 style={{ color: 'white', fontSize: '1.3rem', margin: 0, fontWeight: 'bold' }}>{t('footer.cta.chat', 'Iniciar conversación')}</h3>
-          </motion.a>
-
-          {/* CTA 2: Soporte Técnico */}
-          <motion.div
-            onClick={(e) => handleNavigation('soporte', e)}
-            whileHover={{ y: -8, border: '1px solid rgba(255, 140, 0, 0.5)', boxShadow: '0 10px 30px rgba(255, 140, 0, 0.15)' }}
-            className="glass"
-            style={{ padding: '35px 25px', borderRadius: '24px', textAlign: 'center', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}
-          >
-            <div style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(255,140,0,0.2), rgba(200,80,0,0.1))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-secondary)' }}>
-              <Wrench size={35} />
-            </div>
-            <h3 style={{ color: 'white', fontSize: '1.3rem', margin: 0, fontWeight: 'bold' }}>{t('footer.cta.support', 'Soporte técnico')}</h3>
-          </motion.div>
-
-          {/* CTA 3: Alianzas Estratégicas */}
-          <motion.div
-            onClick={(e) => handleNavigation('alianzas', e)}
-            whileHover={{ y: -8, border: '1px solid rgba(0, 180, 255, 0.5)', boxShadow: '0 10px 30px rgba(0, 180, 255, 0.15)' }}
-            className="glass"
-            style={{ padding: '35px 25px', borderRadius: '24px', textAlign: 'center', cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '15px' }}
-          >
-            <div style={{ width: '70px', height: '70px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(0,180,255,0.2), rgba(0,86,179,0.1))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-accent)' }}>
-              <Handshake size={35} />
-            </div>
-            <h3 style={{ color: 'white', fontSize: '1.3rem', margin: 0, fontWeight: 'bold' }}>{t('footer.cta.alliances', 'Alianzas Estratégicas')}</h3>
-          </motion.div>
+        {/* MIDDLE SECTION: Minimalist CTAs */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', marginBottom: '80px' }}>
+          
+          {/* CTA 1 */}
+          <CTAButton 
+            icon={<MessageCircle size={24} strokeWidth={1.5} />} 
+            title={t('footer.cta.chat', 'Iniciar conversación')} 
+            color="0, 180, 255" 
+            href="https://wa.me/5213341701107" 
+            external 
+          />
+          {/* CTA 2 */}
+          <CTAButton 
+            icon={<Wrench size={24} strokeWidth={1.5} />} 
+            title={t('footer.cta.support', 'Soporte técnico')} 
+            color="255, 140, 0" 
+            onClick={(e) => handleNavigation('soporte', e)} 
+          />
+          {/* CTA 3 */}
+          <CTAButton 
+            icon={<Handshake size={24} strokeWidth={1.5} />} 
+            title={t('footer.cta.alliances', 'Alianzas Estratégicas')} 
+            color="0, 180, 255" 
+            onClick={(e) => handleNavigation('alianzas', e)} 
+          />
         </div>
 
-        {/* BOTTOM SECTION: Info, Legal, and Map */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '40px',
-          padding: '50px 0',
-          borderTop: '1px solid rgba(255,255,255,0.05)',
-          borderBottom: '1px solid rgba(255,255,255,0.05)',
-          marginBottom: '40px',
-          color: 'var(--color-text-muted)'
-        }}>
+        {/* BOTTOM SECTION: Info, Legal, Map */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '50px', paddingBottom: '60px', borderBottom: '1px solid rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.6)' }}>
           
           {/* Contáctanos */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px', fontWeight: 'bold' }}>{t('footer.contact.title', 'Contáctanos')}</h4>
-            <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
-              <MapPin size={20} style={{ flexShrink: 0, marginTop: '2px', color: 'var(--color-primary)' }} />
-              <span style={{ lineHeight: '1.6' }}>
-                {t('footer.address.street', 'C. Miguel Blanco 1440')}<br/>
-                {t('footer.address.colony', 'Col Americana, Americana')}<br/>
-                {t('footer.address.city', '44160 Guadalajara, Jal.')}
-              </span>
-            </div>
-            <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-              <Phone size={20} style={{ color: 'var(--color-secondary)' }} />
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                <a href="tel:+5213341701107" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='inherit'}>🇲🇽 +52 1 33 4170 1107</a>
-                <a href="tel:+12545058090" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='inherit'}>🇺🇸 +1 254 505 8090</a>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+            <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: '500', letterSpacing: '0.5px' }}>{t('footer.contact.title', 'Contáctanos')}</h4>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', fontSize: '0.95rem' }}>
+              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
+                <MapPin size={18} style={{ color: 'rgba(255,255,255,0.4)', marginTop: '2px' }} />
+                <span style={{ lineHeight: '1.5' }}>
+                  {t('footer.address.street', 'C. Miguel Blanco 1440')}<br/>
+                  {t('footer.address.colony', 'Col Americana, Americana')}<br/>
+                  {t('footer.address.city', '44160 Guadalajara, Jal.')}
+                </span>
               </div>
-            </div>
-            <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
-              <Mail size={20} style={{ color: 'var(--color-accent)' }} />
-              <a href="mailto:sales@f5networking.com" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='inherit'}>sales@f5networking.com</a>
+              
+              <div style={{ display: 'flex', gap: '15px', alignItems: 'flex-start' }}>
+                <Phone size={18} style={{ color: 'rgba(255,255,255,0.4)', marginTop: '2px' }} />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <HoverLink href="tel:+5213341701107">🇲🇽 +52 1 33 4170 1107</HoverLink>
+                  <HoverLink href="tel:+12545058090">🇺🇸 +1 254 505 8090</HoverLink>
+                </div>
+              </div>
+              
+              <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
+                <Mail size={18} style={{ color: 'rgba(255,255,255,0.4)' }} />
+                <HoverLink href="mailto:sales@f5networking.com">sales@f5networking.com</HoverLink>
+              </div>
             </div>
           </div>
 
           {/* Información Legal */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px', fontWeight: 'bold' }}>{t('footer.legal.title', 'Información legal')}</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <a href="#terminos" onClick={(e) => handleNavigation('terminos', e)} style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '10px' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='inherit'}>
-                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-primary)' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+            <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: '500', letterSpacing: '0.5px' }}>{t('footer.legal.title', 'Información legal')}</h4>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', fontSize: '0.95rem' }}>
+              <HoverLink onClick={(e) => handleNavigation('terminos', e)}>
                 {t('footer.legal.terms', 'Términos y condiciones')}
-              </a>
-              <a href="#privacidad" onClick={(e) => handleNavigation('privacidad', e)} style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '10px' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='inherit'}>
-                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-secondary)' }} />
+              </HoverLink>
+              <HoverLink onClick={(e) => handleNavigation('privacidad', e)}>
                 {t('footer.legal.privacy', 'Aviso de privacidad')}
-              </a>
-              <a href="#pua" onClick={(e) => handleNavigation('pua', e)} style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'flex', alignItems: 'center', gap: '10px' }} onMouseOver={e => e.target.style.color='white'} onMouseOut={e => e.target.style.color='inherit'}>
-                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--color-accent)' }} />
+              </HoverLink>
+              <HoverLink onClick={(e) => handleNavigation('pua', e)}>
                 {t('footer.legal.pua', 'Política de Uso Aceptable (PUA)')}
-              </a>
+              </HoverLink>
             </div>
           </div>
 
           {/* Mapa */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <h4 style={{ color: 'white', fontSize: '1.2rem', marginBottom: '5px', fontWeight: 'bold' }}>{t('footer.map.title', 'Ubicación')}</h4>
-            <div style={{ width: '100%', height: '200px', borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+            <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: '500', letterSpacing: '0.5px' }}>{t('footer.map.title', 'Ubicación')}</h4>
+            <div style={{ width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)', backgroundColor: 'rgba(255,255,255,0.02)' }}>
               <MapFooter />
             </div>
           </div>
-
         </div>
 
         {/* Copyright */}
-        <div style={{ display: 'flex', justifyContent: 'center', color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
-          © {currentYear} F5 Networking. {t('footer.copyright', 'Todos los derechos reservados.')}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '30px', color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem', flexDirection: window.innerWidth < 768 ? 'column' : 'row', gap: '10px' }}>
+          <span>© {currentYear} F5 Networking. {t('footer.copyright', 'Todos los derechos reservados.')}</span>
+          <span style={{ letterSpacing: '1px' }}>INNOVATION THROUGH CONNECTION</span>
         </div>
         
       </div>
     </footer>
+  );
+};
+
+// Subcomponent for CTA Buttons
+const CTAButton = ({ icon, title, color, href, onClick, external }) => {
+  const content = (
+    <>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+        <div style={{ color: `rgb(${color})`, display: 'flex' }}>{icon}</div>
+        <span style={{ color: 'white', fontSize: '1.05rem', fontWeight: '500' }}>{title}</span>
+      </div>
+      <ArrowUpRight size={18} style={{ color: 'rgba(255,255,255,0.3)' }} className="cta-arrow" />
+    </>
+  );
+
+  const style = {
+    padding: '25px 30px',
+    borderRadius: '16px',
+    backgroundColor: 'rgba(255,255,255,0.02)',
+    border: '1px solid rgba(255,255,255,0.05)',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    position: 'relative',
+    overflow: 'hidden'
+  };
+
+  const hoverStyle = {
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderColor: `rgba(${color}, 0.3)`,
+    boxShadow: `0 10px 30px -10px rgba(${color}, 0.15)`
+  };
+
+  if (external) {
+    return (
+      <motion.a href={href} target="_blank" rel="noopener noreferrer" style={style} whileHover={hoverStyle} whileTap={{ scale: 0.98 }} initial="initial" whileInView="animate">
+        {content}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div onClick={onClick} style={style} whileHover={hoverStyle} whileTap={{ scale: 0.98 }}>
+      {content}
+    </motion.div>
+  );
+};
+
+// Subcomponent for Hover Links
+const HoverLink = ({ children, href, onClick }) => {
+  if (href) {
+    return (
+      <motion.a 
+        href={href} 
+        style={{ color: 'inherit', textDecoration: 'none', display: 'inline-block' }}
+        whileHover={{ color: '#fff', x: 2 }}
+      >
+        {children}
+      </motion.a>
+    );
+  }
+  return (
+    <motion.a 
+      href="#" 
+      onClick={(e) => { e.preventDefault(); onClick && onClick(e); }} 
+      style={{ color: 'inherit', textDecoration: 'none', display: 'inline-block', cursor: 'pointer' }}
+      whileHover={{ color: '#fff', x: 2 }}
+    >
+      {children}
+    </motion.a>
   );
 };
 

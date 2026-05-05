@@ -651,9 +651,9 @@ const translations = {
     "nosotros": {
       "hero": {
         "tag": "QUIÉNES SOMOS",
-        "title1": "Evolución",
-        "titleHighlight": "Tecnológica",
-        "desc": "F5 Networking es una empresa pionera en la creación de soluciones de conectividad escalable, automatización e infraestructura digital. Simplificamos lo complejo y aceleramos la transformación corporativa para el mundo de hoy.",
+        "title1": "Facilitamos crecimiento a través de",
+        "titleHighlight": "tecnología que escala tu operación",
+        "desc": "F5 Networking diseña e implementa soluciones de infraestructura, automatización y datos que convierten la complejidad operativa en eficiencia real.",
         "btn": "Descubrir Valor",
         "c1Title": "+5 Años",
         "c1Desc": "Innovando en infraestructura digital corporativa",
@@ -1623,9 +1623,9 @@ const translations = {
     "nosotros": {
       "hero": {
         "tag": "WHO WE ARE",
-        "title1": "Technological",
-        "titleHighlight": "Evolution",
-        "desc": "F5 Networking is a pioneering company in creating scalable connectivity, automation, and digital infrastructure solutions. We simplify the complex and accelerate corporate transformation for today's world.",
+        "title1": "We facilitate growth through",
+        "titleHighlight": "technology that scales your operation",
+        "desc": "F5 Networking designs and implements infrastructure, automation, and data solutions that turn operational complexity into real efficiency.",
         "btn": "Discover Value",
         "c1Title": "+5 Years",
         "c1Desc": "Innovating in corporate digital infrastructure",

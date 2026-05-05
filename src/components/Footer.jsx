@@ -32,8 +32,9 @@ const SVGSocialBtn = ({ bg, icon, href }) => (
     target="_blank"
     rel="noopener noreferrer"
     style={{
-      width: '100%',
-      height: '100%',
+      pointerEvents: 'auto',
+      width: '46px',
+      height: '46px',
       borderRadius: '50%',
       background: bg,
       display: 'flex',
@@ -82,27 +83,35 @@ const Footer = ({ onNavigate, scrollTo }) => {
         DISCREET, SOLID WAVE WITH FLOATING SOCIAL ICONS
         ========================================================
       */}
-      <div style={{ position: 'absolute', top: '-249px', left: 0, width: '100%', height: '250px', overflow: 'hidden', zIndex: 0 }}>
-        <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMax slice" style={{ width: '100%', height: '100%', display: 'block' }}>
+      <div style={{ position: 'absolute', top: '-249px', left: 0, width: '100%', height: '250px', overflow: 'visible', zIndex: 0, pointerEvents: 'none' }}>
+        <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMax slice" style={{ width: '100%', height: '100%', display: 'block', overflow: 'visible' }}>
           
           {/* Solid fill matching the footer background - No strokes, no neon */}
           <path fill="#071822" d="M0,200 C 200,250 400,100 720,150 C 1040,200 1200,50 1440,50 L1440,250 L0,250 Z" />
           
           {/* Floating Social Icons exactly on the wave curve */}
-          <foreignObject x={386 - 25} y={160 - 25} width="50" height="50">
-            <SVGSocialBtn bg="#0A66C2" icon={<SocialLogos.LinkedIn />} href="#" />
+          <foreignObject x={386 - 40} y={160 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <SVGSocialBtn bg="#0A66C2" icon={<SocialLogos.LinkedIn />} href="#" />
+            </div>
           </foreignObject>
           
-          <foreignObject x={627 - 25} y={140 - 25} width="50" height="50">
-            <SVGSocialBtn bg="linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" icon={<SocialLogos.Instagram />} href="#" />
+          <foreignObject x={627 - 40} y={140 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <SVGSocialBtn bg="linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" icon={<SocialLogos.Instagram />} href="#" />
+            </div>
           </foreignObject>
           
-          <foreignObject x={1042 - 25} y={136 - 25} width="50" height="50">
-            <SVGSocialBtn bg="#1877F2" icon={<SocialLogos.Facebook />} href="#" />
+          <foreignObject x={1042 - 40} y={136 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <SVGSocialBtn bg="#1877F2" icon={<SocialLogos.Facebook />} href="#" />
+            </div>
           </foreignObject>
           
-          <foreignObject x={1303 - 25} y={65 - 25} width="50" height="50">
-            <SVGSocialBtn bg="#FF0000" icon={<SocialLogos.YouTube />} href="#" />
+          <foreignObject x={1303 - 40} y={65 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+            <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <SVGSocialBtn bg="#FF0000" icon={<SocialLogos.YouTube />} href="#" />
+            </div>
           </foreignObject>
 
         </svg>

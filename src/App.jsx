@@ -14,6 +14,8 @@ const Equipamiento = lazy(() => import('./pages/Equipamiento'));
 const Privacidad = lazy(() => import('./pages/Privacidad'));
 const Terminos = lazy(() => import('./pages/Terminos'));
 const Pua = lazy(() => import('./pages/Pua'));
+const Soporte = lazy(() => import('./pages/Soporte'));
+const Alianzas = lazy(() => import('./pages/Alianzas'));
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Headset,
@@ -54,7 +56,7 @@ const App = () => {
   const { t } = useLanguage();
   const [currentPage, setCurrentPage] = useState(() => {
     const hash = window.location.hash.replace('#', '');
-    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua'];
+    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua', 'soporte', 'alianzas'];
     return validPages.includes(hash) ? hash : 'home';
   });
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -125,7 +127,7 @@ const App = () => {
     // Handle manual hash changes (e.g., back button or typing directly)
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua'];
+      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua', 'soporte', 'alianzas'];
       if (validPages.includes(hash)) {
         setCurrentPage(hash);
       } else if (hash === '') {
@@ -180,6 +182,8 @@ const App = () => {
   else if (currentPage === 'privacidad') PageContent = <Privacidad onNavigate={setCurrentPage} />;
   else if (currentPage === 'terminos') PageContent = <Terminos onNavigate={setCurrentPage} />;
   else if (currentPage === 'pua') PageContent = <Pua onNavigate={setCurrentPage} />;
+  else if (currentPage === 'soporte') PageContent = <Soporte onNavigate={setCurrentPage} />;
+  else if (currentPage === 'alianzas') PageContent = <Alianzas onNavigate={setCurrentPage} />;
 
   if (PageContent) {
     return (

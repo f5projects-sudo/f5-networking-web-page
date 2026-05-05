@@ -971,6 +971,70 @@ const translations = {
           "subtitle": "Profesionales certificados combinados con IA y automatización para resultados extraordinarios."
         }
       ]
+    },
+    "footer": {
+      "cta": {
+        "chat": "Iniciar conversación",
+        "support": "Soporte técnico",
+        "alliances": "Alianzas Estratégicas"
+      },
+      "links": {
+        "contact": "Contáctanos",
+        "legal": "Información Legal",
+        "address": "Dirección",
+        "map": "Mapa"
+      },
+      "contact": {
+        "title": "Contáctanos"
+      },
+      "legal": {
+        "title": "Información legal",
+        "terms": "Términos y condiciones",
+        "privacy": "Aviso de privacidad",
+        "pua": "PUA"
+      },
+      "address": {
+        "title": "Dirección",
+        "street": "C. Miguel Blanco 1440",
+        "colony": "Col Americana, Americana",
+        "city": "44160 Guadalajara, Jal."
+      },
+      "copyright": "Todos los derechos reservados."
+    },
+    "soporte": {
+      "title": "Soporte Técnico",
+      "subtitle": "Estamos aquí para ayudarte a resolver cualquier incidente",
+      "form": {
+        "company": "Empresa",
+        "name": "Nombre",
+        "phone": "Teléfono",
+        "email": "Correo",
+        "category": "Categoría del incidente",
+        "catHigh": "Alta → operación detenida",
+        "catMed": "Media → afecta parcialmente",
+        "catLow": "Baja → no bloquea operación",
+        "priority": "Prioridad",
+        "summary": "Resumen del incidente",
+        "description": "Descripción detallada",
+        "descPlaceholder": "Describe qué ocurrió, desde cuándo sucede y en qué sistema o proceso",
+        "evidence": "Soporte documental / Evidencia adjunta",
+        "privacy": "Al enviar este formulario, autorizas el tratamiento de tus datos personales para la atención de tu solicitud, conforme a nuestro Aviso de Privacidad.",
+        "submit": "Reportar incidencia",
+        "success": "Tu solicitud ha sido recibida. Nuestro equipo la revisará y te contactará a la brevedad."
+      }
+    },
+    "alianzas": {
+      "title": "Alianzas Estratégicas",
+      "subtitle": "Conéctate con nosotros para explorar nuevas oportunidades de negocio",
+      "form": {
+        "company": "Empresa",
+        "name": "Nombre del representante",
+        "phone": "Teléfono",
+        "email": "Correo corporativo",
+        "proposal": "Resumen de la propuesta",
+        "submit": "Enviar propuesta",
+        "success": "Gracias por tu interés. Hemos recibido tu propuesta y nos pondremos en contacto contigo pronto."
+      }
     }
   },
   en: {
@@ -1945,6 +2009,70 @@ const translations = {
           "subtitle": "Certified professionals combined with AI and automation for extraordinary results."
         }
       ]
+    },
+    "footer": {
+      "cta": {
+        "chat": "Start Conversation",
+        "support": "Technical Support",
+        "alliances": "Strategic Alliances"
+      },
+      "links": {
+        "contact": "Contact Us",
+        "legal": "Legal Information",
+        "address": "Address",
+        "map": "Map"
+      },
+      "contact": {
+        "title": "Contact Us"
+      },
+      "legal": {
+        "title": "Legal Information",
+        "terms": "Terms & Conditions",
+        "privacy": "Privacy Policy",
+        "pua": "AUP"
+      },
+      "address": {
+        "title": "Address",
+        "street": "C. Miguel Blanco 1440",
+        "colony": "Col Americana, Americana",
+        "city": "44160 Guadalajara, Jal."
+      },
+      "copyright": "All rights reserved."
+    },
+    "soporte": {
+      "title": "Technical Support",
+      "subtitle": "We are here to help you resolve any incident",
+      "form": {
+        "company": "Company",
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "category": "Incident Category",
+        "catHigh": "High → operation stopped",
+        "catMed": "Medium → partially affects",
+        "catLow": "Low → does not block operation",
+        "priority": "Priority",
+        "summary": "Incident Summary",
+        "description": "Detailed Description",
+        "descPlaceholder": "Describe what happened, since when it's happening, and in which system or process",
+        "evidence": "Documentary support / Attached evidence",
+        "privacy": "By submitting this form, you authorize the processing of your personal data to handle your request, according to our Privacy Policy.",
+        "submit": "Report Incident",
+        "success": "Your request has been received. Our team will review it and contact you shortly."
+      }
+    },
+    "alianzas": {
+      "title": "Strategic Alliances",
+      "subtitle": "Connect with us to explore new business opportunities",
+      "form": {
+        "company": "Company",
+        "name": "Representative Name",
+        "phone": "Phone",
+        "email": "Corporate Email",
+        "proposal": "Proposal Summary",
+        "submit": "Submit Proposal",
+        "success": "Thank you for your interest. We have received your proposal and will contact you soon."
+      }
     }
   }
 };

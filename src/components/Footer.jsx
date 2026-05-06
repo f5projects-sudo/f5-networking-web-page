@@ -223,9 +223,15 @@ const Footer = ({ onNavigate, scrollTo }) => {
             {t('footer.address.colony', 'Col Americana, Americana')}<br/>
             {t('footer.address.city', '44160 Guadalajara, Jal.')}
           </div>
-          <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: '1.6', marginTop: '5px' }}>
-            <a href="tel:+5213341701107" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>🇲🇽 +52 1 33 4170 1107</a><br/>
-            <a href="tel:+12545058090" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>🇺🇸 +1 254 505 8090</a>
+          <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: '1.6', marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <a href="tel:+5213341701107" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'inline-flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
+              <img src="https://flagcdn.com/mx.svg" width="20" alt="MX" style={{ marginRight: '10px', borderRadius: '2px' }} />
+              +52 1 33 4170 1107
+            </a>
+            <a href="tel:+12545058090" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'inline-flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
+              <img src="https://flagcdn.com/us.svg" width="20" alt="US" style={{ marginRight: '10px', borderRadius: '2px' }} />
+              +1 254 505 8090
+            </a>
           </div>
           <div style={{ marginTop: '5px' }}>
             <a href="mailto:sales@f5networking.com" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>sales@f5networking.com</a>

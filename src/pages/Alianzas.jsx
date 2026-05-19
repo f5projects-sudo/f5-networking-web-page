@@ -40,7 +40,7 @@ export default function Alianzas({ onNavigate }) {
         data.append(key, form[key]);
       });
 
-      await fetch('https://n8n.automationf5networking.com/webhook/ad16e441-8be5-415d-a83d-9d3585755abb', {
+      await fetch('https://n8nv2.automationf5networking.com/webhook/b6c1f809-4c33-438f-9507-8c6e5008f2bf', {
         method: 'POST',
         mode: 'no-cors',
         headers: {

@@ -234,7 +234,6 @@ const TiltCard = ({ children, style, spotlightColor = "rgba(255,255,255,0.07)", 
       <div style={{
         background: 'rgba(26, 26, 31, 0.97)',
         borderRadius: 'inherit',
-        height: '100%',
         width: '100%',
         padding: style.padding || '40px',
         position: 'relative',
@@ -655,12 +654,12 @@ export default function Pbx({ onNavigate }) {
       </section>
 
       {/* ── SMS Section ── */}
-      <section style={{ padding: 'clamp(60px, 12vw, 120px) 0', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: 'clamp(30px, 4vw, 50px) 0 0', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
           <TiltCard 
             className="cta-glass-card"
             style={{ 
-              padding: 'clamp(30px, 8vw, 60px)', 
+              padding: 'clamp(25px, 5vw, 45px)', 
               borderRadius: '40px', 
               background: 'rgba(255,255,255,0.01)',
               border: 'none'
@@ -670,7 +669,7 @@ export default function Pbx({ onNavigate }) {
           >
             <div 
               className="pbx-sms-grid"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(30px, 6vw, 60px)', alignItems: 'center' }}>
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(30px, 6vw, 60px)', alignItems: 'start' }}>
               <div>
                 <div style={{ color: 'var(--color-accent)', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '20px' }}>
                   <MessageSquare size={50} strokeWidth={1.5} />
@@ -710,6 +709,141 @@ export default function Pbx({ onNavigate }) {
               </motion.div>
             </div>
           </TiltCard>
+        </div>
+      </section>
+
+      {/* ── Final CTA Section ── */}
+      <section style={{
+        padding: 'clamp(30px, 4vw, 50px) 0 clamp(50px, 8vw, 90px)',
+        position: 'relative',
+        zIndex: 10,
+        overflow: 'hidden'
+      }}>
+        {/* Background glow */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(0,86,179,0.12) 0%, transparent 70%)',
+          pointerEvents: 'none'
+        }} />
+
+        <div className="section-container" style={{ position: 'relative', zIndex: 1 }}>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              textAlign: 'center',
+              padding: 'clamp(40px, 8vw, 70px) clamp(20px, 5vw, 60px)',
+              background: 'rgba(255,255,255,0.02)',
+              borderRadius: '40px',
+              border: '1px solid rgba(255,255,255,0.07)',
+              backdropFilter: 'blur(10px)',
+              maxWidth: '800px',
+              margin: '0 auto'
+            }}
+          >
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                padding: '7px 18px',
+                background: 'rgba(0,86,179,0.2)',
+                border: '1px solid rgba(0,86,179,0.4)',
+                borderRadius: '30px',
+                color: 'var(--color-accent)',
+                fontWeight: '700',
+                fontSize: '0.78rem',
+                letterSpacing: '2px',
+                marginBottom: '28px'
+              }}
+            >
+              <Phone size={14} /> {t('pbx.hero.tag', 'COMUNICACIONES EN LA NUBE')}
+            </motion.div>
+
+            <h2 style={{
+              fontSize: 'clamp(2rem, 5vw, 3.2rem)',
+              fontWeight: '900',
+              marginBottom: '18px',
+              lineHeight: 1.15,
+              letterSpacing: '-1px'
+            }}>
+              {t('pbx.cta.title', '¿Listo para transformar')}<br />
+              <span className="gradient-text">{t('pbx.cta.subtitle', 'tu comunicación empresarial?')}</span>
+            </h2>
+
+            <p style={{
+              fontSize: '1.1rem',
+              color: 'rgba(255,255,255,0.55)',
+              marginBottom: '40px',
+              lineHeight: '1.7',
+              maxWidth: '560px',
+              margin: '0 auto 40px'
+            }}>
+              {t('pbx.cta.desc', 'Habla con un experto y descubre cómo nuestro PBX puede optimizar cada llamada, reducir costos y escalar con tu negocio.')}
+            </p>
+
+            <motion.button
+              whileHover={{ scale: 1.06, boxShadow: '0 0 45px rgba(0,86,179,0.6)' }}
+              whileTap={{ scale: 0.96 }}
+              onClick={() => {
+                onNavigate('home');
+                setTimeout(() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+              }}
+              style={{
+                padding: '18px 50px',
+                background: 'linear-gradient(135deg, var(--color-primary), #0070d2)',
+                border: 'none',
+                borderRadius: '50px',
+                color: 'white',
+                fontWeight: '900',
+                fontSize: '1.1rem',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '12px',
+                boxShadow: '0 12px 35px rgba(0,86,179,0.4)',
+                letterSpacing: '0.02em'
+              }}
+            >
+              {t('pbx.hero.btn', 'Solicita Demostración')} <ChevronRight size={22} />
+            </motion.button>
+
+            {/* Micro-stats */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: 'clamp(20px, 5vw, 60px)',
+              flexWrap: 'wrap',
+              marginTop: '45px',
+              paddingTop: '35px',
+              borderTop: '1px solid rgba(255,255,255,0.06)'
+            }}>
+              {[
+                { value: '99.9%', label: t('pbx.hero.spec2', '99.9% Disponibilidad') },
+                { value: '24/7', label: t('pbx.cta.stat2', 'Soporte Continuo') },
+                { value: '< 1ms', label: t('pbx.cta.stat3', 'Latencia') }
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + i * 0.1 }}
+                  style={{ textAlign: 'center' }}
+                >
+                  <div style={{ fontSize: '1.7rem', fontWeight: '900', color: 'var(--color-accent)', marginBottom: '4px' }}>{stat.value}</div>
+                  <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', fontWeight: '600' }}>{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

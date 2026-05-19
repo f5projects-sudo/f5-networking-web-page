@@ -487,13 +487,13 @@ const translations = {
     },
     "pbx": {
       "hero": {
-        "tag": "CLOUD COMMUNICATIONS",
-        "title1": "POWERFUL",
-        "title2": "PBX SOLUTIONS",
+        "tag": "COMUNICACIONES EN LA NUBE",
+        "title1": "SOLUCIONES",
+        "title2": "PBX EMPRESARIALES",
         "desc": "Nuestro PBX es una solución de telefonía empresarial en la nube que permite gestionar, centralizar y optimizar las comunicaciones de tu empresa desde una sola plataforma. Ofrece llamadas de alta calidad, estabilidad y seguridad.",
-        "btn": "Discover More",
-        "spec1": "Secure SIP",
-        "spec2": "99.9% Uptime"
+        "btn": "Solicita Demostración",
+        "spec1": "SIP Seguro",
+        "spec2": "99.9% Disponibilidad"
       },
       "infrastructure": {
         "awsTitle": "Infraestructura AWS",
@@ -508,7 +508,7 @@ const translations = {
         "title2": "tu negocio",
         "f1Title": "Audio Superior",
         "f1Desc": "Llamadas con claridad HD cristalina y latencia casi nula.",
-        "f2Title": "99.9% Uptime",
+        "f2Title": "99.9% Disponibilidad",
         "f2Desc": "Sistemas redundantes para una operación que nunca se detiene.",
         "f3Title": "Cifrado SSL/SIP",
         "f3Desc": "Seguridad bancaria en todas tus líneas telefónicas."
@@ -526,20 +526,20 @@ const translations = {
         },
         "segments": {
           "s1": "Call Centers",
-          "s2": "Tech Companies",
+          "s2": "Empresas Tech",
           "s3": "E-Commerce",
-          "s4": "Support",
+          "s4": "Soporte",
           "s5": "Startups"
         }
       },
       "sms": {
         "smsActive": "CAMPAÑA ACTIVA",
-        "smsLive": "LIVE",
+        "smsLive": "EN VIVO",
         "smsProgress": "Progreso de Envío",
         "smsSent": "ENVIADOS",
         "smsDelivered": "ENTREGA",
         "smsActivityTitle": "LOG DE ACTIVIDAD",
-        "smsStatusDelivered": "DELIVERED",
+        "smsStatusDelivered": "ENTREGADO",
         "title1": "SMS: CONEXIÓN",
         "title2": "DIRECTA",
         "desc1": "Brindamos un servicio de SMS seguro, estable y fácil de integrar, impulsado por ",
@@ -548,6 +548,13 @@ const translations = {
         "f2": "Seguridad 2FA",
         "f3": "API Global",
         "f4": "Escalabilidad"
+      },
+      "cta": {
+        "title": "¿Listo para transformar",
+        "subtitle": "tu comunicación empresarial?",
+        "desc": "Habla con un experto y descubre cómo nuestro PBX puede optimizar cada llamada, reducir costos y escalar con tu negocio.",
+        "stat2": "Soporte Continuo",
+        "stat3": "Latencia"
       }
     },
     "cableado": {
@@ -1529,7 +1536,7 @@ const translations = {
         "title1": "POWERFUL",
         "title2": "PBX SOLUTIONS",
         "desc": "Our PBX is a corporate cloud telephony solution that allows you to manage, centralize, and optimize your company's communications from a single platform. It offers high-quality calls, stability, and security.",
-        "btn": "Discover More",
+        "btn": "Request a Demo",
         "spec1": "Secure SIP",
         "spec2": "99.9% Uptime"
       },
@@ -1586,6 +1593,13 @@ const translations = {
         "f2": "2FA Security",
         "f3": "Global API",
         "f4": "Scalability"
+      },
+      "cta": {
+        "title": "Ready to transform",
+        "subtitle": "your business communications?",
+        "desc": "Talk to an expert and discover how our PBX can optimize every call, reduce costs and scale with your business.",
+        "stat2": "Continuous Support",
+        "stat3": "Latency"
       }
     },
     "cableado": {

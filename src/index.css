@@ -394,7 +394,7 @@ button {
   justify-content: flex-start; /* Fix: allow items to start from top so they scroll properly */
   align-items: center;
   gap: 25px;
-  padding: 100px 0 60px; /* Fix: padding top to avoid close button, bottom for scroll room */
+  padding: 100px 0 120px; /* Fix: padding top to avoid close button, bottom for scroll room */
   overflow-y: auto;     /* Fix: allow scrolling if content is too tall */
   overflow-x: hidden;
   transform: translateX(100%);

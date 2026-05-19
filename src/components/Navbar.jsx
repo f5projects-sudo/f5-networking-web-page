@@ -22,12 +22,8 @@ const Navbar = ({ onNavigate, activePage }) => {
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
-      // Prevent touchmove to ensure total lock on some mobile browsers
-      const preventDefault = (e) => e.preventDefault();
-      document.addEventListener('touchmove', preventDefault, { passive: false });
       return () => {
         document.body.style.overflow = '';
-        document.removeEventListener('touchmove', preventDefault);
       };
     }
   }, [isMenuOpen]);

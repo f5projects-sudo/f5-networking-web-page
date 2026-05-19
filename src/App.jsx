@@ -94,13 +94,13 @@ const App = () => {
       // El modo 'no-cors' siempre devuelve una respuesta opaca (0), pero los datos SÍ llegan al servidor.
       setSent(true);
       setTimeout(() => setSent(false), 3000);
-      setForm({ name: '', email: '', phone: '', message: '' });
+      setForm({ name: '', email: '', phone: '', product: '', message: '' });
     } catch (error) {
       console.error('Error enviando formulario:', error);
       // Como medida anti-fallos locale/CORS, activamos el popup de todas formas
       setSent(true);
       setTimeout(() => setSent(false), 3000);
-      setForm({ name: '', email: '', phone: '', message: '' });
+      setForm({ name: '', email: '', phone: '', product: '', message: '' });
     }
   };
 
@@ -374,7 +374,7 @@ const App = () => {
         background: 'rgba(2, 2, 8, 0.98)', 
         backdropFilter: 'blur(60px)',
         WebkitBackdropFilter: 'blur(60px)',
-        padding: '160px 20px',
+        padding: isMobile ? '80px 20px' : '160px 20px',
         borderTop: '1px solid rgba(0, 180, 255, 0.15)',
         borderBottom: '1px solid rgba(0, 180, 255, 0.15)'
       }}>
@@ -935,7 +935,7 @@ const App = () => {
       {/* CTA / Contact */}
       <section id="contact" className="section-container" style={{ textAlign: 'center' }}>
         <motion.div {...fadeInUp}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '20px' }}>
             {t('home.contact.title', '¿Listo para llevar tu empresa al')} <span className="gradient-text">{t('home.contact.subtitle', 'siguiente nivel')}</span>?
           </h2>
           <p style={{ color: 'var(--color-text-muted)', marginBottom: '50px' }}>{t('home.contact.message', 'Únete a las empresas que ya están optimizando su comunicación con F5 Networking.')}</p>
@@ -945,7 +945,7 @@ const App = () => {
             className="glass"
             onSubmit={handleSubmit}
             style={{ 
-              padding: '50px', 
+              padding: isMobile ? '28px 20px' : '50px', 
               borderRadius: '24px', 
               display: 'flex', 
               flexDirection: 'column', 
@@ -968,6 +968,7 @@ const App = () => {
                   value={form[id]}
                   onChange={e => setForm({ ...form, [id]: e.target.value })}
                   required
+                  className="contact-form-input"
                   style={{
                     background: 'rgba(255,255,255,0.05)',
                     border: '1px solid rgba(255,255,255,0.12)',
@@ -976,6 +977,7 @@ const App = () => {
                     color: 'white',
                     fontSize: '1rem',
                     outline: 'none',
+                    width: '100%',
                     transition: 'border-color 0.2s'
                   }}
                   onFocus={e => e.target.style.borderColor = 'var(--color-primary)'}
@@ -993,6 +995,7 @@ const App = () => {
                 value={form.product}
                 onChange={e => setForm({ ...form, product: e.target.value })}
                 required
+                className="contact-form-select"
                 style={{
                   background: 'rgba(255,255,255,0.05)',
                   border: '1px solid rgba(255,255,255,0.12)',
@@ -1002,6 +1005,7 @@ const App = () => {
                   fontSize: '1rem',
                   outline: 'none',
                   cursor: 'pointer',
+                  width: '100%',
                   appearance: 'none',
                   WebkitAppearance: 'none',
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23aaa' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E")`,

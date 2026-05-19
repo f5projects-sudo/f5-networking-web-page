@@ -78,43 +78,55 @@ const Footer = ({ onNavigate, scrollTo }) => {
   return (
     <footer style={{ position: 'relative', backgroundColor: '#071822', color: 'white', marginTop: '250px', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
       
-      {/* 
-        ========================================================
-        DISCREET, SOLID WAVE WITH FLOATING SOCIAL ICONS
-        ========================================================
-      */}
+      {/* Wave + Social Icons container */}
       <div style={{ position: 'absolute', top: '-249px', left: 0, width: '100%', height: '250px', overflow: 'visible', zIndex: 0, pointerEvents: 'none' }}>
         <svg viewBox="0 0 1440 250" preserveAspectRatio="xMidYMax slice" style={{ width: '100%', height: '100%', display: 'block', overflow: 'visible' }}>
           
-          {/* Solid fill matching the footer background - No strokes, no neon */}
+          {/* Solid fill matching the footer background */}
           <path fill="#071822" d="M0,200 C 200,250 400,100 720,150 C 1040,200 1200,50 1440,50 L1440,250 L0,250 Z" />
           
-          {/* Floating Social Icons exactly on the wave curve */}
-          <foreignObject x={386 - 40} y={160 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+          {/* Floating Social Icons — desktop only (hidden via opacity on mobile via CSS) */}
+          <foreignObject x={386 - 40} y={160 - 40} width="80" height="80" style={{ overflow: 'visible' }} className="footer-social-wave-icon">
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <SVGSocialBtn bg="#0A66C2" icon={<SocialLogos.LinkedIn />} href="https://www.linkedin.com/company/111633194/admin/dashboard/" />
             </div>
           </foreignObject>
           
-          <foreignObject x={627 - 40} y={140 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+          <foreignObject x={627 - 40} y={140 - 40} width="80" height="80" style={{ overflow: 'visible' }} className="footer-social-wave-icon">
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <SVGSocialBtn bg="linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" icon={<SocialLogos.Instagram />} href="https://www.instagram.com/f5networking_group?igsh=Z2k3aXd2MnUxeTR4" />
             </div>
           </foreignObject>
           
-          <foreignObject x={1042 - 40} y={136 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+          <foreignObject x={1042 - 40} y={136 - 40} width="80" height="80" style={{ overflow: 'visible' }} className="footer-social-wave-icon">
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <SVGSocialBtn bg="#1877F2" icon={<SocialLogos.Facebook />} href="https://www.facebook.com/profile.php?id=100088109847354&locale=es_LA" />
             </div>
           </foreignObject>
           
-          <foreignObject x={1303 - 40} y={65 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
+          <foreignObject x={1303 - 40} y={65 - 40} width="80" height="80" style={{ overflow: 'visible' }} className="footer-social-wave-icon">
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <SVGSocialBtn bg="#FF0000" icon={<SocialLogos.YouTube />} href="https://www.youtube.com/channel/UCPEkvrT12WPJz7OpfuLEFYQ" />
             </div>
           </foreignObject>
 
         </svg>
+      </div>
+
+      {/* ── Mobile social row (shown only on mobile) ── */}
+      <div className="footer-social-mobile" style={{
+        display: 'none', /* overridden by CSS on mobile */
+        justifyContent: 'center',
+        gap: '16px',
+        paddingTop: '16px',
+        paddingBottom: '8px',
+        position: 'relative',
+        zIndex: 2
+      }}>
+        <SVGSocialBtn bg="#0A66C2" icon={<SocialLogos.LinkedIn />} href="https://www.linkedin.com/company/111633194/admin/dashboard/" />
+        <SVGSocialBtn bg="linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" icon={<SocialLogos.Instagram />} href="https://www.instagram.com/f5networking_group?igsh=Z2k3aXd2MnUxeTR4" />
+        <SVGSocialBtn bg="#1877F2" icon={<SocialLogos.Facebook />} href="https://www.facebook.com/profile.php?id=100088109847354&locale=es_LA" />
+        <SVGSocialBtn bg="#FF0000" icon={<SocialLogos.YouTube />} href="https://www.youtube.com/channel/UCPEkvrT12WPJz7OpfuLEFYQ" />
       </div>
 
       {/* 

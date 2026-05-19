@@ -549,12 +549,27 @@ elevenlabs-convai {
     padding-top: 100px !important;
   }
 
+  /* Contact form mobile fixes */
+  .contact-form-select,
+  .contact-form-input {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+
   elevenlabs-convai {
     bottom: 80px !important;
     transform: scale(0.8) !important;
     transform-origin: bottom right !important;
   }
+
+  /* Footer social icons — mobile row */
+  .footer-social-wave-icon {
+    display: none !important;
+  }
+  .footer-social-mobile {
+    display: flex !important;
+  }
 }
+
 
 /* ── Pantallas Ultra Estrechas (341px) ── */
 @media (max-width: 400px) {

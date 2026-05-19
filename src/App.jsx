@@ -59,7 +59,7 @@ const App = () => {
     const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua', 'soporte', 'alianzas'];
     return validPages.includes(hash) ? hash : 'home';
   });
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', phone: '', product: '', message: '' });
   const [loadWidget, setLoadWidget] = useState(false);
   const [sent, setSent] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -983,6 +983,56 @@ const App = () => {
                 />
               </div>
             ))}
+
+            {/* Product Dropdown */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <label style={{ color: 'var(--color-secondary)', fontSize: '0.9rem', fontWeight: 600 }}>
+                {t('home.contact.product', 'Producto de interés')} *
+              </label>
+              <select
+                value={form.product}
+                onChange={e => setForm({ ...form, product: e.target.value })}
+                required
+                style={{
+                  background: 'rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  borderRadius: '10px',
+                  padding: '14px 18px',
+                  color: form.product ? 'white' : 'rgba(255,255,255,0.35)',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  cursor: 'pointer',
+                  appearance: 'none',
+                  WebkitAppearance: 'none',
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23aaa' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E")`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 16px center',
+                  paddingRight: '44px',
+                  transition: 'border-color 0.2s'
+                }}
+                onFocus={e => e.target.style.borderColor = 'var(--color-primary)'}
+                onBlur={e => e.target.style.borderColor = 'rgba(255,255,255,0.12)'}
+              >
+                <option value="" disabled style={{ background: '#1a1a2e', color: 'rgba(255,255,255,0.4)' }}>
+                  {t('home.contact.productPlaceholder', '-- Selecciona un producto --')}
+                </option>
+                {[
+                  { value: 'axia',        label: t('home.contact.p_axia',   'AXIA – Agentes de IA') },
+                  { value: 'nova-core',   label: t('home.contact.p_nova',   'NOVA CORE') },
+                  { value: 'echo',        label: t('home.contact.p_echo',   'ECHO CRM Omnicanal') },
+                  { value: 'pbx',         label: t('home.contact.p_pbx',    'Telefonía PBX / DIDs / SMS') },
+                  { value: 'bpo',         label: t('home.contact.p_bpo',    'BPO Services') },
+                  { value: 'desarrollo',  label: t('home.contact.p_dev',    'Desarrollo de Software') },
+                  { value: 'cableado',    label: t('home.contact.p_cable',  'Cableado Estructurado') },
+                  { value: 'equipamiento',label: t('home.contact.p_equip',  'Venta de Equipos') },
+                  { value: 'otro',        label: t('home.contact.p_other',  'Otro / Información General') },
+                ].map(opt => (
+                  <option key={opt.value} value={opt.value} style={{ background: '#1a1a2e', color: 'white' }}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <label style={{ color: 'var(--color-secondary)', fontSize: '0.9rem', fontWeight: 600 }}>{t('home.contact.msgField', 'Mensaje')} *</label>

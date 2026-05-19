@@ -189,7 +189,18 @@ const translations = {
         "sending": "Enviando...",
         "sent": "¡Mensaje Enviado!",
         "privacyConsent": "He leído y acepto los Términos y Condiciones y el Aviso de Privacidad y autorizo el uso de mis datos para ser contactado, incluyendo a través de herramientas automatizadas como chatbot y WhatsApp.",
-        "btnSend": "Enviar Mensaje"
+        "btnSend": "Enviar Mensaje",
+        "product": "Producto de interés",
+        "productPlaceholder": "-- Selecciona un producto --",
+        "p_axia": "AXIA – Agentes de IA",
+        "p_nova": "NOVA CORE",
+        "p_echo": "ECHO CRM Omnicanal",
+        "p_pbx": "Telefonía PBX / DIDs / SMS",
+        "p_bpo": "BPO Services",
+        "p_dev": "Desarrollo de Software",
+        "p_cable": "Cableado Estructurado",
+        "p_equip": "Venta de Equipos",
+        "p_other": "Otro / Información General"
       }
     },
     "terminos": {
@@ -1234,7 +1245,18 @@ const translations = {
         "sending": "Sending...",
         "sent": "Message Sent!",
         "privacyConsent": "I have read and accept the Terms and Conditions and the Privacy Notice and authorize the use of my data to be contacted, including through automated tools such as chatbot and WhatsApp.",
-        "btnSend": "Send Message"
+        "btnSend": "Send Message",
+        "product": "Product of interest",
+        "productPlaceholder": "-- Select a product --",
+        "p_axia": "AXIA – AI Agents",
+        "p_nova": "NOVA CORE",
+        "p_echo": "ECHO Omnichannel CRM",
+        "p_pbx": "PBX Telephony / DIDs / SMS",
+        "p_bpo": "BPO Services",
+        "p_dev": "Software Development",
+        "p_cable": "Structured Cabling",
+        "p_equip": "Equipment Sales",
+        "p_other": "Other / General Information"
       }
     },
     "terminos": {

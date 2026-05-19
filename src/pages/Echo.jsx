@@ -103,18 +103,25 @@ export default function Echo({ onNavigate }) {
               <div style={{ display: 'flex', gap: '20px', marginTop: '40px' }}>
                 <motion.button 
                   style={{
-                    padding: '15px 35px',
-                    background: 'transparent',
-                    border: '1px solid var(--color-primary)',
+                    padding: '18px 50px',
+                    background: 'linear-gradient(135deg, var(--color-primary) 0%, #0070d2 50%, var(--color-accent) 100%)',
+                    backgroundSize: '200% 200%',
+                    border: 'none',
                     color: 'white',
-                    borderRadius: '12px',
-                    fontWeight: 'bold',
+                    borderRadius: '50px',
+                    fontWeight: '900',
+                    fontSize: '1.1rem',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '10px'
+                    gap: '10px',
+                    letterSpacing: '0.03em',
+                    boxShadow: '0 8px 30px rgba(0,86,179,0.5), 0 0 0 0 rgba(0,144,255,0)'
                   }}
-                  whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0,86,179,0.4)' }}
+                  whileHover={{ 
+                    scale: 1.07, 
+                    boxShadow: '0 12px 40px rgba(0,86,179,0.7), 0 0 30px rgba(0,144,255,0.3)'
+                  }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => {
                     onNavigate('home');
@@ -123,7 +130,7 @@ export default function Echo({ onNavigate }) {
                     }, 100);
                   }}
                 >
-                  {t('echo.hero.btn', 'Solicitar Demo')} <Info size={18} />
+                  {t('echo.hero.btn', 'Solicitar Demo')}
                 </motion.button>
               </div>
             </motion.div>

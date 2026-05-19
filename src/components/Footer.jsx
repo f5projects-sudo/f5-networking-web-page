@@ -92,25 +92,25 @@ const Footer = ({ onNavigate, scrollTo }) => {
           {/* Floating Social Icons exactly on the wave curve */}
           <foreignObject x={386 - 40} y={160 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <SVGSocialBtn bg="#0A66C2" icon={<SocialLogos.LinkedIn />} href="#" />
+              <SVGSocialBtn bg="#0A66C2" icon={<SocialLogos.LinkedIn />} href="https://www.linkedin.com/company/111633194/admin/dashboard/" />
             </div>
           </foreignObject>
           
           <foreignObject x={627 - 40} y={140 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <SVGSocialBtn bg="linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" icon={<SocialLogos.Instagram />} href="#" />
+              <SVGSocialBtn bg="linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)" icon={<SocialLogos.Instagram />} href="https://www.instagram.com/f5networking_group?igsh=Z2k3aXd2MnUxeTR4" />
             </div>
           </foreignObject>
           
           <foreignObject x={1042 - 40} y={136 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <SVGSocialBtn bg="#1877F2" icon={<SocialLogos.Facebook />} href="#" />
+              <SVGSocialBtn bg="#1877F2" icon={<SocialLogos.Facebook />} href="https://www.facebook.com/profile.php?id=100088109847354&locale=es_LA" />
             </div>
           </foreignObject>
           
           <foreignObject x={1303 - 40} y={65 - 40} width="80" height="80" style={{ overflow: 'visible' }}>
             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <SVGSocialBtn bg="#FF0000" icon={<SocialLogos.YouTube />} href="#" />
+              <SVGSocialBtn bg="#FF0000" icon={<SocialLogos.YouTube />} href="https://www.youtube.com/channel/UCPEkvrT12WPJz7OpfuLEFYQ" />
             </div>
           </foreignObject>
 

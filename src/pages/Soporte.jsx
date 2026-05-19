@@ -53,7 +53,7 @@ export default function Soporte({ onNavigate }) {
         }
       });
 
-      await fetch('https://n8n.automationf5networking.com/webhook/ad16e441-8be5-415d-a83d-9d3585755abb', {
+      await fetch('https://n8nv2.automationf5networking.com/webhook/033f73b9-c1d3-445b-aaa4-5ad17dd54145', {
         method: 'POST',
         mode: 'no-cors',
         body: data

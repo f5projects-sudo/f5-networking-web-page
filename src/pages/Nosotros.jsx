@@ -66,9 +66,9 @@ export default function Nosotros({ onNavigate }) {
 
           {/* Text + button */}
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ maxWidth: isMobile ? '100%' : '60%' }}>
+            style={{ maxWidth: isMobile ? '100%' : '50%' }}>
             <h1 style={{ fontSize: 'clamp(2rem, 7vw, 3.8rem)', marginBottom: isMobile ? '16px' : '28px', lineHeight: 1.15, fontWeight: 900, textShadow: '0 4px 20px rgba(0,0,0,0.5)' }}>
-              <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Facilitamos ')}</span>
+              <span className="gradient-text">{t('nosotros.hero.titleHighlight', 'Facilitamos').trim()}</span>{' '}
               <span style={{ color: 'var(--color-secondary)' }}>{t('nosotros.hero.titleCrecimiento', 'crecimiento')}</span>
               {t('nosotros.hero.titleSuffix', ' a través de tecnología que escala tu operación')}
             </h1>

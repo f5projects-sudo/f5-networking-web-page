@@ -104,28 +104,12 @@ const Navbar = ({ onNavigate, activePage }) => {
       }}>
         <div 
           className="nav-logo-container"
-          style={{ 
-            cursor: 'pointer',
-            height: '70px',
-            width: '239px',
-            flexShrink: 0,
-            overflow: 'hidden',
-            position: 'relative'
-          }} 
           onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }}
         >
           <img 
             src={`${import.meta.env.BASE_URL}F5 finalizado 2.png`}
             alt="F5 Networking Logo"
-            style={{
-              position: 'absolute',
-              height: '134px',
-              width: '239px',
-              top: '-18px',
-              left: '0px',
-              filter: 'drop-shadow(0 0 10px rgba(0, 180, 255, 0.1))',
-              transition: 'filter 0.3s ease'
-            }}
+            className="nav-logo-img"
           />
         </div>
         

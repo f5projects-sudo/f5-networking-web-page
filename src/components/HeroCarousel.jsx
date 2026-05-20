@@ -39,6 +39,20 @@ const HeroCarousel = ({ onNavigate }) => {
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
 
+  const [isMobile, setIsMobile] = useState(false);
+  const [isNarrowMobile, setIsNarrowMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    setIsNarrowMobile(window.innerWidth < 400);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsNarrowMobile(window.innerWidth < 400);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Get translated content for the current slide
   const translatedSlides = t('carousel.slides', { returnObjects: true }) || [];
   const slideContent = translatedSlides[current] || {
@@ -131,9 +145,9 @@ const HeroCarousel = ({ onNavigate }) => {
       <div style={{
         position: 'absolute', inset: 0,
         display: 'flex', alignItems: 'center',
-        paddingLeft: 'clamp(24px, 8vw, 120px)',
-        paddingRight: 'clamp(24px, 8vw, 120px)',
-        paddingTop: '80px', // clear navbar
+        paddingLeft: isMobile ? '16px' : 'clamp(24px, 8vw, 120px)',
+        paddingRight: isMobile ? '16px' : 'clamp(24px, 8vw, 120px)',
+        paddingTop: isMobile ? '60px' : '80px', // clear navbar
         zIndex: 10,
         pointerEvents: 'none'
       }}>
@@ -149,7 +163,7 @@ const HeroCarousel = ({ onNavigate }) => {
             {/* Tag pill */}
             <motion.div variants={textItem} style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '6px 16px', marginBottom: '32px',
+              padding: '6px 16px', marginBottom: isMobile ? '16px' : '32px',
               background: 'rgba(255,140,0,0.18)',
               border: '1px solid rgba(255,140,0,0.4)',
               borderRadius: '50px',
@@ -163,10 +177,10 @@ const HeroCarousel = ({ onNavigate }) => {
 
             {/* Title */}
             <motion.h1 variants={textItem} style={{
-              fontSize: 'clamp(2.2rem, 5.5vw, 4.2rem)',
+              fontSize: isNarrowMobile ? '1.45rem' : isMobile ? '1.8rem' : 'clamp(2.2rem, 5.5vw, 4.2rem)',
               fontWeight: 800,
               lineHeight: 1.1,
-              marginBottom: '28px',
+              marginBottom: isMobile ? '16px' : '28px',
               color: '#ffffff',
               letterSpacing: '-1.5px',
               whiteSpace: 'pre-line',
@@ -177,10 +191,10 @@ const HeroCarousel = ({ onNavigate }) => {
 
             {/* Subtitle */}
             <motion.p variants={textItem} style={{
-              fontSize: 'clamp(1rem, 1.6vw, 1.25rem)',
+              fontSize: isMobile ? '0.85rem' : 'clamp(1rem, 1.6vw, 1.25rem)',
               color: 'rgba(255,255,255,0.85)',
               lineHeight: 1.6,
-              marginBottom: '48px',
+              marginBottom: isMobile ? '24px' : '48px',
               maxWidth: '580px',
               fontWeight: 400
             }}>
@@ -188,7 +202,7 @@ const HeroCarousel = ({ onNavigate }) => {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div variants={textItem} style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+            <motion.div variants={textItem} style={{ display: 'flex', gap: isMobile ? '12px' : '20px', flexWrap: 'wrap' }}>
               <motion.button
                 whileHover={{ scale: 1.04, background: '#ff8c00' }}
                 whileTap={{ scale: 0.96 }}
@@ -196,19 +210,19 @@ const HeroCarousel = ({ onNavigate }) => {
                   document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 style={{
-                  padding: '14px 28px',
+                  padding: isMobile ? '10px 20px' : '14px 28px',
                   background: 'rgba(255,140,0,0.9)',
                   border: 'none',
                   borderRadius: '50px',
                   color: '#fff',
                   fontWeight: 700,
-                  fontSize: '0.95rem',
+                  fontSize: isMobile ? '0.85rem' : '0.95rem',
                   cursor: 'pointer',
                   display: 'flex', alignItems: 'center', gap: '8px',
                   boxShadow: '0 4px 20px rgba(255,140,0,0.3)'
                 }}
               >
-                {t('home.hero.btnSolutions')} <ArrowRight size={16} />
+                {t('home.hero.btnSolutions')} <ArrowRight size={isMobile ? 14 : 16} />
               </motion.button>
 
               <motion.button
@@ -218,13 +232,13 @@ const HeroCarousel = ({ onNavigate }) => {
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
                 style={{
-                  padding: '14px 28px',
+                  padding: isMobile ? '10px 20px' : '14px 28px',
                   background: 'rgba(255,255,255,0.1)',
                   border: '1px solid rgba(255,255,255,0.3)',
                   borderRadius: '50px',
                   color: '#fff',
                   fontWeight: 600,
-                  fontSize: '0.95rem',
+                  fontSize: isMobile ? '0.85rem' : '0.95rem',
                   cursor: 'pointer',
                   backdropFilter: 'blur(8px)'
                 }}
@@ -260,8 +274,8 @@ const HeroCarousel = ({ onNavigate }) => {
       </div>
 
       {/* ── Prev / Next buttons ── */}
-      {[{ dir: -1, pos: 'left', icon: <ChevronLeft size={22} />, onClick: prev },
-        { dir: 1, pos: 'right', icon: <ChevronRight size={22} />, onClick: next }]
+      {[{ dir: -1, pos: 'left', icon: <ChevronLeft size={isMobile ? 16 : 22} />, onClick: prev },
+        { dir: 1, pos: 'right', icon: <ChevronRight size={isMobile ? 16 : 22} />, onClick: next }]
         .map(({ pos, icon, onClick }) => (
           <motion.button
             key={pos}
@@ -274,7 +288,7 @@ const HeroCarousel = ({ onNavigate }) => {
             aria-label={pos === 'left' ? 'Anterior' : 'Siguiente'}
             style={{
               position: 'absolute',
-              [pos]: '20px', 
+              [pos]: isMobile ? '8px' : '20px', 
               top: '50%',
               transform: 'translateY(-50%)',
               zIndex: 30,
@@ -282,7 +296,8 @@ const HeroCarousel = ({ onNavigate }) => {
               border: '1px solid rgba(255,255,255,0.15)',
               backdropFilter: 'blur(8px)',
               borderRadius: '50%',
-              width: '50px', height: '50px',
+              width: isMobile ? '36px' : '50px', 
+              height: isMobile ? '36px' : '50px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer', color: 'white'
             }}
@@ -307,7 +322,7 @@ const HeroCarousel = ({ onNavigate }) => {
 
       {/* ── Slide number (bottom-left) ── */}
       <div style={{
-        position: 'absolute', bottom: '18px', left: 'clamp(24px, 8vw, 120px)',
+        position: 'absolute', bottom: '18px', left: isMobile ? '16px' : 'clamp(24px, 8vw, 120px)',
         zIndex: 20, display: 'flex', alignItems: 'center', gap: '10px'
       }}>
         <span style={{ fontSize: '1rem', fontWeight: 800, color: '#ff8c00' }}>

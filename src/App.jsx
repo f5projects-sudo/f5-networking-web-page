@@ -669,8 +669,8 @@ const App = () => {
                   flexDirection: isMobile ? 'row' : 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '20px',
-                  padding: isMobile ? '0 30px' : '40px 0',
+                  gap: isMobile ? '12px' : '20px',
+                  padding: isMobile ? '0 15px' : '40px 0',
                   borderRight: isMobile ? 'none' : '1px solid rgba(255, 255, 255, 0.03)',
                   borderBottom: isMobile ? '1px solid rgba(255, 255, 255, 0.03)' : 'none',
                   background: isExpanded ? 'rgba(255,255,255,0.01)' : 'transparent',
@@ -685,9 +685,9 @@ const App = () => {
                   </div>
                   
                   <h3 style={{
-                    fontSize: '1.2rem',
+                    fontSize: isMobile ? '1rem' : '1.2rem',
                     fontWeight: 700,
-                    letterSpacing: '4px',
+                    letterSpacing: isMobile ? '2px' : '4px',
                     color: isExpanded ? '#fff' : 'rgba(255,255,255,0.4)',
                     writingMode: isMobile ? 'horizontal-tb' : 'vertical-rl',
                     transform: isMobile ? 'none' : 'rotate(180deg)',

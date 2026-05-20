@@ -195,6 +195,7 @@ const App = () => {
       }>
         {PageContent}
         {/* {loadWidget && <elevenlabs-convai id="elevenlabs-widget" agent-id="agent_6801kkcgpzhgf4d9kcwgnbray3jz"></elevenlabs-convai>} */}
+        <WhatsAppButton />
       </Suspense>
     );
   }

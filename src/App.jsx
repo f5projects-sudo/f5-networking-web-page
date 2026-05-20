@@ -639,7 +639,7 @@ const App = () => {
                 initial={{ flex: 1, height: isMobile ? '90px' : '100%' }}
                 animate={{ 
                   flex: isMobile ? 'none' : (isExpanded ? 3 : 1),
-                  height: isMobile ? (isExpanded ? '280px' : '90px') : '100%'
+                  height: isMobile ? (isExpanded ? 'auto' : '90px') : '100%'
                 }}
                 transition={{ type: "spring", stiffness: 200, damping: 25 }}
                 onHoverStart={() => !isMobile && setActiveQuienes(panel.id)}

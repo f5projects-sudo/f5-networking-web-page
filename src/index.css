@@ -626,6 +626,10 @@ elevenlabs-convai {
     padding: 40px 20px !important;
   }
 
+  .cta-glass-card {
+    padding: 25px 12px !important;
+  }
+
   elevenlabs-convai {
     bottom: 5px !important;
     right: 5px !important;

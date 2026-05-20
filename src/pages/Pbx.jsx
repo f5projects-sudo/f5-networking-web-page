@@ -78,7 +78,7 @@ const FloatingNumbers = () => {
   );
 };
 
-const SMSDashboard = ({ t }) => {
+const SMSDashboard = ({ t, isMobile, isNarrowMobile }) => {
   const [percent, setPercent] = React.useState(82.4);
   const [sentCount, setSentCount] = React.useState(12431);
   const [logs, setLogs] = React.useState([
@@ -107,7 +107,7 @@ const SMSDashboard = ({ t }) => {
     <div style={{ 
       background: 'rgba(26, 26, 31, 0.7)', 
       borderRadius: '28px', 
-      padding: 'clamp(20px, 5vw, 35px)', 
+      padding: isNarrowMobile ? '20px 12px' : 'clamp(20px, 5vw, 35px)', 
       border: '1px solid rgba(255,255,255,0.08)', 
       backdropFilter: 'blur(20px)',
       boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
@@ -116,7 +116,7 @@ const SMSDashboard = ({ t }) => {
       margin: '0 auto'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '25px', alignItems: 'center' }}>
-        <h4 style={{ margin: 0, fontSize: '0.85rem', fontWeight: '900', color: 'var(--color-accent)', letterSpacing: '2px' }}>{t('pbx.sms.smsActive', 'CAMPAÑA ACTIVA')}</h4>
+        <h4 style={{ margin: 0, fontSize: isNarrowMobile ? '0.75rem' : '0.85rem', fontWeight: '900', color: 'var(--color-accent)', letterSpacing: isNarrowMobile ? '1px' : '2px' }}>{t('pbx.sms.smsActive', 'CAMPAÑA ACTIVA')}</h4>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <motion.div 
             animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
@@ -141,14 +141,14 @@ const SMSDashboard = ({ t }) => {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(10px, 3vw, 20px)', marginBottom: '30px' }}>
-        <div style={{ textAlign: 'center', padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: isNarrowMobile ? '8px' : 'clamp(10px, 3vw, 20px)', marginBottom: '30px' }}>
+        <div style={{ textAlign: 'center', padding: isNarrowMobile ? '12px 6px' : '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
           <div style={{ fontSize: '0.65rem', opacity: 0.4, marginBottom: '8px', fontWeight: '800' }}>{t('pbx.sms.smsSent', 'ENVIADOS')}</div>
-          <div style={{ fontSize: '1.4rem', fontWeight: '900', fontFamily: 'monospace', color: '#fff' }}>{sentCount.toLocaleString()}</div>
+          <div style={{ fontSize: isNarrowMobile ? '1.15rem' : '1.4rem', fontWeight: '900', fontFamily: 'monospace', color: '#fff' }}>{sentCount.toLocaleString()}</div>
         </div>
-        <div style={{ textAlign: 'center', padding: '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ textAlign: 'center', padding: isNarrowMobile ? '12px 6px' : '20px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
           <div style={{ fontSize: '0.65rem', opacity: 0.4, marginBottom: '8px', fontWeight: '800' }}>{t('pbx.sms.smsDelivered', 'ENTREGA')}</div>
-          <div style={{ fontSize: '1.4rem', fontWeight: '900', color: '#10b981' }}>99.9%</div>
+          <div style={{ fontSize: isNarrowMobile ? '1.15rem' : '1.4rem', fontWeight: '900', color: '#10b981' }}>99.9%</div>
         </div>
       </div>
 
@@ -160,7 +160,7 @@ const SMSDashboard = ({ t }) => {
               key={log.id} 
               initial={{ opacity: 0, x: -10 }} 
               animate={{ opacity: 1, x: 0 }}
-              style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', fontFamily: 'monospace', color: 'rgba(255,255,255,0.7)' }}
+              style={{ display: 'flex', justifyContent: 'space-between', fontSize: isNarrowMobile ? '0.72rem' : '0.8rem', fontFamily: 'monospace', color: 'rgba(255,255,255,0.7)' }}
             >
               <span style={{ fontWeight: '700' }}>{log.phone}</span>
               <span style={{ color: '#10b981', fontWeight: '900' }}>{t('pbx.sms.smsStatusDelivered', 'DELIVERED')}</span>
@@ -674,7 +674,7 @@ export default function Pbx({ onNavigate }) {
           <TiltCard 
             className="cta-glass-card"
             style={{ 
-              padding: 'clamp(25px, 5vw, 45px)', 
+              padding: isNarrowMobile ? '20px 10px' : isMobile ? '25px 15px' : 'clamp(25px, 5vw, 45px)', 
               borderRadius: '40px', 
               background: 'rgba(255,255,255,0.01)',
               border: 'none'
@@ -732,7 +732,7 @@ export default function Pbx({ onNavigate }) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                <SMSDashboard t={t} />
+                <SMSDashboard t={t} isMobile={isMobile} isNarrowMobile={isNarrowMobile} />
               </motion.div>
             </div>
           </TiltCard>

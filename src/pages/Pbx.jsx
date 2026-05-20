@@ -273,6 +273,21 @@ const TiltCard = ({ children, style, spotlightColor = "rgba(255,255,255,0.07)", 
 
 export default function Pbx({ onNavigate }) {
   const { t } = useLanguage();
+  
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isNarrowMobile, setIsNarrowMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    setIsNarrowMobile(window.innerWidth < 400);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setIsNarrowMobile(window.innerWidth < 400);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Ensure view starts at top
   React.useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -481,9 +496,9 @@ export default function Pbx({ onNavigate }) {
       </section>
 
       {/* ── Infrastructure Section ── */}
-      <section style={{ padding: '100px 0', background: 'rgba(26,26,31,0.5)', position: 'relative', zIndex: 10 }}>
+      <section style={{ padding: isMobile ? '60px 0' : '100px 0', background: 'rgba(26,26,31,0.5)', position: 'relative', zIndex: 10 }}>
         <div className="section-container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
             <TiltCard 
               style={{ 
                 padding: '50px 40px', 
@@ -558,7 +573,7 @@ export default function Pbx({ onNavigate }) {
             <div style={{ width: '100px', height: '4px', background: 'var(--color-primary)', margin: '0 auto 30px' }}></div>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(280px, 1fr))', gap: isMobile ? '20px' : '40px' }}>
             {[
               { icon: <Mic2 size={35} strokeWidth={1.5} />, title: t('pbx.features.f1Title', "Audio Superior"), desc: t('pbx.features.f1Desc', "Llamadas con claridad HD cristalina y latencia casi nula.") },
               { icon: <Activity size={35} strokeWidth={1.5} />, title: t('pbx.features.f2Title', "99.9% Uptime"), desc: t('pbx.features.f2Desc', "Sistemas redundantes para una operación que nunca se detiene.") },
@@ -590,7 +605,7 @@ export default function Pbx({ onNavigate }) {
         <FloatingNumbers />
         {/* Transparent overlay to ensure background is behind but content is visible */}
         <div className="section-container" style={{ position: 'relative', zIndex: 10 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '80px', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: isMobile ? '40px' : '80px', alignItems: 'center' }}>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -624,7 +639,7 @@ export default function Pbx({ onNavigate }) {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '20px' }}
+              style={{ display: 'grid', gridTemplateColumns: isNarrowMobile ? '1fr' : isMobile ? '1fr 1fr' : 'repeat(auto-fit, minmax(140px, 1fr))', gap: isMobile ? '12px' : '20px' }}
             >
               {[
                 { icon: <Headset size={30} />, label: t('pbx.dids.segments.s1', "Call Centers") },
@@ -669,23 +684,35 @@ export default function Pbx({ onNavigate }) {
           >
             <div 
               className="pbx-sms-grid"
-              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(30px, 6vw, 60px)', alignItems: 'start' }}>
+              style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: isMobile ? '20px' : 'clamp(30px, 6vw, 60px)', alignItems: 'start' }}>
               <div>
-                <div style={{ color: 'var(--color-accent)', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '20px' }}>
-                  <MessageSquare size={50} strokeWidth={1.5} />
+                <div style={{ color: 'var(--color-accent)', marginBottom: isMobile ? '20px' : '30px', display: 'flex', alignItems: 'center', gap: '20px' }}>
+                  <MessageSquare size={isMobile ? 40 : 50} strokeWidth={1.5} />
                   <div style={{ height: '30px', width: '1px', background: 'rgba(255,255,255,0.1)' }} />
                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="Twilio" width="80" height="25" loading="lazy" style={{ height: '25px', opacity: 0.8 }} />
                 </div>
-                <h2 style={{ fontSize: 'clamp(2rem, 8vw, 3.5rem)', fontWeight: '900', marginBottom: '30px', letterSpacing: '-2px', lineHeight: 1.1, wordBreak: 'break-word' }}>
+                <h2 style={{ 
+                  fontSize: isNarrowMobile ? '1.8rem' : 'clamp(2rem, 8vw, 3.5rem)', 
+                  fontWeight: '900', 
+                  marginBottom: isMobile ? '20px' : '30px', 
+                  letterSpacing: isNarrowMobile ? '-1px' : '-2px', 
+                  lineHeight: 1.1, 
+                  wordBreak: 'break-word' 
+                }}>
                   {t('pbx.sms.title1', 'SMS: CONEXIÓN')} <span className="gradient-text">{t('pbx.sms.title2', 'DIRECTA')}</span>
                 </h2>
-                <p style={{ maxWidth: '600px', marginBottom: '40px', fontSize: '1.15rem', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7' }}>
-                  {t('pbx.sms.desc1', 'Brindamos un servicio de SMS seguro, estable y fácil de integrar, impulsado por ')}
+                <p style={{ maxWidth: '600px', marginBottom: isMobile ? '25px' : '40px', fontSize: isMobile ? '1rem' : '1.15rem', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7' }}>
+                  {t('pbx.sms.desc1', 'Brindamos un servicio de SMS seguro, stable y fácil de integrar, impulsado por ')}
                   <span style={{ color: '#fff' }}>Twilio</span>
                   {t('pbx.sms.desc2', '. Ayudamos a las empresas a comunicarse con sus clientes de manera eficiente mediante campañas masivas y notificaciones críticas.')}
                 </p>
                 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '20px', maxWidth: '500px' }}>
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: isNarrowMobile ? '1fr' : isMobile ? '1fr 1fr' : 'repeat(auto-fit, minmax(140px, 1fr))', 
+                  gap: isMobile ? '12px' : '20px', 
+                  maxWidth: '500px' 
+                }}>
                   {[
                     { icon: <Zap size={20} />, label: t('pbx.sms.f1', "Entrega Inmediata") },
                     { icon: <ShieldCheck size={20} />, label: t('pbx.sms.f2', "Seguridad 2FA") },

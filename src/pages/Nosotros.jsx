@@ -92,19 +92,21 @@ export default function Nosotros({ onNavigate }) {
             </motion.button>
           </motion.div>
 
-          {/* Stat cards — horizontal row on mobile, floating on desktop */}
+          {/* Stat cards — vertical stack on mobile, floating on desktop */}
           {isMobile ? (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px', width: '100%' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', width: '100%' }}>
               {[
                 { delay: 0.2, bg: 'rgba(0,180,255,0.15)', border: 'rgba(0,180,255,0.25)', icon: <Zap size={22} style={{ color: 'var(--color-accent)' }} />, title: t('nosotros.hero.c1Title', '+5 Años'), desc: t('nosotros.hero.c1Desc') },
                 { delay: 0.4, bg: 'rgba(255,140,0,0.15)', border: 'rgba(255,140,0,0.3)', icon: <Users size={22} style={{ color: 'var(--color-secondary)' }} />, title: t('nosotros.hero.c2Title', '99.9%'), desc: t('nosotros.hero.c2Desc') },
                 { delay: 0.6, bg: 'rgba(155,89,182,0.15)', border: 'rgba(155,89,182,0.25)', icon: <ShieldCheck size={22} style={{ color: '#9b59b6' }} />, title: t('nosotros.hero.c3Title', '24/7'), desc: t('nosotros.hero.c3Desc') },
               ].map((card, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: card.delay }}
-                  style={{ background: 'rgba(5,5,5,0.8)', border: `1px solid ${card.border}`, borderRadius: '16px', padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  <div style={{ background: card.bg, width: '38px', height: '38px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{card.icon}</div>
-                  <h3 style={{ fontSize: '1.3rem', fontWeight: 900, color: 'white', margin: 0 }}>{card.title}</h3>
-                  <p style={{ color: 'var(--color-text-muted)', fontSize: '0.72rem', margin: 0, lineHeight: 1.4 }}>{card.desc}</p>
+                  style={{ background: 'rgba(5,5,5,0.8)', border: `1px solid ${card.border}`, borderRadius: '16px', padding: '16px 20px', display: 'flex', alignItems: 'center', gap: '18px' }}>
+                  <div style={{ background: card.bg, width: '44px', height: '44px', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{card.icon}</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                    <h3 style={{ fontSize: '1.35rem', fontWeight: 900, color: 'white', margin: 0 }}>{card.title}</h3>
+                    <p style={{ color: 'var(--color-text-muted)', fontSize: '0.82rem', margin: 0, lineHeight: 1.35 }}>{card.desc}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -316,8 +318,8 @@ export default function Nosotros({ onNavigate }) {
         </motion.div>
 
         {isMobile ? (
-          /* ── Mobile: simple 2x2 grid ── */
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '20px', width: '100%' }}>
+          /* ── Mobile: clean 1-column stack ── */
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px', marginTop: '20px', width: '100%' }}>
             {[
               { num: 1, color: '#3b82f6', icon: <Target size={28} /> },
               { num: 2, color: '#a855f7', icon: <Cpu size={28} /> },

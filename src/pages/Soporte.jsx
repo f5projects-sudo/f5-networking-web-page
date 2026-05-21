@@ -18,7 +18,8 @@ export default function Soporte({ onNavigate }) {
     summary: '',
     description: '',
     file: null,
-    privacy: false
+    privacy: false,
+    smsConsent: false
   });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -71,7 +72,8 @@ export default function Soporte({ onNavigate }) {
         summary: '',
         description: '',
         file: null,
-        privacy: false
+        privacy: false,
+        smsConsent: false
       });
       // Reset file input manually
       const fileInput = document.getElementById('file-upload');
@@ -186,6 +188,22 @@ export default function Soporte({ onNavigate }) {
                 <input required type="checkbox" id="privacy" name="privacy" checked={form.privacy} onChange={handleChange} style={{ marginTop: '5px', accentColor: 'var(--color-primary)', width: '18px', height: '18px', cursor: 'pointer' }} />
                 <label htmlFor="privacy" style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: '1.5', cursor: 'pointer' }}>
                   {t('soporte.form.privacy', 'Al enviar este formulario, autorizas el tratamiento de tus datos personales para la atención de tu solicitud, conforme a nuestro Aviso de Privacidad.')}
+                </label>
+              </div>
+
+              {/* Row 8: SMS Consent */}
+              <div style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'flex-start', gap: '10px', marginTop: '5px' }}>
+                <input 
+                  required 
+                  type="checkbox" 
+                  id="smsConsent" 
+                  name="smsConsent" 
+                  checked={form.smsConsent} 
+                  onChange={handleChange} 
+                  style={{ marginTop: '5px', accentColor: 'var(--color-primary)', width: '18px', height: '18px', cursor: 'pointer', flexShrink: 0 }} 
+                />
+                <label htmlFor="smsConsent" style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: '1.5', cursor: 'pointer' }}>
+                  {t('home.contact.smsConsent', 'Al proporcionar su número telefónico y enviar este formulario, usted acepta recibir mensajes SMS de F5 Networking relacionados con soporte al cliente, notificaciones de cuenta, recordatorios y actualizaciones de servicio. La frecuencia de los mensajes puede variar. Pueden aplicar tarifas de mensajes y datos. Responda STOP para dejar de recibir mensajes o HELP para obtener ayuda. Consulte nuestros Términos y Condiciones y Aviso de Privacidad.')}
                 </label>
               </div>
 

@@ -13,7 +13,8 @@ export default function Alianzas({ onNavigate }) {
     name: '',
     phone: '',
     email: '',
-    proposal: ''
+    proposal: '',
+    smsConsent: false
   });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -26,8 +27,12 @@ export default function Alianzas({ onNavigate }) {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    if (type === 'checkbox') {
+      setForm(prev => ({ ...prev, [name]: checked }));
+    } else {
+      setForm(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -56,7 +61,8 @@ export default function Alianzas({ onNavigate }) {
         name: '',
         phone: '',
         email: '',
-        proposal: ''
+        proposal: '',
+        smsConsent: false
       });
     } catch (error) {
       console.error('Error enviando formulario:', error);
@@ -120,6 +126,22 @@ export default function Alianzas({ onNavigate }) {
               <div style={{ gridColumn: '1 / -1' }}>
                 <label style={{ display: 'block', marginBottom: '8px', color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>{t('alianzas.form.proposal', 'Resumen de la propuesta')}</label>
                 <textarea required name="proposal" value={form.proposal} onChange={handleChange} rows="5" className="glass" style={{ width: '100%', padding: '15px 20px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(0,0,0,0.3)', color: 'white', resize: 'vertical' }}></textarea>
+              </div>
+
+              {/* Row 4: SMS Consent */}
+              <div style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'flex-start', gap: '10px', marginTop: '10px' }}>
+                <input 
+                  required 
+                  type="checkbox" 
+                  id="smsConsent" 
+                  name="smsConsent" 
+                  checked={form.smsConsent} 
+                  onChange={handleChange} 
+                  style={{ marginTop: '5px', accentColor: 'var(--color-primary)', width: '18px', height: '18px', cursor: 'pointer', flexShrink: 0 }} 
+                />
+                <label htmlFor="smsConsent" style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: '1.5', cursor: 'pointer' }}>
+                  {t('home.contact.smsConsent', 'Al proporcionar su número telefónico y enviar este formulario, usted acepta recibir mensajes SMS de F5 Networking relacionados con soporte al cliente, notificaciones de cuenta, recordatorios y actualizaciones de servicio. La frecuencia de los mensajes puede variar. Pueden aplicar tarifas de mensajes y datos. Responda STOP para dejar de recibir mensajes o HELP para obtener ayuda. Consulte nuestros Términos y Condiciones y Aviso de Privacidad.')}
+                </label>
               </div>
 
               {/* Submit Button */}

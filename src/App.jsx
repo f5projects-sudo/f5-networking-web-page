@@ -1082,6 +1082,25 @@ const App = () => {
               </label>
             </div>
 
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', marginTop: '5px', marginBottom: '15px' }}>
+              <input 
+                type="checkbox" 
+                id="sms-consent" 
+                required 
+                style={{ 
+                  marginTop: '4px',
+                  accentColor: 'var(--color-primary)',
+                  cursor: 'pointer',
+                  width: '18px',
+                  height: '18px',
+                  flexShrink: 0
+                }} 
+              />
+              <label htmlFor="sms-consent" style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', lineHeight: '1.4', cursor: 'pointer' }}>
+                {t('home.contact.smsConsent', 'Al proporcionar su número telefónico y enviar este formulario, usted acepta recibir mensajes SMS de F5 Networking relacionados con soporte al cliente, notificaciones de cuenta, recordatorios y actualizaciones de servicio. La frecuencia de los mensajes puede variar. Pueden aplicar tarifas de mensajes y datos. Responda STOP para dejar de recibir mensajes o HELP para obtener ayuda. Consulte nuestros Términos y Condiciones y Aviso de Privacidad.')}
+              </label>
+            </div>
+
             <motion.button
               type="submit"
               style={{

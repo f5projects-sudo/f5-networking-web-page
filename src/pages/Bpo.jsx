@@ -404,7 +404,7 @@ export default function Bpo({ onNavigate }) {
         <section style={{ minHeight: '100dvh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 10, padding: '160px 20px 0' }}>
           <div className="hardware-accelerated" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
             <img 
-              src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
+              src={`${import.meta.env.BASE_URL}bpo_hero_image.webp`} 
               alt="BPO" 
               width="1920"
               height="1080"
@@ -467,7 +467,7 @@ export default function Bpo({ onNavigate }) {
               y: imgY
             }}>
               <motion.img 
-                src={`${import.meta.env.BASE_URL}bpo_hero_image.png`} 
+                src={`${import.meta.env.BASE_URL}bpo_hero_image.webp`} 
                 alt="Professional BPO Services"
                 width="1920"
                 height="1080"

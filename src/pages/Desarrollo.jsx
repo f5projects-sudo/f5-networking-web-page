@@ -178,7 +178,7 @@ export default function Desarrollo({ onNavigate }) {
           }}>
             <CardSwap width={window.innerWidth < 768 ? Math.min(window.innerWidth - 30, 320) : 500} height={window.innerWidth < 768 ? 400 : 450}>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_engineering.png`} alt="Ingeniería" width="500" height="300" loading="lazy" />
+                <img src={`${import.meta.env.BASE_URL}software_engineering.webp`} alt="Ingeniería" width="500" height="300" loading="lazy" />
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <Terminal size={20} color="var(--color-primary)" />
@@ -188,7 +188,7 @@ export default function Desarrollo({ onNavigate }) {
                 </div>
               </Card>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_refactoring.png`} alt="Refactoring" width="500" height="300" loading="lazy" />
+                <img src={`${import.meta.env.BASE_URL}software_refactoring.webp`} alt="Refactoring" width="500" height="300" loading="lazy" />
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <RefreshCw size={20} color="var(--color-primary)" />
@@ -198,7 +198,7 @@ export default function Desarrollo({ onNavigate }) {
                 </div>
               </Card>
               <Card>
-                <img src={`${import.meta.env.BASE_URL}software_security.png`} alt="Seguridad" width="500" height="300" loading="lazy" />
+                <img src={`${import.meta.env.BASE_URL}software_security.webp`} alt="Seguridad" width="500" height="300" loading="lazy" />
                 <div className="card-content">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                     <Lock size={20} color="var(--color-primary)" />

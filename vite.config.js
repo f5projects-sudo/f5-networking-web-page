@@ -6,6 +6,16 @@ export default defineConfig({
   plugins: [react()],
   base: '/',
   build: {
-    target: 'es2015'
+    target: 'es2015',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-framer': ['framer-motion'],
+          'vendor-gsap': ['gsap'],
+          'vendor-three': ['three']
+        }
+      }
+    }
   }
 })

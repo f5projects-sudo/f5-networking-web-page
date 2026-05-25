@@ -105,7 +105,7 @@ export default function Cableado({ onNavigate }) {
         <motion.div style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url("${import.meta.env.BASE_URL}cableado_hero.png")`,
+          backgroundImage: `url("${import.meta.env.BASE_URL}cableado_hero.webp")`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           y: backgroundY,
@@ -200,7 +200,7 @@ export default function Cableado({ onNavigate }) {
             >
               <div style={{ position: 'absolute', inset: -1, background: 'linear-gradient(45deg, var(--color-secondary), transparent)', borderRadius: '32px', zIndex: -1, opacity: 0.2 }} />
               <img 
-                src={`${import.meta.env.BASE_URL}cableado_hero.png`} 
+                src={`${import.meta.env.BASE_URL}cableado_hero.webp`} 
                 alt="Infraestructura de Red" 
                 loading="lazy"
                 style={{ width: '100%', maxHeight: '550px', objectFit: 'cover', objectPosition: 'center', borderRadius: '24px', display: 'block', boxShadow: '0 25px 50px rgba(0,0,0,0.7)' }} 

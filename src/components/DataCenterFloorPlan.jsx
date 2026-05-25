@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './DataCenterFloorPlan.css';
-import floorPlanImg from '../assets/datacenter_iso_4k.png';
+import floorPlanImg from '../assets/datacenter_iso_4k.webp';
 
 const BenefitItem = ({ icon, text, index }) => (
   <motion.div 

@@ -3,7 +3,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import './DataCenterMaqueta.css';
 
 // Importing assets (assumed to be in src/assets)
-import cablingImg from '../assets/cabling_pro.png';
+import cablingImg from '../assets/cabling_pro.webp';
 
 const ServerUnit = ({ id, x, y, z, delay = 0 }) => {
   return (

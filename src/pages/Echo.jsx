@@ -157,7 +157,7 @@ export default function Echo({ onNavigate }) {
                 <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#27c93f' }}></div>
               </div>
               <img 
-                src={`${import.meta.env.BASE_URL}echo_crm_mockup.png`} 
+                src={`${import.meta.env.BASE_URL}echo_crm_mockup.webp`} 
                 alt="ECHO CRM Preview" 
                 width="800" height="600" loading="lazy"
                 style={{ 

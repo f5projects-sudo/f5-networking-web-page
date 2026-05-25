@@ -108,7 +108,7 @@ const Navbar = ({ onNavigate, activePage }) => {
           onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }}
         >
           <img 
-            src={`${import.meta.env.BASE_URL}F5 finalizado 2.png`}
+            src={`${import.meta.env.BASE_URL}F5 finalizado 2.webp`}
             alt="F5 Networking Logo"
             className="nav-logo-img"
           />
@@ -199,7 +199,7 @@ const Navbar = ({ onNavigate, activePage }) => {
             ) : (
               <>
                 <img src="https://flagcdn.com/w20/us.png" width="20" height="14" alt="USA" style={{ borderRadius: '2px', display: 'block' }} />
-                <img src="https://flagcdn.com/w20/ca.png" width="20" height="14" alt="Canada" style={{ borderRadius: '2px', display: 'block', marginLeft: '3px' }} />
+                <img src="https://flagcdn.com/w20/ca.webp" width="20" height="14" alt="Canada" style={{ borderRadius: '2px', display: 'block', marginLeft: '3px' }} />
                 <span style={{ opacity: 0.9, marginLeft: '2px' }}>EN</span>
               </>
             )}
@@ -279,7 +279,7 @@ const Navbar = ({ onNavigate, activePage }) => {
               >
                 <div style={{ display: 'flex', gap: '5px', alignItems: 'center' }}>
                   <img src="https://flagcdn.com/w40/us.png" width="32" height="21" alt="USA" style={{ borderRadius: '3px', display: 'block' }} />
-                  <img src="https://flagcdn.com/w40/ca.png" width="32" height="21" alt="Canada" style={{ borderRadius: '3px', display: 'block' }} />
+                  <img src="https://flagcdn.com/w40/ca.webp" width="32" height="21" alt="Canada" style={{ borderRadius: '3px', display: 'block' }} />
                 </div>
                 <span>English</span>
               </button>

@@ -140,7 +140,7 @@ const Footer = ({ onNavigate, scrollTo }) => {
         {/* Column 1: Brand & Primary Action */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <img 
-            src={`${import.meta.env.BASE_URL}F5 finalizado 2.png`} 
+            src={`${import.meta.env.BASE_URL}F5 finalizado 2.webp`} 
             alt="F5 Networking" 
             style={{ height: '70px', width: 'fit-content', cursor: 'pointer' }} 
             onClick={handleLogoClick}

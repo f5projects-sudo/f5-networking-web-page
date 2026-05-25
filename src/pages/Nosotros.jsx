@@ -17,7 +17,7 @@ import {
   ChevronDown,
   ArrowRight
 } from 'lucide-react';
-import teamImg from '../assets/quienes-somos.jpg';
+import teamImg from '../assets/quienes-somos.webp';
 import BubbleBackground from '../components/BubbleBackground';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';

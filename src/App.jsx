@@ -425,14 +425,14 @@ const App = () => {
               // No more Bento Spans - Uniformity First
               const assets = {
                 'axia': { type: 'video', src: 'Axia_video.webm' },
-                'bpo': { type: 'image', src: 'bpo_hero_image.png' },
-                'pbx': { type: 'image', src: 'pbx_corporate_hero.png' },
-                'echo': { type: 'image', src: 'echo_crm_mockup.png' },
+                'bpo': { type: 'image', src: 'bpo_hero_image.webp' },
+                'pbx': { type: 'image', src: 'pbx_corporate_hero.webp' },
+                'echo': { type: 'image', src: 'echo_crm_mockup.webp' },
                 'nova-core': { type: 'image', src: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800' },
-                'desarrollo': { type: 'image', src: 'desarrollo_software.jpg' },
-                'cableado': { type: 'image', src: 'cableado_hero.png' },
-                'voxis': { type: 'image', src: 'voxis_hero.jpg' },
-                'equipamiento': { type: 'image', src: 'venta_equipos.png' }
+                'desarrollo': { type: 'image', src: 'desarrollo_software.webp' },
+                'cableado': { type: 'image', src: 'cableado_hero.webp' },
+                'voxis': { type: 'image', src: 'voxis_hero.webp' },
+                'equipamiento': { type: 'image', src: 'venta_equipos.webp' }
               };
               const heroAsset = assets[service.path];
 

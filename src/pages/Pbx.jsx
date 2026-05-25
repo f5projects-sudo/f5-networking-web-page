@@ -359,7 +359,7 @@ export default function Pbx({ onNavigate }) {
           zIndex: -1 
         }}>
           <img 
-            src={`${import.meta.env.BASE_URL}pbx_corporate_hero.png`} 
+            src={`${import.meta.env.BASE_URL}pbx_corporate_hero.webp`} 
             alt="Corporate PBX Solutions"
             width="1920"
             height="1080"

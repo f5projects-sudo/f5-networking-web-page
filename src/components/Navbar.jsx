@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = ({ onNavigate, activePage }) => {
@@ -115,21 +116,23 @@ const Navbar = ({ onNavigate, activePage }) => {
         
         {/* Desktop Links */}
         <div className="nav-links-desktop">
-          <span 
+          <Link 
+            to="/"
             className={`nav-link ${activePage === 'home' ? 'active' : ''}`} 
-            style={{ cursor: 'pointer' }} 
-            onClick={() => handleNavigate('home')}
+            style={{ cursor: 'pointer', textDecoration: 'none' }} 
+            onClick={() => setIsDropdownOpen(false)}
           >
             {t('nav.home', 'Inicio')}
-          </span>
+          </Link>
           
-          <span 
+          <Link 
+            to="/nosotros"
             className={`nav-link ${activePage === 'nosotros' ? 'active' : ''}`} 
-            style={{ cursor: 'pointer' }} 
-            onClick={() => handleNavigate('nosotros')}
+            style={{ cursor: 'pointer', textDecoration: 'none' }} 
+            onClick={() => setIsDropdownOpen(false)}
           >
             {t('nav.about', 'Nosotros')}
-          </span>
+          </Link>
           
           <div 
             className={`nav-dropdown ${isDropdownOpen ? 'active' : ''}`}
@@ -144,15 +147,15 @@ const Navbar = ({ onNavigate, activePage }) => {
               {t('nav.solutions', 'Soluciones')} <ChevronDown size={16} />
             </span>
             <div className="nav-dropdown-content glass" onMouseEnter={handleMouseEnter}>
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('axia'); }} className={activePage === 'axia' ? 'active' : ''}>{t('nav.axia', 'AXIA')}</span>
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('nova-core'); }} className={activePage === 'nova-core' ? 'active' : ''}>{t('nav.nova', 'NOVA CORE')}</span>
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('desarrollo'); }} className={activePage === 'desarrollo' ? 'active' : ''}>{t('nav.dev', 'Desarrollo de Software')}</span>
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('cableado'); }} className={activePage === 'cableado' ? 'active' : ''}>{t('nav.cabling', 'Cableado Estructurado')}</span>
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('echo'); }} className={activePage === 'echo' ? 'active' : ''}>{t('nav.echo', 'ECHO CRM')}</span>
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('bpo'); }} className={activePage === 'bpo' ? 'active' : ''}>{t('nav.bpo', 'BPO SERVICES')}</span>
-              {/* <span onClick={(e) => { e.stopPropagation(); handleNavigate('voxis'); }} className={activePage === 'voxis' ? 'active' : ''}>VOXIS</span> */}
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('pbx'); }} className={activePage === 'pbx' ? 'active' : ''}>{t('nav.pbx', 'TELEFONÍA PBX')}</span>
-              <span onClick={(e) => { e.stopPropagation(); handleNavigate('equipamiento'); }} className={activePage === 'equipamiento' ? 'active' : ''}>{t('nav.equipment', 'VENTA DE EQUIPOS')}</span>
+              <Link to="/axia" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'axia' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.axia', 'AXIA')}</Link>
+              <Link to="/nova-core" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'nova-core' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.nova', 'NOVA CORE')}</Link>
+              <Link to="/desarrollo" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'desarrollo' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.dev', 'Desarrollo de Software')}</Link>
+              <Link to="/cableado" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'cableado' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.cabling', 'Cableado Estructurado')}</Link>
+              <Link to="/echo" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'echo' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.echo', 'ECHO CRM')}</Link>
+              <Link to="/bpo" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'bpo' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.bpo', 'BPO SERVICES')}</Link>
+              {/* <Link to="/voxis" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'voxis' ? 'active' : ''} style={{textDecoration: 'none'}}>VOXIS</Link> */}
+              <Link to="/pbx" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'pbx' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.pbx', 'TELEFONÍA PBX')}</Link>
+              <Link to="/equipamiento" onClick={(e) => { e.stopPropagation(); setIsDropdownOpen(false); }} className={activePage === 'equipamiento' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.equipment', 'VENTA DE EQUIPOS')}</Link>
             </div>
           </div>
           
@@ -210,20 +213,20 @@ const Navbar = ({ onNavigate, activePage }) => {
 
         {/* Mobile Menu Overlay */}
         <div className={`nav-menu-mobile ${isMenuOpen ? 'active' : ''}`}>
-          <span onClick={() => { handleNavigate('home'); setIsMenuOpen(false); }} className={activePage === 'home' ? 'active' : ''}>{t('nav.home', 'Inicio')}</span>
-          <span onClick={() => { handleNavigate('nosotros'); setIsMenuOpen(false); }} className={activePage === 'nosotros' ? 'active' : ''}>{t('nav.about', 'Nosotros')}</span>
+          <Link to="/" onClick={() => setIsMenuOpen(false)} className={activePage === 'home' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.home', 'Inicio')}</Link>
+          <Link to="/nosotros" onClick={() => setIsMenuOpen(false)} className={activePage === 'nosotros' ? 'active' : ''} style={{textDecoration: 'none'}}>{t('nav.about', 'Nosotros')}</Link>
           <div style={{ textAlign: 'center' }}>
             <p style={{ color: 'var(--color-secondary)', fontWeight: 'bold', marginBottom: '15px', fontSize: '1.2rem' }}>{t('nav.solutions', 'Soluciones')}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-              <span onClick={() => { handleNavigate('axia'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'axia' ? 'active' : ''}>{t('nav.axia', 'AXIA')}</span>
-              <span onClick={() => { handleNavigate('nova-core'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'nova-core' ? 'active' : ''}>{t('nav.nova', 'NOVA CORE')}</span>
-              <span onClick={() => { handleNavigate('desarrollo'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'desarrollo' ? 'active' : ''}>{t('nav.devMobile', 'Desarrollo')}</span>
-              <span onClick={() => { handleNavigate('cableado'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'cableado' ? 'active' : ''}>{t('nav.cablingMobile', 'Cableado')}</span>
-              <span onClick={() => { handleNavigate('echo'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'echo' ? 'active' : ''}>{t('nav.echo', 'ECHO CRM')}</span>
-              <span onClick={() => { handleNavigate('bpo'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'bpo' ? 'active' : ''}>{t('nav.bpo', 'BPO SERVICES')}</span>
-              {/* <span onClick={() => { handleNavigate('voxis'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'voxis' ? 'active' : ''}>VOXIS</span> */}
-              <span onClick={() => { handleNavigate('pbx'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'pbx' ? 'active' : ''}>{t('nav.pbx', 'TELEFONÍA PBX')}</span>
-              <span onClick={() => { handleNavigate('equipamiento'); setIsMenuOpen(false); }} style={{ fontSize: '1rem' }} className={activePage === 'equipamiento' ? 'active' : ''}>{t('nav.equipmentMobile', 'VENTA EQUIPOS')}</span>
+              <Link to="/axia" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'axia' ? 'active' : ''}>{t('nav.axia', 'AXIA')}</Link>
+              <Link to="/nova-core" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'nova-core' ? 'active' : ''}>{t('nav.nova', 'NOVA CORE')}</Link>
+              <Link to="/desarrollo" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'desarrollo' ? 'active' : ''}>{t('nav.devMobile', 'Desarrollo')}</Link>
+              <Link to="/cableado" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'cableado' ? 'active' : ''}>{t('nav.cablingMobile', 'Cableado')}</Link>
+              <Link to="/echo" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'echo' ? 'active' : ''}>{t('nav.echo', 'ECHO CRM')}</Link>
+              <Link to="/bpo" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'bpo' ? 'active' : ''}>{t('nav.bpo', 'BPO SERVICES')}</Link>
+              {/* <Link to="/voxis" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'voxis' ? 'active' : ''}>VOXIS</Link> */}
+              <Link to="/pbx" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'pbx' ? 'active' : ''}>{t('nav.pbx', 'TELEFONÍA PBX')}</Link>
+              <Link to="/equipamiento" onClick={() => setIsMenuOpen(false)} style={{ fontSize: '1rem', textDecoration: 'none' }} className={activePage === 'equipamiento' ? 'active' : ''}>{t('nav.equipmentMobile', 'VENTA EQUIPOS')}</Link>
             </div>
           </div>
           

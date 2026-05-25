@@ -17,6 +17,7 @@ const Pua = lazy(() => import('./pages/Pua'));
 const Soporte = lazy(() => import('./pages/Soporte'));
 const Alianzas = lazy(() => import('./pages/Alianzas'));
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import {
   Headset,
   Bot,
@@ -54,11 +55,19 @@ import { useLanguage } from './context/LanguageContext';
 
 const App = () => {
   const { t } = useLanguage();
-  const [currentPage, setCurrentPage] = useState(() => {
-    const hash = window.location.hash.replace('#', '');
-    const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua', 'soporte', 'alianzas'];
-    return validPages.includes(hash) ? hash : 'home';
-  });
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const currentPath = location.pathname.replace(/^\/|\/$/g, '');
+  const validPages = ['nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua', 'soporte', 'alianzas'];
+  const currentPage = validPages.includes(currentPath) ? currentPath : 'home';
+
+  const setCurrentPage = (page) => {
+    if (page === 'home') navigate('/');
+    else navigate(`/${page}`);
+    window.scrollTo(0, 0);
+  };
+
   const [form, setForm] = useState({ name: '', email: '', phone: '', product: '', message: '' });
   const [loadWidget, setLoadWidget] = useState(false);
   const [sent, setSent] = useState(false);
@@ -116,34 +125,16 @@ const App = () => {
   };
 
   useEffect(() => {
-    // Sync hash with current page
-    window.location.hash = currentPage === 'home' ? '' : currentPage;
-    
-    // Reset scroll to top on page change
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [location.pathname]);
 
   useEffect(() => {
-    // Handle manual hash changes (e.g., back button or typing directly)
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '');
-      const validPages = ['home', 'nosotros', 'axia', 'nova-core', 'desarrollo', 'cableado', 'echo', 'bpo', 'pbx', 'equipamiento', 'privacidad', 'terminos', 'pua', 'soporte', 'alianzas'];
-      if (validPages.includes(hash)) {
-        setCurrentPage(hash);
-      } else if (hash === '') {
-        setCurrentPage('home');
-      }
-    };
-
-    window.addEventListener('hashchange', handleHashChange);
-    
     // Defer ElevenLabs Widget loading to improve initial performance
     const timer = setTimeout(() => {
       setLoadWidget(true);
     }, 3500);
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange);
       clearTimeout(timer);
     };
   }, []);
@@ -1078,7 +1069,7 @@ const App = () => {
                 }} 
               />
               <label htmlFor="privacy-policy" style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', lineHeight: '1.4' }}>
-                {t('home.contact.privacyPrefix', 'He leído y acepto los')} <span onClick={(e) => { e.preventDefault(); setCurrentPage('terminos'); }} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>{t('footer.legal.terms', 'Términos y Condiciones')}</span> {t('home.contact.andThe', 'y el')} <span onClick={(e) => { e.preventDefault(); setCurrentPage('privacidad'); }} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>{t('footer.legal.privacy', 'Aviso de Privacidad')}</span> {t('home.contact.privacySuffix', 'y autorizo el uso de mis datos para ser contactado.')}
+                {t('home.contact.privacyPrefix', 'He leído y acepto los')} <Link to="/terminos" onClick={() => window.scrollTo(0,0)} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>{t('footer.legal.terms', 'Términos y Condiciones')}</Link> {t('home.contact.andThe', 'y el')} <Link to="/privacidad" onClick={() => window.scrollTo(0,0)} style={{ color: 'var(--color-primary)', cursor: 'pointer', textDecoration: 'underline' }}>{t('footer.legal.privacy', 'Aviso de Privacidad')}</Link> {t('home.contact.privacySuffix', 'y autorizo el uso de mis datos para ser contactado.')}
               </label>
             </div>
 

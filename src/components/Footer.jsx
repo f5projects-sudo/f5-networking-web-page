@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MapFooter from './MapFooter';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -175,8 +176,8 @@ const Footer = ({ onNavigate, scrollTo }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 'bold', letterSpacing: '0.5px' }}>Servicios</h4>
           
-          <button 
-            onClick={(e) => handleNavigation('soporte', e)} 
+          <Link 
+            to="/soporte"
             style={{ 
               background: 'transparent', 
               border: '1px solid rgba(255,255,255,0.2)', 
@@ -186,16 +187,19 @@ const Footer = ({ onNavigate, scrollTo }) => {
               textAlign: 'left', 
               cursor: 'pointer',
               transition: 'all 0.2s',
-              fontSize: '0.95rem'
+              fontSize: '0.95rem',
+              textDecoration: 'none',
+              display: 'inline-block'
             }}
             onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; }}
             onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+            onClick={() => window.scrollTo(0,0)}
           >
             {t('footer.cta.support', 'Soporte técnico')}
-          </button>
+          </Link>
           
-          <button 
-            onClick={(e) => handleNavigation('alianzas', e)} 
+          <Link 
+            to="/alianzas"
             style={{ 
               background: 'transparent', 
               border: '1px solid rgba(255,255,255,0.2)', 
@@ -205,26 +209,29 @@ const Footer = ({ onNavigate, scrollTo }) => {
               textAlign: 'left', 
               cursor: 'pointer',
               transition: 'all 0.2s',
-              fontSize: '0.95rem'
+              fontSize: '0.95rem',
+              textDecoration: 'none',
+              display: 'inline-block'
             }}
             onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)'; }}
             onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; }}
+            onClick={() => window.scrollTo(0,0)}
           >
             {t('footer.cta.alliances', 'Alianzas Estratégicas')}
-          </button>
+          </Link>
 
           <h4 style={{ color: 'white', fontSize: '1.1rem', fontWeight: 'bold', letterSpacing: '0.5px', marginTop: '15px' }}>
             {t('footer.legal.title', 'Legal')}
           </h4>
-          <a href="#" onClick={(e) => handleNavigation('terminos', e)} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
+          <Link to="/terminos" onClick={() => window.scrollTo(0,0)} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
             {t('footer.legal.terms', 'Términos y condiciones')}
-          </a>
-          <a href="#" onClick={(e) => handleNavigation('privacidad', e)} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
+          </Link>
+          <Link to="/privacidad" onClick={() => window.scrollTo(0,0)} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
             {t('footer.legal.privacy', 'Aviso de privacidad')}
-          </a>
-          <a href="#" onClick={(e) => handleNavigation('pua', e)} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
+          </Link>
+          <Link to="/pua" onClick={() => window.scrollTo(0,0)} style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
             {t('footer.legal.pua', 'PUA')}
-          </a>
+          </Link>
         </div>
 
         {/* Column 3: Contacto */}

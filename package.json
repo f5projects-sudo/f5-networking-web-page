@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "node generate-sitemap.js && react-snap",
+    "postbuild": "node generate-sitemap.js && react-snap || exit 0",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint .",
@@ -14,6 +14,7 @@
   },
   "reactSnap": {
     "source": "dist",
+    "inlineCss": false,
     "include": ["/", "/nosotros", "/axia", "/nova-core", "/desarrollo", "/cableado", "/echo", "/bpo", "/pbx", "/equipamiento", "/privacidad", "/terminos", "/pua", "/soporte", "/alianzas"],
     "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   },

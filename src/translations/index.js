@@ -235,6 +235,17 @@ const translations = {
       "jurisdiccion": {
         "key": "Jurisdicción:",
         "desc": "Para la interpretación y cumplimiento de estos términos, las partes se someten a las leyes aplicables en Guadalajara, Jalisco, México."
+      },
+      "sms": {
+        "title": "Términos de SMS",
+        "item1": "Al proporcionar su número de teléfono móvil y aceptar recibir comunicaciones por SMS, usted acepta recibir mensajes de texto de F5 Networking y/o clientes que utilicen los servicios de comunicación de F5 Networking.",
+        "item2": "Los mensajes pueden incluir alertas operativas, notificaciones de cuenta, notificaciones de flujo de trabajo, comunicaciones de atención al cliente, recordatorios de citas, mensajes de autenticación, actualizaciones de servicio y otras notificaciones relacionadas con el negocio.",
+        "item3": "La frecuencia de los mensajes puede variar.",
+        "item4": "Pueden aplicarse tarifas de mensajes y datos.",
+        "item5": "Responda STOP para darse de baja.",
+        "item6": "Responda HELP para obtener asistencia.",
+        "item7": "Para soporte, contacte a",
+        "item8": "o llame al +1 254 505 8090."
       }
     },
     "desarrollo": {
@@ -1292,6 +1303,17 @@ const translations = {
       "jurisdiccion": {
         "key": "Jurisdiction:",
         "desc": "For the interpretation and fulfillment of these terms, the parties submit to the applicable laws in Guadalajara, Jalisco, Mexico."
+      },
+      "sms": {
+        "title": "SMS Terms",
+        "item1": "By providing your mobile phone number and consenting to receive SMS communications, you agree to receive text messages from F5 Networking and/or clients utilizing F5 Networking communication services.",
+        "item2": "Messages may include operational alerts, account notifications, workflow notifications, customer support communications, appointment reminders, authentication messages, service updates, and other business-related notifications.",
+        "item3": "Message frequency may vary.",
+        "item4": "Message and data rates may apply.",
+        "item5": "Reply STOP to unsubscribe.",
+        "item6": "Reply HELP for assistance.",
+        "item7": "For support, contact",
+        "item8": "or call +1 254 505 8090."
       }
     },
     "desarrollo": {

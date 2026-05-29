@@ -108,28 +108,28 @@ export default function Terminos({ onNavigate }) {
               <div style={{ padding: '12px', background: 'rgba(0, 180, 255, 0.1)', borderRadius: '12px' }}>
                 <FileSignature size={28} color="#00B4FF" />
               </div>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 700 }}>SMS Terms</h2>
+              <h2 style={{ fontSize: '1.8rem', fontWeight: 700 }}>{t('terminos.sms.title')}</h2>
             </div>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '15px' }}>
-              By providing your mobile phone number and consenting to receive SMS communications, you agree to receive text messages from F5 Networking and/or clients utilizing F5 Networking communication services.
+              {t('terminos.sms.item1')}
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '15px' }}>
-              Messages may include operational alerts, account notifications, workflow notifications, customer support communications, appointment reminders, authentication messages, service updates, and other business-related notifications.
+              {t('terminos.sms.item2')}
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '15px' }}>
-              Message frequency may vary.
+              {t('terminos.sms.item3')}
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '15px' }}>
-              Message and data rates may apply.
+              {t('terminos.sms.item4')}
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '15px' }}>
-              Reply STOP to unsubscribe.
+              {t('terminos.sms.item5')}
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7, marginBottom: '15px' }}>
-              Reply HELP for assistance.
+              {t('terminos.sms.item6')}
             </p>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '1.1rem', lineHeight: 1.7 }}>
-              For support, contact <a href="mailto:support@f5networking.com" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>support@f5networking.com</a> or call +1 254 505 8090.
+              {t('terminos.sms.item7')} <a href="mailto:support@f5networking.com" style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>support@f5networking.com</a> {t('terminos.sms.item8')}
             </p>
           </motion.div>
 

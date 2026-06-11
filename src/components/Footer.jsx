@@ -149,7 +149,7 @@ const Footer = ({ onNavigate, scrollTo }) => {
             Facilitando crecimiento a través de infraestructura tecnológica de primer nivel y soluciones empresariales.
           </p>
           <a 
-            href="https://wa.me/5213341701107" 
+            href="https://wa.me/5213318064217" 
             target="_blank" 
             rel="noopener noreferrer" 
             style={{ 
@@ -243,9 +243,9 @@ const Footer = ({ onNavigate, scrollTo }) => {
             {t('footer.address.city', '44160 Guadalajara, Jal.')}
           </div>
           <div style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem', lineHeight: '1.6', marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <a href="tel:+5213341701107" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'inline-flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
+            <a href="tel:+5213318064217" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'inline-flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
               <img src="https://flagcdn.com/mx.svg" width="20" alt="MX" style={{ marginRight: '10px', borderRadius: '2px' }} />
-              +52 1 33 4170 1107
+              +52 1 33 1806 4217
             </a>
             <a href="tel:+12545058090" style={{ color: 'inherit', textDecoration: 'none', transition: 'color 0.2s', display: 'inline-flex', alignItems: 'center' }} onMouseEnter={e => e.currentTarget.style.color='white'} onMouseLeave={e => e.currentTarget.style.color='rgba(255,255,255,0.6)'}>
               <img src="https://flagcdn.com/us.svg" width="20" alt="US" style={{ marginRight: '10px', borderRadius: '2px' }} />

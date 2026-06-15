@@ -140,7 +140,7 @@ export default function Alianzas({ onNavigate }) {
                   style={{ marginTop: '5px', accentColor: 'var(--color-primary)', width: '18px', height: '18px', cursor: 'pointer', flexShrink: 0 }} 
                 />
                 <label htmlFor="smsConsent" style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)', lineHeight: '1.5', cursor: 'pointer' }}>
-                  {t('home.contact.smsConsent', 'Al proporcionar su número telefónico y enviar este formulario, usted acepta recibir mensajes SMS de F5 Networking relacionados con soporte al cliente, notificaciones de cuenta, recordatorios y actualizaciones de servicio. La frecuencia de los mensajes puede variar. Pueden aplicar tarifas de mensajes y datos. Responda STOP para dejar de recibir mensajes o HELP para obtener ayuda. Consulte nuestros Términos y Condiciones y Aviso de Privacidad.')}
+                  {t('home.contact.smsConsent', 'Al marcar esta casilla, usted acepta recibir mensajes SMS de F5 Networking relacionados con soporte al cliente, notificaciones de cuenta, recordatorios y actualizaciones de servicio. La frecuencia de los mensajes puede variar. Pueden aplicar tarifas de mensajes y datos. Responda STOP para dejar de recibir mensajes o HELP para obtener ayuda. Consulte nuestros Términos y Condiciones y Aviso de Privacidad.')}
                 </label>
               </div>
 

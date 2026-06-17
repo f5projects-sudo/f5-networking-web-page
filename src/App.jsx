@@ -125,8 +125,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    if (location.pathname === '/optin' || location.hash === '#contact') {
+      setTimeout(() => {
+        scrollTo('contact');
+      }, 500);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     // Defer ElevenLabs Widget loading to improve initial performance
